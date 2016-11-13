@@ -1,3 +1,115 @@
+/*TOP*/
+.no, *, .centerWidth, header .top .top-box .social-networks ul, header .top .top-box .social-networks ul li, header .top .top-box .languages ul, header .top .top-box .languages ul li {
+  margin: 0px;
+  padding: 0px;
+  border: 0px; }
 
+.clearer {
+  clear: both; }
+
+.centerWidth {
+  margin: 0 auto;
+  width: 1200px; }
+
+.topCenter {
+  height: 24px; }
+
+header .top {
+  background-color: #ff0000;
+  height: 24px;
+  width: 100%; }
+  header .top .top-box {
+    width: 300px;
+    height: 24px;
+    line-height: 24px;
+    float: right; }
+    header .top .top-box .social-networks {
+      width: 150px;
+      height: 24px;
+      line-height: 24px;
+      float: left; }
+      header .top .top-box .social-networks ul {
+        list-style-type: none;
+        height: 24px;
+        line-height: 24px;
+        width: 150px; }
+        header .top .top-box .social-networks ul li {
+          display: inline-block;
+          height: 24px;
+          line-height: 24px; }
+          header .top .top-box .social-networks ul li a {
+            text-decoration: none;
+            color: #fff;
+            display: block;
+            width: 35px;
+            height: 24px; }
+        header .top .top-box .social-networks ul li:hover {
+          cursor: pointer;
+          opacity: 0.8; }
+        header .top .top-box .social-networks ul li:first-child {
+          margin-left: 0px; }
+        header .top .top-box .social-networks ul .fb {
+          background-image: url("../img/facebook.png");
+          text-indent: -9999px;
+          background-repeat: no-repeat;
+          background-size: 16px 13px;
+          background-position: center center; }
+        header .top .top-box .social-networks ul .tw {
+          background-image: url("../img/twitter.png");
+          text-indent: -9999px;
+          background-repeat: no-repeat;
+          background-size: 16px 13px;
+          background-position: center center; }
+        header .top .top-box .social-networks ul .yt {
+          background-image: url("../img/youtube.png");
+          text-indent: -9999px;
+          background-repeat: no-repeat;
+          background-size: 16px 13px;
+          background-position: center center; }
+    header .top .top-box .languages {
+      width: 150px;
+      float: left;
+      text-align: right; }
+      header .top .top-box .languages ul {
+        width: 150px;
+        list-style-type: none; }
+        header .top .top-box .languages ul li {
+          display: inline-block;
+          padding: 0px 10px;
+          margin: 0px;
+          position: relative; }
+          header .top .top-box .languages ul li a {
+            text-decoration: none;
+            color: #fff;
+            font-family: "Roboto";
+            font-size: 13px; }
+          header .top .top-box .languages ul li a:hover {
+            font-weight: bold; }
+          header .top .top-box .languages ul li .active {
+            font-weight: bold; }
+        header .top .top-box .languages ul li:after {
+          content: '';
+          width: 1px;
+          height: 10px;
+          background-image: url("../img/line.png");
+          background-size: 1px 10px;
+          background-repeat: no-repeat;
+          position: absolute;
+          right: 0px;
+          top: 6px; }
+        header .top .top-box .languages ul li:last-child {
+          margin-right: 0px; }
+        header .top .top-box .languages ul li:last-child:after {
+          display: none; }
+
+@media (max-width: 1200px) {
+  .centerWidth {
+    width: 90%; }
+
+  header .top .top-box {
+    width: 100%; }
+
+  header .top .top-box .languages {
+    float: right; } }
 
 /*# sourceMappingURL=style.css.map */

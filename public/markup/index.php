@@ -12,6 +12,31 @@
 	<link rel="stylesheet" type="text/css" href="css/style.css" />
 </head>
 <body>
-Hi
+
+<header>
+	<section class="top">
+		<section class="centerWidth topCenter">
+			<section class="top-box">
+				<section class="social-networks">
+					<ul>
+						<li class="fb"><a href=""></a></li>
+						<li class="tw"><a href=""></a></li>
+						<li class="yt"><a href=""></a></li>
+					</ul>
+				</section>
+				<section class="languages">
+					<ul>
+						<li><a href="">GEO</a></li>
+						<li><a href="" class="active">ENG</a></li>
+						<li><a href="">RUS</a></li>
+					</ul>
+				</section>
+			</section>
+		</section>
+	</section>
+
+
+</header>
+
 </body>
 </html>
