@@ -52,6 +52,14 @@
 					<input id="searchInput" type="text" value="Search" data-val="Search" onclick="searchInputOn()" onblur="searchInputOff()" />
 				</div>
 			</section>
+	
+			<section class="nav_bg">
+				<div class="nav_bar" onclick="openNavigation()">
+					<div class="c-hamburger c-hamburger--htx">
+					<span>toggle menu</span>
+				</div>
+			</section>
+
 
 		</section>
 
@@ -69,12 +77,35 @@
 				<li><a href="">Contact</a></li>
 			</ul>
 		</section>
+
+
 		
 	</section>
 
-
-
 </header>
+
+<section class="mobileNavigation">
+	<section class="yellowBox"></section>
+	<section class="blueBox">
+		<ul>
+			<li><a href="" class="active">Home</a></li>
+			<li><a href="">About</a></li>
+		</ul>
+	</section>
+</section>
+
+<main>
+	<section class="centerWidth">
+		<section class="row">
+			<section class="col s8 leftSide">
+				left side
+			</section>
+			<section class="col s4 rightSide">
+				right side
+			</section>
+		</section>
+	</section>	
+</main>
 
 </body>
 </html>
