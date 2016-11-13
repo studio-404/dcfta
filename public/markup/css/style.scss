@@ -2,13 +2,16 @@ $zero: 0px;
 $fullWidth: 100%;
 $halfWidth: 50%;
 $redColor: #ff0000;
+$blueColor: #003399;
+$whiteColor: #ffffff;
 
 $centerWidth: 1200px; // website center section width
 $topHeight: 24px; // top red colored header's height
 
 $breakpoint-mobile: 1200px;
+$breakpoint-smallmobile: 380px;
 
-/*TOP*/
+/*HEDARE TOP*/
 $topSocialLangWidth: 300px; // top social and language box width
 $topSocialLangPadding: 0px 10px;
 $topSocialLangMargin: 0px 5px;
@@ -16,6 +19,28 @@ $topLanguageFontSize: 13px;
 $topSocialIconWidth: 16px;
 $topSocialIconHeight: 13px;
 	$mobileCenterWidth: 90%;
+
+/*HEADER BOTTOM*/
+$topBottomHeight: 140px;
+$topBottomBackgroundColor: #f2f3f6; 
+$topFlagImageWidth: 48.5px;
+$topFlagImageHeight: 32.5px;
+$topLogoBigFontSize: 45px;
+$topLogoSmallFontSize: 16px;
+$topLogoMarginBottom: 16px;
+$topNavigationHeight: 50px;
+
+
+
+/*FONT*/
+@font-face {
+    font-family: 'museo700';
+    src: url('../fonts/museo/museo-700.woff2') format('woff2'),
+         url('../fonts/museo/museo-700.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
 
 .no{ 
 	margin: $zero; 
@@ -150,7 +175,134 @@ header{
 			}
 		}
 	}
-
+	
+	.topBottom{
+		width: $fullWidth; 
+		height: $topBottomHeight; 
+		background-color: $topBottomBackgroundColor;
+		.logo{
+			margin-top: 30px;
+			width: $halfWidth;
+			float: left;
+			cursor: pointer;
+			display: block;
+			margin-bottom: $topLogoMarginBottom;
+			.flags{
+				width: $fullWidth;
+				p{
+					display: inline-block;
+					float: left;
+					margin-right: 10px;
+					line-height: $topFlagImageHeight;
+					height: $topFlagImageHeight;
+					margin-bottom: 5px;
+					img{
+						width: $topFlagImageWidth;
+						height: $topFlagImageHeight;
+					}
+				}
+				p:last-child{
+					font-size: $topLogoBigFontSize;
+					font-family: 'museo700';
+					color: $blueColor; 
+				}
+			}
+			.text{
+				clear: both;
+				width: $fullWidth;
+				text-align: left;
+				font-family: "Roboto";
+				font-size: $topLogoSmallFontSize;
+				color: $blueColor;
+			}
+		}
+		.search{
+			margin-top: 30px;
+			float: right;
+			width: $topSocialLangWidth;
+			position: relative;
+			i{
+				width: 40px;
+				height: 40px;
+				line-height: 40px;
+				position: absolute;
+				left: 0;
+				top: 3px;
+				color: $blueColor;
+			}
+			.input-field{
+				@extend .no;
+				width: $topSocialLangWidth;
+				height: 40px;
+				line-height: 40px;
+				input{
+					width: calc(100% - 40px); 
+					line-height: 40px;
+					padding-left: 40px; 
+					font-family: 'Roboto'; 
+					font-size: 15px;
+					color: $blueColor;
+					border-bottom: 1px solid $blueColor;
+				}
+			}
+		}
+	}
+	.navigation{
+		width: $centerWidth; 
+		height: $topNavigationHeight; 
+		background-color: $blueColor;
+		margin: 0 auto;
+		clear: both;
+		ul{
+			list-style-type: none;
+			display: table;
+			width: $fullWidth;
+			li{
+				display: table-cell;				
+				line-height: $topNavigationHeight; 
+				text-align: center;
+				position: relative;
+				a{
+					display: block;
+					color: $whiteColor;	
+					text-decoration: none;
+					font-family: 'Roboto';
+					font-size: 16px;
+					padding: 0 10px;
+				}	
+				.active{
+					font-weight: bold;
+					position: relative;
+				}
+				.active:after{
+					content: ''; 
+					width: calc(#{$fullWidth} - 25px); 
+					height: 3px;
+					background-color: $whiteColor;
+					position: absolute;
+					bottom: 13px;
+					left: 12.5px;
+				}
+				a:hover{
+					font-weight: bold;	
+				}			
+			}
+			li:after{
+				content: '';
+				width: 2px;
+				height: $topNavigationHeight - 10px;
+				background-image: url('../img/line2.png');
+				background-repeat: no-repeat;
+				background-size: 2px #{($topNavigationHeight - 10px)}; 
+				position: absolute;
+				right: 0px;
+				top: 5px;
+			}
+			li:last-child:after{
+				display: none;
+			}
+		}
+	}
 }
 
 @media (max-width: $breakpoint-mobile) {
@@ -164,4 +316,67 @@ header{
   header .top .top-box .languages{
   	float: right;
   }
+  header .topBottom .search{
+  	display: none;
+  }
+  header .topBottom .logo{
+  	margin-top: 35px;
+  	width: 85%;
+  }
+  header .topBottom .logo .flags p{
+  	line-height: $topFlagImageHeight - 10px;
+  	height: $topFlagImageHeight - 10px;
+  }
+  header .topBottom .logo .flags p img{
+  	width: $topFlagImageWidth - 10px;
+  	height: $topFlagImageHeight - 10px;
+  }
+  header .topBottom .logo .flags p:last-child{
+  	font-size: $topLogoBigFontSize - 15;
+  }
+  header .topBottom .logo .text{
+  	font-size: $topLogoSmallFontSize - 3;	
+  }
+}
+
+@media (max-width: $breakpoint-smallmobile) {
+  header .top .top-box .social-networks{
+  	width: ($topSocialLangWidth / 2 - 20px);
+  	ul{
+  		width: ($topSocialLangWidth / 2 - 20px);
+  	}
+  }
+  header .top .top-box .languages{
+  	float: right;
+  	width: ($topSocialLangWidth / 2 - 20px);
+  	ul{
+  		width: ($topSocialLangWidth / 2 - 20px);
+  		li{
+  			padding: 0 5px;
+  		}
+  	}
+  }
+  header .topBottom .search{
+  	display: none;
+  }
+  header .topBottom .logo{
+  	margin-top: 35px;
+  	width: 85%;
+  }
+  header .topBottom .logo .flags p{
+  	line-height: $topFlagImageHeight - 15px;
+  	height: $topFlagImageHeight - 15px;
+  	margin-right: 5px;
+  }
+  header .topBottom .logo .flags p img{
+  	width: $topFlagImageWidth - 15px;
+  	height: $topFlagImageHeight - 15px;
+  }
+  header .topBottom .logo .flags p:last-child{
+  	font-size: $topLogoBigFontSize - 20;
+  }
+  header .topBottom .logo .text{
+  	font-size: $topLogoSmallFontSize - 6;	
+  }
+
 }
