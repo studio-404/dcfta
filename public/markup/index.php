@@ -109,12 +109,142 @@
 <main>
 	<section class="centerWidth">
 		<section class="row">
-			<section class="col s8 leftSide">
-				left side
+			<section class="col s12 m6 l8 leftSide">
+				<section class="headerText">
+					<div class="line"></div>
+					<div class="title">What We Do</div>
+				</section>
+				<section class="mainText">
+					The first duty of the government is to keep citizens safe and the country secure. The Home Office has been at the front line of this endeavour since 1782. As such, the Home Office plays a fundamental role in the security and economic prosperity of the United Kingdom.
+				</section>
 			</section>
-			<section class="col s4 rightSide">
-				right side
+			<section class="col s12 m6 l4 rightSide">
+				<section class="justTitle">EU Important links</section>
+				<ul class="usefullLinks">
+					<li>
+						<a href="" class="waves-effect waves-light">
+							<img src="img/eur2.png" alt="" />
+							<span>European Union Commission</span>
+						</a>
+					</li>
+					<li>
+						<a href="" class="waves-effect waves-light">
+							<img src="img/eur2.png" alt="" />
+							<span>European Parliament</span>
+						</a>
+					</li>
+					<li>
+						<a href="" class="waves-effect waves-light"><img src="img/eur2.png" alt="" />
+							<span>European consillium</span>
+						</a>
+					</li>
+					<li>
+						<a href="" class="waves-effect waves-light">
+							<img src="img/eur2.png" alt="" />
+							<span>European central bank</span>
+						</a>
+					</li>
+					<li>
+						<a href="" class="waves-effect waves-light">
+							<img src="img/eur2.png" alt="" />
+							<span>European investment bank</span>
+						</a>
+					</li>
+					<li>
+						<a href="" class="waves-effect waves-light">
+							<img src="img/eur2.png" alt="" />
+							<span>European ombudsmen</span>
+						</a>
+					</li>
+					<li>
+						<a href="" class="waves-effect waves-light">
+							<img src="img/eur2.png" alt="" />
+							<span>European youth parliament</span>
+						</a>
+					</li>
+				</ul>
 			</section>
+
+
+
+			<section class="col s12 m12 l12">
+				<section class="headerText">
+					<div class="line"></div>
+					<div class="title">Usefull Links</div>
+				</section>
+				<section class="marginminus10">
+					<section class="col s12 m4 l4">
+						<ul class="usefullLinks">
+							<li>
+								<a href="" class="waves-effect waves-light">
+									<img src="img/eur2.png" alt="" />
+									<span>European Union Commission</span>
+								</a>
+							</li>
+							<li>
+								<a href="" class="waves-effect waves-light">
+									<img src="img/eur2.png" alt="" />
+									<span>European Union Commission</span>
+								</a>
+							</li>
+							<li>
+								<a href="" class="waves-effect waves-light">
+									<img src="img/eur2.png" alt="" />
+									<span>European Union Commission</span>
+								</a>
+							</li>
+						</ul>
+					</section>
+
+					<section class="col s12 m4 l4">
+						<ul class="usefullLinks">
+							<li>
+								<a href="" class="waves-effect waves-light">
+									<img src="img/eur2.png" alt="" />
+									<span>European Union Commission</span>
+								</a>
+							</li>
+							<li>
+								<a href="" class="waves-effect waves-light">
+									<img src="img/eur2.png" alt="" />
+									<span>European Union Commission</span>
+								</a>
+							</li>
+							<li>
+								<a href="" class="waves-effect waves-light">
+									<img src="img/eur2.png" alt="" />
+									<span>European Union Commission</span>
+								</a>
+							</li>
+						</ul>
+					</section>
+
+					<section class="col s12 m4 l4">
+						<ul class="usefullLinks">
+							<li>
+								<a href="" class="waves-effect waves-light">
+									<img src="img/eur2.png" alt="" />
+									<span>European Union Commission</span>
+								</a>
+							</li>
+							<li>
+								<a href="" class="waves-effect waves-light">
+									<img src="img/eur2.png" alt="" />
+									<span>European Union Commission</span>
+								</a>
+							</li>
+							<li>
+								<a href="" class="waves-effect waves-light">
+									<img src="img/eur2.png" alt="" />
+									<span>European Union Commission</span>
+								</a>
+							</li>
+						</ul>
+					</section>
+				</section>
+			</section>
+
+
 		</section>
 	</section>	
 </main>

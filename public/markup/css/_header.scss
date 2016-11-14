@@ -15,8 +15,15 @@
 	width: $centerWidth;
 	position: relative;
 }
+.centerWidth .row{
+	margin: 0 -10px;
+}
 .topCenter{
 	height: $topHeight; 
+}
+.marginminus10{
+	margin: 0 -10px;
+	padding: $zero;
 }
 header{
 	.top{
@@ -394,14 +401,6 @@ header{
 }
 main{
 	@extend .no;
-	margin-top: 30px;
+	margin-top: 40px;
 	clear: both;
-	.row{
-		.leftSide{
-			
-		}
-		.rightSide{
-			background-color: blue;
-		}
-	}
 }

@@ -72,13 +72,13 @@
 		width: $fullWidth;
 		display: none;
 		position: absolute;
-		z-index: 1;
+		z-index: 1000;
 	}
 	.blueBox{
 		background-color: $blueColor; 
 		position: absolute;
 		min-height: 250px;
-		z-index: 2;
+		z-index: 2000;
 		ul{
 			list-style-type: none;
 			li{
