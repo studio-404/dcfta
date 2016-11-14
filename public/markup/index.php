@@ -66,13 +66,30 @@
 		<section class="navigation">
 			<ul>
 				<li><a href="" class="active">Home</a></li>
-				<li><a href="">About</a></li>
+				<li class="sub" data-sub="i24">
+					<a href="?about" class="slide">About</a>  <i class="arrow"></i>
+					<ul class="i24">
+						<li><a href="">About us</a></li>
+						<li><a href="">Our Team</a></li>
+					</ul>
+				</li>
 				<li><a href="">Agreement</a></li>
 				<li><a href="">Implimentation</a></li>
 				<li><a href="">Coordination</a></li>
 				<li><a href="">Legislation</a></li>
 				<li><a href="">International Support</a></li>
-				<li><a href="">DCFTA for bussiness</a></li>
+				<li class="sub" data-sub="i25">
+					<a href="?dcfta-for-bussiness" class="slide">DCFTA for bussiness</a> <i class="arrow"></i>
+					<ul class="i25">
+						<li><a href="">Sectors</a></li>
+						<li><a href="">Technical requirements</a></li>
+						<li><a href="">Public services</a></li>
+						<li><a href="">Standarts</a></li>
+						<li><a href="">Certifications</a></li>
+						<li><a href="">Rules of origin</a></li>
+						<li><a href="">Custom procedures</a></li>
+					</ul>
+				</li>
 				<li><a href="">News &amp; Events</a></li>
 				<li><a href="">Contact</a></li>
 			</ul>
@@ -86,12 +103,7 @@
 
 <section class="mobileNavigation">
 	<section class="yellowBox"></section>
-	<section class="blueBox">
-		<ul>
-			<li><a href="" class="active">Home</a></li>
-			<li><a href="">About</a></li>
-		</ul>
-	</section>
+	<section class="blueBox"></section>
 </section>
 
 <main>

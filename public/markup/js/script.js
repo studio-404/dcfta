@@ -41,11 +41,58 @@ var openNavigation = function(){
 			right: "0px"
 		}, 1000 );
 		$(".mobileNavigation .blueBox").html(navigation);
+		navToMobile();
 	}else{
 		$(".mobileNavigation").fadeOut();	
 		$(".mobileNavigation .yellowBox").fadeOut(500);
 	}
 };
+
+var detectmob = function(){
+	if( navigator.userAgent.match(/Android/i) || 
+		navigator.userAgent.match(/webOS/i) || 
+		navigator.userAgent.match(/iPhone/i) || 
+		navigator.userAgent.match(/iPad/i) || 
+		navigator.userAgent.match(/iPod/i) || 
+		navigator.userAgent.match(/BlackBerry/i) || 
+		navigator.userAgent.match(/Windows Phone/i) 
+	){
+		return true;
+	} else {
+ 		return false;
+ 	}
+};
+
+var navToMobile = function(){
+	if(detectmob()){
+		$(".mobileNavigation .blueBox ul li").each(function(){
+			if($(this).hasClass("sub")){
+				var sub = $(this).attr("data-sub"); 
+				$(".slide", this).attr("href","javascript:void(0)");
+				$(".slide", this).attr("onclick","slideDownMe('"+sub+"')");
+				$("."+sub).attr("data-active","false");
+			}
+		});
+	}
+};
+
+var slideDownMe = function(s){
+	var active = $("."+s).attr("data-active"); 
+	console.log("shevida" +active+" "+s);
+	if(active=="false"){
+		$("."+s).slideDown(500);
+		$("."+s).attr("data-active","true"); 
+		$("."+s).prev(".arrow").css({"transform":"rotate(90deg)"});
+	}else{
+		$("."+s).slideUp(500);
+		$("."+s).attr("data-active","false"); 
+		$("."+s).prev(".arrow").css({"transform":"rotate(0deg)"});
+	}
+};
+
+$(document).ready(function(){
+	
+});
 
 $(document).ready(function(){
 
@@ -64,5 +111,4 @@ $(document).ready(function(){
         (this.classList.contains("is-active") === true) ? this.classList.remove("is-active") : this.classList.add("is-active");
       });
     }
-
 });

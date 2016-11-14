@@ -206,15 +206,25 @@ header .navigation {
     header .navigation ul li:after {
       content: '';
       width: 2px;
-      height: 40px;
+      height: 30px;
       background-image: url("../img/line2.png");
       background-repeat: no-repeat;
-      background-size: 2px 40px;
+      background-size: 2px 30px;
       position: absolute;
       right: 0px;
-      top: 5px; }
+      top: 10px; }
     header .navigation ul li:last-child:after {
       display: none; }
+    header .navigation ul .arrow {
+      display: none; }
+    header .navigation ul li > ul {
+      list-style-type: none;
+      display: none;
+      width: calc(100% - 40px);
+      padding: 0 20px;
+      position: absolute; }
+      header .navigation ul li > ul li:after {
+        display: none; }
 header .nav_bg {
   display: none;
   line-height: 20px;
@@ -306,6 +316,15 @@ header .nav_bg {
 .mobileNavigation {
   display: none; }
 
+main {
+  margin-top: 30px;
+  clear: both; }
+  main .row .leftSide {
+    background-color: red; }
+  main .row .rightSide {
+    background-color: blue; }
+
+/* MOBILE */
 @media (max-width: 1200px) {
   .centerWidth {
     width: 90%; }
@@ -374,15 +393,25 @@ header .nav_bg {
             font-size: 16px;
             text-decoration: none; }
           .mobileNavigation .blueBox ul li .active {
-            font-weight: bold; } }
-main {
-  margin-top: 30px;
-  clear: both; }
-  main .row .leftSide {
-    background-color: red; }
-  main .row .rightSide {
-    background-color: blue; }
+            font-weight: bold; }
 
+  .mobileNavigation .blueBox ul li {
+    position: relative; }
+
+  .mobileNavigation .blueBox ul li .arrow {
+    width: 15px;
+    height: 15px;
+    background-image: url("../img/navArrow.png");
+    background-size: 15px 15px;
+    background-position: center center;
+    background-repeat: no-repeat;
+    position: absolute;
+    right: 20px;
+    top: 15px;
+    display: block; }
+
+  .mobileNavigation .blueBox ul li ul {
+    display: none; } }
 @media (max-width: 380px) {
   header .top .top-box .social-networks {
     width: 130px; }

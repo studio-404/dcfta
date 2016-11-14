@@ -297,16 +297,29 @@ header{
 			li:after{
 				content: '';
 				width: 2px;
-				height: $topNavigationHeight - 10px;
+				height: $topNavigationHeight - 20px;
 				background-image: url('../img/line2.png');
 				background-repeat: no-repeat;
-				background-size: 2px #{($topNavigationHeight - 10px)}; 
+				background-size: 2px #{($topNavigationHeight - 20px)}; 
 				position: absolute;
 				right: 0px;
-				top: 5px;
+				top: 10px;
 			}
 			li:last-child:after{
 				display: none;
+			}
+			.arrow{
+				display: none;
+			}
+			li > ul{
+				list-style-type: none;
+				display: none;
+				width: calc(#{$fullWidth} - 40px); 
+				padding: 0 20px;
+				position: absolute;
+				li:after{
+					display: none;
+				}
 			}
 		}
 	}
@@ -430,7 +443,22 @@ header{
 .mobileNavigation{
 	display: none;
 }
+main{
+	@extend .no;
+	margin-top: 30px;
+	clear: both;
+	.row{
+		.leftSide{
+			background-color: red;
+		}
+		.rightSide{
+			background-color: blue;
+		}
+	}
+}
 
+
+/* MOBILE */
 @media (max-width: $breakpoint-mobile) {
   .centerWidth{
   	width: $mobileCenterWidth;
@@ -508,20 +536,26 @@ header{
 		}
 	}
   }
+  .mobileNavigation .blueBox ul li{
+  	position: relative;
+  }
+  .mobileNavigation .blueBox ul li .arrow{
+	width: 15px;
+	height: 15px;
+	background-image: url('../img/navArrow.png');
+	background-size: 15px 15px;
+	background-position: center center;
+	background-repeat: no-repeat;
+	position: absolute;
+	right: 20px;
+	top: 15px;
+	display: block;
+  }
+   .mobileNavigation .blueBox ul li ul{
+   	display: none;
+   }
 }
-main{
-	@extend .no;
-	margin-top: 30px;
-	clear: both;
-	.row{
-		.leftSide{
-			background-color: red;
-		}
-		.rightSide{
-			background-color: blue;
-		}
-	}
-}
+
 
 @media (max-width: $breakpoint-smallmobile) {
   header .top .top-box .social-networks{
