@@ -1,0 +1,37 @@
+$zero: 0px; 
+$fullWidth: 100%;
+$halfWidth: 50%;
+$redColor: #ff0000;
+$blueColor: #003399;
+$whiteColor: #ffffff;
+$yellowColor: #ffcd00;
+
+$centerWidth: 1200px; // website center section width
+$topHeight: 24px; // top red colored header's height
+
+$breakpoint-tablet: 1200px;
+$breakpoint-mobile: 1023px;
+$breakpoint-smallmobile: 380px;
+
+/*HEDARE TOP*/
+$topSocialLangWidth: 300px; // top social and language box width
+$topSocialLangPadding: 0px 10px;
+$topSocialLangMargin: 0px 5px;
+$topLanguageFontSize: 13px;
+$topSocialIconWidth: 16px;
+$topSocialIconHeight: 13px;
+	$mobileCenterWidth: 90%;
+
+/*HEADER BOTTOM*/
+$topBottomHeight: 140px;
+$topBottomHeightMobile: 120px;
+$topBottomBackgroundColor: #f2f3f6; 
+$topFlagImageWidth: 48.5px;
+$topFlagImageHeight: 32.5px;
+$topLogoBigFontSize: 45px;
+$topLogoSmallFontSize: 16px;
+$topLogoMarginBottom: 16px;
+$topNavigationHeight: 50px;
+$hamburgerWidth: 46px;
+$hamburgerHeight: 0px;
+$hamburgerLineHeight: 4px;

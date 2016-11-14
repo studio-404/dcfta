@@ -319,13 +319,31 @@ header .nav_bg {
 main {
   margin-top: 30px;
   clear: both; }
-  main .row .leftSide {
-    background-color: red; }
   main .row .rightSide {
     background-color: blue; }
 
-/* MOBILE */
+/* Media Queries */
 @media (max-width: 1200px) {
+  .centerWidth {
+    width: 90%; }
+
+  header .top .top-box {
+    width: 100%; }
+
+  header .top .top-box .languages {
+    float: right; }
+
+  header .navigation {
+    width: 90%; }
+
+  header .navigation ul li a {
+    padding: 0 3px;
+    font-size: 12px; }
+
+  header .navigation ul li .active:after {
+    left: 7.5px;
+    width: calc(100% - 15px); } }
+@media (max-width: 1023px) {
   .centerWidth {
     width: 90%; }
 
