@@ -344,9 +344,9 @@
 </main>
 
 <footer>
-	<section class="centerWidth">
-		<section class="marginminus10">
-			<section class="row marginBottom55">
+	<section class="centerWidth">		
+		<section class="row marginBottom55">
+			<section class="marginminus10">
 				<section class="col s12 m12 l12">
 					<section class="col s6 m3 l2"><a href=""><img src="img/giz.jpg" alt="" /></a></section>
 					<section class="col s6 m3 l2"><a href=""><img src="img/giz.jpg" alt="" /></a></section>
@@ -355,9 +355,12 @@
 				</section>
 			</section>
 		</section>
+
 		<section class="footerText">
+			<section class="marginminus10">
 			<p class="left">Ministry of Economy and Sustainable Development of Georgia 2016. DCFTA.gov.ge</p>
 			<p class="right"><a href=""><img src="img/logo.png" alt="logo" /></a></p>
+			</section>
 		</section>
 	</section>
 </footer>

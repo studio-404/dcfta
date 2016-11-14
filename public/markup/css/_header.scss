@@ -6,6 +6,9 @@
 *{ 
 	@extend .no; 
 }
+body{
+	overflow-x: hidden; 
+}
 .clearer{
 	clear: both;
 }
