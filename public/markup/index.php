@@ -167,7 +167,48 @@
 						</section>
 					</section>
 				</section>
+				
+				<section class="marginminus10">
+					<section class="col s12 m12 l12">
+						<section class="headerText">
+							<div class="line"></div>
+							<div class="title">Latest news</div>
+						</section>
+					</section>
+					
+					<section class="col s12 m6 l6">
+						<section class="newsBox">
+							<a href="">
+								<section class="imageBox">
+									<img src="img/news.jpg" width="100%" alt="" />
+								</section>
+								<section class="data">
+									<p>News</p>
+									<p>Jan 7, 2016</p>
+								</section>
+								<section class="title">Our agreement has been extended until Georgia becomes part of european union</section>
+								<section class="text">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes.</section>
+							</a>
+						</section>
+					</section>
 
+					<section class="col s12 m6 l6">
+						<section class="newsBox">
+							<a href="">
+								<section class="imageBox">
+									<img src="img/news.jpg" width="100%" alt="" />
+								</section>
+								<section class="data">
+									<p>News</p>
+									<p>Jan 7, 2016</p>
+								</section>
+								<section class="title">Our agreement has been extended until Georgia becomes part of european union</section>
+								<section class="text">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes.</section>
+							</a>
+						</section>
+					</section>
+
+				</section>
 
 			</section>
 			<section class="col s12 m6 l4 rightSide">
@@ -300,6 +341,25 @@
 		</section>
 	</section>	
 </main>
+
+<footer>
+	<section class="centerWidth">
+		<section class="marginminus10">
+			<section class="row marginBottom55">
+				<section class="col s12 m12 l12">
+					<section class="col s12 m3 l2"><a href=""><img src="img/giz.jpg" alt="" /></a></section>
+					<section class="col s12 m3 l2"><a href=""><img src="img/giz.jpg" alt="" /></a></section>
+					<section class="col s12 m3 l5"><p>This website has been produced with support of the EU funded project “SME Development and DCFTA in Georgia” implemented by Deutsche Gesellschaft für Internationale Zusammenarbeit (GIZ) GmbH on behalf of German Federal Ministry for Economic Cooperation and Development (BMZ). The contents of this website do not necessarily reflect the views of the European Union.</p></section>	
+					<section class="col s12 m2 l3"></section>				
+				</section>
+			</section>
+		</section>
+		<section class="footerText">
+			<p class="left">Ministry of Economy and Sustainable Development of Georgia 2016. DCFTA.gov.ge</p>
+			<p class="right"><a href=""><img src="img/logo.png" alt="logo" /></a></p>
+		</section>
+	</section>
+</footer>
 
 </body>
 </html>

@@ -166,3 +166,130 @@
 .files-desktop{
 	display: block;
 }
+.newsBox{
+	margin: 10px 0; 
+	padding: $zero; 
+	width: $fullWidth; 
+	a{
+		margin: $zero;
+		padding: $zero;
+		text-decoration: none;
+		display: block;
+		.imageBox{
+			margin: $zero; 
+			padding: $zero; 
+			width: $fullWidth; 
+			border: $zero;
+			line-height: $zero;
+			img{
+				width: $fullWidth;
+			}
+		}
+		.data{
+			margin: $zero; 
+			padding: 0 10px;
+			line-height: 30px;
+			height: 30px;
+			background-color: $blueColor;
+			p{
+				font-family: 'Roboto'; 
+				font-size: 13px;
+				color: $whiteColor;
+			}
+			p:first-child{
+				float: left;
+			}
+			p:last-child{
+				float: right;
+			}
+		}
+		.title{
+			margin: 5px 0; 
+			padding: $zero;
+			font-family: 'Roboto'; 
+			font-size: 15px;
+			color: $blueColor;
+			line-height: 18px;
+		}
+		.text{
+			margin: 5px 0; 
+			padding: $zero;
+			font-family: 'Roboto'; 
+			font-size: 15px;
+			line-height: 18px;
+			color: $darkGreyColor;	
+		}
+	}
+	a:hover .imageBox img{
+		opacity: 0.8;
+	}
+	a:hover .title{
+		text-decoration: underline;
+	} 
+}
+footer{
+	margin: 20px 0px 0px 0px;
+	padding: 20px 0px;
+	width: $fullWidth; 
+	min-height: 200px;
+	background-color: $greyColor; 
+	border-top: solid 5px $redColor;
+	position: relative;
+	.centerWidth{
+		a{
+			margin: 0; 
+			padding: 0;
+			display: block;
+			text-decoration: none;
+			img{
+				margin: 0; 
+				padding: 0;
+				width: 180px;
+			}
+		}
+		p{
+			margin: 0; 
+			padding: 0;
+			font-size: 10px;
+			font-family: "Roboto"; 
+			line-height: 14px;
+			color: $darkGreyColor2
+		}
+		.marginBottom55{
+			margin-bottom: 55px; 
+		}
+		.footerText{
+			margin: 0; 
+			padding: 0; 
+			width: $fullWidth; 
+			.left{
+				margin: $zero; 
+				padding: $zero;
+				font-family: "Roboto";
+				font-size: 12px;
+				line-height: 18px;
+				color: $blackColor;
+				float: left;
+			}
+			.right{
+				margin: $zero; 
+				padding: $zero;
+				float: right;
+				line-height: 43px;
+				a{
+					margin: $zero; 
+					padding: $zero;
+					outline: $zero;
+					display: block;
+					text-decoration: none;
+					img{
+						margin: $zero;
+						padding: $zero;
+						outline: $zero;
+						width: 60px;
+					}
+				}
+			}
+		}
+	}
+}
