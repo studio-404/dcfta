@@ -94,3 +94,75 @@
         transition: background-color 500ms linear;
 	}
 }
+.files{
+	margin: 10px; 
+	padding: $zero;
+	width: calc(#{$fullWidth} - 20px); 
+	background-image: url('../img/bigflags.jpg');
+	background-position: center center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	clear: both;
+	float: left;
+	.file{
+		margin: 10px 0;
+		padding: 10px;
+		border: solid 1px $whiteColor;
+		width: $fullWidth;
+		height: 80px;
+		overflow: hidden;
+		position: relative;
+		a{
+			display: block;
+			color: $whiteColor; 
+			.pdfIcon{
+				margin: 4px 10px 0 0;
+				padding: $zero; 
+				width: 40px;
+				height: 50px;
+				float: left;
+				background-image: url('../img/pdf.png');
+				background-repeat: no-repeat;
+				background-position: center;
+				background-size: 40px 50px; 
+			}
+			.downloadIcon{
+				margin: $zero;
+				padding: $zero; 
+				width: 12px;
+				height: 14px;
+				background-image: url('../img/download.png');
+				background-repeat: no-repeat;
+				background-position: center;
+				background-size: 12px 14px; 
+				position: absolute;
+				right: 10px;
+				top: 10px;
+				z-index: 1;
+			}
+			.title{
+				margin: $zero; 
+				padding: 0 10px 0 0; 
+				float: left;
+				font-size: 15px;
+				line-height: 18px;
+				font-family: 'Roboto';
+				color: $whiteColor;
+				width: calc(#{$fullWidth} - 60px);
+				span{
+					text-decoration: underline;
+				}
+				b{
+					text-decoration: none;
+					color: $yellowColor; 
+				}		
+			}
+		}
+	}
+}
+.files-mobile{
+	display: none;
+}
+.files-desktop{
+	display: block;
+}

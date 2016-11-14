@@ -117,6 +117,58 @@
 				<section class="mainText">
 					The first duty of the government is to keep citizens safe and the country secure. The Home Office has been at the front line of this endeavour since 1782. As such, the Home Office plays a fundamental role in the security and economic prosperity of the United Kingdom.
 				</section>
+				
+				<section class="marginminus10">
+					<section class="col s12 m12 l6">
+						<section class="justTitle">Reports</section>
+						<section class="files files-mobile" data-type="reports"></section>
+					</section>
+
+					<section class="col s12 m12 l6">
+						<section class="justTitle">Publications</section>
+						<section class="files files-mobile" data-type="publications"></section>
+					</section>
+
+					<section class="files files-desktop">
+						<section class="col s12 m12 l6 reports">
+							<section class="file">
+								<a href="">
+									<p class="pdfIcon"></p>
+									<p class="downloadIcon"></p>
+									<p class="title"><span>Georgia-EU Deep & Comprehensive Free Trade Area  Report 2016</span><br /><b>355kb</b></p>
+								</a>
+							</section>
+
+							<section class="file">
+								<a href="">
+									<p class="pdfIcon"></p>
+									<p class="downloadIcon"></p>
+									<p class="title"><span>Georgia-EU Deep & Comprehensive Free Trade Area  Report 2016</span><br /><b>355kb</b></p>
+								</a>
+							</section>
+						</section>
+
+						<section class="col s12 m12 l6 publications">
+							<section class="file">
+								<a href="">
+									<p class="pdfIcon"></p>
+									<p class="downloadIcon"></p>
+									<p class="title"><span>Georgia-EU Deep & Comprehensive Free Trade Area  Report 2016</span><br /><b>355kb</b></p>
+								</a>
+							</section>
+
+							<section class="file">
+								<a href="">
+									<p class="pdfIcon"></p>
+									<p class="downloadIcon"></p>
+									<p class="title"><span>Georgia-EU Deep & Comprehensive Free Trade Area  Report 2016</span><br /><b>355kb</b></p>
+								</a>
+							</section>
+						</section>
+					</section>
+				</section>
+
+
 			</section>
 			<section class="col s12 m6 l4 rightSide">
 				<section class="justTitle">EU Important links</section>

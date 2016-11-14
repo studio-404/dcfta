@@ -90,8 +90,17 @@ var slideDownMe = function(s){
 	}
 };
 
+var filesMobilize = function(){
+	$(".files-mobile").each(function(){
+		console.log("count me"); 
+		var type = $(this).attr("data-type"); 
+		var ht = $("."+type).html(); 
+		$(this).html(ht); 
+	});
+};
+
 $(document).ready(function(){
-	
+	filesMobilize();
 });
 
 $(document).ready(function(){

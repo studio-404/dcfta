@@ -415,6 +415,71 @@ main {
     -ms-transition: background-color 500ms linear;
     transition: background-color 500ms linear; }
 
+.files {
+  margin: 10px;
+  padding: 0px;
+  width: calc(100% - 20px);
+  background-image: url("../img/bigflags.jpg");
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  clear: both;
+  float: left; }
+  .files .file {
+    margin: 10px 0;
+    padding: 10px;
+    border: solid 1px #ffffff;
+    width: 100%;
+    height: 80px;
+    overflow: hidden;
+    position: relative; }
+    .files .file a {
+      display: block;
+      color: #ffffff; }
+      .files .file a .pdfIcon {
+        margin: 4px 10px 0 0;
+        padding: 0px;
+        width: 40px;
+        height: 50px;
+        float: left;
+        background-image: url("../img/pdf.png");
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: 40px 50px; }
+      .files .file a .downloadIcon {
+        margin: 0px;
+        padding: 0px;
+        width: 12px;
+        height: 14px;
+        background-image: url("../img/download.png");
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: 12px 14px;
+        position: absolute;
+        right: 10px;
+        top: 10px;
+        z-index: 1; }
+      .files .file a .title {
+        margin: 0px;
+        padding: 0 10px 0 0;
+        float: left;
+        font-size: 15px;
+        line-height: 18px;
+        font-family: 'Roboto';
+        color: #ffffff;
+        width: calc(100% - 60px); }
+        .files .file a .title span {
+          text-decoration: underline; }
+        .files .file a .title b {
+          text-decoration: none;
+          color: #ffcd00; }
+
+.files-mobile {
+  display: none; }
+
+.files-desktop {
+  display: block; }
+
 /* Media Queries */
 @media (max-width: 1200px) {
   .centerWidth {
@@ -522,7 +587,18 @@ main {
     display: block; }
 
   .mobileNavigation .blueBox ul li ul {
-    display: none; } }
+    display: none; }
+
+  .files-desktop {
+    display: none; }
+
+  .files-mobile {
+    display: block;
+    margin: 10px 0px;
+    padding: 0 10px;
+    width: 100%; }
+    .files-mobile .file a .title {
+      font-size: 12px; } }
 @media (max-width: 380px) {
   header .top .top-box .social-networks {
     width: 130px; }

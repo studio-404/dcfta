@@ -117,6 +117,22 @@
    .mobileNavigation .blueBox ul li ul{
    	display: none;
    }
+   .files-desktop{
+      display: none;
+   }
+   .files-mobile{
+      display: block;
+      margin: 10px 0px; 
+      padding: 0 10px;
+      width: $fullWidth;
+      .file{
+        a{
+          .title{
+            font-size: 12px;
+          }
+        }
+      }
+   }
 }
 
 
