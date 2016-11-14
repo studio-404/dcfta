@@ -256,11 +256,12 @@
 						</a>
 					</li>
 				</ul>
+				<section class="justTitle marginTop40">Event Calendar</section>
 			</section>
 
 
 
-			<section class="col s12 m12 l12">
+			<section class="col s12 m12 l12 marginTop40">
 				<section class="headerText">
 					<div class="line"></div>
 					<div class="title">Usefull Links</div>
@@ -347,9 +348,9 @@
 		<section class="marginminus10">
 			<section class="row marginBottom55">
 				<section class="col s12 m12 l12">
-					<section class="col s12 m3 l2"><a href=""><img src="img/giz.jpg" alt="" /></a></section>
-					<section class="col s12 m3 l2"><a href=""><img src="img/giz.jpg" alt="" /></a></section>
-					<section class="col s12 m3 l5"><p>This website has been produced with support of the EU funded project “SME Development and DCFTA in Georgia” implemented by Deutsche Gesellschaft für Internationale Zusammenarbeit (GIZ) GmbH on behalf of German Federal Ministry for Economic Cooperation and Development (BMZ). The contents of this website do not necessarily reflect the views of the European Union.</p></section>	
+					<section class="col s6 m3 l2"><a href=""><img src="img/giz.jpg" alt="" /></a></section>
+					<section class="col s6 m3 l2"><a href=""><img src="img/giz.jpg" alt="" /></a></section>
+					<section class="col s12 m3 l5 mobileMarginTop20"><p>This website has been produced with support of the EU funded project “SME Development and DCFTA in Georgia” implemented by Deutsche Gesellschaft für Internationale Zusammenarbeit (GIZ) GmbH on behalf of German Federal Ministry for Economic Cooperation and Development (BMZ). The contents of this website do not necessarily reflect the views of the European Union.</p></section>	
 					<section class="col s12 m2 l3"></section>				
 				</section>
 			</section>

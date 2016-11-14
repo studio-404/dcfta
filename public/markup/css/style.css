@@ -6,6 +6,11 @@
   src: url("../fonts/museo/museo-700.woff2") format("woff2"), url("../fonts/museo/museo-700.woff") format("woff");
   font-weight: normal;
   font-style: normal; }
+@font-face {
+  font-family: 'noto_sansregular';
+  src: url("../fonts/noto/notosans-regular.woff2") format("woff2"), url("../fonts/noto/notosans-regular.woff") format("woff");
+  font-weight: normal;
+  font-style: normal; }
 .no, *, .centerWidth, header .top .top-box .social-networks ul, header .top .top-box .social-networks ul li, header .top .top-box .languages ul, header .top .top-box .languages ul li, header .topBottom .search .input-field, main {
   margin: 0px;
   padding: 0px;
@@ -28,6 +33,9 @@
 .marginminus10 {
   margin: 0 -10px;
   padding: 0px; }
+
+.marginTop40 {
+  margin-top: 40px !important; }
 
 header .top {
   background-color: #ff0000;
@@ -346,7 +354,7 @@ main {
   .headerText .title {
     margin: 0px;
     padding: 0 20px 0 0;
-    font-family: "Roboto";
+    font-family: "noto_sansregular";
     font-size: 24px;
     line-height: 26px;
     background-color: #ffffff;
@@ -357,9 +365,9 @@ main {
     z-index: 2; }
 
 .mainText {
-  margin: 10px 0;
+  margin: 10px 0 40px 0;
   padding: 0px;
-  font-family: "Roboto";
+  font-family: "noto_sansregular";
   font-size: 20px;
   color: #003399; }
 
@@ -368,7 +376,7 @@ main {
   padding: 0px;
   line-height: 26px;
   font-size: 24px;
-  font-family: "Roboto";
+  font-family: "noto_sansregular";
   color: #003399; }
 
 .usefullLinks {
@@ -404,6 +412,9 @@ main {
         width: 45px;
         float: left; }
       .usefullLinks li a span {
+        font-family: "noto_sansregular";
+        font-size: 15px;
+        line-height: 45px;
         float: left; }
     .usefullLinks li a:hover {
       color: #ffffff; }
@@ -416,7 +427,7 @@ main {
     transition: background-color 500ms linear; }
 
 .files {
-  margin: 10px;
+  margin: 10px 10px 40px 10px;
   padding: 0px;
   width: calc(100% - 20px);
   background-image: url("../img/bigflags.jpg");
@@ -514,14 +525,14 @@ main {
     .newsBox a .title {
       margin: 5px 0;
       padding: 0px;
-      font-family: 'Roboto';
+      font-family: "noto_sansregular";
       font-size: 15px;
       color: #003399;
       line-height: 18px; }
     .newsBox a .text {
       margin: 5px 0;
       padding: 0px;
-      font-family: 'Roboto';
+      font-family: "noto_sansregular";
       font-size: 15px;
       line-height: 18px;
       color: #5d5d5d; }
@@ -531,7 +542,7 @@ main {
     text-decoration: underline; }
 
 footer {
-  margin: 20px 0px 0px 0px;
+  margin: 40px 0px 0px 0px;
   padding: 20px 0px;
   width: 100%;
   min-height: 200px;
@@ -551,7 +562,7 @@ footer {
     margin: 0;
     padding: 0;
     font-size: 10px;
-    font-family: "Roboto";
+    font-family: "noto_sansregular";
     line-height: 14px;
     color: #4f4f50; }
   footer .centerWidth .marginBottom55 {
@@ -563,7 +574,7 @@ footer {
     footer .centerWidth .footerText .left {
       margin: 0px;
       padding: 0px;
-      font-family: "Roboto";
+      font-family: "noto_sansregular";
       font-size: 12px;
       line-height: 18px;
       color: #1a1a1a;
@@ -703,7 +714,25 @@ footer {
     padding: 0 10px;
     width: 100%; }
     .files-mobile .file a .title {
-      font-size: 12px; } }
+      font-size: 12px; }
+
+  footer .centerWidth a img {
+    width: 100%; }
+
+  .footerText {
+    height: 65px; }
+    .footerText p {
+      width: 70%;
+      font-size: 10px; }
+    .footerText p:last-child {
+      text-align: right;
+      width: 30%; }
+
+  .mobileMarginTop20 {
+    margin-top: 20px; }
+
+  footer .centerWidth .footerText .right {
+    margin-top: 20px; } }
 @media (max-width: 380px) {
   header .top .top-box .social-networks {
     width: 130px; }

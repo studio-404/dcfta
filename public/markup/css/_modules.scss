@@ -18,7 +18,7 @@
 	.title{
 		margin: $zero; 
 		padding: 0 20px 0 0; 
-		font-family: "Roboto"; 
+		font-family: "noto_sansregular"; 
 		font-size: 24px;
 		line-height: 26px;
 		background-color: $whiteColor; 
@@ -30,9 +30,9 @@
 	}
 }
 .mainText{
-	margin: 10px 0; 
+	margin: 10px 0 40px 0; 
 	padding: $zero; 
-	font-family: "Roboto"; 
+	font-family: "noto_sansregular"; 
 	font-size: 20px;
 	color: $blueColor; 
 }
@@ -41,7 +41,7 @@
 	padding: $zero; 
 	line-height: 26px;
 	font-size: 24px;
-	font-family: "Roboto"; 
+	font-family: "noto_sansregular"; 
 	color: $blueColor;
 }
 .usefullLinks{
@@ -78,6 +78,9 @@
 				float: left;
 			}
 			span{
+				font-family: "noto_sansregular"; 
+				font-size: 15px;
+				line-height: 45px;
 				float: left;
 			}
 		}
@@ -95,7 +98,7 @@
 	}
 }
 .files{
-	margin: 10px; 
+	margin: 10px 10px 40px 10px; 
 	padding: $zero;
 	width: calc(#{$fullWidth} - 20px); 
 	background-image: url('../img/bigflags.jpg');
@@ -206,7 +209,7 @@
 		.title{
 			margin: 5px 0; 
 			padding: $zero;
-			font-family: 'Roboto'; 
+			font-family: "noto_sansregular"; 
 			font-size: 15px;
 			color: $blueColor;
 			line-height: 18px;
@@ -214,7 +217,7 @@
 		.text{
 			margin: 5px 0; 
 			padding: $zero;
-			font-family: 'Roboto'; 
+			font-family: "noto_sansregular";  
 			font-size: 15px;
 			line-height: 18px;
 			color: $darkGreyColor;	
@@ -228,7 +231,7 @@
 	} 
 }
 footer{
-	margin: 20px 0px 0px 0px;
+	margin: 40px 0px 0px 0px;
 	padding: 20px 0px;
 	width: $fullWidth; 
 	min-height: 200px;
@@ -251,7 +254,7 @@ footer{
 			margin: 0; 
 			padding: 0;
 			font-size: 10px;
-			font-family: "Roboto"; 
+			font-family: "noto_sansregular";  
 			line-height: 14px;
 			color: $darkGreyColor2
 		}
@@ -265,7 +268,7 @@ footer{
 			.left{
 				margin: $zero; 
 				padding: $zero;
-				font-family: "Roboto";
+				font-family: "noto_sansregular";  
 				font-size: 12px;
 				line-height: 18px;
 				color: $blackColor;
