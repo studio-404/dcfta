@@ -242,16 +242,19 @@ header{
 				.active{
 					font-weight: bold;
 					position: relative;
+					span{
+						border-bottom: solid 3px $whiteColor;
+					}
 				}
-				.active:after{
-					content: ''; 
-					width: calc(#{$fullWidth} - 25px); 
-					height: 3px;
-					background-color: $whiteColor;
-					position: absolute;
-					bottom: 13px;
-					left: 12.5px;
-				}
+				// .active:after{
+				// 	content: ''; 
+				// 	width: calc(#{$fullWidth} - 25px); 
+				// 	height: 3px;
+				// 	background-color: $whiteColor;
+				// 	position: absolute;
+				// 	bottom: 13px;
+				// 	left: 12.5px;
+				// }
 				a:hover{
 					font-weight: bold;	
 				}			

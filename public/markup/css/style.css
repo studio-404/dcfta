@@ -211,14 +211,8 @@ header .navigation {
       header .navigation ul li .active {
         font-weight: bold;
         position: relative; }
-      header .navigation ul li .active:after {
-        content: '';
-        width: calc(100% - 25px);
-        height: 3px;
-        background-color: #ffffff;
-        position: absolute;
-        bottom: 13px;
-        left: 12.5px; }
+        header .navigation ul li .active span {
+          border-bottom: solid 3px #ffffff; }
       header .navigation ul li a:hover {
         font-weight: bold; }
     header .navigation ul li:after {
@@ -624,7 +618,123 @@ footer {
           margin: 0px;
           padding: 0px;
           outline: 0px;
-          width: 60px; }
+          width: 100%; }
+        footer .centerWidth .footerText .right a .logo {
+          width: 65px; }
+
+.InternationalSupport .box {
+  margin-bottom: 20px;
+  padding: 20px;
+  border: solid 2px #d7d7d7;
+  -webkit-box-shadow: 0px 0px 10px 0px #d7d7d7;
+  -moz-box-shadow: 0px 0px 10px 0px #d7d7d7;
+  box-shadow: 0px 0px 10px 0px #d7d7d7;
+  min-height: 460px;
+  overflow: hidden; }
+  .InternationalSupport .box img {
+    margin: 0px;
+    padding: 0px;
+    width: 100%; }
+  .InternationalSupport .box .title {
+    padding-top: 30px;
+    font-size: 20px;
+    font-weight: bold;
+    font-family: 'noto_sansregular'; }
+  .InternationalSupport .box .text {
+    font-size: 20px;
+    font-family: 'noto_sansregular'; }
+.InternationalSupport .box:hover {
+  border: solid 2px #ffcd00; }
+
+.linkWithIcon {
+  margin: 10px 0;
+  padding: 0px;
+  height: 30px;
+  line-height: 30px; }
+  .linkWithIcon a {
+    margin: 0px;
+    padding: 0px;
+    line-height: 30px;
+    text-decoration: none; }
+    .linkWithIcon a img {
+      width: 20px !important;
+      height: 20px !important;
+      float: left;
+      margin-right: 20px;
+      margin-top: 5px !important; }
+    .linkWithIcon a span {
+      margin-left: 10px;
+      font-size: 18px;
+      line-height: 30px;
+      font-family: "Roboto";
+      color: #003399; }
+
+.contactDetails {
+  margin: 0px;
+  padding: 40px 0px;
+  width: 100%;
+  font-size: 18px;
+  font-family: "noto_sansregular";
+  color: #003399;
+  line-height: 27px; }
+  .contactDetails p {
+    margin: 0px;
+    padding: 0px;
+    line-height: 27px;
+    font-size: 20px;
+    font-family: "noto_sansregular";
+    color: #003399; }
+
+.contactForm {
+  margin: 20px 0px;
+  padding: 0px; }
+  .contactForm form {
+    margin: 0px;
+    padding: 0px; }
+    .contactForm form input[type='text'] {
+      border-bottom: solid 1px #ffcd00; }
+    .contactForm form input[type='text']:focus:not([readonly]) {
+      border-bottom: solid 1px #ffcd00;
+      box-shadow: 0 1px 0 0 #ffcd00; }
+    .contactForm form label {
+      color: #3c3c3c;
+      font-size: 15px;
+      font-family: "noto_sansregular"; }
+    .contactForm form .active {
+      color: red;
+      font-size: 15px;
+      font-family: "noto_sansregular"; }
+    .contactForm form .submit {
+      margin: 20px 0;
+      padding: 0px 20px;
+      line-height: 35px;
+      font-size: 16px;
+      font-family: "noto_sansregular";
+      font-weight: bold;
+      text-align: center;
+      color: #ffffff;
+      background-color: #003399;
+      float: right; }
+
+.map {
+  margin: 0px;
+  padding: 0px;
+  width: 100%; }
+  .map .header {
+    margin: 0px;
+    padding: 0 10px;
+    font-size: 20px;
+    font-family: "noto_sansregular";
+    color: #003399;
+    background-color: #ffcd00;
+    height: 60px;
+    line-height: 60px; }
+  .map .init-map {
+    margin: 0px;
+    padding: 0px;
+    width: 100%;
+    height: 320px;
+    background-color: #f2f2f2; }
 
 .CalendarBox {
   margin-top: 20px;

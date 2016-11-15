@@ -321,10 +321,147 @@ footer{
 						margin: $zero;
 						padding: $zero;
 						outline: $zero;
-						width: 60px;
+						width: $fullWidth;
+					}
+					.logo{
+						width: 65px;
 					}
 				}
+
 			}
 		}
+	}
+}
+.InternationalSupport{
+	.box{
+		margin-bottom: 20px;
+		padding: 20px;
+		border: solid 2px #d7d7d7;
+		-webkit-box-shadow: 0px 0px 10px 0px rgba(215,215,215,1);
+		-moz-box-shadow: 0px 0px 10px 0px rgba(215,215,215,1);
+		box-shadow: 0px 0px 10px 0px rgba(215,215,215,1);
+		min-height: 460px;
+		overflow: hidden;
+		img{
+			margin: $zero;
+			padding: $zero;
+			width: $fullWidth;
+		}
+		.title{
+			padding-top: 30px;
+			font-size: 20px;
+			font-weight: bold;
+			font-family: 'noto_sansregular'; 
+		}
+		.text{
+			font-size: 20px;
+			font-family: 'noto_sansregular'; 
+		}
+	}
+	.box:hover{
+		border: solid 2px $yellowColor;
+	}
+}
+.linkWithIcon{
+	margin: 10px 0; 
+	padding: $zero; 
+	height: 30px;
+	line-height: 30px;
+	a{
+		margin: $zero; 
+		padding: $zero;
+		line-height: 30px; 	
+		text-decoration: none;
+		img{
+			width: 20px !important;
+			height: 20px !important;
+			float: left;
+			margin-right: 20px; 
+			margin-top: 5px !important;
+		}
+		span{
+			margin-left: 10px;
+			font-size: 18px;
+			line-height: 30px;
+			font-family: "Roboto";
+			color: $blueColor;
+		}
+
+	}
+}
+.contactDetails{
+	margin: $zero; 
+	padding: 40px 0px; 
+	width: $fullWidth;
+	font-size: 18px;
+	font-family: "noto_sansregular"; 
+	color: $blueColor;
+	line-height: 27px;
+	p{
+		margin: $zero; 
+		padding: $zero; 
+		line-height: 27px;	
+		font-size: 20px;
+		font-family: "noto_sansregular"; 
+		color: $blueColor;
+	}
+}
+.contactForm{
+	margin: 20px 0px; 
+	padding: $zero; 
+	form{
+		margin: $zero; 
+		padding: $zero; 
+		input[type='text']{
+			border-bottom: solid 1px $yellowColor;
+		}
+		input[type='text']:focus:not([readonly]){
+			border-bottom: solid 1px $yellowColor;
+			box-shadow: 0 1px 0 0 $yellowColor;
+		}
+		label{
+			color: #3c3c3c; 
+			font-size: 15px;
+			font-family: "noto_sansregular"; 
+		}
+		.active{
+			color: red; 
+			font-size: 15px;
+			font-family: "noto_sansregular"; 
+		}
+		.submit{
+			margin: 20px 0;
+			padding: $zero 20px;
+			line-height: 35px; 
+			font-size: 16px;
+			font-family: "noto_sansregular"; 
+			font-weight: bold;
+			text-align: center;
+			color: $whiteColor; 
+			background-color: $blueColor; 
+			float: right;
+		}
+	}
+}
+.map{
+	margin: $zero;
+	padding: $zero; 
+	width: $fullWidth; 
+	.header{
+		margin: $zero;
+		padding: 0 10px;
+		font-size: 20px;
+		font-family: "noto_sansregular"; 
+		color: $blueColor;
+		background-color: $yellowColor;
+		height: 60px;
+		line-height: 60px;
+	}
+	.init-map{
+		margin: $zero;
+		padding: $zero; 
+		width: $fullWidth; 
+		height: 320px;
+		background-color: #f2f2f2;
 	}
 }

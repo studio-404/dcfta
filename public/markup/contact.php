@@ -67,7 +67,7 @@
 			<ul>
 				<li><a href="index.php"><span>Home</span></a></li>
 				<li class="sub" data-sub="i24">
-					<a href="about.php" class="slide active"><span>About</span></a>  <i class="arrow"></i>
+					<a href="about.php" class="slide"><span>About</span></a>  <i class="arrow"></i>
 					<ul class="i24">
 						<li><a href=""><span>About us</span></a></li>
 						<li><a href=""><span>Our Team</span></a></li>
@@ -91,7 +91,7 @@
 					</ul>
 				</li>
 				<li><a href=""><span>News &amp; Events</span></a></li>
-				<li><a href="contact.php"><span>Contact</span></a></li>
+				<li><a href="contact.php" class="active"><span>Contact</span></a></li>
 			</ul>
 		</section>
 
@@ -109,79 +109,72 @@
 <main>
 	<section class="centerWidth">
 		<section class="row">
+			
 			<section class="col s12 m6 l8 leftSide">
 				<section class="headerText">
 					<div class="line"></div>
-					<div class="title">About DCFTA</div>
+					<div class="title">Get in touch</div>
 				</section>
-				<section class="mainText">
-					<img src="img/about.jpg" width="100%" alt="" /><br />
-					<p>Georgia continued its economic progress since, "moving from a near-failed state in 2003 to a relatively well-functioning market economy in 2014".[19] In 2007, the World Bank named Georgia the World's number one economic reformer.
-Georgia's economy is supported by a relatively free and transparent atmosphere in the country. According to Transparency International's 2015 report, Georgia is </p>
-					<br>
-					<p>Georgia continued its economic progress since, "moving from a near-failed state in 2003 to a relatively well-functioning market economy in 2014".[19] In 2007, the World Bank named Georgia the World's number one economic reformer.
-Georgia's economy is supported by a relatively free and transparent atmosphere in the country. According to Transparency International's 2015 report, Georgia is </p>
+				
+				<section class="contactForm">
+					<form action="" method="post">
+						<section class="marginminus10">
+							<div class="input-field col s12 m6 l4">
+					          <input id="subject" type="text" class="validate">
+					          <label for="subject">Subject</label>
+					        </div>
+					        <div class="clearer"></div>
+							
+							<div class="input-field col s12 m6 l4">
+					          <input id="first_name" type="text" class="validate">
+					          <label for="first_name">Your Name</label>
+					        </div>
 
-					<ul>
-						<li>Its gross domestic product fell sharply </li>
-						<li>Georgia continued its economic progress since</li>
-						<li>In 2007, the World Bank named Georgia the World's number one</li>
-						<li>The country at the top of its ease of doing business index.</li>
-					</ul>
+					        <div class="input-field col s12 m6 l4">
+					          <input id="first_name" type="text" class="validate">
+					          <label for="first_name">Organization</label>
+					        </div>
+
+					        <div class="input-field col s12 m6 l4">
+					          <input id="first_name" type="text" class="validate">
+					          <label for="first_name">Email Address</label>
+					        </div>
+
+					        <div class="input-field col s12 m6 l4">
+					          <input id="first_name" type="text" class="validate">
+					          <label for="first_name">Phone</label>
+					        </div>
+
+					        <div class="input-field col s12 m6 l8">
+					          <input id="first_name" type="text" class="validate">
+					          <label for="first_name">Comment</label>
+					        </div>
+
+					        <div class="col s12 m12 l12">
+					        	<a class="waves-effect waves-light btn submit">Submit</a>
+					        </div>
+				        </section>
+				        
+					</form>
 				</section>
-				
-				
 
 			</section>
+
 			<section class="col s12 m6 l4 rightSide">
-				<section class="justTitle">State Agencies</section>
-				<ul class="usefullLinks">
-					<li>
-						<a href="" class="waves-effect waves-light">
-							<img src="img/eur2.png" alt="" />
-							<span>European Union Commission</span>
-						</a>
-					</li>
-					<li>
-						<a href="" class="waves-effect waves-light">
-							<img src="img/eur2.png" alt="" />
-							<span>European Parliament</span>
-						</a>
-					</li>
-					<li>
-						<a href="" class="waves-effect waves-light"><img src="img/eur2.png" alt="" />
-							<span>European consillium</span>
-						</a>
-					</li>
-					<li>
-						<a href="" class="waves-effect waves-light">
-							<img src="img/eur2.png" alt="" />
-							<span>European central bank</span>
-						</a>
-					</li>
-					<li>
-						<a href="" class="waves-effect waves-light">
-							<img src="img/eur2.png" alt="" />
-							<span>European investment bank</span>
-						</a>
-					</li>
-					<li>
-						<a href="" class="waves-effect waves-light">
-							<img src="img/eur2.png" alt="" />
-							<span>European ombudsmen</span>
-						</a>
-					</li>
-					<li>
-						<a href="" class="waves-effect waves-light">
-							<img src="img/eur2.png" alt="" />
-							<span>European youth parliament</span>
-						</a>
-					</li>
-				</ul>
+				<section class="justTitle">Contact details</section>
+				<section class="contactDetails">
+					<p>Tbilisi Office</p>
+					<p>Address: 18 Chovelidze str. 0102</p>
+					<p>Tbilisi, Georgia</p>
+					<p>Hotline: +995 32 2 95 00 07</p>
+					<p>E-mail: info@dcfta.org.ge</p>
+				</section>
 
+				<section class="map">
+					<section class="header">MOEFSD</section>
+					<section class="init-map"></section>
+				</section>
 			</section>
-
-
 
 		</section>
 	</section>	

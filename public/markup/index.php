@@ -65,33 +65,33 @@
 
 		<section class="navigation">
 			<ul>
-				<li><a href="" class="active">Home</a></li>
+				<li><a href="index.php" class="active"><span>Home</span></a></li>
 				<li class="sub" data-sub="i24">
-					<a href="about.php" class="slide">About</a>  <i class="arrow"></i>
+					<a href="about.php" class="slide"><span>About</span></a>  <i class="arrow"></i>
 					<ul class="i24">
-						<li><a href="">About us</a></li>
-						<li><a href="">Our Team</a></li>
+						<li><a href=""><span>About us</span></a></li>
+						<li><a href=""><span>Our Team</span></a></li>
 					</ul>
 				</li>
-				<li><a href="">Agreement</a></li>
-				<li><a href="">Implimentation</a></li>
-				<li><a href="">Coordination</a></li>
-				<li><a href="">Legislation</a></li>
-				<li><a href="">International Support</a></li>
+				<li><a href=""><span>Agreement</span></a></li>
+				<li><a href=""><span>Implimentation</span></a></li>
+				<li><a href=""><span>Coordination</span></a></li>
+				<li><a href=""><span>Legislation</span></a></li>
+				<li><a href="is.php"><span>International Support</span></a></li>
 				<li class="sub" data-sub="i25">
-					<a href="?dcfta-for-bussiness" class="slide">DCFTA for bussiness</a> <i class="arrow"></i>
+					<a href="?dcfta-for-bussiness" class="slide"><span>DCFTA for bussiness</span></a> <i class="arrow"></i>
 					<ul class="i25">
-						<li><a href="">Sectors</a></li>
-						<li><a href="">Technical requirements</a></li>
-						<li><a href="">Public services</a></li>
-						<li><a href="">Standarts</a></li>
-						<li><a href="">Certifications</a></li>
-						<li><a href="">Rules of origin</a></li>
-						<li><a href="">Custom procedures</a></li>
+						<li><a href=""><span>Sectors</span></a></li>
+						<li><a href=""><span>Technical requirements</span></a></li>
+						<li><a href=""><span>Public services</span></a></li>
+						<li><a href=""><span>Standarts</span></a></li>
+						<li><a href=""><span>Certifications</span></a></li>
+						<li><a href=""><span>Rules of origin</span></a></li>
+						<li><a href=""><span>Custom procedures</span></a></li>
 					</ul>
 				</li>
-				<li><a href="">News &amp; Events</a></li>
-				<li><a href="">Contact</a></li>
+				<li><a href=""><span>News &amp; Events</span></a></li>
+				<li><a href="contact.php"><span>Contact</span></a></li>
 			</ul>
 		</section>
 
@@ -366,9 +366,9 @@
 		</section>
 
 		<section class="footerText">
-			<section class="marginminus10">
+			<section class="marginminus10" style="margin:0">
 			<p class="left">Ministry of Economy and Sustainable Development of Georgia 2016. DCFTA.gov.ge</p>
-			<p class="right"><a href=""><img src="img/logo.png" alt="logo" /></a></p>
+			<p class="right"><a href=""><img src="img/logo.png" alt="logo" class="logo" /></a></p>
 			</section>
 		</section>
 	</section>
