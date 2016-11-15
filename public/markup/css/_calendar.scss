@@ -1,0 +1,71 @@
+.CalendarBox{
+	margin-top: 20px;
+	padding: 10px 10px 10px 15px;
+	background-color: $yellowColor;
+	width: $fullWidth;
+	overflow: hidden;
+	table{ 
+		width:$fullWidth; 
+		font-size:15px; 
+		font-family:'noto_sansregular'; 
+		background: $yellowColor; 
+		color: $blueColor; 
+		tr{
+			margin: 10px 0px;
+			td{
+				margin: 5px;
+				text-align:center; 
+				padding-top:5px; 
+				padding-bottom:5px;
+				div{
+					width: 30px;
+					height: 30px;
+					-moz-border-radius: 15px;
+					-webkit-border-radius: 15px;
+					border-radius: 15px;
+					background-color: $calendarDayColor; 
+					color: $whiteColor;
+					padding-top: 3px;
+					cursor: pointer;
+					font-size: 14px;
+					font-family: 'noto_sansregular';
+				}
+				div:hover{
+					background-color: $blueColor;
+				}
+				.currentDay{
+					background-color: $redColor; 
+				}
+				.event_exists{
+					background-color: $blueColor;
+				}
+			}
+		}
+		#title-calendar{ 
+			position:relative; 
+			text-align:center;
+			a{
+				text-decoration:none; 
+				color: $whiteColor;  
+				width:18px; 
+				height:18px; 
+				padding: 0 20px;
+				font-family: 'Roboto'; 
+			}
+			a:hover{
+				text-decoration:underline;
+			}
+		}
+		.day_numbers:hover{ 
+			// background:#ad443c; 
+			// color:#fff 
+		}
+		a{
+			color: black;
+		}
+		.weekday{ 
+			width:25px; 
+		}
+	}
+	
+}

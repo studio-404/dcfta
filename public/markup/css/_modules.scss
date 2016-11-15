@@ -12,7 +12,7 @@
 		height: 2px;
 		background-color: $blueColor;
 		position: absolute;
-		top: 12px;
+		top: 13px;
 		z-index: 1;
 	}
 	.title{
@@ -35,6 +35,38 @@
 	font-family: "noto_sansregular"; 
 	font-size: 20px;
 	color: $blueColor; 
+	p{
+		font-size: 20px;
+		color: #3d3d3d;
+		font-family: "noto_sansregular"; 
+	}
+	ul{
+		margin: 20px $zero;
+		padding: $zero; 
+		list-style-type: none;
+		li{
+			font-size: 20px;
+			color: #3d3d3d;
+			font-family: "noto_sansregular"; 
+			padding-left: 20px;
+			position: relative;
+			a{
+				color: $blueColor;
+			}
+		}
+		li:after{
+			content: '';
+			width: 10px;
+			height: 10px;
+			background-color: $blueColor; 
+			position: absolute;
+			left: 0;
+			top: 10px;
+			-moz-border-radius: 4px;
+			-webkit-border-radius: 4px;
+			border-radius: 4px;
+		}
+	}
 }
 .justTitle{
 	margin: $zero; 

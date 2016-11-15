@@ -352,7 +352,7 @@ main {
     height: 2px;
     background-color: #003399;
     position: absolute;
-    top: 12px;
+    top: 13px;
     z-index: 1; }
   .headerText .title {
     margin: 0px;
@@ -373,6 +373,33 @@ main {
   font-family: "noto_sansregular";
   font-size: 20px;
   color: #003399; }
+  .mainText p {
+    font-size: 20px;
+    color: #3d3d3d;
+    font-family: "noto_sansregular"; }
+  .mainText ul {
+    margin: 20px 0px;
+    padding: 0px;
+    list-style-type: none; }
+    .mainText ul li {
+      font-size: 20px;
+      color: #3d3d3d;
+      font-family: "noto_sansregular";
+      padding-left: 20px;
+      position: relative; }
+      .mainText ul li a {
+        color: #003399; }
+    .mainText ul li:after {
+      content: '';
+      width: 10px;
+      height: 10px;
+      background-color: #003399;
+      position: absolute;
+      left: 0;
+      top: 10px;
+      -moz-border-radius: 4px;
+      -webkit-border-radius: 4px;
+      border-radius: 4px; }
 
 .justTitle {
   margin: 0px;
@@ -598,6 +625,60 @@ footer {
           padding: 0px;
           outline: 0px;
           width: 60px; }
+
+.CalendarBox {
+  margin-top: 20px;
+  padding: 10px 10px 10px 15px;
+  background-color: #ffcd00;
+  width: 100%;
+  overflow: hidden; }
+  .CalendarBox table {
+    width: 100%;
+    font-size: 15px;
+    font-family: 'noto_sansregular';
+    background: #ffcd00;
+    color: #003399; }
+    .CalendarBox table tr {
+      margin: 10px 0px; }
+      .CalendarBox table tr td {
+        margin: 5px;
+        text-align: center;
+        padding-top: 5px;
+        padding-bottom: 5px; }
+        .CalendarBox table tr td div {
+          width: 30px;
+          height: 30px;
+          -moz-border-radius: 15px;
+          -webkit-border-radius: 15px;
+          border-radius: 15px;
+          background-color: #d6b419;
+          color: #ffffff;
+          padding-top: 3px;
+          cursor: pointer;
+          font-size: 14px;
+          font-family: 'noto_sansregular'; }
+        .CalendarBox table tr td div:hover {
+          background-color: #003399; }
+        .CalendarBox table tr td .currentDay {
+          background-color: #ff0000; }
+        .CalendarBox table tr td .event_exists {
+          background-color: #003399; }
+    .CalendarBox table #title-calendar {
+      position: relative;
+      text-align: center; }
+      .CalendarBox table #title-calendar a {
+        text-decoration: none;
+        color: #ffffff;
+        width: 18px;
+        height: 18px;
+        padding: 0 20px;
+        font-family: 'Roboto'; }
+      .CalendarBox table #title-calendar a:hover {
+        text-decoration: underline; }
+    .CalendarBox table a {
+      color: black; }
+    .CalendarBox table .weekday {
+      width: 25px; }
 
 /* Media Queries */
 @media (max-width: 1200px) {

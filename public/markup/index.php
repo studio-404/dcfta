@@ -67,7 +67,7 @@
 			<ul>
 				<li><a href="" class="active">Home</a></li>
 				<li class="sub" data-sub="i24">
-					<a href="?about" class="slide">About</a>  <i class="arrow"></i>
+					<a href="about.php" class="slide">About</a>  <i class="arrow"></i>
 					<ul class="i24">
 						<li><a href="">About us</a></li>
 						<li><a href="">Our Team</a></li>
@@ -257,6 +257,15 @@
 					</li>
 				</ul>
 				<section class="justTitle marginTop40">Event Calendar</section>
+				
+				<section class="CalendarBox">
+					<?php
+					@include('calendar.php'); 
+					$calendar = new calendar();
+					echo $calendar->index("en"); 
+					?>
+				</section>
+
 			</section>
 
 
