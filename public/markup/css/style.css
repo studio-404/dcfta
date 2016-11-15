@@ -45,20 +45,18 @@ header .top {
   height: 24px;
   width: 100%; }
   header .top .top-box {
-    width: 300px;
+    width: 265px;
     height: 24px;
     line-height: 24px;
     float: right; }
     header .top .top-box .social-networks {
-      width: 150px;
       height: 24px;
       line-height: 24px;
       float: left; }
       header .top .top-box .social-networks ul {
         list-style-type: none;
         height: 24px;
-        line-height: 24px;
-        width: 150px; }
+        line-height: 24px; }
         header .top .top-box .social-networks ul li {
           display: inline-block;
           height: 24px;
@@ -93,15 +91,14 @@ header .top {
           background-size: 16px 13px;
           background-position: center center; }
     header .top .top-box .languages {
-      width: 150px;
-      float: left;
+      width: 132.5px;
+      float: right;
       text-align: right; }
       header .top .top-box .languages ul {
-        width: 150px;
         list-style-type: none; }
         header .top .top-box .languages ul li {
           display: inline-block;
-          padding: 0px 10px;
+          padding: 0px 5px;
           margin: 0px;
           position: relative; }
           header .top .top-box .languages ul li a {
@@ -121,8 +118,8 @@ header .top {
           background-size: 1px 10px;
           background-repeat: no-repeat;
           position: absolute;
-          right: 0px;
-          top: 6px; }
+          right: -2px;
+          top: 7px; }
         header .top .top-box .languages ul li:last-child {
           margin-right: 0px; }
         header .top .top-box .languages ul li:last-child:after {
@@ -164,7 +161,7 @@ header .topBottom {
   header .topBottom .search {
     margin-top: 30px;
     float: right;
-    width: 300px;
+    width: 253px;
     position: relative; }
     header .topBottom .search i {
       width: 40px;
@@ -175,7 +172,7 @@ header .topBottom {
       top: 3px;
       color: #003399; }
     header .topBottom .search .input-field {
-      width: 300px;
+      width: 253px;
       height: 40px;
       line-height: 40px; }
       header .topBottom .search .input-field input {
@@ -217,11 +214,11 @@ header .navigation {
         font-weight: bold; }
     header .navigation ul li:after {
       content: '';
-      width: 2px;
+      width: 1px;
       height: 30px;
       background-image: url("../img/line2.png");
       background-repeat: no-repeat;
-      background-size: 2px 30px;
+      background-size: 1px 30px;
       position: absolute;
       right: 0px;
       top: 10px; }
@@ -343,10 +340,10 @@ main {
     margin: 0px;
     padding: 0px;
     width: 100%;
-    height: 2px;
+    height: 1px;
     background-color: #003399;
     position: absolute;
-    top: 13px;
+    top: 15px;
     z-index: 1; }
   .headerText .title {
     margin: 0px;
@@ -410,16 +407,19 @@ main {
   list-style-type: none; }
   .usefullLinks li {
     width: 100%;
-    line-height: 45px;
-    height: 45px;
+    line-height: 50px;
+    height: 50px;
     background-color: #f2f3f6;
-    margin: 10px 0 10px 0;
+    margin: 5px 0 5px 0;
     position: relative;
     -webkit-transition: background-color 500ms linear;
     -moz-transition: background-color 500ms linear;
     -o-transition: background-color 500ms linear;
     -ms-transition: background-color 500ms linear;
-    transition: background-color 500ms linear; }
+    transition: background-color 500ms linear;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px; }
     .usefullLinks li a {
       text-decoration: none;
       display: block;
@@ -428,7 +428,7 @@ main {
       position: absolute;
       color: #003399; }
       .usefullLinks li a img {
-        margin: 10px;
+        margin: 12px 10px 10px 10px;
         padding: 0px;
         border: 0px;
         outline: 0px;
@@ -438,7 +438,7 @@ main {
       .usefullLinks li a span {
         font-family: "noto_sansregular";
         font-size: 15px;
-        line-height: 45px;
+        line-height: 50px;
         float: left; }
     .usefullLinks li a:hover {
       color: #ffffff; }
@@ -504,10 +504,12 @@ main {
         color: #ffffff;
         width: calc(100% - 60px); }
         .files .file a .title span {
-          text-decoration: underline; }
+          text-decoration: underline;
+          font-weight: bold; }
         .files .file a .title b {
           text-decoration: none;
-          color: #ffcd00; }
+          color: #ffcd00;
+          font-weight: 500; }
 
 .files-mobile {
   display: none; }
@@ -551,6 +553,7 @@ main {
       padding: 0px;
       font-family: "noto_sansregular";
       font-size: 15px;
+      font-weight: bold;
       color: #003399;
       line-height: 18px; }
     .newsBox a .text {
@@ -566,7 +569,7 @@ main {
     text-decoration: underline; }
 
 footer {
-  margin: 40px 0px 0px 0px;
+  margin: 150px 0px 0px 0px;
   padding: 20px 0px;
   width: 100%;
   min-height: 200px;
@@ -581,7 +584,12 @@ footer {
     footer .centerWidth a img {
       margin: 0;
       padding: 0;
-      width: 180px; }
+      width: 180px;
+      -moz-border-radius: 3px;
+      -webkit-border-radius: 3px;
+      border-radius: 3px; }
+  footer .centerWidth a .bigImage {
+    width: 286px; }
   footer .centerWidth p {
     margin: 0;
     padding: 0;
@@ -736,12 +744,27 @@ footer {
     height: 320px;
     background-color: #f2f2f2; }
 
+.material-tooltip {
+  background-color: #ffffff;
+  -webkit-box-shadow: 0px 0px 10px 0px #d7d7d7;
+  -moz-box-shadow: 0px 0px 10px 0px #d7d7d7;
+  box-shadow: 0px 0px 10px 0px #d7d7d7; }
+  .material-tooltip .backdrop {
+    background-color: #ffffff; }
+  .material-tooltip span {
+    font-size: 20px;
+    font-family: "noto_sansregular";
+    color: #3d3d3d; }
+
 .CalendarBox {
   margin-top: 20px;
   padding: 10px 10px 10px 15px;
   background-color: #ffcd00;
   width: 100%;
-  overflow: hidden; }
+  overflow: hidden;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px; }
   .CalendarBox table {
     width: 100%;
     font-size: 15px;
@@ -749,7 +772,8 @@ footer {
     background: #ffcd00;
     color: #003399; }
     .CalendarBox table tr {
-      margin: 10px 0px; }
+      margin: 10px 0px;
+      height: 45px; }
       .CalendarBox table tr td {
         margin: 5px;
         text-align: center;
@@ -773,18 +797,32 @@ footer {
           background-color: #ff0000; }
         .CalendarBox table tr td .event_exists {
           background-color: #003399; }
+    .CalendarBox table tr:first-child {
+      height: 20px; }
+    .CalendarBox table tr:nth-child(2) {
+      height: 10px; }
+      .CalendarBox table tr:nth-child(2) td {
+        height: 10px;
+        line-height: 10px; }
     .CalendarBox table #title-calendar {
       position: relative;
       text-align: center; }
       .CalendarBox table #title-calendar a {
         text-decoration: none;
-        color: #ffffff;
-        width: 18px;
-        height: 18px;
-        padding: 0 20px;
-        font-family: 'Roboto'; }
+        width: 10px;
+        height: 16px;
+        padding: 0 30px;
+        font-family: 'Roboto';
+        text-indent: -9999px;
+        background-repeat: no-repeat;
+        background-size: 10px 16px;
+        background-position: center center; }
+      .CalendarBox table #title-calendar a:first-child {
+        background-image: url("../img/calendarLeft.png"); }
+      .CalendarBox table #title-calendar a:last-child {
+        background-image: url("../img/calendarRight.png"); }
       .CalendarBox table #title-calendar a:hover {
-        text-decoration: underline; }
+        text-decoration: none; }
     .CalendarBox table a {
       color: black; }
     .CalendarBox table .weekday {
@@ -933,15 +971,15 @@ footer {
     font-size: 10px; } }
 @media (max-width: 380px) {
   header .top .top-box .social-networks {
-    width: 130px; }
+    width: 112.5px; }
     header .top .top-box .social-networks ul {
-      width: 130px; }
+      width: 112.5px; }
 
   header .top .top-box .languages {
     float: right;
-    width: 130px; }
+    width: 112.5px; }
     header .top .top-box .languages ul {
-      width: 130px; }
+      width: 112.5px; }
       header .top .top-box .languages ul li {
         padding: 0 5px; }
 

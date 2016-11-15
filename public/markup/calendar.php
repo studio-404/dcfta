@@ -81,10 +81,10 @@ class calendar{
 		}
 
 		/* onclick="hashx('?month=<?=$yy_month?>&amp;year=<?=$yy_year?>&amp;lang=<?=$_GET[lang]?>')" */
-		$this->out .= "<a href=\"javascript:void(0)\">".htmlentities("<")."</a>";
+		$this->out .= "<a href=\"javascript:void(0)\">&nbsp;</a>";
 		$this->out .= $this->title." ".$this->year;		
 		/* onclick="hashx('?month=<?=$xx_month?>&amp;year=<?=$xx_year?>&amp;lang=<?=$_GET[lang]?>')" */
-		$this->out .= "<a href=\"javascript:void(0)\">".htmlentities(">")."</a>";
+		$this->out .= "<a href=\"javascript:void(0)\">&nbsp;</a>";
 
 		$this->out .= "</td>\n";
 		$this->out .= "</tr>\n";
@@ -121,7 +121,7 @@ class calendar{
 			else
 			{
 				if($this->day_num==5 || $this->day_num==25){
-					$this->out .= "<td class='day_numbers'><div class=\"event_exists\">".$this->day_num."</div></td>"; 	
+					$this->out .= "<td class='day_numbers'><div class=\"event_exists tooltipped\" data-position=\"bottom\" data-delay=\"50\" data-tooltip=\"Meeting With International Donor organ\">".$this->day_num."</div></td>"; 	
 				}else{
 					$this->out .= "<td class='day_numbers'><div>".$this->day_num."</div></td>"; 
 				}
