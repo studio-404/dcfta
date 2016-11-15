@@ -104,7 +104,7 @@ header .top {
           header .top .top-box .languages ul li a {
             text-decoration: none;
             color: #fff;
-            font-family: "Roboto";
+            font-family: "noto_sansregular";
             font-size: 13px; }
           header .top .top-box .languages ul li a:hover {
             font-weight: bold; }
@@ -155,7 +155,7 @@ header .topBottom {
       clear: both;
       width: 100%;
       text-align: left;
-      font-family: "Roboto";
+      font-family: "noto_sansregular";
       font-size: 16px;
       color: #003399; }
   header .topBottom .search {
@@ -179,7 +179,7 @@ header .topBottom {
         width: calc(100% - 40px);
         line-height: 40px;
         padding-left: 40px;
-        font-family: 'Roboto';
+        font-family: 'noto_sansregular';
         font-size: 15px;
         color: #003399;
         border-bottom: 1px solid #003399; }
@@ -202,7 +202,7 @@ header .navigation {
         display: block;
         color: #ffffff;
         text-decoration: none;
-        font-family: 'Roboto';
+        font-family: 'noto_sansregular';
         font-size: 16px;
         padding: 0 10px; }
       header .navigation ul li .active {
@@ -330,7 +330,7 @@ main {
   clear: both; }
 
 .headerText {
-  margin: 0px;
+  margin: 0 0 10px 0;
   padding: 0px;
   width: 100%;
   line-height: 26px;
@@ -500,7 +500,7 @@ main {
         float: left;
         font-size: 15px;
         line-height: 18px;
-        font-family: 'Roboto';
+        font-family: 'noto_sansregular';
         color: #ffffff;
         width: calc(100% - 60px); }
         .files .file a .title span {
@@ -541,7 +541,7 @@ main {
       height: 30px;
       background-color: #003399; }
       .newsBox a .data p {
-        font-family: 'Roboto';
+        font-family: 'noto_sansregular';
         font-size: 13px;
         color: #ffffff; }
       .newsBox a .data p:first-child {
@@ -674,7 +674,7 @@ footer {
       margin-left: 10px;
       font-size: 18px;
       line-height: 30px;
-      font-family: "Roboto";
+      font-family: "noto_sansregular";
       color: #003399; }
 
 .contactDetails {
@@ -812,7 +812,7 @@ footer {
         width: 10px;
         height: 16px;
         padding: 0 30px;
-        font-family: 'Roboto';
+        font-family: 'noto_sansregular';
         text-indent: -9999px;
         background-repeat: no-repeat;
         background-size: 10px 16px;
@@ -913,7 +913,7 @@ footer {
           width: 100%; }
           .mobileNavigation .blueBox ul li a {
             color: #ffffff;
-            font-family: 'Roboto';
+            font-family: 'noto_sansregular';
             font-size: 16px;
             text-decoration: none; }
           .mobileNavigation .blueBox ul li .active {

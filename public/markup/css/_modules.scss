@@ -1,5 +1,5 @@
 .headerText{
-	margin: $zero;
+	margin: 0 0 10px 0;
 	padding: $zero;
 	width: $fullWidth;
 	line-height: 26px;
@@ -185,7 +185,7 @@
 				float: left;
 				font-size: 15px;
 				line-height: 18px;
-				font-family: 'Roboto';
+				font-family: 'noto_sansregular';
 				color: $whiteColor;
 				width: calc(#{$fullWidth} - 60px);
 				span{
@@ -233,7 +233,7 @@
 			height: 30px;
 			background-color: $blueColor;
 			p{
-				font-family: 'Roboto'; 
+				font-family: 'noto_sansregular'; 
 				font-size: 13px;
 				color: $whiteColor;
 			}
@@ -396,7 +396,7 @@ footer{
 			margin-left: 10px;
 			font-size: 18px;
 			line-height: 30px;
-			font-family: "Roboto";
+			font-family: "noto_sansregular";
 			color: $blueColor;
 		}
 

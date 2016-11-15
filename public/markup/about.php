@@ -7,10 +7,10 @@
 	<title>DCFTA</title>
 	<script src="js/jquery-3.1.1.min.js" type="text/javascript"></script>
 	<script src="js/materialize.min.js" type="text/javascript"></script>
-	<script src="js/script.js" type="text/javascript"></script>
+	<script src="js/script.js?time=<?=time()?>" type="text/javascript"></script>
 	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 	<link rel="stylesheet" type="text/css" href="css/materialize.min.css" />
-	<link rel="stylesheet" type="text/css" href="css/style.css" />
+	<link rel="stylesheet" type="text/css" href="css/style.css?time=<?=time()?>" />
 </head>
 <body>
 
