@@ -73,10 +73,10 @@
 						<li><a href=""><span>Our Team</span></a></li>
 					</ul>
 				</li>
-				<li><a href=""><span>Agreement</span></a></li>
-				<li><a href=""><span>Implimentation</span></a></li>
+				<li><a href="agreement.php"><span>Agreement</span></a></li>
+				<li><a href="implimentation.php"><span>Implimentation</span></a></li>
 				<li><a href="coordination.php"><span>Coordination</span></a></li>
-				<li><a href=""><span>Legislation</span></a></li>
+				<li><a href="legislation.php"><span>Legislation</span></a></li>
 				<li><a href="is.php"><span>International Support</span></a></li>
 				<li class="sub" data-sub="i25">
 					<a href="dcfta.php" class="slide"><span>DCFTA for bussiness</span></a> <i class="arrow"></i>

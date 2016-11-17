@@ -644,3 +644,155 @@ footer{
 		color: #3d3d3d; 
 	}
 }
+.collapsible{
+	border: none !important;
+	box-shadow: none !important;
+	.active{
+		.collapsible-header{
+			.blueArraw-icon{
+				transform: rotate(90deg);
+			}
+		}
+	}
+	.collapsible-header{
+		margin-bottom: 10px !important;
+		border: none !important;
+		-webkit-box-shadow: 0px 0px 10px 0px rgba(215,215,215,1) !important;
+		-moz-box-shadow: 0px 0px 10px 0px rgba(215,215,215,1) !important;
+		box-shadow: 0px 0px 10px 0px rgba(215,215,215,1) !important;
+		span{
+			font-size: 15px;
+			font-family: "noto_sansregular"; 
+			color: $blueColor;
+		}
+	}
+	.collapsible-body{
+		margin-top: -10px;
+		margin-bottom: 10px !important;
+		-webkit-box-shadow: 0px 0px 10px 0px rgba(215,215,215,1) !important;
+		-moz-box-shadow: 0px 0px 10px 0px rgba(215,215,215,1) !important;
+		box-shadow: 0px 0px 10px 0px rgba(215,215,215,1) !important;
+		position: relative;
+		.hideShadow{
+			margin: $zero;
+			padding: $zero; 
+			width: $fullWidth; 
+			height: 20px;
+			position: absolute;
+			top: -10px;
+			left: $zero;
+			background-color: $whiteColor;
+		}
+		p{
+			padding: 0px;
+		}
+	}
+}
+.penIcon{
+	margin: $zero; 
+	padding: $zero; 
+	width: 16px;
+	height: 16px;
+	float: left;
+	background-image: url('../img/pen.png');
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: 16px 16px; 
+}
+.blueArraw-icon{
+	margin: $zero;
+	padding: $zero;
+	width: 16px !important;
+	height: 16px !important;
+	background-image: url('../img/icon-arrow.png');
+	background-size: 16px 16px;
+	background-repeat: no-repeat;
+	background-position: center center; 
+}
+.fileTree{
+	margin: 0;
+	padding: 20px 20px 0 20px;
+	width: $fullWidth; 
+	min-height: 80px;
+	ul{
+		margin: $zero;
+		padding: $zero;
+		list-style-type: none;
+		li{
+			margin: $zero;
+			padding: 3px 0px;
+			width: $fullWidth;			
+			line-height: 30px;
+			clear: both;
+			.line{
+				margin: $zero;
+				padding: $zero;
+				width: $fullWidth; 
+				height: 1px;
+				background-color: #d7d7d7;
+				clear: both;
+			}
+			.icon{
+				margin: $zero;
+				padding: $zero;
+				width: 16px;
+				line-height: 30px;
+				height: 30px;
+				background-image: url('../img/pdf.png');
+				background-size: 16px 20px;
+				background-repeat: no-repeat;
+				background-position: center center;
+				float: left;				
+			}
+			.text{
+				margin: 0px  0px 0px 10px;
+				padding: $zero;
+				float: left;
+				line-height: 30px;
+				height: 30px;
+				a{
+					margin: $zero;
+					padding: $zero; 
+					text-decoration: underline;
+					font-family: "noto_sansregular";
+					font-size: 15px;
+					font-weight: bold;
+					color: $blueColor;
+					display: block;
+					line-height: 30px;
+					height: 30px;
+				}
+			}
+			.rightSide{
+				margin: $zero;
+				padding: $zero; 
+				float: right;
+				font-family: "noto_sansregular";
+				font-size: 13px;
+				color: #666666;
+				line-height: 30px;
+				height: 30px;
+			}
+			ul{
+				margin-left: 20px;
+				li:first-child{
+					border-top: 0px;
+				}
+			}
+		}
+	}
+}
+.commentForm{
+	display: none;
+}
+.timeLeft{
+	margin: $zero;
+	padding: $zero;
+	font-size: 13px;
+	font-family: "noto_sansregular";
+	color: $blueColor;
+	span{
+		padding: 0 5px;
+		background-color: $yellowColor;
+	} 
+}

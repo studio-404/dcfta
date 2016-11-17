@@ -40,6 +40,18 @@ body {
 .marginTop40 {
   margin-top: 40px !important; }
 
+.marginTop14 {
+  margin-top: 14px !important; }
+
+.padding20 {
+  padding: 20px !important; }
+
+.height30 {
+  height: 30px !important; }
+
+.cursorPointer {
+  cursor: pointer !important; }
+
 header .top {
   background-color: #ff0000;
   height: 24px;
@@ -890,6 +902,138 @@ footer {
     font-size: 20px;
     font-family: "noto_sansregular";
     color: #3d3d3d; }
+
+.collapsible {
+  border: none !important;
+  box-shadow: none !important; }
+  .collapsible .active .collapsible-header .blueArraw-icon {
+    transform: rotate(90deg); }
+  .collapsible .collapsible-header {
+    margin-bottom: 10px !important;
+    border: none !important;
+    -webkit-box-shadow: 0px 0px 10px 0px #d7d7d7 !important;
+    -moz-box-shadow: 0px 0px 10px 0px #d7d7d7 !important;
+    box-shadow: 0px 0px 10px 0px #d7d7d7 !important; }
+    .collapsible .collapsible-header span {
+      font-size: 15px;
+      font-family: "noto_sansregular";
+      color: #003399; }
+  .collapsible .collapsible-body {
+    margin-top: -10px;
+    margin-bottom: 10px !important;
+    -webkit-box-shadow: 0px 0px 10px 0px #d7d7d7 !important;
+    -moz-box-shadow: 0px 0px 10px 0px #d7d7d7 !important;
+    box-shadow: 0px 0px 10px 0px #d7d7d7 !important;
+    position: relative; }
+    .collapsible .collapsible-body .hideShadow {
+      margin: 0px;
+      padding: 0px;
+      width: 100%;
+      height: 20px;
+      position: absolute;
+      top: -10px;
+      left: 0px;
+      background-color: #ffffff; }
+    .collapsible .collapsible-body p {
+      padding: 0px; }
+
+.penIcon {
+  margin: 0px;
+  padding: 0px;
+  width: 16px;
+  height: 16px;
+  float: left;
+  background-image: url("../img/pen.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 16px 16px; }
+
+.blueArraw-icon {
+  margin: 0px;
+  padding: 0px;
+  width: 16px !important;
+  height: 16px !important;
+  background-image: url("../img/icon-arrow.png");
+  background-size: 16px 16px;
+  background-repeat: no-repeat;
+  background-position: center center; }
+
+.fileTree {
+  margin: 0;
+  padding: 20px 20px 0 20px;
+  width: 100%;
+  min-height: 80px; }
+  .fileTree ul {
+    margin: 0px;
+    padding: 0px;
+    list-style-type: none; }
+    .fileTree ul li {
+      margin: 0px;
+      padding: 3px 0px;
+      width: 100%;
+      line-height: 30px;
+      clear: both; }
+      .fileTree ul li .line {
+        margin: 0px;
+        padding: 0px;
+        width: 100%;
+        height: 1px;
+        background-color: #d7d7d7;
+        clear: both; }
+      .fileTree ul li .icon {
+        margin: 0px;
+        padding: 0px;
+        width: 16px;
+        line-height: 30px;
+        height: 30px;
+        background-image: url("../img/pdf.png");
+        background-size: 16px 20px;
+        background-repeat: no-repeat;
+        background-position: center center;
+        float: left; }
+      .fileTree ul li .text {
+        margin: 0px  0px 0px 10px;
+        padding: 0px;
+        float: left;
+        line-height: 30px;
+        height: 30px; }
+        .fileTree ul li .text a {
+          margin: 0px;
+          padding: 0px;
+          text-decoration: underline;
+          font-family: "noto_sansregular";
+          font-size: 15px;
+          font-weight: bold;
+          color: #003399;
+          display: block;
+          line-height: 30px;
+          height: 30px; }
+      .fileTree ul li .rightSide {
+        margin: 0px;
+        padding: 0px;
+        float: right;
+        font-family: "noto_sansregular";
+        font-size: 13px;
+        color: #666666;
+        line-height: 30px;
+        height: 30px; }
+      .fileTree ul li ul {
+        margin-left: 20px; }
+        .fileTree ul li ul li:first-child {
+          border-top: 0px; }
+
+.commentForm {
+  display: none; }
+
+.timeLeft {
+  margin: 0px;
+  padding: 0px;
+  font-size: 13px;
+  font-family: "noto_sansregular";
+  color: #003399; }
+  .timeLeft span {
+    padding: 0 5px;
+    background-color: #ffcd00; }
 
 .CalendarBox {
   margin-top: 20px;

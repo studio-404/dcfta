@@ -73,10 +73,10 @@
 						<li><a href=""><span>Our Team</span></a></li>
 					</ul>
 				</li>
-				<li><a href=""><span>Agreement</span></a></li>
-				<li><a href=""><span>Implimentation</span></a></li>
+				<li><a href="agreement.php"><span>Agreement</span></a></li>
+				<li><a href="implimentation.php"><span>Implimentation</span></a></li>
 				<li><a href="coordination.php"><span>Coordination</span></a></li>
-				<li><a href=""><span>Legislation</span></a></li>
+				<li><a href="legislation.php"><span>Legislation</span></a></li>
 				<li><a href="is.php" class="active"><span>International Support</span></a></li>
 				<li class="sub" data-sub="i25">
 					<a href="dcfta.php" class="slide"><span>DCFTA for bussiness</span></a> <i class="arrow"></i>
@@ -131,7 +131,7 @@
 							In September 2015, heads of state and government at the UN Summit in New York adopted the Agenda 2030 for Sustainable Development comprising the Sustainable Development Goals (SDGs). Its 17 goals go far beyond the millennium development goals, which expired at the end of 2015, and they also apply equally to all countries.</p>
 
 							<p class="linkWithIcon marginTop40">
-								<a href="">
+								<a href="https://www.giz.de" target="_blank">
 									<img src="img/icon-link.png" alt="" />
 									<span>https://www.giz.de</span>
 								</a>

@@ -106,6 +106,15 @@ var leftNavYellowBoxChangeHeight = function(){
 	}, 200); 	
 };
 
+var openComment = function(cid){
+	console.log("shevida "+$('.commentForm:visible').length);
+	if($('.commentForm:visible').length == 0)
+	{
+		$('.commentForm').slideDown();
+	}
+	$('.commentForm #commentId').val(cid);
+};
+
 $(document).ready(function(){
 	filesMobilize();
 	leftNavYellowBoxChangeHeight(); 
