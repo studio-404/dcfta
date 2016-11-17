@@ -8,6 +8,7 @@
 	<script src="js/jquery-3.1.1.min.js" type="text/javascript"></script>
 	<script src="js/materialize.min.js" type="text/javascript"></script>
 	<script src="js/script.js?time=<?=time()?>" type="text/javascript"></script>
+	<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 	<link rel="stylesheet" type="text/css" href="css/materialize.min.css" />
 	<link rel="stylesheet" type="text/css" href="css/style.css?time=<?=time()?>" />
@@ -67,7 +68,7 @@
 			<ul>
 				<li><a href="index.php"><span>Home</span></a></li>
 				<li class="sub" data-sub="i24">
-					<a href="about.php" class="slide active"><span>About</span></a>  <i class="arrow"></i>
+					<a href="about.php" class="slide"><span>About</span></a>  <i class="arrow"></i>
 					<ul class="i24">
 						<li><a href=""><span>About us</span></a></li>
 						<li><a href=""><span>Our Team</span></a></li>
@@ -75,7 +76,7 @@
 				</li>
 				<li><a href=""><span>Agreement</span></a></li>
 				<li><a href=""><span>Implimentation</span></a></li>
-				<li><a href="coordination.php"><span>Coordination</span></a></li>
+				<li><a href="coordination.php" class="active"><span>Coordination</span></a></li>
 				<li><a href=""><span>Legislation</span></a></li>
 				<li><a href="is.php"><span>International Support</span></a></li>
 				<li class="sub" data-sub="i25">
@@ -112,77 +113,113 @@
 			<section class="col s12 m6 l8 leftSide">
 				<section class="headerText">
 					<div class="line"></div>
-					<div class="title">About DCFTA</div>
+					<div class="title">Coordination</div>
 				</section>
 				<section class="mainText">
-					<img src="img/about.jpg" width="100%" alt="" /><br />
-					<p>Georgia continued its economic progress since, "moving from a near-failed state in 2003 to a relatively well-functioning market economy in 2014".[19] In 2007, the World Bank named Georgia the World's number one economic reformer.
-Georgia's economy is supported by a relatively free and transparent atmosphere in the country. According to Transparency International's 2015 report, Georgia is </p>
-					<br>
-					<p>Georgia continued its economic progress since, "moving from a near-failed state in 2003 to a relatively well-functioning market economy in 2014".[19] In 2007, the World Bank named Georgia the World's number one economic reformer.
-Georgia's economy is supported by a relatively free and transparent atmosphere in the country. According to Transparency International's 2015 report, Georgia is </p>
+					<p>The economy of Georgia is an emerging free market. Its gross domestic product fell sharply following the collapse of the Soviet Union but recovered in the mid-2000s, growing in double digits thanks to the economic and democratic reforms brought by the peaceful Rose Revolution. Georgia continued its economic progress since, "moving from a near-failed state in 2003 to a relatively well-functioning market economy in 2014".[19] In 2007, the World Bank named Georgia the World's number one economic reformer,[20][21] and has consistently ranked the country at the top of its ease of doing business index.</p>
 
-					<ul>
-						<li>Its gross domestic product fell sharply </li>
-						<li>Georgia continued its economic progress since</li>
-						<li>In 2007, the World Bank named Georgia the World's number one</li>
-						<li>The country at the top of its ease of doing business index.</li>
-					</ul>
+					<p>Georgia's economy is supported by a relatively free and transparent atmosphere in the country. According to Transparency International's 2015 report, Georgia is the least corrupt nation in the Black Sea region, outperforming all of its immediate neighbors, as well as nearby European Union states.[22] With a mixed news media environment, Georgia is also the only country in its immediate neighborhood where the press is not deemed unfree.[23]</p>
 				</section>
-				
-				
 
+				<div id="chart_div"></div>
+
+				<script type="text/javascript">
+			      google.charts.load('current', {packages:["orgchart"]});
+			      google.charts.setOnLoadCallback(drawChart);
+
+			      function drawChart() {
+			        var data = new google.visualization.DataTable();
+			        data.addColumn('string', 'Name');
+			        data.addColumn('string', 'Manager');
+			        data.addColumn('string', 'ToolTip');
+
+			        // For each orgchart box, provide the name, manager, and tooltip to show.
+			        data.addRows([
+			          [{v:'n1', f:'European Integration Commission' }, '', 'Head of the International Relations and EU<br /> <br />Law Approximation Division National Food Agency Ministry of Agriculture of Georgia Tel/office: +995 2919167 Tel/mob: 577 730003 Address: #6 marshal gelovani Ave. lisi, Georgia, 0159.'],
+			          [{v:'n2', f:'DCFTA- the implementation of the Sub-Commission, the Ministry of Economy and Sustainable Development of the guidance'}, 'n1', 'the president'],
+					  [{v:'n3', f:'Ministry of Environment Protection'}, 'n2', 'the president'], 		          
+					  [{v:'n4', f:'Agriculture'}, 'n2', 'the president'], 	          
+					  [{v:'n5', f:'Energy'}, 'n2', 'the president'], 	          
+					  [{v:'n6', f:'Ministry of Finance'}, 'n2', 'the president'], 	          
+					  [{v:'n7', f:'Patent'}, 'n2', 'the president'], 	          
+					  [{v:'n8', f:'Procurement Agency'}, 'n2', 'the president'], 	          
+					  [{v:'n9', f:'Competition Agency'}, 'n2', 'the president'], 	          
+					  [{v:'n10', f:'Communications Commission'}, 'n2', 'the president'] 	          
+			        ]);
+
+			         data.setRowProperty(2, 'selectedStyle', 'background-color:#00FF00');
+
+			        // Create the chart.
+			        var chart = new google.visualization.OrgChart(document.getElementById('chart_div'));
+			        // Draw the chart, setting the allowHtml option to true for the tooltips.
+			        chart.draw(data, {allowHtml:true, color:"#f2f3f6"  });
+
+
+			        $(".google-visualization-orgchart-node").each(function(){
+			        	var chartTitle = $(this).attr("title"); 
+				        if(chartTitle!="" || typeof chartTitle !== "undefined"){
+				        	$(this).attr("data-position", "bottom");
+				        	$(this).attr("data-delay", "50");
+				        	$(this).attr("data-tooltip", chartTitle);
+				        	$(this).attr("title","");
+				        	$(this).addClass("tooltipped");
+				        	$('.tooltipped').tooltip({delay: 50});
+				        	$(".material-tooltip").css({"background-color":"#ffcd00","max-width":"30%", });
+				        	$(".material-tooltip span").css({"color":"#363636","font-size":"15px"});
+				        	$(".backdrop").css("background-color", "#ffcd00");
+				        }
+			        });
+			        
+			      }
+			   </script>
 			</section>
-			<section class="col s12 m6 l4 rightSide">
+
+			<section class="col s12 m6 l4 rightSite">
 				<section class="justTitle">State Agencies</section>
 				<ul class="usefullLinks">
 					<li>
 						<a href="" class="waves-effect waves-light">
-							<img src="img/eur2.png" alt="" />
+							<img src="img/eur2.png" alt="">
 							<span>European Union Commission</span>
 						</a>
 					</li>
 					<li>
 						<a href="" class="waves-effect waves-light">
-							<img src="img/eur2.png" alt="" />
+							<img src="img/eur2.png" alt="">
 							<span>European Parliament</span>
 						</a>
 					</li>
 					<li>
-						<a href="" class="waves-effect waves-light"><img src="img/eur2.png" alt="" />
+						<a href="" class="waves-effect waves-light"><img src="img/eur2.png" alt="">
 							<span>European consillium</span>
 						</a>
 					</li>
 					<li>
 						<a href="" class="waves-effect waves-light">
-							<img src="img/eur2.png" alt="" />
+							<img src="img/eur2.png" alt="">
 							<span>European central bank</span>
 						</a>
 					</li>
 					<li>
 						<a href="" class="waves-effect waves-light">
-							<img src="img/eur2.png" alt="" />
+							<img src="img/eur2.png" alt="">
 							<span>European investment bank</span>
 						</a>
 					</li>
 					<li>
 						<a href="" class="waves-effect waves-light">
-							<img src="img/eur2.png" alt="" />
+							<img src="img/eur2.png" alt="">
 							<span>European ombudsmen</span>
 						</a>
 					</li>
 					<li>
 						<a href="" class="waves-effect waves-light">
-							<img src="img/eur2.png" alt="" />
+							<img src="img/eur2.png" alt="">
 							<span>European youth parliament</span>
 						</a>
 					</li>
 				</ul>
-
 			</section>
-
-
-
 		</section>
 	</section>	
 </main>

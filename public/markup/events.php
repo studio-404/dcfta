@@ -90,8 +90,8 @@
 						<li><a href=""><span>Custom procedures</span></a></li>
 					</ul>
 				</li>
-				<li><a href="news.php"><span>News &amp; Events</span></a></li>
-				<li><a href="contact.php" class="active"><span>Contact</span></a></li>
+				<li><a href="news.php" class="active"><span>News &amp; Events</span></a></li>
+				<li><a href="contact.php"><span>Contact</span></a></li>
 			</ul>
 		</section>
 
@@ -109,22 +109,22 @@
 <main>
 	<section class="centerWidth">
 		<section class="row">
-			
-			<section class="col s12 m6 l8 leftSide">
+			<section class="col s12 m6 l8">
 				<section class="headerText">
 					<div class="line"></div>
-					<div class="title">Get in touch</div>
+					<div class="title">Events</div>
 				</section>
-				
-				<section class="contactForm">
+				<section class="event">
+					<img src="img/event.jpg" width="350" height="218" alt="" align="left" style="margin: 0 10px 10px 0px" />
+					<section class="justTitle">Meeting with International donor organisations</section> 
+					<section class="justDate">published: 12 January 2017</section>
+					<section class="mainText"><p>The economy of Georgia is an emerging free market. Its gross domestic product fell sharply following the collapse of the Soviet Union but recovered in the mid-2000s, growing in double digits  The economy of Georgia is an emerging free market. Its gross domestic product fell sharply following the collapse of the Soviet Union but recovered in the mid-2000s, growing in double digits  reforms brought by the peaceful Rose Revolution. </p>
+
+					<section class="justTitle marginTop40">Register for this event</section>
+					
+					<section class="contactForm">
 					<form action="" method="post">
-						<section class="marginminus10">
-							<div class="input-field col s12 m6 l4">
-					          <input id="subject" type="text" class="validate">
-					          <label for="subject">Subject</label>
-					        </div>
-					        <div class="clearer"></div>
-							
+						<section class="marginminus10">							
 							<div class="input-field col s12 m6 l4">
 					          <input id="first_name" type="text" class="validate">
 					          <label for="first_name">Your Name</label>
@@ -145,39 +145,69 @@
 					          <label for="first_name">Phone</label>
 					        </div>
 
-					        <div class="input-field col s12 m6 l8">
-					          <input id="first_name" type="text" class="validate">
-					          <label for="first_name">Comment</label>
-					        </div>
-
 					        <div class="col s12 m12 l12">
-					        	<a class="waves-effect waves-light btn submit">Submit</a>
+					        	<a class="waves-effect waves-light btn submit" style="text-decoration: none;">Submit</a>
 					        </div>
 				        </section>
 				        
 					</form>
 				</section>
 
-			</section>
 
-			<section class="col s12 m6 l4 rightSide">
-				<section class="justTitle">Contact details</section>
-				<section class="contactDetails">
-					<p>Tbilisi Office</p>
-					<p>Address: 18 Chovelidze str. 0102</p>
-					<p>Tbilisi, Georgia</p>
-					<p>Hotline: +995 32 2 95 00 07</p>
-					<p>E-mail: info@dcfta.org.ge</p>
-				</section>
 
-				<section class="map">
-					<section class="header">MOEFSD</section>
-					<section class="init-map"></section>
+					</section>
 				</section>
 			</section>
+			<section class="col s12 m6 l4">
+				<section class="justTitle">Event Calendar</section>
+				<section class="CalendarBox">
+					<?php 
+					@include('calendar.php'); 
+					$calendar = new calendar();
+					echo $calendar->index("en"); 
+					?>
+				</section>
 
-		</section>
-	</section>	
+				<section class="justTitle marginTop40">Publications</section>
+				<section class="files files-desktop" style="margin: 10px 0px; width: 100%">
+					<section class="col s12 m12 l12 reports">
+						<section class="file">
+							<a href="">
+								<p class="pdfIcon"></p>
+								<p class="downloadIcon"></p>
+								<p class="title"><span>Georgia-EU Deep & Comprehensive Free Trade Area  Report 2016</span><br /><b>355kb</b></p>
+							</a>
+						</section>
+
+						<section class="file">
+							<a href="">
+								<p class="pdfIcon"></p>
+								<p class="downloadIcon"></p>
+								<p class="title"><span>Georgia-EU Deep & Comprehensive Free Trade Area  Report 2016</span><br /><b>355kb</b></p>
+							</a>
+						</section>
+
+						<section class="file">
+							<a href="">
+								<p class="pdfIcon"></p>
+								<p class="downloadIcon"></p>
+								<p class="title"><span>Georgia-EU Deep & Comprehensive Free Trade Area  Report 2016</span><br /><b>355kb</b></p>
+							</a>
+						</section>
+
+						<section class="file">
+							<a href="">
+								<p class="pdfIcon"></p>
+								<p class="downloadIcon"></p>
+								<p class="title"><span>Georgia-EU Deep & Comprehensive Free Trade Area  Report 2016</span><br /><b>355kb</b></p>
+							</a>
+						</section>
+					</section>
+				</section>
+			</section>
+
+		</section>	
+	</section>
 </main>
 
 <footer>

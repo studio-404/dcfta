@@ -77,7 +77,7 @@
 				<li><a href=""><span>Implimentation</span></a></li>
 				<li><a href="coordination.php"><span>Coordination</span></a></li>
 				<li><a href=""><span>Legislation</span></a></li>
-				<li><a href="is.php"><span>International Support</span></a></li>
+				<li><a href="is.php" class="active"><span>International Support</span></a></li>
 				<li class="sub" data-sub="i25">
 					<a href="dcfta.php" class="slide"><span>DCFTA for bussiness</span></a> <i class="arrow"></i>
 					<ul class="i25">
@@ -91,7 +91,7 @@
 					</ul>
 				</li>
 				<li><a href="news.php"><span>News &amp; Events</span></a></li>
-				<li><a href="contact.php" class="active"><span>Contact</span></a></li>
+				<li><a href="contact.php"><span>Contact</span></a></li>
 			</ul>
 		</section>
 
@@ -109,73 +109,103 @@
 <main>
 	<section class="centerWidth">
 		<section class="row">
-			
-			<section class="col s12 m6 l8 leftSide">
+			<section class="col s12 m12 l12 leftSide">
 				<section class="headerText">
 					<div class="line"></div>
-					<div class="title">Get in touch</div>
+					<div class="title">EU for DCFTA</div>
 				</section>
 				
-				<section class="contactForm">
-					<form action="" method="post">
-						<section class="marginminus10">
-							<div class="input-field col s12 m6 l4">
-					          <input id="subject" type="text" class="validate">
-					          <label for="subject">Subject</label>
-					        </div>
-					        <div class="clearer"></div>
+				<section class="marginTop40">
+						<section class="mainText">
+							<img src="img/euroBank.jpg" width="350" alt="" />
+							<p class="marginTop40"></p>
+							<p><strong>GIZ - Deutche Gesellschaft fur internationale Zusammenarbeit (GIZ) GmbH </strong></p>
+							<p>The economy of Georgia is an emerging free market. Its gross domestic product fell sharply following the collapse of the Soviet Union but recovered in the mid-2000s....
+							GIZ offers customised solutions to complex challenges. We are an experienced service provider and assist the erman Government.</p><br />
+
+							<p><strong>Projects</strong></p>
+							<p>The economy of Georgia is an emerging free market. Its gross domestic product fell sharply following the collapse of the Soviet Union but recovered in the mid-2000s....
+							GIZ offers customised solutions to complex challenges. We are an <a href="">experienced service provider</a> and assist the erman Government.</p>
+							<br />
+							<p>“Agenda 2030”<br />
+							In September 2015, heads of state and government at the UN Summit in New York adopted the Agenda 2030 for Sustainable Development comprising the Sustainable Development Goals (SDGs). Its 17 goals go far beyond the millennium development goals, which expired at the end of 2015, and they also apply equally to all countries.</p>
+
+							<p class="linkWithIcon marginTop40">
+								<a href="">
+									<img src="img/icon-link.png" alt="" />
+									<span>https://www.giz.de</span>
+								</a>
+							</p>
+						</section>
+						<section class="clearer"></section>
+						<section class="marginminus10 marginTop40">
+							<p class="marginTop40">&nbsp;</p>
+							<section class="col s12 m6 l3 InternationalSupport">
+								<a href="http://dcfta.404.ge/public/markup/is_inside.php">
+									<section class="box" style="min-height: auto">
+										<img src="img/euroBank.jpg" alt="" />
+									</section>
+								</a>
+							</section>
+
+							<section class="col s12 m6 l3 InternationalSupport">
+								<a href="http://dcfta.404.ge/public/markup/is_inside.php">
+									<section class="box" style="min-height: auto">
+										<img src="img/euroBank.jpg" alt="" />
+									</section>
+								</a>
+							</section>
+							<section class="col s12 m6 l3 InternationalSupport">
+								<a href="http://dcfta.404.ge/public/markup/is_inside.php">
+									<section class="box" style="min-height: auto">
+										<img src="img/euroBank.jpg" alt="" />
+									</section>
+								</a>
+							</section>
+							<section class="col s12 m6 l3 InternationalSupport">
+								<a href="http://dcfta.404.ge/public/markup/is_inside.php">
+									<section class="box" style="min-height: auto">
+										<img src="img/euroBank.jpg" alt="" />
+									</section>
+								</a>
+							</section>
+							<section class="col s12 m6 l3 InternationalSupport">
+								<a href="http://dcfta.404.ge/public/markup/is_inside.php">
+									<section class="box" style="min-height: auto">
+										<img src="img/euroBank.jpg" alt="" />
+									</section>
+								</a>
+							</section>
+							<section class="col s12 m6 l3 InternationalSupport">
+								<a href="http://dcfta.404.ge/public/markup/is_inside.php">
+									<section class="box" style="min-height: auto">
+										<img src="img/euroBank.jpg" alt="" />
+									</section>
+								</a>
+							</section>
+							<section class="col s12 m6 l3 InternationalSupport">
+								<a href="http://dcfta.404.ge/public/markup/is_inside.php">
+									<section class="box" style="min-height: auto">
+										<img src="img/euroBank.jpg" alt="" />
+									</section>
+								</a>
+							</section>
+							<section class="col s12 m6 l3 InternationalSupport">
+								<a href="http://dcfta.404.ge/public/markup/is_inside.php">
+									<section class="box" style="min-height: auto">
+										<img src="img/euroBank.jpg" alt="" />
+									</section>
+								</a>
+							</section>
+
 							
-							<div class="input-field col s12 m6 l4">
-					          <input id="first_name" type="text" class="validate">
-					          <label for="first_name">Your Name</label>
-					        </div>
+						</section>
 
-					        <div class="input-field col s12 m6 l4">
-					          <input id="first_name" type="text" class="validate">
-					          <label for="first_name">Organization</label>
-					        </div>
-
-					        <div class="input-field col s12 m6 l4">
-					          <input id="first_name" type="text" class="validate">
-					          <label for="first_name">Email Address</label>
-					        </div>
-
-					        <div class="input-field col s12 m6 l4">
-					          <input id="first_name" type="text" class="validate">
-					          <label for="first_name">Phone</label>
-					        </div>
-
-					        <div class="input-field col s12 m6 l8">
-					          <input id="first_name" type="text" class="validate">
-					          <label for="first_name">Comment</label>
-					        </div>
-
-					        <div class="col s12 m12 l12">
-					        	<a class="waves-effect waves-light btn submit">Submit</a>
-					        </div>
-				        </section>
-				        
-					</form>
+						
 				</section>
+				
 
 			</section>
-
-			<section class="col s12 m6 l4 rightSide">
-				<section class="justTitle">Contact details</section>
-				<section class="contactDetails">
-					<p>Tbilisi Office</p>
-					<p>Address: 18 Chovelidze str. 0102</p>
-					<p>Tbilisi, Georgia</p>
-					<p>Hotline: +995 32 2 95 00 07</p>
-					<p>E-mail: info@dcfta.org.ge</p>
-				</section>
-
-				<section class="map">
-					<section class="header">MOEFSD</section>
-					<section class="init-map"></section>
-				</section>
-			</section>
-
 		</section>
 	</section>	
 </main>

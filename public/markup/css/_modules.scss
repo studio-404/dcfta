@@ -40,6 +40,11 @@
 		color: #3d3d3d;
 		font-family: "noto_sansregular"; 
 	}
+	a{
+		font-family: "noto_sansregular"; 
+		color: $blueColor; 
+		text-decoration: underline;
+	}
 	ul{
 		margin: 20px $zero;
 		padding: $zero; 
@@ -75,6 +80,22 @@
 	font-size: 24px;
 	font-family: "noto_sansregular"; 
 	color: $blueColor;
+}
+.justSubTitle{
+	margin: 10px 0px; 
+	padding: $zero; 
+	line-height: 25px;
+	font-size: 20px;
+	font-family: "noto_sansregular"; 
+	color: $blueColor;
+}
+.justDate{
+	margin: $zero; 
+	padding: $zero; 
+	line-height: 25px;
+	font-size: 15px;
+	font-family: "noto_sansregular"; 
+	color: #3d3d3d;
 }
 .usefullLinks{
 	margin: $zero; 
@@ -148,7 +169,7 @@
 		padding: 10px;
 		border: solid 1px $whiteColor;
 		width: $fullWidth;
-		height: 80px;
+		min-height: 80px;
 		overflow: hidden;
 		position: relative;
 		a{
@@ -201,6 +222,132 @@
 		}
 	}
 }
+.files-no-bg{
+	margin: 20px 0 40px 0; 
+	padding: $zero;
+	width: $fullWidth; 
+	.file{
+		margin: 10px 0;
+		padding: 10px;
+		border: solid 1px $greyColor;
+		width: $fullWidth;
+		// min-height: 120px;
+		overflow: hidden;
+		position: relative;
+		a{
+			display: block;
+			color: $blueColor; 
+			.pdfIcon{
+				margin: 4px 10px 0 0;
+				padding: $zero; 
+				width: 40px;
+				height: 50px;
+				float: left;
+				background-image: url('../img/pdf.png');
+				background-repeat: no-repeat;
+				background-position: center;
+				background-size: 40px 50px; 
+			}
+			.downloadIcon{
+				margin: $zero;
+				padding: $zero; 
+				width: 12px;
+				height: 14px;
+				background-image: url('../img/download2.png');
+				background-repeat: no-repeat;
+				background-position: center;
+				background-size: 12px 14px; 
+				position: absolute;
+				right: 10px;
+				top: 10px;
+				z-index: 1;
+			}
+			.title{
+				margin: $zero; 
+				padding: 0 10px 0 0; 
+				float: left;
+				font-size: 15px;
+				line-height: 18px;
+				font-family: 'noto_sansregular';
+				color: $blueColor;
+				width: calc(#{$fullWidth} - 60px);
+				span{
+					text-decoration: underline;
+					font-weight: bold;
+				}
+				b{
+					text-decoration: none;
+					color: $darkGreyColor;
+					font-weight: 500; 
+				}		
+			}
+		}
+	}
+}
+
+.leftNavigation{
+	margin: $zero;
+	padding: $zero;
+	width: $fullWidth;
+	position: relative;
+	.yellowBG{
+		margin: 0 20px 0 0;
+		padding: $zero; 
+		width: calc(#{$fullWidth} - 20px); 
+		background-color: $yellowColor; 
+		min-height: 60px;
+		position: absolute;
+		left: 0px;
+		top: 0px;
+		z-index: 1;
+	}
+	.nav{
+		margin: 20px 0 20px 20px;
+		padding: 10px 0; 
+		width: calc(#{$fullWidth} - 20px); 
+		background-color: $blueColor; 
+		min-height: 20px;
+		position: relative;
+		z-index: 2;
+		float: left;
+		ul{
+			margin: $zero;
+			padding: $zero;
+			width: $fullWidth; 
+			list-style-type: none;
+			li{
+				margin: $zero;
+				padding: 0 20px;
+				a{
+					color: $whiteColor; 
+					font-size: 15px;
+					line-height: 35px;
+					position: relative;
+					width: $fullWidth; 
+					display: block;
+				}
+				.active{
+					font-weight: bold;
+				}
+				.active:after{
+					content: '';
+					margin: $zero; 
+					padding: $zero; 
+					width: 16px;
+					height: 16px; 
+					position: absolute;
+					right: $zero; 
+					top: 9px;
+					background-image: url('../img/navArrow.png');
+					background-size: 16px 16px;
+					background-repeat: no-repeat;
+					background-position: center center; 
+				}
+			}
+		}
+	}
+}
+
 .files-mobile{
 	display: none;
 }
@@ -483,6 +630,11 @@ footer{
 	-webkit-box-shadow: 0px 0px 10px 0px rgba(215,215,215,1);
 	-moz-box-shadow: 0px 0px 10px 0px rgba(215,215,215,1);
 	box-shadow: 0px 0px 10px 0px rgba(215,215,215,1);
+
+	-webkit-border-radius: $borderRadius;
+	-moz-border-radius: $borderRadius;
+	border-radius: $borderRadius;
+	
 	.backdrop{
 		background-color: $whiteColor;
 	}

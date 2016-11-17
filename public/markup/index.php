@@ -75,11 +75,11 @@
 				</li>
 				<li><a href=""><span>Agreement</span></a></li>
 				<li><a href=""><span>Implimentation</span></a></li>
-				<li><a href=""><span>Coordination</span></a></li>
+				<li><a href="coordination.php"><span>Coordination</span></a></li>
 				<li><a href=""><span>Legislation</span></a></li>
 				<li><a href="is.php"><span>International Support</span></a></li>
 				<li class="sub" data-sub="i25">
-					<a href="?dcfta-for-bussiness" class="slide"><span>DCFTA for bussiness</span></a> <i class="arrow"></i>
+					<a href="dcfta.php" class="slide"><span>DCFTA for bussiness</span></a> <i class="arrow"></i>
 					<ul class="i25">
 						<li><a href=""><span>Sectors</span></a></li>
 						<li><a href=""><span>Technical requirements</span></a></li>
@@ -90,7 +90,7 @@
 						<li><a href=""><span>Custom procedures</span></a></li>
 					</ul>
 				</li>
-				<li><a href=""><span>News &amp; Events</span></a></li>
+				<li><a href="news.php"><span>News &amp; Events</span></a></li>
 				<li><a href="contact.php"><span>Contact</span></a></li>
 			</ul>
 		</section>

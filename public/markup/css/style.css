@@ -175,7 +175,7 @@ header .topBottom {
       width: 253px;
       height: 40px;
       line-height: 40px; }
-      header .topBottom .search .input-field input {
+      header .topBottom .search .input-field input[type=text] {
         width: calc(100% - 40px);
         line-height: 40px;
         padding-left: 40px;
@@ -183,6 +183,9 @@ header .topBottom {
         font-size: 15px;
         color: #003399;
         border-bottom: 1px solid #003399; }
+      header .topBottom .search .input-field input[type=text]:focus {
+        border-bottom: 1px solid #003399;
+        box-shadow: 0 1px 0 0 #003399; }
 header .navigation {
   width: 1200px;
   height: 50px;
@@ -368,6 +371,10 @@ main {
     font-size: 20px;
     color: #3d3d3d;
     font-family: "noto_sansregular"; }
+  .mainText a {
+    font-family: "noto_sansregular";
+    color: #003399;
+    text-decoration: underline; }
   .mainText ul {
     margin: 20px 0px;
     padding: 0px;
@@ -399,6 +406,22 @@ main {
   font-size: 24px;
   font-family: "noto_sansregular";
   color: #003399; }
+
+.justSubTitle {
+  margin: 10px 0px;
+  padding: 0px;
+  line-height: 25px;
+  font-size: 20px;
+  font-family: "noto_sansregular";
+  color: #003399; }
+
+.justDate {
+  margin: 0px;
+  padding: 0px;
+  line-height: 25px;
+  font-size: 15px;
+  font-family: "noto_sansregular";
+  color: #3d3d3d; }
 
 .usefullLinks {
   margin: 0px;
@@ -465,7 +488,7 @@ main {
     padding: 10px;
     border: solid 1px #ffffff;
     width: 100%;
-    height: 80px;
+    min-height: 80px;
     overflow: hidden;
     position: relative; }
     .files .file a {
@@ -510,6 +533,115 @@ main {
           text-decoration: none;
           color: #ffcd00;
           font-weight: 500; }
+
+.files-no-bg {
+  margin: 20px 0 40px 0;
+  padding: 0px;
+  width: 100%; }
+  .files-no-bg .file {
+    margin: 10px 0;
+    padding: 10px;
+    border: solid 1px #f2f3f6;
+    width: 100%;
+    overflow: hidden;
+    position: relative; }
+    .files-no-bg .file a {
+      display: block;
+      color: #003399; }
+      .files-no-bg .file a .pdfIcon {
+        margin: 4px 10px 0 0;
+        padding: 0px;
+        width: 40px;
+        height: 50px;
+        float: left;
+        background-image: url("../img/pdf.png");
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: 40px 50px; }
+      .files-no-bg .file a .downloadIcon {
+        margin: 0px;
+        padding: 0px;
+        width: 12px;
+        height: 14px;
+        background-image: url("../img/download2.png");
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: 12px 14px;
+        position: absolute;
+        right: 10px;
+        top: 10px;
+        z-index: 1; }
+      .files-no-bg .file a .title {
+        margin: 0px;
+        padding: 0 10px 0 0;
+        float: left;
+        font-size: 15px;
+        line-height: 18px;
+        font-family: 'noto_sansregular';
+        color: #003399;
+        width: calc(100% - 60px); }
+        .files-no-bg .file a .title span {
+          text-decoration: underline;
+          font-weight: bold; }
+        .files-no-bg .file a .title b {
+          text-decoration: none;
+          color: #5d5d5d;
+          font-weight: 500; }
+
+.leftNavigation {
+  margin: 0px;
+  padding: 0px;
+  width: 100%;
+  position: relative; }
+  .leftNavigation .yellowBG {
+    margin: 0 20px 0 0;
+    padding: 0px;
+    width: calc(100% - 20px);
+    background-color: #ffcd00;
+    min-height: 60px;
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    z-index: 1; }
+  .leftNavigation .nav {
+    margin: 20px 0 20px 20px;
+    padding: 10px 0;
+    width: calc(100% - 20px);
+    background-color: #003399;
+    min-height: 20px;
+    position: relative;
+    z-index: 2;
+    float: left; }
+    .leftNavigation .nav ul {
+      margin: 0px;
+      padding: 0px;
+      width: 100%;
+      list-style-type: none; }
+      .leftNavigation .nav ul li {
+        margin: 0px;
+        padding: 0 20px; }
+        .leftNavigation .nav ul li a {
+          color: #ffffff;
+          font-size: 15px;
+          line-height: 35px;
+          position: relative;
+          width: 100%;
+          display: block; }
+        .leftNavigation .nav ul li .active {
+          font-weight: bold; }
+        .leftNavigation .nav ul li .active:after {
+          content: '';
+          margin: 0px;
+          padding: 0px;
+          width: 16px;
+          height: 16px;
+          position: absolute;
+          right: 0px;
+          top: 9px;
+          background-image: url("../img/navArrow.png");
+          background-size: 16px 16px;
+          background-repeat: no-repeat;
+          background-position: center center; }
 
 .files-mobile {
   display: none; }
@@ -748,7 +880,10 @@ footer {
   background-color: #ffffff;
   -webkit-box-shadow: 0px 0px 10px 0px #d7d7d7;
   -moz-box-shadow: 0px 0px 10px 0px #d7d7d7;
-  box-shadow: 0px 0px 10px 0px #d7d7d7; }
+  box-shadow: 0px 0px 10px 0px #d7d7d7;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px; }
   .material-tooltip .backdrop {
     background-color: #ffffff; }
   .material-tooltip span {
@@ -791,6 +926,9 @@ footer {
           cursor: pointer;
           font-size: 14px;
           font-family: 'noto_sansregular'; }
+          .CalendarBox table tr td div a {
+            color: #ffffff;
+            text-decoration: none; }
         .CalendarBox table tr td div:hover {
           background-color: #003399; }
         .CalendarBox table tr td .currentDay {
@@ -827,6 +965,36 @@ footer {
       color: black; }
     .CalendarBox table .weekday {
       width: 25px; }
+
+#chart_div {
+  margin: 0px;
+  padding: 0px; }
+  #chart_div table {
+    margin: 0px;
+    padding: 0px; }
+    #chart_div table .google-visualization-orgchart-nodesel {
+      border: none !important; }
+    #chart_div table .google-visualization-orgchart-node {
+      padding: 5px;
+      border: none !important;
+      -webkit-border-radius: 3px !important;
+      -moz-border-radius: 3px !important;
+      border-radius: 3px !important;
+      -webkit-box-shadow: none !important;
+      -moz-box-shadow: none !important;
+      -ms-box-shadow: none !important;
+      box-shadow: none !important;
+      color: #363636 !important;
+      font-size: 15px !important;
+      font-family: "noto_sansregular" !important; }
+    #chart_div table .google-visualization-orgchart-lineleft {
+      border-left: 1px solid #f2f3f6 !important; }
+    #chart_div table .google-visualization-orgchart-lineright {
+      border-right: 1px solid #f2f3f6 !important; }
+    #chart_div table .google-visualization-orgchart-linebottom {
+      border-bottom: 1px solid #f2f3f6 !important; }
+    #chart_div table .google-visualization-orgchart-linetop {
+      border-top: 1px solid #f2f3f6 !important; }
 
 /* Media Queries */
 @media (max-width: 1200px) {
@@ -977,9 +1145,9 @@ footer {
 
   header .top .top-box .languages {
     float: right;
-    width: 112.5px; }
+    width: auto; }
     header .top .top-box .languages ul {
-      width: 112.5px; }
+      width: auto; }
       header .top .top-box .languages ul li {
         padding: 0 5px; }
 

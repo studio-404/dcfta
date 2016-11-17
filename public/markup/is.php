@@ -75,11 +75,11 @@
 				</li>
 				<li><a href=""><span>Agreement</span></a></li>
 				<li><a href=""><span>Implimentation</span></a></li>
-				<li><a href=""><span>Coordination</span></a></li>
+				<li><a href="coordination.php"><span>Coordination</span></a></li>
 				<li><a href=""><span>Legislation</span></a></li>
 				<li><a href="is.php" class="active"><span>International Support</span></a></li>
 				<li class="sub" data-sub="i25">
-					<a href="?dcfta-for-bussiness" class="slide"><span>DCFTA for bussiness</span></a> <i class="arrow"></i>
+					<a href="dcfta.php" class="slide"><span>DCFTA for bussiness</span></a> <i class="arrow"></i>
 					<ul class="i25">
 						<li><a href=""><span>Sectors</span></a></li>
 						<li><a href=""><span>Technical requirements</span></a></li>
@@ -90,7 +90,7 @@
 						<li><a href=""><span>Custom procedures</span></a></li>
 					</ul>
 				</li>
-				<li><a href=""><span>News &amp; Events</span></a></li>
+				<li><a href="news.php"><span>News &amp; Events</span></a></li>
 				<li><a href="contact.php"><span>Contact</span></a></li>
 			</ul>
 		</section>
@@ -127,7 +127,7 @@
 									The economy of Georgia is an emerging free market. Its gross domestic product fell sharply following the collapse of the Soviet Union but recovered in the mid-2000s....
 								</section>
 								<p class="linkWithIcon">
-									<a href="">
+									<a href="http://dcfta.404.ge/public/markup/is_inside.php">
 										<img src="img/icon-arrow.png" alt="" />
 										<span>Project</span>
 									</a>
@@ -151,7 +151,7 @@
 									The economy of Georgia is an emerging free market. Its gross domestic product fell sharply following the collapse of the Soviet Union but recovered in the mid-2000s....
 								</section>
 								<p class="linkWithIcon">
-									<a href="">
+									<a href="http://dcfta.404.ge/public/markup/is_inside.php">
 										<img src="img/icon-arrow.png" alt="" />
 										<span>Project</span>
 									</a>
@@ -175,33 +175,7 @@
 									The economy of Georgia is an emerging free market. Its gross domestic product fell sharply following the collapse of the Soviet Union but recovered in the mid-2000s....
 								</section>
 								<p class="linkWithIcon">
-									<a href="">
-										<img src="img/icon-arrow.png" alt="" />
-										<span>Project</span>
-									</a>
-								</p>
-								<p class="linkWithIcon">
-									<a href="">
-										<img src="img/icon-link.png" alt="" />
-										<span>https://www.giz.de</span>
-									</a>
-								</p>
-
-								
-							</section>
-						</section>
-
-						<section class="col s12 m6 l4 InternationalSupport">
-							<section class="box">
-								<img src="img/euroBank.jpg" alt="" />
-								<section class="title">
-									GIZ - Deutche Gesellschaft fur internationale Zusammenarbeit
-								</section>
-								<section class="text">
-									The economy of Georgia is an emerging free market. Its gross domestic product fell sharply following the collapse of the Soviet Union but recovered in the mid-2000s....
-								</section>
-								<p class="linkWithIcon">
-									<a href="">
+									<a href="http://dcfta.404.ge/public/markup/is_inside.php">
 										<img src="img/icon-arrow.png" alt="" />
 										<span>Project</span>
 									</a>
@@ -227,7 +201,7 @@
 									The economy of Georgia is an emerging free market. Its gross domestic product fell sharply following the collapse of the Soviet Union but recovered in the mid-2000s....
 								</section>
 								<p class="linkWithIcon">
-									<a href="">
+									<a href="http://dcfta.404.ge/public/markup/is_inside.php">
 										<img src="img/icon-arrow.png" alt="" />
 										<span>Project</span>
 									</a>
@@ -253,7 +227,7 @@
 									The economy of Georgia is an emerging free market. Its gross domestic product fell sharply following the collapse of the Soviet Union but recovered in the mid-2000s....
 								</section>
 								<p class="linkWithIcon">
-									<a href="">
+									<a href="http://dcfta.404.ge/public/markup/is_inside.php">
 										<img src="img/icon-arrow.png" alt="" />
 										<span>Project</span>
 									</a>
@@ -279,7 +253,33 @@
 									The economy of Georgia is an emerging free market. Its gross domestic product fell sharply following the collapse of the Soviet Union but recovered in the mid-2000s....
 								</section>
 								<p class="linkWithIcon">
+									<a href="http://dcfta.404.ge/public/markup/is_inside.php">
+										<img src="img/icon-arrow.png" alt="" />
+										<span>Project</span>
+									</a>
+								</p>
+								<p class="linkWithIcon">
 									<a href="">
+										<img src="img/icon-link.png" alt="" />
+										<span>https://www.giz.de</span>
+									</a>
+								</p>
+
+								
+							</section>
+						</section>
+
+						<section class="col s12 m6 l4 InternationalSupport">
+							<section class="box">
+								<img src="img/euroBank.jpg" alt="" />
+								<section class="title">
+									GIZ - Deutche Gesellschaft fur internationale Zusammenarbeit
+								</section>
+								<section class="text">
+									The economy of Georgia is an emerging free market. Its gross domestic product fell sharply following the collapse of the Soviet Union but recovered in the mid-2000s....
+								</section>
+								<p class="linkWithIcon">
+									<a href="http://dcfta.404.ge/public/markup/is_inside.php">
 										<img src="img/icon-arrow.png" alt="" />
 										<span>Project</span>
 									</a>

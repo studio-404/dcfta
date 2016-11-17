@@ -121,7 +121,7 @@ class calendar{
 			else
 			{
 				if($this->day_num==5 || $this->day_num==25){
-					$this->out .= "<td class='day_numbers'><div class=\"event_exists tooltipped\" data-position=\"bottom\" data-delay=\"50\" data-tooltip=\"Meeting With International Donor organ\">".$this->day_num."</div></td>"; 	
+					$this->out .= "<td class='day_numbers'><div class=\"event_exists tooltipped\" data-position=\"bottom\" data-delay=\"50\" data-tooltip=\"Meeting With International Donor organ\"><a href=\"http://dcfta.404.ge/public/markup/events.php\">".$this->day_num."</a></div></td>"; 	
 				}else{
 					$this->out .= "<td class='day_numbers'><div>".$this->day_num."</div></td>"; 
 				}

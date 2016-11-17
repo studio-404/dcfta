@@ -1,0 +1,39 @@
+#chart_div{
+	margin: $zero;
+	padding: $zero;
+	table{
+		margin: $zero;
+		padding: $zero;
+		.google-visualization-orgchart-nodesel{
+			border: none !important;
+		}
+		.google-visualization-orgchart-node{
+			padding: 5px;
+			border: none !important;
+			-webkit-border-radius: $borderRadius !important; 
+			-moz-border-radius: $borderRadius !important; 
+			border-radius: $borderRadius !important; 
+
+			-webkit-box-shadow: none !important; 
+			-moz-box-shadow: none !important; 
+			-ms-box-shadow: none !important; 
+			box-shadow: none !important; 
+
+			color: #363636 !important; 
+			font-size: 15px !important; 
+			font-family: "noto_sansregular" !important; 
+		}
+		.google-visualization-orgchart-lineleft{
+			border-left: 1px solid #f2f3f6 !important; 
+		}
+		.google-visualization-orgchart-lineright{
+			border-right: 1px solid #f2f3f6 !important; 
+		}
+		.google-visualization-orgchart-linebottom{
+			border-bottom: 1px solid #f2f3f6 !important; 
+		}
+		.google-visualization-orgchart-linetop{
+			border-top: 1px solid #f2f3f6 !important; 
+		}
+	}
+}

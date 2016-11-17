@@ -99,8 +99,16 @@ var filesMobilize = function(){
 	});
 };
 
+var leftNavYellowBoxChangeHeight = function(){
+	setTimeout(function(){
+		var h = parseInt($(".leftNavigation .nav").height()) + 20;
+		$(".leftNavigation .yellowBG").css("height", h+"px");
+	}, 200); 	
+};
+
 $(document).ready(function(){
 	filesMobilize();
+	leftNavYellowBoxChangeHeight(); 
 });
 
 $(document).ready(function(){

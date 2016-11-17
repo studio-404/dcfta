@@ -79,7 +79,7 @@
 				<li><a href=""><span>Legislation</span></a></li>
 				<li><a href="is.php"><span>International Support</span></a></li>
 				<li class="sub" data-sub="i25">
-					<a href="dcfta.php" class="slide"><span>DCFTA for bussiness</span></a> <i class="arrow"></i>
+					<a href="dcfta.php" class="slide active"><span>DCFTA for bussiness</span></a> <i class="arrow"></i>
 					<ul class="i25">
 						<li><a href=""><span>Sectors</span></a></li>
 						<li><a href=""><span>Technical requirements</span></a></li>
@@ -91,7 +91,7 @@
 					</ul>
 				</li>
 				<li><a href="news.php"><span>News &amp; Events</span></a></li>
-				<li><a href="contact.php" class="active"><span>Contact</span></a></li>
+				<li><a href="contact.php"><span>Contact</span></a></li>
 			</ul>
 		</section>
 
@@ -109,73 +109,78 @@
 <main>
 	<section class="centerWidth">
 		<section class="row">
-			
-			<section class="col s12 m6 l8 leftSide">
-				<section class="headerText">
-					<div class="line"></div>
-					<div class="title">Get in touch</div>
-				</section>
-				
-				<section class="contactForm">
-					<form action="" method="post">
-						<section class="marginminus10">
-							<div class="input-field col s12 m6 l4">
-					          <input id="subject" type="text" class="validate">
-					          <label for="subject">Subject</label>
-					        </div>
-					        <div class="clearer"></div>
-							
-							<div class="input-field col s12 m6 l4">
-					          <input id="first_name" type="text" class="validate">
-					          <label for="first_name">Your Name</label>
-					        </div>
+			<section class="col s12 m6 l3 leftSide">
 
-					        <div class="input-field col s12 m6 l4">
-					          <input id="first_name" type="text" class="validate">
-					          <label for="first_name">Organization</label>
-					        </div>
-
-					        <div class="input-field col s12 m6 l4">
-					          <input id="first_name" type="text" class="validate">
-					          <label for="first_name">Email Address</label>
-					        </div>
-
-					        <div class="input-field col s12 m6 l4">
-					          <input id="first_name" type="text" class="validate">
-					          <label for="first_name">Phone</label>
-					        </div>
-
-					        <div class="input-field col s12 m6 l8">
-					          <input id="first_name" type="text" class="validate">
-					          <label for="first_name">Comment</label>
-					        </div>
-
-					        <div class="col s12 m12 l12">
-					        	<a class="waves-effect waves-light btn submit">Submit</a>
-					        </div>
-				        </section>
-				        
-					</form>
+				<section class="leftNavigation">
+					<section class="yellowBG"></section>
+					<section class="nav">
+						<ul>
+							<li><a href="">Sectors</a></li>
+							<li><a href="">Technical requirements</a></li>
+							<li><a href="" class="active">Public services</a></li>
+							<li><a href="">Standarts</a></li>
+							<li><a href="">Certifications</a></li>
+							<li><a href="">Rules of origin</a></li>
+							<li><a href="">Custom procedures</a></li>
+						</ul>
+					</section>
 				</section>
 
-			</section>
+				<section class="justTitle">Links and publications</section>
+				<ul class="usefullLinks">
+					<li>
+						<a href="" class="waves-effect waves-light">
+							<img src="img/eur2.png" alt="">
+							<span>European Union Commission</span>
+						</a>
+					</li>
+					<li>
+						<a href="" class="waves-effect waves-light">
+							<img src="img/eur2.png" alt="">
+							<span>European Parliament</span>
+						</a>
+					</li>
+					<li>
+						<a href="" class="waves-effect waves-light"><img src="img/eur2.png" alt="">
+							<span>European consillium</span>
+						</a>
+					</li>
+				</ul>
 
-			<section class="col s12 m6 l4 rightSide">
-				<section class="justTitle">Contact details</section>
-				<section class="contactDetails">
-					<p>Tbilisi Office</p>
-					<p>Address: 18 Chovelidze str. 0102</p>
-					<p>Tbilisi, Georgia</p>
-					<p>Hotline: +995 32 2 95 00 07</p>
-					<p>E-mail: info@dcfta.org.ge</p>
-				</section>
 
-				<section class="map">
-					<section class="header">MOEFSD</section>
-					<section class="init-map"></section>
+				<section class="files-no-bg">
+					<section class="file">
+						<a href="">
+							<p class="pdfIcon"></p>
+							<p class="downloadIcon"></p>
+							<p class="title"><span>Georgia-EU Deep &amp; Comprehensive Free Trade Area  Report 2016</span><br><b>355kb</b></p>
+						</a>
+					</section>
+
+					<section class="file">
+						<a href="">
+							<p class="pdfIcon"></p>
+							<p class="downloadIcon"></p>
+							<p class="title"><span>Georgia-EU Deep &amp; Comprehensive Free Trade Area  Report 2016</span><br><b>355kb</b></p>
+						</a>
+					</section>
 				</section>
 			</section>
 
+			<section class="col s12 m6 l9 rightSite">
+				<section class="justTitle">Public services</section>
+				<section class="justSubTitle">The agreement has been signed, six nations - one target</section>
+				<section class="justDate">published: 12 January 2017</section>
+
+				<section class="mainText">
+					<p>The economy of Georgia is an emerging free market. Its gross domestic product fell sharply following the collapse of the Soviet Union but recovered in the mid-2000s, growing in double digits  reforms brought by the peaceful Rose Revolution. Georgia continued its economic progress since, "moving from a near-failed state in 2003 to a relatively well-functioning market economy in 2014".[19] In 2007, the World Bank named Georgia the World's number one economic reformer,[20][21] and has consistently ranked the country at the top of its ease of doing business index.
+
+Georgia's economy is supported by a relatively free and transparent atmosphere in the country. According to Transparency International's 2015 report, Georgia is the least corrupt nation in the Black Sea region, outperforming all of its immediate neighbors, as well as nearby European Union states.[22] With a mixed news media environment, Georgia is also the only country in its immediate neighborhood where the press is not deemed unfree.[23]</p>
+			<p>The economy of Georgia is an <a href="">emerging free market.</a> Its gross domestic product fell sharply following the collapse of the Soviet Union but recovered in the mid-2000s, growing in double digits  reforms brought by the peaceful Rose Revolution. Georgia continued its economic progress since, "moving from a near-failed state in 2003 to a relatively well-functioning market economy in 2014".[19] In 2007, the World Bank named Georgia the World's number one economic reformer,[20][21] and has consistently ranked the country at the top of its ease of doing business index.
+</p>
+<p>Georgia's economy is supported by a relatively free and transparent atmosphere in the country. According to Transparency International's 2015 report, Georgia is the least corrupt nation in the Black Sea region, outperforming all of its immediate neighbors, as well as nearby European Union states.[22] With a mixed news media environment, Georgia is also the only country in its immediate neighborhood where the press is not deemed unfree.[23]</p>
+				</section>
+			</section>
 		</section>
 	</section>	
 </main>

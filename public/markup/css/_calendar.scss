@@ -33,6 +33,10 @@
 					cursor: pointer;
 					font-size: 14px;
 					font-family: 'noto_sansregular';
+					a{
+						color: $whiteColor;
+						text-decoration: none;
+					}
 				}
 				div:hover{
 					background-color: $blueColor;
