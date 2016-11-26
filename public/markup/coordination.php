@@ -135,8 +135,8 @@
 
 			        // For each orgchart box, provide the name, manager, and tooltip to show.
 			        data.addRows([
-			          [{v:'n1', f:'European Integration Commission' }, '', 'Head of the International Relations and EU<br /> <br />Law Approximation Division National Food Agency Ministry of Agriculture of Georgia Tel/office: +995 2919167 Tel/mob: 577 730003 Address: #6 marshal gelovani Ave. lisi, Georgia, 0159.'],
-			          [{v:'n2', f:'DCFTA- the implementation of the Sub-Commission, the Ministry of Economy and Sustainable Development of the guidance'}, 'n1', 'the president'],
+			          [{v:'n1', f:'<p style="padding:5px">European Integration Commission</p>' }, '', 'Head of the International Relations and EU<br /> <br />Law Approximation Division National Food Agency Ministry of Agriculture of Georgia Tel/office: +995 2919167 Tel/mob: 577 730003 Address: #6 marshal gelovani Ave. lisi, Georgia, 0159.'],
+			          [{v:'n2', f:'<p style="padding: 5px">DCFTA- the implementation of the Sub-Commission, the Ministry of Economy and Sustainable Development of the guidance</p>'}, 'n1', 'the president'],
 					  [{v:'n3', f:'Ministry of Environment Protection'}, 'n2', 'the president'], 		          
 					  [{v:'n4', f:'Agriculture'}, 'n2', 'the president'], 	          
 					  [{v:'n5', f:'Energy'}, 'n2', 'the president'], 	          
