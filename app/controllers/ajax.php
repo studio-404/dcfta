@@ -3,7 +3,7 @@ class ajax extends Controller
 {
 	public $out;
 
-	public function index($name = "")
+	public function index($lang = "", $name = "")
 	{
 		$this->out = array(
 			"Error" => array(
@@ -12,7 +12,7 @@ class ajax extends Controller
 				"Details"=>"დამატებითი ინფო არ მოიძებნა..."
 			)
 		);
-
+		 
 		if(file_exists("app/ajax/" . $name . ".php")){
 			require_once("app/ajax/" . $name . ".php");
 			$object = new $name;

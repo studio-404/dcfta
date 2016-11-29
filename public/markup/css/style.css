@@ -11,6 +11,11 @@
   src: url("../fonts/noto/notosans-regular.woff2") format("woff2"), url("../fonts/noto/notosans-regular.woff") format("woff");
   font-weight: normal;
   font-style: normal; }
+@font-face {
+  font-family: 'noto_sans_georgianregular';
+  src: url("../fonts/noto/notosansgeorgian-regular-webfont.woff2") format("woff2"), url("../fonts/noto/notosansgeorgian-regular-webfont.woff") format("woff");
+  font-weight: normal;
+  font-style: normal; }
 .no, *, .centerWidth, header .top .top-box .social-networks ul, header .top .top-box .social-networks ul li, header .top .top-box .languages ul, header .top .top-box .languages ul li, header .topBottom .search .input-field, main {
   margin: 0px;
   padding: 0px;
@@ -411,7 +416,7 @@ main {
       -webkit-border-radius: 4px;
       border-radius: 4px; }
 
-.justTitle {
+.justTitle, h2 {
   margin: 0px;
   padding: 0px;
   line-height: 26px;

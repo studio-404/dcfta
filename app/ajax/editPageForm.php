@@ -67,6 +67,7 @@ class editPageForm
 				"choose"=>"აირჩიეთ გვერდის ტიპი",
 				"options"=>array(
 					"text"=>"ტექსტური",
+					"news"=>"სიახლეები", 
 					"plugin"=>"პლაგინი"
 				), 
 				"selected"=>$output['type'],
@@ -153,7 +154,7 @@ class editPageForm
 						<div class=\"card\">
 				    		<div class=\"card-image waves-effect waves-block waves-light\">
 				    			<input type=\"hidden\" name=\"managerFiles[]\" class=\"managerFiles\" value=\"".$picture['path']."\" />
-				      			<img class=\"activator\" src=\"".Config::WEBSITE."image/loadimage?f=".Config::WEBSITE_.$picture["path"]."&w=215&h=173\" />
+				      			<img class=\"activator\" src=\"".Config::WEBSITE."ge/image/loadimage?f=".Config::WEBSITE_.$picture["path"]."&w=215&h=173\" />
 				    		</div>
 
 				    		<div class=\"card-content\">

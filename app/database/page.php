@@ -86,6 +86,7 @@ class page
 
 	private function add($args)
 	{
+		$input_cid = (int)$args["input_cid"];
 		$navtype = (int)$args["chooseNavType"];
 		$type = $args["choosePageType"];
 		$title = $args["title"];
@@ -107,16 +108,17 @@ class page
 		$fetch2 = $prepare2->fetch(PDO::FETCH_ASSOC);
 		$maxId = ($fetch2["maxidx"]) ? $fetch2["maxidx"] + 1 : 1;
 
-		$max2 = "SELECT MAX(`position`) as maxidx FROM `navigation` WHERE `status`!=:one AND `nav_type`=:navType";
+		$max2 = "SELECT MAX(`position`) as maxidx FROM `navigation` WHERE `cid`=:cid AND `status`!=:one AND `nav_type`=:navType";
 		$prepare3 = $this->conn->prepare($max2);
 		$prepare3->execute(array(
+			":cid"=>$input_cid,
 			":one"=>1,
 			":navType"=>$navtype
 		));
 		$fetch3 = $prepare3->fetch(PDO::FETCH_ASSOC);
 		$maxPosition = ($fetch3["maxidx"]) ? $fetch3["maxidx"] + 1 : 1;
 
-		$cid = 0;
+		$cid = $input_cid;
 		$datex = time();
 		$visibility = 0;
 		$status = 0;
@@ -252,9 +254,10 @@ class page
 		{
 			$position = 1;
 			foreach ($unserialize as $val) {
-				$update = "UPDATE `navigation` SET `position`=:position WHERE `idx`=:idx AND `nav_type`=:navType"; 
+				$update = "UPDATE `navigation` SET `position`=:position WHERE `cid`=:cid AND `idx`=:idx AND `nav_type`=:navType"; 
 				$prepare = $this->conn->prepare($update); 
 				$prepare->execute(array(
+					":cid"=>$args['input_cid'], 
 					":navType"=>$args['navType'], 
 					":position"=>$position, 
 					":idx"=>$val

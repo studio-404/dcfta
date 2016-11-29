@@ -10,14 +10,14 @@ class dashboard extends Controller
 		if(!isset($_SESSION[Config::SESSION_PREFIX."username"]))
 		{
 			require_once 'app/functions/redirect.php';
-			functions\redirect::url("/manager/index");
+			functions\redirect::url("/".$_SESSION["LANG"]."/manager/index");
 		}
 
 		$page = new Database('page', array(
 			"method"=>"select",
 			"cid"=>0,
 			"nav_type"=>0, 
-			"lang"=>"ge",
+			"lang"=>$_SESSION["LANG"],
 			"status"=>0
 		));
 
@@ -25,7 +25,7 @@ class dashboard extends Controller
 			"method"=>"select",
 			"cid"=>0,
 			"nav_type"=>1, 
-			"lang"=>"ge",
+			"lang"=>$_SESSION["LANG"],
 			"status"=>0
 		));
 
@@ -37,11 +37,11 @@ class dashboard extends Controller
 
 		$this->managerNavigation = $this->model('managerNavigation');
 		$this->managerNavigation->navigation = array(
-			"dashboard/index"=>"გვერდები",
-			"dashboard/modules/faq"=>"მოდულები", 
-			"dashboard/statements"=>"განაცხადები",
-			"dashboard/filemanager"=>"ფაილ მენეჯერი", 
-			"manager/index"=>"გასვლა"
+			$_SESSION["LANG"]."/dashboard/index"=>"გვერდები",
+			$_SESSION["LANG"]."/dashboard/modules/test"=>"მოდულები", 
+			$_SESSION["LANG"]."/dashboard/statements"=>"განაცხადები",
+			$_SESSION["LANG"]."/dashboard/filemanager"=>"ფაილ მენეჯერი", 
+			$_SESSION["LANG"]."/manager/index"=>"გასვლა"
 		);
 	}
 

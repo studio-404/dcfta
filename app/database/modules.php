@@ -77,7 +77,7 @@ class modules
 		$select = "SELECT `title`, `description` FROM `usefull` WHERE `type`=:type AND `visibility`!=:one AND `lang`=:lang AND `status`!=:one ORDER BY `date` DESC";
 		$prepare = $this->conn->prepare($select);
 		$prepare->execute(array(
-			":type"=>"faq", 
+			":type"=>"test", 
 			":one"=>1,
 			":lang"=>"ge"
 		));
@@ -94,11 +94,11 @@ class modules
 		$itemPerPage = $args['itemPerPage'];
 		$from = (isset($_GET['pn']) && $_GET['pn']>0) ? (($_GET['pn']-1)*$itemPerPage) : 0;
 		$parsed_url = $args['parsed_url'];
-		if(isset($parsed_url[2])){
+		if(isset($parsed_url[3])){
 			$select = "SELECT (SELECT COUNT(`id`) FROM `usefull` WHERE `type`=:type AND `lang`=:lang AND `status`!=:one) as counted, `idx`, `title`, `visibility`, `lang` FROM `usefull` WHERE `type`=:type AND `lang`=:lang AND `status`!=:one LIMIT ".$from.",".$itemPerPage;
 			$prepare = $this->conn->prepare($select); 
 			$prepare->execute(array(
-				":type"=>$parsed_url[2], 
+				":type"=>$parsed_url[3], 
 				":lang"=>$args['lang'],
 				":one"=>1
 			));

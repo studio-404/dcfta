@@ -7,11 +7,15 @@
 	<link href="<?=$data["header"]["public"]?>css/materialize.css" type="text/css" rel="stylesheet" />
 	<link href="<?=$data["header"]["public"]?>css/jquery-ui.min.css" type="text/css" rel="stylesheet" />
 	<link href="<?=$data["header"]["public"]?>css/manager-style.css" type="text/css" rel="stylesheet" />
+
+	<link href="<?=$data["header"]["public"]?>font-awesome/css/font-awesome.min.css" type="text/css" rel="stylesheet" />
+
 	<script src="<?=$data["header"]["public"]?>js/jquery-3.1.1.min.js" type="text/javascript" charset="utf-8"></script>
 	<script src="<?=$data["header"]["public"]?>js/jquery-ui.min.js" type="text/javascript" charset="utf-8"></script>
 	<script src="<?=$data["header"]["public"]?>js/materialize.min.js" type="text/javascript" charset="utf-8"></script>
 	<script src="<?=$data["header"]["public"]?>js/tinymce/tinymce.min.js" type="text/javascript" charset="utf-8"></script>
 	<script src="<?=$data["header"]["public"]?>js/manager-scripts.js" type="text/javascript" charset="utf-8"></script>
+
 	<link rel="stylesheet" type="text/css" href="<?=$data['header']['public']?>elfinder/css/elfinder.min.css">
 	<link rel="stylesheet" type="text/css" href="<?=$data['header']['public']?>elfinder/css/theme.css">
 	<script src="<?=$data['header']['public']?>elfinder/js/elfinder.min.js"></script>
@@ -33,7 +37,19 @@
 		</nav>
 
 		<section class="body">
-			<a href="javascript:void(0)" onclick="add_page()" class="waves-effect waves-light btn margin-bottom-20"><i class="material-icons left">note_add</i>დამატება</a>
+			<a href="javascript:void(0)" onclick="add_page('0')" class="waves-effect waves-light btn margin-bottom-20"><i class="material-icons left">note_add</i>დამატება</a>
+
+			<div style="float: right; margin: 0 0 10px 0; width: 250px;">
+			<select class="language-chooser" id="language-chooser" onchange="changeLanguage('<?=$_SESSION["LANG"]?>')">
+				<option value="" disabled selected>აირჩიეთ ენა</option>
+				<option value="ge" <?=($_SESSION["LANG"]=="ge") ? "selected='selected'" : ""?>>ქართული</option>
+				<option value="en" <?=($_SESSION["LANG"]=="en") ? "selected='selected'" : ""?>>ინგლისური</option>
+				<option value="ru" <?=($_SESSION["LANG"]=="ru") ? "selected='selected'" : ""?>>რუსული</option>
+			</select>
+			</div>
+
+			<div class="clearer"></div>
+
 			<ul class="collapsible margin-top-0" data-collapsible="accordion">
 				<li>
 					<div class="collapsible-header active"><i class="material-icons">subject</i>მთავარი</div>
@@ -42,7 +58,7 @@
 							<thead>
 								<tr>
 									<th data-field="id">ს.კ</th>
-									<th data-field="id">პოზიცია</th>
+									<th data-field="position">პოზიცია</th>
 									<th data-field="name">დასახელება</th>
 									<th data-field="type">ტიპი</th>
 									<th data-field="action">მოქმედება</th>

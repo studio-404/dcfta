@@ -12,7 +12,7 @@ class websiteAdditionalNavigation
 				$visibility = ($val['visibility']==1) ? "visibility_off" : "visibility";
 				$nav .= sprintf(
 					"
-					<tr data-item=\"%d\" class=\"level2-0\">
+					<tr data-item=\"%d\" data-cid=\"".$val['cid']."\" class=\"level2-0\">
 					<td class=\"roboto-font\">%d</td>
 					<td class=\"roboto-font\">%d</td>
 					<td><a href=\"%s\" target=\"_blank\">%s</a></td>
@@ -21,6 +21,7 @@ class websiteAdditionalNavigation
 					<a href=\"javascript:void(0)\" onclick=\"changeVisibility('%s','%s')\">
 						<i class=\"material-icons tooltipped\" data-position=\"bottom\" data-delay=\"50\" data-tooltip=\"ხილვადობის შეცვლა\">%s</i>
 					</a>
+
 					<a href=\"javascript:void(0)\" onclick=\"editPage('%s','%s')\">
 						<i class=\"material-icons tooltipped\" data-position=\"bottom\" data-delay=\"50\" data-tooltip=\"რედაქტირება\">mode_edit</i>
 					</a>

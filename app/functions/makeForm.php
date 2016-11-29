@@ -10,7 +10,7 @@ class makeForm
 	}
 
 	public static function inputHidden($args){
-		$out = "<input type=\"hidden\" name=\"".$args['name']."\" value=\"".$args['value']."\" />";
+		$out = "<input type=\"hidden\" id=\"".$args['id']."\" name=\"".$args['name']."\" value=\"".$args['value']."\" />";
 		return $out;
 	}
 

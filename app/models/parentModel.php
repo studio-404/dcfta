@@ -12,8 +12,8 @@ class parentModel
 		if(count($this->use_mod)):
 			$x = 1;
 			foreach ($this->use_mod as $val) {
-				$active = (isset($getUrl[2]) && $val['type']==$getUrl[2]) ? " active" : "";
-				$out .= "<a href=\"/dashboard/modules/".$val['type']."\" class=\"collection-item".$active."\">".$val['title']."</a>";
+				$active = (isset($getUrl[3]) && $val['type']==$getUrl[3]) ? " active" : "";
+				$out .= "<a href=\"/".$_SESSION["LANG"]."/dashboard/modules/".$val['type']."\" class=\"collection-item".$active."\">".$val['title']."</a>";
 				$x++;
 			}			
 		endif;

@@ -18,6 +18,7 @@
 }
 *{ margin:0; padding: 0; outline: 0; border: 0; font-family: 'NotoRegular'; }
 body{  background-color: #2e3e4e; overflow-y: auto !important; }
+.clearer{ clear:both; }
 .roboto-font{ font-family: 'roboto';  }
 .hide-me{ display: none; }
 .margin-top-0{ margin-top: 0px; }

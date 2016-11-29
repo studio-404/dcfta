@@ -9,7 +9,7 @@ class Config
 	const CHARSET = "utf-8";
 	const WEBSITE = "http://dcfta.404.ge/";
 	const WEBSITE_ = "http://dcfta.404.ge";
-	const ADMIN_DASHBOARD = "http://dcfta.404.ge/dashboard/index";
+	const ADMIN_DASHBOARD = "http://dcfta.404.ge/ge/dashboard/index";
 	const PUBLIC_FOLDER = "http://dcfta.404.ge/public/";
 	const AUTHER = "Getsadze Design";
 	const PAGE_PREFIX = "page";

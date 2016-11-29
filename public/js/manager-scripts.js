@@ -1,6 +1,6 @@
 var Config = {
-	website:"http://capex.404.ge/",
-	ajax:"http://capex.404.ge/ajax/index", 
+	website:"http://dcfta.404.ge/",
+	ajax:"http://dcfta.404.ge/ge/ajax/index", 
 	pleaseWait:"მოთხოვნა იგზავნება..."
 };
 
@@ -26,7 +26,7 @@ var sign_in_try = function(){
 	
 };
 
-var add_page = function(){
+var add_page = function(cid){
 	var ajaxFile = "/addPageForm";
 	var header = "<h4>გვერდის დამატება</h4><p class=\"modal-message-box\"></p>";
 	var content = "<p>გთხოვთ დაიცადოთ...</p>";
@@ -58,12 +58,14 @@ var add_page = function(){
 				update: function( event, ui ) {  }
 			});
 			tiny(".tinymceTextArea");
+			$("#input_cid").val(cid);
 		}
 	});
 };
 
 var formPageAdd = function(){
 	var ajaxFile = "/addPage";
+	var input_cid = $("#input_cid").val();
 	var chooseNavType = $("#chooseNavType").val();
 	var choosePageType = $("#choosePageType").val();
 	var title = $("#title").val();
@@ -98,7 +100,7 @@ var formPageAdd = function(){
 		$.ajax({
 			method: "POST",
 			url: Config.ajax + ajaxFile,
-			data: { chooseNavType: chooseNavType, choosePageType: choosePageType, title: title, slug: slug, cssClass:cssClass, attachModule:attachModule, redirect:redirect, pageDescription: pageDescription, pageText: pageText, serialPhotos: serialPhotos }
+			data: { input_cid:input_cid, chooseNavType: chooseNavType, choosePageType: choosePageType, title: title, slug: slug, cssClass:cssClass, attachModule:attachModule, redirect:redirect, pageDescription: pageDescription, pageText: pageText, serialPhotos: serialPhotos }
 		}).done(function( msg ) {
 			var obj = $.parseJSON(msg);
 			if(obj.Error.Code==1){
@@ -306,9 +308,11 @@ var removeModule = function(idx){
 var changePositionsOfPages = function(navType, selector){
 	var ajaxFile = "/changePagePositions";
 	var i = "";
+	var input_cid = "";
 	var arr = new Array(); 
-	$('.'+selector+' tr').each(function(){
+	$('.'+selector).each(function(){
 		i = $(this).attr("data-item");
+		input_cid = $(this).attr("data-cid");
 		arr.push(i)
 	});
 	var serialized = serialize(arr);
@@ -323,13 +327,14 @@ var changePositionsOfPages = function(navType, selector){
 	$.ajax({
 		method: "POST",
 		url: Config.ajax + ajaxFile,
-		data: { s:serialized, navType: navType }
+		data: { s:serialized, navType: navType, input_cid:input_cid }
 	}).done(function( msg ) {
 		var obj = $.parseJSON(msg);
 		if(obj.Error.Code==1){
 			$(".modal-message-box").html(obj.Error.Text);
 		}else if(obj.Success.Code==1){
 			$(".modal-message-box").html(obj.Success.Text);
+			scrollTop();
 		}else{
 			$(".modal-message-box").html("E5");
 		}
@@ -733,7 +738,7 @@ var openFileManager = function(photosBox, id){
         dialog: { width: 400, modal: true },
         closeOnEditorCallback: true, 
 		getFileCallback: function(url) {
-            $("#"+id+" .card .card-image .activator").attr("src",Config.website+"image/loadimage?f="+Config.website+"public/"+url.path+"&w=215&h=173");
+            $("#"+id+" .card .card-image .activator").attr("src",Config.website+"ge/image/loadimage?f="+Config.website+"public/"+url.path+"&w=215&h=173");
             $("#"+id+" .card .card-image .managerFiles").val("/public/"+url.path);
             photoUploaderBox(photosBox);
             closeFileManager(id); 
@@ -783,15 +788,17 @@ $(document).ready(function(){
     $('.tooltipped').tooltip({delay: 50});
     $('.sortablePagePositionChange').sortable({
     	items: ".level-0",
-		update: function( event, ui ) { changePositionsOfPages(0, 'sortablePagePositionChange'); }
+		update: function( event, ui ) { changePositionsOfPages(0, 'sortablePagePositionChange .level-0'); }
 	});
 	$('.sortablePagePositionChange').disableSelection();
 
 	$('.sortablePagePositionChange2').sortable({
     	items: ".level2-0",
-		update: function( event, ui ) { changePositionsOfPages(1, 'sortablePagePositionChange2'); }
+		update: function( event, ui ) { changePositionsOfPages(1, 'sortablePagePositionChange2 .level2-0'); }
 	});
 	$('.sortablePagePositionChange2').disableSelection();
+
+	$("#language-chooser").material_select();
 
 	//sortablePagePositionChange2
  });
@@ -1001,6 +1008,13 @@ var updateMe = function(col, pid, oldValue){
 			}
 		});	
 	}
+};
+
+var changeLanguage = function(lang){
+	var selected = $("#language-chooser").val(); 
+	var u = window.location.href;
+	var newUrl = u.replace("/"+lang+"/", "/"+selected+"/");
+	location.href = newUrl;
 };
 
 var updateMeSelect = function(col, pid){

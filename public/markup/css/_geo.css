@@ -1,0 +1,44 @@
+header .navigation ul li a {
+  padding: 0 5px; }
+header .navigation ul li a, header .navigation ul li span {
+  font-family: 'noto_sans_georgianregular';
+  font-size: 12px; }
+
+.headerText .title,
+.mainText,
+.justTitle,
+h2,
+.usefullLinks li a span,
+.files .file a .title span {
+  font-family: 'noto_sans_georgianregular'; }
+
+.CalendarBox table #title-calendar, .newsBox a .data p, footer .centerWidth p {
+  font-family: 'noto_sans_georgianregular'; }
+
+footer .centerWidth .footerText .left {
+  font-family: 'noto_sans_georgianregular' !important; }
+
+.headerText .title, .justTitle, h2, .headerText .title {
+  font-size: 21px; }
+
+.usefullLinks li a span {
+  font-size: 15px; }
+
+.mainText {
+  font-size: 16px; }
+
+.files .file a .title {
+  font-size: 13px; }
+
+.newsBox a .title {
+  font-size: 15px;
+  font-family: 'noto_sans_georgianregular' !important; }
+
+.newsBox a .text {
+  font-size: 12px;
+  font-family: 'noto_sans_georgianregular' !important; }
+
+header .topBottom .search .input-field input[type=text] {
+  font-family: 'noto_sans_georgianregular' !important; }
+
+/*# sourceMappingURL=_geo.css.map */

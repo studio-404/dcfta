@@ -12,14 +12,14 @@ class websiteNavigation
 				
 				$visibility = ($val['visibility']==1) ? "visibility_off" : "visibility";
 
-				$usefull_url = ($val['usefull_type'] == "false") ? "javascript:void(0)" : "/dashboard/modules/".$val['usefull_type'];
+				$usefull_url = ($val['usefull_type'] == "false") ? "javascript:void(0)" : "/".$_SESSION["LANG"]."/dashboard/modules/".$val['usefull_type'];
 				$usefull_type = "<a href=\"".$usefull_url."\">";
 				$usefull_type .= "<i class=\"material-icons tooltipped\" data-position=\"bottom\" data-delay=\"50\" data-tooltip=\"მოდულზე გადასვლა\">view_module</i>";
 				$usefull_type .= "</a>";
 
 				$nav .= sprintf(
 					"
-					<tr data-item=\"%d\" class=\"level-0\">
+					<tr data-item=\"%d\" data-cid=\"".$val['idx']."\" class=\"level-0\">
 					<td class=\"roboto-font\">%d</td>
 					<td class=\"roboto-font\">%d</td>
 					<td><a href=\"%s\" target=\"_blank\">%s</a></td>
@@ -27,6 +27,10 @@ class websiteNavigation
 					<td>
 					<a href=\"javascript:void(0)\" onclick=\"changeVisibility('%s','%s')\">
 						<i class=\"material-icons tooltipped\" data-position=\"bottom\" data-delay=\"50\" data-tooltip=\"ხილვადობის შეცვლა\">%s</i>
+					</a>
+
+					<a href=\"javascript:void(0)\" onclick=\"add_page('".$val['idx']."')\">
+						<i class=\"material-icons tooltipped\" data-position=\"bottom\" data-delay=\"50\" data-tooltip=\"დამატება\">note_add</i>
 					</a>
 
 					<a href=\"javascript:void(0)\" onclick=\"editPage('%s','%s')\">

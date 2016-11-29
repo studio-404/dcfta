@@ -34,6 +34,12 @@ class addPageForm
 			"id"=>"",
 		));
 
+		$form .= functions\makeForm::inputHidden(array(
+			"name"=>"input_cid",
+			"id"=>"input_cid",
+			"value"=>"0"
+		));
+
 		$form .= functions\makeForm::select(array(
 			"id"=>"chooseNavType",
 			"choose"=>"აირჩიეთ ნავიგაციის ტიპი",
@@ -47,6 +53,7 @@ class addPageForm
 			"choose"=>"აირჩიეთ გვერდის ტიპი",
 			"options"=>array(
 				"text"=>"ტექსტური",
+				"news"=>"სიახლეები", 
 				"plugin"=>"პლაგინი"
 			),
 			"selected"=>"false",

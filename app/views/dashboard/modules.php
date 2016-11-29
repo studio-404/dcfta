@@ -7,6 +7,9 @@
 	<link href="<?=$data["header"]["public"]?>css/materialize.css" type="text/css" rel="stylesheet" />
 	<link href="<?=$data["header"]["public"]?>css/jquery-ui.min.css" type="text/css" rel="stylesheet" />
 	<link href="<?=$data["header"]["public"]?>css/manager-style.css" type="text/css" rel="stylesheet" />
+	
+	<link href="<?=$data["header"]["public"]?>font-awesome/css/font-awesome.min.css" type="text/css" rel="stylesheet" />
+
 	<script src="<?=$data["header"]["public"]?>js/jquery-3.1.1.min.js" type="text/javascript" charset="utf-8"></script>
 	<script src="<?=$data["header"]["public"]?>js/jquery-ui.min.js" type="text/javascript" charset="utf-8"></script>
 	<script src="<?=$data["header"]["public"]?>js/materialize.min.js" type="text/javascript" charset="utf-8"></script>
@@ -39,7 +42,7 @@
 			<div class="row">
 				<div class="col s3">
 				<?php
-				$module_slug = (isset($data['parsed_url'][2])) ? $data['parsed_url'][2] : "faq";
+				$module_slug = (isset($data['parsed_url'][3])) ? $data['parsed_url'][3] : "test";
 				echo $data['parentModel'];
 				?>					
 				</div>

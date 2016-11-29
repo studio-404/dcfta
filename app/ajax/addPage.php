@@ -24,6 +24,7 @@ class addPage
 			)
 		);
 
+		$input_cid = functions\request::index("POST","input_cid");
 		$chooseNavType = functions\request::index("POST","chooseNavType");
 		$choosePageType = functions\request::index("POST","choosePageType");
 		$title = functions\request::index("POST","title");
@@ -45,8 +46,10 @@ class addPage
 				)
 			);
 		}else{
+			$input_cid = (empty($input_cid) || $input_cid==0) ? 0 : $input_cid;
 			$Database = new Database('page', array(
 					'method'=>'add', 
+					'input_cid'=>$input_cid, 
 					'chooseNavType'=>$chooseNavType, 
 					'choosePageType'=>$choosePageType, 
 					'title'=>$title, 
