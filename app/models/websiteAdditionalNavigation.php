@@ -25,7 +25,7 @@ class websiteAdditionalNavigation
 					<a href=\"javascript:void(0)\" onclick=\"editPage('%s','%s')\">
 						<i class=\"material-icons tooltipped\" data-position=\"bottom\" data-delay=\"50\" data-tooltip=\"რედაქტირება\">mode_edit</i>
 					</a>
-					<a href=\"javascript:void(0)\" onclick=\"askRemovePage('1','%s','%s')\">
+					<a href=\"javascript:void(0)\" onclick=\"askRemovePage('1','%s','%s','%s')\">
 						<i class=\"material-icons tooltipped\" data-position=\"bottom\" data-delay=\"50\" data-tooltip=\"წაშლა\">delete</i>
 					</a>
 					</td>
@@ -43,7 +43,8 @@ class websiteAdditionalNavigation
 					$val['idx'],
 					$val['lang'],
 					$val['position'],
-					$val['idx']
+					$val['idx'], 
+					$val['cid'] 
 				);
 			}
 		}

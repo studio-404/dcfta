@@ -274,6 +274,7 @@ class page
 		$navType = $args['navType'];
 		$position = $args['pos'];
 		$idx = $args['idx'];
+		$cid = (empty($args['cid']) || $args['cid']==0) ? 0 : $args['cid'];
 
 		$update = "UPDATE `navigation` SET `status`=:one WHERE `idx`=:idx";
 		$prepare = $this->conn->prepare($update); 
@@ -282,11 +283,12 @@ class page
 			":idx"=>$idx
 		));
 		if($prepare->rowCount()){
-			$select = "SELECT `idx`, `position` FROM `navigation` WHERE `position`>:deletedItemPosition AND `nav_type`=:nav_type AND `status`!=:one";
+			$select = "SELECT `idx`, `position` FROM `navigation` WHERE `position`>:deletedItemPosition AND `nav_type`=:nav_type AND `cid`=:cid AND `status`!=:one";
 			$prepare2 = $this->conn->prepare($select);
 			$prepare2->execute(array(
 				":deletedItemPosition"=>$position, 
 				":nav_type"=>$navType, 
+				":cid"=>$cid, 
 				":one"=>1
 			));
 			if($prepare2->rowCount()){
@@ -294,11 +296,12 @@ class page
 				foreach ($fetch as $val) {
 					$idx2 = $val['idx'];
 					$newPosition = $val['position'] - 1;
-					$update2 = "UPDATE `navigation` SET `position`=:newPosition WHERE `idx`=:idx2";
+					$update2 = "UPDATE `navigation` SET `position`=:newPosition WHERE `idx`=:idx2 AND `cid`=:cid";
 					$prepare3 = $this->conn->prepare($update2);
 					$prepare3->execute(array(
 						":newPosition"=>$newPosition, 
-						":idx2"=>$idx2
+						":idx2"=>$idx2, 
+						":cid"=>$cid
 					)); 
 				}
 			}

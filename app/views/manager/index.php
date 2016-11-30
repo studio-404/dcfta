@@ -18,8 +18,7 @@
 
 <!-- Administrator <?=$data["name"]?> -->
 <section class="materialize sign-in-box">
-	<div class="row">
-		<form class="col s12">
+	<form class="col s12">
 			
 			<h5>სისტემაში შესვლა</h5>
 			 <blockquote class="error-msg hide-me">
@@ -40,7 +39,6 @@
 			</div>
 
 		</form>
-	</div>
 </section>
 
 </body>

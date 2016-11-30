@@ -54,43 +54,53 @@
 				<li>
 					<div class="collapsible-header active"><i class="material-icons">subject</i>მთავარი</div>
 					<div class="collapsible-body">
-						<table class="highlight">
-							<thead>
-								<tr>
-									<th data-field="id">ს.კ</th>
-									<th data-field="position">პოზიცია</th>
-									<th data-field="name">დასახელება</th>
-									<th data-field="type">ტიპი</th>
-									<th data-field="action">მოქმედება</th>
-								</tr>
-							</thead>
+						<div class="wrapper">
+							<div class="table sortablePagePositionChange">
+								<div class="row header materialColor">
+									<div class="cell">
+										ს.კ.
+									</div>
+									<div class="cell">
+										პოზიცია
+									</div>
+									<div class="cell">
+										დასახელება
+									</div>
+									<div class="cell">
+										ტიპი
+									</div>
+									<div class="cell">
+										მოქმედება
+									</div>
+								</div>
+								
+								<?=$data['mainNavigation']?>
+								
 
-							<tbody class="sortablePagePositionChange">
-							<?=$data['mainNavigation']?>
-							</tbody>
-						</table>
+							</div>
+						</div>
+
+						
 					</div>
 				</li>
 				<li>
 				<div class="collapsible-header"><i class="material-icons">subject</i>დამატებითი</div>
-				<div class="collapsible-body">
-					
-					<table class="highlight">
-							<thead>
-								<tr>
-									<th data-field="id">ს.კ</th>
-									<th data-field="id">პოზიცია</th>
-									<th data-field="name">დასახელება</th>
-									<th data-field="type">ტიპი</th>
-									<th data-field="action">მოქმედება</th>
-								</tr>
-							</thead>
+				<div class="collapsible-body">					
+					<table>
+						<thead>
+							<tr>
+								<th data-field="id">ს.კ</th>
+								<th data-field="id">პოზიცია</th>
+								<th data-field="name">დასახელება</th>
+								<th data-field="type">ტიპი</th>
+								<th data-field="action">მოქმედება</th>
+							</tr>
+						</thead>
 
-							<tbody class="sortablePagePositionChange2">
-							<?=$data['additionalNavigation']?>
-							</tbody>
-						</table>
-
+						<tbody class="sortablePagePositionChange2">
+						<?=$data['additionalNavigation']?>
+						</tbody>
+					</table>
 
 				</div>
 				</li>

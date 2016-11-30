@@ -36,6 +36,8 @@ var add_page = function(cid){
 	$("#modal1 .modal-footer").html(footer);
 	$('#modal1').openModal();
 
+	scrollTop();
+
 	$.ajax({
 		method: "POST",
 		url: Config.ajax + ajaxFile,
@@ -53,10 +55,27 @@ var add_page = function(cid){
 			$("#chooseNavType").material_select();
 			$("#attachModule").material_select();
 			$("#modalButton").attr({"onclick": obj.attr });
+			$('.tooltipped').tooltip({delay: 50});
 			$("#photoUploaderBox").sortable({
 		    	items: ".imageItem",
 				update: function( event, ui ) {  }
 			});
+			$("#sortableFiles-box").sortable({
+				items: ".level-0, .level-2", 
+				update: function( event, ui ) { 
+					var subfile = "";
+					var itemidx = ui.item[0].attributes[1].nodeValue;
+					var level = (ui.item[0].attributes[2].nodeValue==0) ? ".level-0" : ".level-2";
+					
+					//changePositionsOfPages(0, 'sortablePagePositionChange '+level);
+					if(level==".level-0"){
+						subfile = $(".subfile-"+itemidx).detach();
+						$(level+"[data-item='"+itemidx+"']").after(subfile);
+						subfile.remove();
+					}				
+				}
+			});
+			
 			tiny(".tinymceTextArea");
 			$("#input_cid").val(cid);
 		}
@@ -236,15 +255,15 @@ var changeModuleVisibility = function(vis, idx){
 	}
 };
 
-var askRemovePage = function(navType, pos, idx){
-	console.log(pos + " " + idx);
+var askRemovePage = function(navType, pos, idx, cid){
 	var header = "<h4>შეტყობინება</h4><p class=\"modal-message-box\">გნებავთ წაშალოთ მონაცემი ?</p>";
-	var footer = "<a href=\"javascript:void(0)\" onclick=\"removePage('"+navType+"', '"+pos+"', '"+idx+"')\" class=\"waves-effect waves-green btn-flat\">დიახ</a>";
+	var footer = "<a href=\"javascript:void(0)\" onclick=\"removePage('"+navType+"', '"+pos+"', '"+idx+"', '"+cid+"')\" class=\"waves-effect waves-green btn-flat\">დიახ</a>";
 	footer += "<a href=\"javascript:void(0)\" class=\"waves-effect waves-green btn-flat modal-close\">დახურვა</a>";
 
 	$("#modal1 .modal-content").html(header);
 	$("#modal1 .modal-footer").html(footer);
 	$('#modal1').openModal();
+	scrollTop();
 };
 
 var askRemoveModule = function(idx){
@@ -258,7 +277,7 @@ var askRemoveModule = function(idx){
 	$('#modal1').openModal();
 };
 
-var removePage = function(navType, pos, idx){
+var removePage = function(navType, pos, idx, cid){
 	console.log(pos + " " + idx);
 	var ajaxFile = "/removePage";
 	if(typeof navType == "undefined" || typeof pos === "undefined" || typeof idx === "undefined"){
@@ -267,7 +286,7 @@ var removePage = function(navType, pos, idx){
 		$.ajax({
 			method: "POST",
 			url: Config.ajax + ajaxFile,
-			data: { navType: navType, pos: pos, idx: idx }
+			data: { navType: navType, pos: pos, idx: idx, cid:cid }
 		}).done(function( msg ) {
 			var obj = $.parseJSON(msg);
 			if(obj.Error.Code==1){
@@ -316,6 +335,8 @@ var changePositionsOfPages = function(navType, selector){
 		arr.push(i)
 	});
 	var serialized = serialize(arr);
+
+	//var p = $( ".sortablePagePositionChange " ).detach();
 
 	var header = "<h4>შეტყობინება</h4><p class=\"modal-message-box\">მიმდინარეობს მონაცემის განახლება...</p>";
 	var footer = "<a href=\"javascript:void(0)\" class=\"waves-effect waves-green btn-flat modal-close\">დახურვა</a>";
@@ -368,10 +389,12 @@ var editPage = function(idx, lang){
 			$("#chooseNavType").material_select();
 			$("#attachModule").material_select();
 			$("#modalButton").attr({"onclick": obj.attr });
+			$('.tooltipped').tooltip({delay: 50});
 			$("#photoUploaderBox").sortable({
 		    	items: ".imageItem",
 				update: function( event, ui ) {  }
 			});
+
 			tiny(".tinymceTextArea");			
 		}
 	});
@@ -786,11 +809,22 @@ $(document).ready(function(){
       accordion : false 
     });
     $('.tooltipped').tooltip({delay: 50});
+    // main navigation
     $('.sortablePagePositionChange').sortable({
-    	items: ".level-0",
-		update: function( event, ui ) { changePositionsOfPages(0, 'sortablePagePositionChange .level-0'); }
+    	items: ".level-0, .level-2",
+		update: function( event, ui ) { 
+			var itemidx = ui.item[0].attributes[1].nodeValue;
+			var level = (ui.item[0].attributes[2].nodeValue==0) ? ".level-0" : ".level-2";
+			var subnavigations = $(".sub-"+itemidx).detach();
+
+			changePositionsOfPages(0, 'sortablePagePositionChange '+level); 
+			$(level+"[data-item='"+itemidx+"']").after(subnavigations);
+			subnavigations.remove();
+		}
 	});
 	$('.sortablePagePositionChange').disableSelection();
+
+
 
 	$('.sortablePagePositionChange2').sortable({
     	items: ".level2-0",

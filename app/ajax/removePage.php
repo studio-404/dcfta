@@ -27,6 +27,7 @@ class removePage
 		$navType = functions\request::index("POST","navType");
 		$pos = functions\request::index("POST","pos");
 		$idx = functions\request::index("POST","idx");
+		$cid = functions\request::index("POST","cid");
 		
 
 		if($navType=="" || $pos=="" || $idx=="")
@@ -43,7 +44,8 @@ class removePage
 					'method'=>'removePage', 
 					'navType'=>$navType, 
 					'pos'=>$pos, 
-					'idx'=>$idx
+					'idx'=>$idx, 
+					'cid'=>$cid  
 			));
 			$output = $Database->getter();
 			if($output){

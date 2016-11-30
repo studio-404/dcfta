@@ -33,7 +33,6 @@ h5{ font-family: 'arc_bold'; }
 .mainContainer nav{ background-color: #2bbbad; }
 .mainContainer nav ul a{ font-family: 'arc_bold'; font-size: 20px; }
 .mainContainer .body{ margin: 0; padding: 20px; min-height: 550px; background-color: white; }
-.mainContainer table tr td a{ color: #2bbbad; padding: 0 5px; }
 .backdrop{ background-color: #2bbbad; }
 .pagination li.active{ background-color: #2bbbad; }
 .modal{ max-height: none !important; position: absolute !important; }
@@ -43,3 +42,59 @@ footer.page-footer{ background-color: #f2f2f2; color: rgba(0, 0, 0, 0.87); }
 footer.page-footer a{ color: #2bbbad; }
 .card-content p a{ color: #2bbbad;  padding:0 20px 0 0; }
 div[class^='editable_']{ width: calc(100% - 10px); min-height: 20px; padding-right: 10px; cursor: pointer; }
+.secondary-content{ margin: 0 5px; padding: 0; line-height: 16px;  }
+.secondary-content span{ line-height: 16px; font-size: 14px;  }
+#sortableFiles-box{ margin-bottom: 80px;  }
+/* Table */
+.ui-sortable-helper {
+    display: table;
+}
+.wrapper {
+  margin: 0 auto;
+  padding: 0px;
+  width: 100%;
+}
+
+.table {
+  margin: 0;
+  width: 100%;
+  display: table;
+}
+.table a{ color: #2bbbad; padding: 0 5px; }
+table a{ color: #2bbbad; padding: 0 5px; }
+@media screen and (max-width: 580px) {
+  .table {
+    display: block;
+  }
+}
+
+.row {
+  display: table-row;
+}
+.row.header {
+  font-weight: 900;
+  color: #ffffff;
+}
+.row.green {
+  background: #27ae60;
+}
+.row.materialColor {
+  background: #2bbbad;
+}
+@media screen and (max-width: 580px) {
+  .row {
+    padding: 8px 0;
+    display: block;
+  }
+}
+
+.cell {
+  padding: 6px 12px;
+  display: table-cell;
+}
+@media screen and (max-width: 580px) {
+  .cell {
+    padding: 2px 12px;
+    display: block;
+  }
+}
