@@ -160,69 +160,55 @@ class addPageForm
 
         $form .= "<div style=\"clear:both\"></div>";
 
-        $form .= "<a href=\"javascript:void(0)\" class=\"waves-effect waves-light btn margin-bottom-20\" style=\"clear:both; margin-top: 40px;\"><i class=\"material-icons left\">note_add</i>ატვირთვა</a>";
+        $form .= "<a href=\"javascript:void(0)\" class=\"waves-effect waves-light btn margin-bottom-20\" style=\"clear:both; margin-top: 40px;\" onclick=\"openFileManagerForFiles('attachfiles')\"><i class=\"material-icons left\">note_add</i>ატვირთვა</a>";
 
   		$form .= "<ul class=\"collection with-header\" id=\"sortableFiles-box\">";
 
-        $form .= "<li class=\"collection-item level-0\" data-item=\"1\" data-cid=\"0\">
-				<div>
-					რეპორტები 1 ( 355kb )
+    //     $form .= "<li class=\"collection-item level-0\" data-item=\"1\" data-cid=\"0\">
+				// <div>
+				// 	რეპორტები 1 ( 355kb )
 					
-					<a href=\"\" class=\"secondary-content tooltipped\" data-position=\"bottom\" data-delay=\"50\" data-tooltip=\"წაშლა\"><i class=\"material-icons\">delete</i></a>
-					<a href=\"\" class=\"secondary-content tooltipped\" data-position=\"bottom\" data-delay=\"50\" data-tooltip=\"კომენტარი (5)\"><i class=\"material-icons\">comment</i></a>
-					<a href=\"\" class=\"secondary-content tooltipped\" data-position=\"bottom\" data-delay=\"50\" data-tooltip=\"დამატება\"><i class=\"material-icons\">note_add</i></a>
-				</div>";
-       $form .= "</li>";
+				// 	<a href=\"\" class=\"secondary-content tooltipped\" data-position=\"bottom\" data-delay=\"50\" data-tooltip=\"წაშლა\"><i class=\"material-icons\">delete</i></a>
+				// 	<a href=\"\" class=\"secondary-content tooltipped\" data-position=\"bottom\" data-delay=\"50\" data-tooltip=\"კომენტარი (5)\"><i class=\"material-icons\">comment</i></a>
+				// 	<a href=\"\" class=\"secondary-content tooltipped\" data-position=\"bottom\" data-delay=\"50\" data-tooltip=\"დამატება\"><i class=\"material-icons\">note_add</i></a>
+				// </div>";
+    //    $form .= "</li>";
 
 	       /*SUB START*/
-			$form .= "<ul class=\"collection with-header sortableFiles-box2 subfile-1\" data-cid=\"1\" style=\"margin:25px 10px 10px 10px;\">";
+			// $form .= "<ul class=\"collection with-header sortableFiles-box2 subfile-1\" data-cid=\"1\" style=\"margin:25px 10px 10px 10px;\">";
 			
-			$form .= "<li class=\"collection-item level-2\" data-item=\"1\" data-cid=\"1\">
-				<div>
-					რეპორტები sub ( 355kb )
-					
-					<a href=\"\" class=\"secondary-content tooltipped\" data-position=\"bottom\" data-delay=\"50\" data-tooltip=\"წაშლა\"><i class=\"material-icons\">delete</i></a>
-					<a href=\"\" class=\"secondary-content tooltipped\" data-position=\"bottom\" data-delay=\"50\" data-tooltip=\"კომენტარი (5)\"><i class=\"material-icons\">comment</i></a>
-				</div>
-			</li>";
+			// 	$form .= "<li class=\"collection-item level-2\" data-item=\"1\" data-cid=\"1\">
+			// 		<div>
+			// 			რეპორტები sub ( 355kb )
+						
+			// 			<a href=\"\" class=\"secondary-content tooltipped\" data-position=\"bottom\" data-delay=\"50\" data-tooltip=\"წაშლა\"><i class=\"material-icons\">delete</i></a>
+			// 			<a href=\"\" class=\"secondary-content tooltipped\" data-position=\"bottom\" data-delay=\"50\" data-tooltip=\"კომენტარი (5)\"><i class=\"material-icons\">comment</i></a>
+			// 		</div>
+			// 	</li>";
 
-			$form .= "<li class=\"collection-item level-2\" data-item=\"1\" data-cid=\"1\">
-				<div>
-					რეპორტები sub 2 ( 355kb )
-					
-					<a href=\"\" class=\"secondary-content tooltipped\" data-position=\"bottom\" data-delay=\"50\" data-tooltip=\"წაშლა\"><i class=\"material-icons\">delete</i></a>
-					<a href=\"\" class=\"secondary-content tooltipped\" data-position=\"bottom\" data-delay=\"50\" data-tooltip=\"კომენტარი (5)\"><i class=\"material-icons\">comment</i></a>
-				</div>
-			</li>";
+			// 	$form .= "<li class=\"collection-item level-2\" data-item=\"1\" data-cid=\"1\">
+			// 		<div>
+			// 			რეპორტები sub 2 ( 355kb )
+						
+			// 			<a href=\"\" class=\"secondary-content tooltipped\" data-position=\"bottom\" data-delay=\"50\" data-tooltip=\"წაშლა\"><i class=\"material-icons\">delete</i></a>
+			// 			<a href=\"\" class=\"secondary-content tooltipped\" data-position=\"bottom\" data-delay=\"50\" data-tooltip=\"კომენტარი (5)\"><i class=\"material-icons\">comment</i></a>
+			// 		</div>
+			// 	</li>";
 
-			$form .= "</ul>";
+			// $form .= "</ul>";
 			/*SUB END*/
 
+		
+
+		// $form .= "<li class=\"collection-item level-0\" data-item=\"3\" data-cid=\"0\">
+		// 	<div>
+		// 		რეპორტები 3 ( 355kb )
 				
-
-
-
-				
-
-		$form .= "<li class=\"collection-item level-0\" data-item=\"2\" data-cid=\"0\">
-			<div>
-				რეპორტები 2 ( 355kb )
-				
-				<a href=\"\" class=\"secondary-content tooltipped\" data-position=\"bottom\" data-delay=\"50\" data-tooltip=\"წაშლა\"><i class=\"material-icons\">delete</i></a>
-				<a href=\"\" class=\"secondary-content tooltipped\" data-position=\"bottom\" data-delay=\"50\" data-tooltip=\"კომენტარი (5)\"><i class=\"material-icons\">comment</i></a>
-				<a href=\"\" class=\"secondary-content tooltipped\" data-position=\"bottom\" data-delay=\"50\" data-tooltip=\"დამატება\"><i class=\"material-icons\">note_add</i></a>
-			</div>
-		</li>";
-
-		$form .= "<li class=\"collection-item level-0\" data-item=\"3\" data-cid=\"0\">
-			<div>
-				რეპორტები 3 ( 355kb )
-				
-				<a href=\"\" class=\"secondary-content tooltipped\" data-position=\"bottom\" data-delay=\"50\" data-tooltip=\"წაშლა\"><i class=\"material-icons\">delete</i></a>
-				<a href=\"\" class=\"secondary-content tooltipped\" data-position=\"bottom\" data-delay=\"50\" data-tooltip=\"კომენტარი (5)\"><i class=\"material-icons\">comment</i></a>
-				<a href=\"\" class=\"secondary-content tooltipped\" data-position=\"bottom\" data-delay=\"50\" data-tooltip=\"დამატება\"><i class=\"material-icons\">note_add</i></a>
-			</div>
-		</li>";
+		// 		<a href=\"\" class=\"secondary-content tooltipped\" data-position=\"bottom\" data-delay=\"50\" data-tooltip=\"წაშლა\"><i class=\"material-icons\">delete</i></a>
+		// 		<a href=\"\" class=\"secondary-content tooltipped\" data-position=\"bottom\" data-delay=\"50\" data-tooltip=\"კომენტარი (5)\"><i class=\"material-icons\">comment</i></a>
+		// 		<a href=\"\" class=\"secondary-content tooltipped\" data-position=\"bottom\" data-delay=\"50\" data-tooltip=\"დამატება\"><i class=\"material-icons\">note_add</i></a>
+		// 	</div>
+		// </li>";
 
       	$form .= "</ul>";
   		

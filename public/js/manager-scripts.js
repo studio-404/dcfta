@@ -69,10 +69,13 @@ var add_page = function(cid){
 					
 					//changePositionsOfPages(0, 'sortablePagePositionChange '+level);
 					if(level==".level-0"){
-						subfile = $(".subfile-"+itemidx).detach();
+						subfile = $("#subfilex-"+itemidx).detach();
 						$(level+"[data-item='"+itemidx+"']").after(subfile);
 						subfile.remove();
 					}				
+				},
+				onDrag: function(e){
+					alert("oops");
 				}
 			});
 			
@@ -681,8 +684,7 @@ $(document).on("change", "#loan-status2", function(){
 	loanStatus2();
 });
 
-
-var openFileManager = function(photosBox, id){
+var elFinderDesign = function(id){
 	var overlay = document.createElement("div");
 	overlay.id = "overlay"+id;
 	
@@ -705,7 +707,6 @@ var openFileManager = function(photosBox, id){
 
 	box.append(boxHeader);
 	box.append(fileManager);
-
 
 	$("body").append(overlay).append(box);
 	$("body").css("overflow-y","hidden"); 
@@ -754,7 +755,10 @@ var openFileManager = function(photosBox, id){
 		"cursor":"pointer" 
 	});
 	$("#closeBox"+id).attr("onclick", "closeFileManager('"+id+"')");
+};
 
+var openFileManager = function(photosBox, id){
+	elFinderDesign(id); 
 	$("#fileManager"+id).elfinder({
 		url : '/public/elfinder/php/connector.minimal.php', 
 		docked: false,
@@ -802,6 +806,87 @@ var photoUploaderBox = function(photosBox){
 var removePhotoItem = function(imageBoxId){
 	$("#"+imageBoxId).fadeOut().remove();
 }
+
+var openFileManagerForFiles = function(id){
+	elFinderDesign(id); 
+	$("#fileManager"+id).elfinder({
+		url : '/public/elfinder/php/connector.minimal.php', 
+		docked: false,
+        dialog: { width: 400, modal: true },
+        closeOnEditorCallback: true, 
+		getFileCallback: function(url) {
+            // $("#"+id+" .card .card-image .activator").attr("src",Config.website+"ge/image/loadimage?f="+Config.website+"public/"+url.path+"&w=215&h=173");
+            // $("#"+id+" .card .card-image .managerFiles").val("/public/"+url.path);
+            // photoUploaderBox(photosBox);
+            
+            var f = filebox(url.path);
+            $("#sortableFiles-box").append(f); 
+            closeFileManager(id); 
+        }
+	});
+	$("#fileManager"+id).css({
+		"width":"calc(100% - 20px)",
+		"margin":"0px 10px",
+		"float":"left"
+	});
+};
+
+var openFileManagerForSubFiles = function(id, item){
+	$("#"+id).html("vovo chuma");
+	elFinderDesign(id); 
+	$("#fileManager"+id).elfinder({
+		url : '/public/elfinder/php/connector.minimal.php', 
+		docked: false,
+        dialog: { width: 400, modal: true },
+        closeOnEditorCallback: true, 
+		getFileCallback: function(url) {
+            addsubfile(item, url.path);
+            closeFileManager(id); 
+        }
+	});
+	$("#fileManager"+id).css({
+		"width":"calc(100% - 20px)",
+		"margin":"0px 10px",
+		"float":"left"
+	});
+};
+
+var filebox = function(path){
+	var length = $("#sortableFiles-box .level-0").length + 1;
+	var split = path.split("/");
+	var file = "<li class=\"collection-item level-0 popupfile0\" data-item=\""+length+"\" data-cid=\"0\" data-file=\""+path+"\">";
+	file += "<div>";
+	file += split[split.length - 1];
+	file += "<a href=\"\" class=\"secondary-content tooltipped\" data-position=\"bottom\" data-delay=\"50\" data-tooltip=\"წაშლა\"><i class=\"material-icons\">delete</i></a>";
+	file += "<a href=\"\" class=\"secondary-content tooltipped\" data-position=\"bottom\" data-delay=\"50\" data-tooltip=\"კომენტარი (5)\"><i class=\"material-icons\">comment</i></a>";
+	file += "<a href=\"javascript:void(0)\" onclick=\"openFileManagerForSubFiles('subfilex"+length+"','"+length+"')\" class=\"secondary-content tooltipped\" data-position=\"bottom\" data-delay=\"50\" data-tooltip=\"დამატება\"><i class=\"material-icons\">note_add</i></a>";
+	file += "</div>";
+	file += "</li>";
+	return file;
+};
+
+var addsubfile = function(item, path){
+	var split = path.split("/");
+	var file = "";
+	if(!$("#subfilex-"+item).length){
+		file += "<ul id=\"subfilex-"+item+"\" class=\"collection with-header sortableFiles-box2\" data-cid=\""+item+"\" style=\"margin:10px;\">";
+	}
+	file += "<li class=\"collection-item level-2\" data-item=\""+item+"\" data-cid=\""+item+"\" data-path=\""+path+"\">";
+	file += "<div>";
+	file += split[split.length - 1];
+	file += "<a href=\"\" class=\"secondary-content tooltipped\" data-position=\"bottom\" data-delay=\"50\" data-tooltip=\"წაშლა\"><i class=\"material-icons\">delete</i></a>";
+	file += "<a href=\"\" class=\"secondary-content tooltipped\" data-position=\"bottom\" data-delay=\"50\" data-tooltip=\"კომენტარი (5)\"><i class=\"material-icons\">comment</i></a>";
+	file += "</div>";
+	file += "</li>";
+	if(!$("#subfilex-"+item).length){
+		file += "</ul>";
+		$(".level-0[data-item='"+item+"']").after(file);
+	}else{
+		$("#subfilex-"+item+"").append(file);
+	}
+
+	
+};
 
 
 $(document).ready(function(){
