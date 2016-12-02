@@ -16,6 +16,7 @@ class addPageForm
 		require_once 'app/core/Config.php';
 		require_once 'app/functions/makeForm.php';
 		require_once 'app/functions/request.php';
+		require_once 'app/functions/string.php';
 
 		$this->out = array(
 			"Error" => array(
@@ -26,6 +27,7 @@ class addPageForm
 		);
 
 		$call = functions\request::index("POST","call");
+		$random = functions\string::random(25);
 
 		$form = functions\makeForm::open(array(
 			"action"=>"?",
@@ -162,6 +164,7 @@ class addPageForm
 
         $form .= "<a href=\"javascript:void(0)\" class=\"waves-effect waves-light btn margin-bottom-20\" style=\"clear:both; margin-top: 40px;\" onclick=\"openFileManagerForFiles('attachfiles')\"><i class=\"material-icons left\">note_add</i>ატვირთვა</a>";
 
+  		$form .= "<input type=\"hidden\" name=\"random\" id=\"random\" value=\"".$random."\" />";
   		$form .= "<ul class=\"collection with-header\" id=\"sortableFiles-box\">";
 
     //     $form .= "<li class=\"collection-item level-0\" data-item=\"1\" data-cid=\"0\">

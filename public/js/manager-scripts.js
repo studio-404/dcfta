@@ -97,6 +97,7 @@ var formPageAdd = function(){
 	var redirect = $("#redirect").val();
 	var pageDescription = tinymce.get('pageDescription').getContent();
 	var pageText = tinymce.get('pageText').getContent();
+	var random = $("#random").val();
 
 	var photos = new Array();
 	if($(".imageItem").length){
@@ -107,6 +108,27 @@ var formPageAdd = function(){
 		});
 	}
 	var serialPhotos = serialize(photos);
+	/* FILE SERIALIZE */
+	var files = new Array();
+	var f_item = "";
+	var f_cid = "";
+	var f_path = "";
+	var f_all = "";
+	if($("#sortableFiles-box").length){
+		$("#sortableFiles-box li").each(function(){
+			f_item = $(this).attr("data-item");
+			f_cid = $(this).attr("data-cid");
+			if(typeof $(this).attr("data-file") !== "undefined"){
+				f_path = $(this).attr("data-file");	
+			}
+			if(typeof $(this).attr("data-path") !== "undefined"){
+				f_path = $(this).attr("data-path");	
+			}
+			f_all = random + "," + f_item + "," + f_cid + "," + f_path;
+			files.push(f_all);
+		});
+	}
+	var serialFiles = serialize(files);
 
 	$(".modal-message-box").html("გთხოვთ დაიცადოთ...");
 	if(
@@ -122,7 +144,7 @@ var formPageAdd = function(){
 		$.ajax({
 			method: "POST",
 			url: Config.ajax + ajaxFile,
-			data: { input_cid:input_cid, chooseNavType: chooseNavType, choosePageType: choosePageType, title: title, slug: slug, cssClass:cssClass, attachModule:attachModule, redirect:redirect, pageDescription: pageDescription, pageText: pageText, serialPhotos: serialPhotos }
+			data: { input_cid:input_cid, chooseNavType: chooseNavType, choosePageType: choosePageType, title: title, slug: slug, cssClass:cssClass, attachModule:attachModule, redirect:redirect, pageDescription: pageDescription, pageText: pageText, serialPhotos: serialPhotos, serialFiles:serialFiles }
 		}).done(function( msg ) {
 			var obj = $.parseJSON(msg);
 			if(obj.Error.Code==1){
@@ -135,7 +157,7 @@ var formPageAdd = function(){
 				$("#pageDescription").val("");
 				$("#pageText").val("");
 				scrollTop();
-				location.reload();
+				// location.reload();
 			}else{
 				$(".modal-message-box").html("E");
 			}
@@ -165,6 +187,27 @@ var formPageEdit = function(idx, lang){
 	}
 	var serialPhotos = serialize(photos);
 
+	var files = new Array();
+	var f_item = "";
+	var f_cid = "";
+	var f_path = "";
+	var f_all = "";
+	if($("#sortableFiles-box").length){
+		$("#sortableFiles-box li").each(function(){
+			f_item = $(this).attr("data-item");
+			f_cid = $(this).attr("data-cid");
+			if(typeof $(this).attr("data-file") !== "undefined"){
+				f_path = $(this).attr("data-file");	
+			}
+			if(typeof $(this).attr("data-path") !== "undefined"){
+				f_path = $(this).attr("data-path");	
+			}
+			f_all = random + "," + f_item + "," + f_cid + "," + f_path;
+			files.push(f_all);
+		});
+	}
+	var serialFiles = serialize(files);
+
 	$(".modal-message-box").html("გთხოვთ დაიცადოთ...");
 	if(
 		(typeof chooseNavType === "undefined" || chooseNavType=="") || 
@@ -179,7 +222,7 @@ var formPageEdit = function(idx, lang){
 		$.ajax({
 			method: "POST",
 			url: Config.ajax + ajaxFile,
-			data: { idx:idx, lang: lang, chooseNavType: chooseNavType, choosePageType: choosePageType, title: title, slug: slug, cssClass:cssClass, attachModule:attachModule, redirect:redirect, pageDescription: pageDescription, pageText: pageText, serialPhotos:serialPhotos }
+			data: { idx:idx, lang: lang, chooseNavType: chooseNavType, choosePageType: choosePageType, title: title, slug: slug, cssClass:cssClass, attachModule:attachModule, redirect:redirect, pageDescription: pageDescription, pageText: pageText, serialPhotos:serialPhotos, serialFiles:serialFiles }
 		}).done(function( msg ) {
 			var obj = $.parseJSON(msg);
 			if(obj.Error.Code==1){
@@ -398,7 +441,8 @@ var editPage = function(idx, lang){
 				update: function( event, ui ) {  }
 			});
 
-			tiny(".tinymceTextArea");			
+			tiny(".tinymceTextArea");
+			scrollTop();			
 		}
 	});
 };
@@ -818,9 +862,25 @@ var openFileManagerForFiles = function(id){
             // $("#"+id+" .card .card-image .activator").attr("src",Config.website+"ge/image/loadimage?f="+Config.website+"public/"+url.path+"&w=215&h=173");
             // $("#"+id+" .card .card-image .managerFiles").val("/public/"+url.path);
             // photoUploaderBox(photosBox);
-            
-            var f = filebox(url.path);
-            $("#sortableFiles-box").append(f); 
+            var ajaxFile = "/file_system";
+            var random = $("#random").val(); 
+            var path = url.path; 
+            $.ajax({
+				method: "POST",
+				url: Config.ajax + ajaxFile,
+				data: { random:random, path:path }
+			}).done(function( msg ) {
+				var obj = $.parseJSON(msg);
+				if(obj.Error.Code==1){
+					alert(obj.Error.Text);
+				}else if(obj.Success.Code==1){
+					var f = filebox(url.path, obj.Success.insert_id);
+            		$("#sortableFiles-box").append(f); 
+				}else{
+					alert("E5");
+				}
+			});
+          
             closeFileManager(id); 
         }
 	});
@@ -832,7 +892,6 @@ var openFileManagerForFiles = function(id){
 };
 
 var openFileManagerForSubFiles = function(id, item){
-	$("#"+id).html("vovo chuma");
 	elFinderDesign(id); 
 	$("#fileManager"+id).elfinder({
 		url : '/public/elfinder/php/connector.minimal.php', 
@@ -840,7 +899,26 @@ var openFileManagerForSubFiles = function(id, item){
         dialog: { width: 400, modal: true },
         closeOnEditorCallback: true, 
 		getFileCallback: function(url) {
-            addsubfile(item, url.path);
+			var ajaxFile = "/file_system";
+            var random = $("#random").val(); 
+            var path = url.path; 
+			$.ajax({
+				method: "POST",
+				url: Config.ajax + ajaxFile,
+				data: { random:random, path:path, item:item }
+			}).done(function( msg ) {
+				var obj = $.parseJSON(msg);
+				if(obj.Error.Code==1){
+					alert(obj.Error.Text);
+				}else if(obj.Success.Code==1){
+					// var f = filebox(url.path, obj.Success.insert_id);
+     //        		$("#sortableFiles-box").append(f); 
+     				addsubfile(item, url.path, obj.Success.insert_id);
+				}else{
+					alert("E5");
+				}
+			});
+            
             closeFileManager(id); 
         }
 	});
@@ -851,41 +929,58 @@ var openFileManagerForSubFiles = function(id, item){
 	});
 };
 
-var filebox = function(path){
-	var length = $("#sortableFiles-box .level-0").length + 1;
+var removeAttachedFile = function(classes, item, sub){
+	var ajaxFile = "/removeFile";
+	$.ajax({
+		method: "POST",
+		url: Config.ajax + ajaxFile,
+		data: { item:item }
+	}).done(function( msg ) {
+		var obj = $.parseJSON(msg);
+		if(obj.Success.Code==1){
+			$("."+classes+"[data-item='"+item+"']").remove();
+			if($("#subfilex-"+item).length && sub){
+				$("#subfilex-"+item).remove();
+			}
+		}
+	});	
+	
+};
+
+var filebox = function(path, returnid){
+	// var length = $("#sortableFiles-box .level-0").length + 1;
 	var split = path.split("/");
-	var file = "<li class=\"collection-item level-0 popupfile0\" data-item=\""+length+"\" data-cid=\"0\" data-file=\""+path+"\">";
+	var file = "<li class=\"collection-item level-0 popupfile0\" data-item=\""+returnid+"\" data-cid=\"0\" data-file=\""+path+"\">";
 	file += "<div>";
 	file += split[split.length - 1];
-	file += "<a href=\"\" class=\"secondary-content tooltipped\" data-position=\"bottom\" data-delay=\"50\" data-tooltip=\"წაშლა\"><i class=\"material-icons\">delete</i></a>";
+	file += "<a href=\"javascript:void(0)\" onclick=\"removeAttachedFile('level-0','"+returnid+"', true)\" class=\"secondary-content tooltipped\" data-position=\"bottom\" data-delay=\"50\" data-tooltip=\"წაშლა\"><i class=\"material-icons\">delete</i></a>";
 	file += "<a href=\"\" class=\"secondary-content tooltipped\" data-position=\"bottom\" data-delay=\"50\" data-tooltip=\"კომენტარი (5)\"><i class=\"material-icons\">comment</i></a>";
-	file += "<a href=\"javascript:void(0)\" onclick=\"openFileManagerForSubFiles('subfilex"+length+"','"+length+"')\" class=\"secondary-content tooltipped\" data-position=\"bottom\" data-delay=\"50\" data-tooltip=\"დამატება\"><i class=\"material-icons\">note_add</i></a>";
+	file += "<a href=\"javascript:void(0)\" onclick=\"openFileManagerForSubFiles('subfilex"+returnid+"','"+returnid+"')\" class=\"secondary-content tooltipped\" data-position=\"bottom\" data-delay=\"50\" data-tooltip=\"დამატება\"><i class=\"material-icons\">note_add</i></a>";
 	file += "</div>";
 	file += "</li>";
 	return file;
 };
 
-var addsubfile = function(item, path){
+var addsubfile = function(item, path, inserted_id){
+	// var length = $("#subfilex-"+item+" .level-2").length + 1;
 	var split = path.split("/");
 	var file = "";
 	if(!$("#subfilex-"+item).length){
 		file += "<ul id=\"subfilex-"+item+"\" class=\"collection with-header sortableFiles-box2\" data-cid=\""+item+"\" style=\"margin:10px;\">";
 	}
-	file += "<li class=\"collection-item level-2\" data-item=\""+item+"\" data-cid=\""+item+"\" data-path=\""+path+"\">";
+	file += "<li class=\"collection-item level-2\" data-item=\""+inserted_id+"\" data-cid=\""+item+"\" data-path=\""+path+"\">";
 	file += "<div>";
 	file += split[split.length - 1];
-	file += "<a href=\"\" class=\"secondary-content tooltipped\" data-position=\"bottom\" data-delay=\"50\" data-tooltip=\"წაშლა\"><i class=\"material-icons\">delete</i></a>";
+	file += "<a href=\"javascript:void(0)\" onclick=\"removeAttachedFile('level-2','"+inserted_id+"', false)\"  class=\"secondary-content tooltipped\" data-position=\"bottom\" data-delay=\"50\" data-tooltip=\"წაშლა\"><i class=\"material-icons\">delete</i></a>";
 	file += "<a href=\"\" class=\"secondary-content tooltipped\" data-position=\"bottom\" data-delay=\"50\" data-tooltip=\"კომენტარი (5)\"><i class=\"material-icons\">comment</i></a>";
 	file += "</div>";
 	file += "</li>";
 	if(!$("#subfilex-"+item).length){
 		file += "</ul>";
-		$(".level-0[data-item='"+item+"']").after(file);
+		$(".popupfile0[data-item='"+item+"']").after(file);
 	}else{
 		$("#subfilex-"+item+"").append(file);
-	}
-
-	
+	}	
 };
 
 

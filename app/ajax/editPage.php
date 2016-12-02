@@ -36,6 +36,7 @@ class editPage
 		$pageDescription = functions\request::index("POST","pageDescription");
 		$pageText = functions\request::index("POST","pageText");
 		$serialPhotos = unserialize(functions\request::index("POST","serialPhotos"));
+		$serialFiles = unserialize(functions\request::index("POST","serialFiles"));
 
 		if($idx == "" || $lang=="" || $chooseNavType=="" || $choosePageType=="" || $title=="" || $slug=="" || $pageDescription=="" || $pageText=="")
 		{
@@ -60,7 +61,8 @@ class editPage
 					'redirect'=>$redirect, 
 					'pageDescription'=>$pageDescription, 
 					'pageText'=>$pageText, 
-					'serialPhotos'=>$serialPhotos
+					'serialPhotos'=>$serialPhotos, 
+					'serialFiles'=>$serialFiles 
 			));
 			$output = $Database->getter();
 			if($output){
