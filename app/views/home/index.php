@@ -163,7 +163,7 @@
 			</section>
 			<section class="col s12 m6 l4 rightSide">
 				<section class="justTitle">EU Important links</section>
-				<ul class="usefullLinks">
+				<!-- <ul class="usefullLinks">
 					<li>
 						<a href="" class="waves-effect waves-light">
 							<img src="<?=$data['header']['public']?>img/eur2.png" alt="" />
@@ -205,7 +205,8 @@
 							<span>European youth parliament</span>
 						</a>
 					</li>
-				</ul>
+				</ul> -->
+				<?=$data['euLinks']?>
 				<section class="justTitle marginTop40">Event Calendar</section>
 				
 				<section class="CalendarBox">

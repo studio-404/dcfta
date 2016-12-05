@@ -31,22 +31,6 @@ class page
 		return $fetch;
 	}
 
-	// private function selectAboutContent($args)
-	// {
-	// 	$fetch = array();
-	// 	$select = "SELECT `title`,`text` FROM `navigation` WHERE `idx`=:idx AND `lang`=:lang AND `status`!=:one";
-	// 	$prepare = $this->conn->prepare($select);
-	// 	$prepare->execute(array(
-	// 		":idx"=>$args['idx'], 
-	// 		":lang"=>$args['lang'], 
-	// 		":one"=>1
-	// 	));
-	// 	if($prepare->rowCount()){
-	// 		$fetch = $prepare->fetch(PDO::FETCH_ASSOC);
-	// 	}
-	// 	return $fetch;
-	// }
-
 	private function updateVisibility($args)
 	{
 		$visibility = ($args['visibility']==0) ? 1 : 0;
@@ -84,7 +68,8 @@ class page
 		return $fetch;
 	}
 
-	private function selecteBySlug($args){
+	private function selecteBySlug($args)
+	{
 		$fetch = array();
 		$slug = $args['slug']; 
 		$lang = $args['lang'];

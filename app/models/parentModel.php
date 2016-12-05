@@ -8,7 +8,7 @@ class parentModel
 		require_once 'app/functions/url.php';
 		$url = new functions\url();
 		$getUrl = explode("/", $url->getUrl());
-		$out = "<div class=\"collection moduleList\">";
+		$out = "<div class=\"collection moduleList\" style=\"margin-top:0px;\">";
 		if(count($this->use_mod)):
 			$x = 1;
 			foreach ($this->use_mod as $val) {

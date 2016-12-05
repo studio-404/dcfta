@@ -34,9 +34,16 @@ class Home extends Controller
 			"all"=>true
 		));
 
+		$db_eulinks = new Database("modules", array(
+			"method"=>"selectModuleByType", 
+			"type"=>"eu",
+			"from"=>0, 
+			"num"=>10
+		));
+
 
 		// echo "<pre>";
-		// print_r($db_navigation->getter()); 
+		// print_r($db_eulinks->getter()); 
 		// echo "</pre>";
 
 		/* HEDARE */
@@ -56,6 +63,10 @@ class Home extends Controller
 		$navigation = $this->model('_navigation');
 		$navigation->data = $db_navigation->getter();
 
+		/* EU Important Links */
+		$euLinks = $this->model('_eulinks');
+		$euLinks->data = $db_eulinks->getter(); 
+
 		/* view */
 		$this->view('home/index', [
 			"header"=>array(
@@ -66,7 +77,8 @@ class Home extends Controller
 			"languagesModule"=>$languages->index(), 
 			"socialNetworksModule"=>$social->index(), 
 			"navigationModule"=>$navigation->index(), 
-			"pageData"=>$db_pagedata->getter() 
+			"pageData"=>$db_pagedata->getter(), 
+			"euLinks"=>$euLinks->index()
 		]);
 	}
 
