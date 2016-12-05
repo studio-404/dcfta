@@ -39,7 +39,7 @@
 
 		<section class="body">
 
-			<div class="row">
+			<div class="row" style="display: block;">
 				<div class="col s3">
 				<?php
 				$module_slug = (isset($data['parsed_url'][3])) ? $data['parsed_url'][3] : "test";
@@ -47,7 +47,7 @@
 				?>					
 				</div>
 				<div class="col s9">
-					<a href="javascript:void(0)" onclick="add_module('<?=$module_slug?>')" class="waves-effect waves-light btn margin-bottom-20" ><i class="material-icons left">note_add</i>დამატება</a>
+					<a href="javascript:void(0)" onclick="add_module('<?=$module_slug?>', '<?=$_SESSION["LANG"]?>')" class="waves-effect waves-light btn margin-bottom-20" ><i class="material-icons left">note_add</i>დამატება</a>
 
 					<table class="highlight">
 						<thead>

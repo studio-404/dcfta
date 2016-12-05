@@ -13,11 +13,33 @@ class App{
 		$url = $this->parseUrl();
 
 		$_SESSION["LANG"] = (isset($url[0])) ? $url[0] : "ge";
+		if(!isset($url[1])){ $url[1] = $this->controller; }
 
 
 		if(file_exists('app/controllers/'. $url[1].'.php')){
 			$this->controller = $url[1];
 			unset($url[1]);
+		}else{
+			$page = new Database("page", array(
+				"method"=>"selecteBySlug",
+				"slug"=>$url[1], 
+				"lang"=>$_SESSION["LANG"]
+			));
+			$getter = $page->getter();
+
+			if(count($getter)):			
+				switch($getter['type']){
+					case "text":
+						$this->controller = "text";
+						break;
+					case "news":
+						$this->controller = "news";
+						break;
+					case "readnews":
+						$this->controller = "read";
+						break;
+			}
+			endif;
 		}
 
 		require_once 'app/controllers/'.$this->controller.'.php';

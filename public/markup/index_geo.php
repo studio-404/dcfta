@@ -67,9 +67,7 @@
 		<section class="navigation">
 			<ul>
 				<li><a href="index.php" class="active"><span>მთავარი</span></a></li>
-				<li class="sub" data-sub="i24">
-					<a href="about.php"><span>ჩვენ შესახებ</span></a> 
-				</li>
+				<li><a href="about.php"><span>ჩვენ შესახებ</span></a></li>
 				<li><a href="agreement.php"><span>შეთანხმება</span></a></li>
 				<li><a href="implimentation.php"><span>დანერგვა</span></a></li>
 				<li><a href="coordination.php"><span>კოორდინაცია</span></a></li>
@@ -354,8 +352,8 @@
 		<section class="row marginBottom55">
 			<section class="marginminus10">
 				<section class="col s12 m12 l12">
-					<section class="col s6 m3 l3"><a href=""><img src="img/geoeuro.jpg" alt="" class="bigImage" /></a></section>
-					<section class="col s6 m3 l2"><a href=""><img src="img/giz.jpg" alt="" /></a></section>
+					<section class="col s12 m3 l3"><a href=""><img src="img/geoeuro.jpg" alt="" class="bigImage" /></a></section>
+					<section class="col s12 m3 l2"><a href=""><img src="img/giz.jpg" alt="" /></a></section>
 					<section class="col s12 m3 l5 mobileMarginTop20"><p>ეს საიტი უკვე წარმოებული მხარდაჭერით, ევროკავშირის მიერ დაფინანსებული პროექტის "მცირე და საშუალო ბიზნესის განვითარების და თავისუფალი ვაჭრობის შესახებ საქართველოში" ახორციელებს Deutsche Gesellschaft für საერთაშორისო თანამშრომლობის საზოგადოების (GIZ) GmbH სახელით გერმანიის ფედერალური სამინისტროს ეკონომიკური თანამშრომლობისა და განვითარების სამინისტროს (BMZ). შინაარსი ამ ნახვა არ გამოხატავდეს ევროკავშირის.</p></section>	
 					<section class="col s12 m2 l3"></section>				
 				</section>

@@ -7,7 +7,7 @@
 	@extend .no; 
 }
 body{
-	overflow-x: hidden; 
+	overflow-x: hidden !important; 
 }
 .clearer{
 	clear: both;

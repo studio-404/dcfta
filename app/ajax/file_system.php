@@ -27,6 +27,7 @@ class file_system
 		$random = functions\request::index("POST","random");
 		$path = functions\request::index("POST","path");
 		$item = functions\request::index("POST","item");
+		$file_attach_type = functions\request::index("POST","file_attach_type");
 		$output = false;
 
 		if($random=="" || $path=="")
@@ -43,14 +44,16 @@ class file_system
 				$Database = new Database('file', array(
 						'method'=>'add', 
 						'random'=>$random, 
-						'path'=>$path
+						'path'=>$path,
+						'file_attach_type'=>$file_attach_type
 				));
 			}else{
 				$Database = new Database('file', array(
 						'method'=>'addSub', 
 						'random'=>$random, 
 						'path'=>$path, 
-						'item'=>$item  
+						'item'=>$item, 
+						'file_attach_type'=>$file_attach_type 
 				));
 			}
 			$output = $Database->getter();

@@ -48,6 +48,13 @@ class removePage
 					'cid'=>$cid  
 			));
 			$output = $Database->getter();
+
+			$Database = new Database('file', array(
+					'method'=>'removeFileByPageId', 
+					'page_id'=>$idx, 
+					'type'=>"page" 
+			));
+
 			if($output){
 				$this->out = array(
 					"Error" => array(

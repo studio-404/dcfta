@@ -26,7 +26,7 @@ var sign_in_try = function(){
 	
 };
 
-var add_page = function(cid){
+var add_page = function(cid, lang){
 	var ajaxFile = "/addPageForm";
 	var header = "<h4>გვერდის დამატება</h4><p class=\"modal-message-box\"></p>";
 	var content = "<p>გთხოვთ დაიცადოთ...</p>";
@@ -41,7 +41,7 @@ var add_page = function(cid){
 	$.ajax({
 		method: "POST",
 		url: Config.ajax + ajaxFile,
-		data: { call: true }
+		data: { call: true, lang: lang }
 	}).done(function( msg ) {
 		var obj = $.parseJSON(msg);
 		if(obj.Error.Code==1){
@@ -66,16 +66,11 @@ var add_page = function(cid){
 					var subfile = "";
 					var itemidx = ui.item[0].attributes[1].nodeValue;
 					var level = (ui.item[0].attributes[2].nodeValue==0) ? ".level-0" : ".level-2";
-					
-					//changePositionsOfPages(0, 'sortablePagePositionChange '+level);
 					if(level==".level-0"){
 						subfile = $("#subfilex-"+itemidx).detach();
 						$(level+"[data-item='"+itemidx+"']").after(subfile);
 						subfile.remove();
 					}				
-				},
-				onDrag: function(e){
-					alert("oops");
 				}
 			});
 			
@@ -87,6 +82,7 @@ var add_page = function(cid){
 
 var formPageAdd = function(){
 	var ajaxFile = "/addPage";
+	var lang = $("#lang").val();
 	var input_cid = $("#input_cid").val();
 	var chooseNavType = $("#chooseNavType").val();
 	var choosePageType = $("#choosePageType").val();
@@ -98,6 +94,7 @@ var formPageAdd = function(){
 	var pageDescription = tinymce.get('pageDescription').getContent();
 	var pageText = tinymce.get('pageText').getContent();
 	var random = $("#random").val();
+	var file_attach_type = $("#file_attach_type").val();
 
 	var photos = new Array();
 	if($(".imageItem").length){
@@ -124,7 +121,7 @@ var formPageAdd = function(){
 			if(typeof $(this).attr("data-path") !== "undefined"){
 				f_path = $(this).attr("data-path");	
 			}
-			f_all = random + "," + f_item + "," + f_cid + "," + f_path;
+			f_all = file_attach_type + "," + random + "," + f_item + "," + f_cid + "," + f_path;
 			files.push(f_all);
 		});
 	}
@@ -144,7 +141,7 @@ var formPageAdd = function(){
 		$.ajax({
 			method: "POST",
 			url: Config.ajax + ajaxFile,
-			data: { input_cid:input_cid, chooseNavType: chooseNavType, choosePageType: choosePageType, title: title, slug: slug, cssClass:cssClass, attachModule:attachModule, redirect:redirect, pageDescription: pageDescription, pageText: pageText, serialPhotos: serialPhotos, serialFiles:serialFiles }
+			data: { lang:lang, input_cid:input_cid, chooseNavType: chooseNavType, choosePageType: choosePageType, title: title, slug: slug, cssClass:cssClass, attachModule:attachModule, redirect:redirect, pageDescription: pageDescription, pageText: pageText, serialPhotos: serialPhotos, serialFiles:serialFiles }
 		}).done(function( msg ) {
 			var obj = $.parseJSON(msg);
 			if(obj.Error.Code==1){
@@ -156,11 +153,11 @@ var formPageAdd = function(){
 				$("#slug").val("");
 				$("#pageDescription").val("");
 				$("#pageText").val("");
-				scrollTop();
 				// location.reload();
 			}else{
 				$(".modal-message-box").html("E");
 			}
+			scrollTop();
 		});
 	}
 };
@@ -176,6 +173,8 @@ var formPageEdit = function(idx, lang){
 	var redirect = $("#redirect").val();
 	var pageDescription = tinymce.get('pageDescription').getContent();
 	var pageText = tinymce.get('pageText').getContent();
+	var random = $("#random").val();
+	var file_attach_type = $("#file_attach_type").val();
 
 	var photos = new Array();
 	if($(".imageItem").length){
@@ -202,7 +201,7 @@ var formPageEdit = function(idx, lang){
 			if(typeof $(this).attr("data-path") !== "undefined"){
 				f_path = $(this).attr("data-path");	
 			}
-			f_all = random + "," + f_item + "," + f_cid + "," + f_path;
+			f_all = file_attach_type + "," + random + "," + f_item + "," + f_cid + "," + f_path;
 			files.push(f_all);
 		});
 	}
@@ -229,10 +228,10 @@ var formPageEdit = function(idx, lang){
 				$(".modal-message-box").html(obj.Error.Text);
 			}else if(obj.Success.Code==1){
 				$(".modal-message-box").html(obj.Success.Text);
-				scrollTop();
 			}else{
 				$(".modal-message-box").html("E");
 			}
+			scrollTop();
 		});
 	}
 };
@@ -441,13 +440,27 @@ var editPage = function(idx, lang){
 				update: function( event, ui ) {  }
 			});
 
+			$("#sortableFiles-box").sortable({
+				items: ".level-0, .level-2", 
+				update: function( event, ui ) { 
+					var subfile = "";
+					var itemidx = ui.item[0].attributes[1].nodeValue;
+					var level = (ui.item[0].attributes[2].nodeValue==0) ? ".level-0" : ".level-2";
+					if(level==".level-0"){
+						subfile = $("#subfilex-"+itemidx).detach();
+						$(level+"[data-item='"+itemidx+"']").after(subfile);
+						subfile.remove();
+					}				
+				}
+			});
+
 			tiny(".tinymceTextArea");
 			scrollTop();			
 		}
 	});
 };
 
-var add_module = function(moduleSlug){
+var add_module = function(moduleSlug, lang){
 	console.log(moduleSlug);
 	var ajaxFile = "/addModuleForm";
 	var header = "<h4>დამატება</h4><p class=\"modal-message-box\"></p>";
@@ -461,7 +474,7 @@ var add_module = function(moduleSlug){
 	$.ajax({
 		method: "POST",
 		url: Config.ajax + ajaxFile,
-		data: { moduleSlug: moduleSlug }
+		data: { moduleSlug: moduleSlug, lang:lang }
 	}).done(function( msg ) {
 		var obj = $.parseJSON(msg);
 		if(obj.Error.Code==1){
@@ -511,6 +524,21 @@ var editModules = function(idx, lang){
 		    	items: ".imageItem",
 				update: function( event, ui ) {  }
 			});
+
+			$("#sortableFiles-box").sortable({
+				items: ".level-0, .level-2", 
+				update: function( event, ui ) { 
+					var subfile = "";
+					var itemidx = ui.item[0].attributes[1].nodeValue;
+					var level = (ui.item[0].attributes[2].nodeValue==0) ? ".level-0" : ".level-2";
+					if(level==".level-0"){
+						subfile = $("#subfilex-"+itemidx).detach();
+						$(level+"[data-item='"+itemidx+"']").after(subfile);
+						subfile.remove();
+					}				
+				}
+			});
+
 			tiny(".tinymceTextArea");			
 		}
 	});
@@ -520,6 +548,8 @@ var formModuleEdit = function(idx, lang){
 	var ajaxFile = "/editFormModules";
 	var date = $("#date").val();
 	var title = $("#title").val();
+	var file_attach_type = $("#file_attach_type").val();
+	var random = $("#random").val();
 	var pageText = tinymce.get('pageText').getContent();
 	var link = (typeof $("#link").val() === "undefined" || $("#link").val()=="") ? $("#link").val() : "empty";
 
@@ -533,6 +563,27 @@ var formModuleEdit = function(idx, lang){
 	}
 	var serialPhotos = serialize(photos);
 
+	var files = new Array();
+	var f_item = "";
+	var f_cid = "";
+	var f_path = "";
+	var f_all = "";
+	if($("#sortableFiles-box").length){
+		$("#sortableFiles-box li").each(function(){
+			f_item = $(this).attr("data-item");
+			f_cid = $(this).attr("data-cid");
+			if(typeof $(this).attr("data-file") !== "undefined"){
+				f_path = $(this).attr("data-file");	
+			}
+			if(typeof $(this).attr("data-path") !== "undefined"){
+				f_path = $(this).attr("data-path");	
+			}
+			f_all = file_attach_type + "," + random + "," + f_item + "," + f_cid + "," + f_path;
+			files.push(f_all);
+		});
+	}
+	var serialFiles = serialize(files);
+
 	$(".modal-message-box").html("გთხოვთ დაიცადოთ...");
 	if(
 		(typeof date === "undefined" || date=="") || 
@@ -544,7 +595,7 @@ var formModuleEdit = function(idx, lang){
 		$.ajax({
 			method: "POST",
 			url: Config.ajax + ajaxFile,
-			data: { idx:idx, lang: lang, date: date, title: title, pageText: pageText, link:link, serialPhotos:serialPhotos }
+			data: { idx:idx, lang: lang, date: date, title: title, pageText: pageText, link:link, serialPhotos:serialPhotos, serialFiles:serialFiles }
 		}).done(function( msg ) {
 			var obj = $.parseJSON(msg);
 			if(obj.Error.Code==1){
@@ -559,9 +610,11 @@ var formModuleEdit = function(idx, lang){
 	}
 };
 
-var formModuleAdd = function(moduleSlug){
+var formModuleAdd = function(moduleSlug, lang){
 	var date = $("#date").val();
 	var title = $("#title").val();
+	var file_attach_type = $("#file_attach_type").val();
+	var random = $("#random").val();
 	var pageText = tinymce.get('pageText').getContent();
 	var link = (typeof $("#link").val() === "undefined" || $("#link").val()=="") ? $("#link").val() : "empty";
 
@@ -575,6 +628,27 @@ var formModuleAdd = function(moduleSlug){
 	}
 	var serialPhotos = serialize(photos);
 
+	var files = new Array();
+	var f_item = "";
+	var f_cid = "";
+	var f_path = "";
+	var f_all = "";
+	if($("#sortableFiles-box").length){
+		$("#sortableFiles-box li").each(function(){
+			f_item = $(this).attr("data-item");
+			f_cid = $(this).attr("data-cid");
+			if(typeof $(this).attr("data-file") !== "undefined"){
+				f_path = $(this).attr("data-file");	
+			}
+			if(typeof $(this).attr("data-path") !== "undefined"){
+				f_path = $(this).attr("data-path");	
+			}
+			f_all = file_attach_type + "," + random + "," + f_item + "," + f_cid + "," + f_path;
+			files.push(f_all);
+		});
+	}
+	var serialFiles = serialize(files);
+
 	var ajaxFile = "/addModule";
 	if(typeof moduleSlug == "undefined" || typeof date == "undefined" || typeof title === "undefined" || typeof pageText === "undefined"){
 		$(".modal-message-box").html("E4");
@@ -582,14 +656,14 @@ var formModuleAdd = function(moduleSlug){
 		$.ajax({
 			method: "POST",
 			url: Config.ajax + ajaxFile,
-			data: { moduleSlug: moduleSlug, date: date, title: title, pageText: pageText, link:link, serialPhotos:serialPhotos }
+			data: { moduleSlug: moduleSlug, lang:lang, date: date, title: title, pageText: pageText, link:link, serialPhotos:serialPhotos, serialFiles:serialFiles }
 		}).done(function( msg ) {
 			var obj = $.parseJSON(msg);
 			if(obj.Error.Code==1){
 				$(".modal-message-box").html(obj.Error.Text);
 			}else if(obj.Success.Code==1){
 				$(".modal-message-box").html(obj.Success.Text);
-				location.reload();
+				//location.reload();
 			}else{
 				$(".modal-message-box").html("E5");
 			}
@@ -864,11 +938,12 @@ var openFileManagerForFiles = function(id){
             // photoUploaderBox(photosBox);
             var ajaxFile = "/file_system";
             var random = $("#random").val(); 
+            var file_attach_type = $("#file_attach_type").val(); 
             var path = url.path; 
             $.ajax({
 				method: "POST",
 				url: Config.ajax + ajaxFile,
-				data: { random:random, path:path }
+				data: { random:random, path:path, file_attach_type:file_attach_type }
 			}).done(function( msg ) {
 				var obj = $.parseJSON(msg);
 				if(obj.Error.Code==1){
@@ -901,11 +976,12 @@ var openFileManagerForSubFiles = function(id, item){
 		getFileCallback: function(url) {
 			var ajaxFile = "/file_system";
             var random = $("#random").val(); 
+            var file_attach_type = $("#file_attach_type").val(); 
             var path = url.path; 
 			$.ajax({
 				method: "POST",
 				url: Config.ajax + ajaxFile,
-				data: { random:random, path:path, item:item }
+				data: { random:random, path:path, item:item, file_attach_type:file_attach_type }
 			}).done(function( msg ) {
 				var obj = $.parseJSON(msg);
 				if(obj.Error.Code==1){
@@ -938,7 +1014,7 @@ var removeAttachedFile = function(classes, item, sub){
 	}).done(function( msg ) {
 		var obj = $.parseJSON(msg);
 		if(obj.Success.Code==1){
-			$("."+classes+"[data-item='"+item+"']").remove();
+			$("#sortableFiles-box ."+classes+"[data-item='"+item+"']").remove();
 			if($("#subfilex-"+item).length && sub){
 				$("#subfilex-"+item).remove();
 			}

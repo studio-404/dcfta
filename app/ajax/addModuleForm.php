@@ -16,6 +16,7 @@ class addModuleForm
 		require_once 'app/core/Config.php';
 		require_once 'app/functions/makeForm.php';
 		require_once 'app/functions/request.php';
+		require_once 'app/functions/string.php';
 
 		$this->out = array(
 			"Error" => array(
@@ -26,6 +27,8 @@ class addModuleForm
 		);
 
 		$moduleSlug = functions\request::index("POST","moduleSlug");
+		$lang = functions\request::index("POST","lang");
+		$random = functions\string::random(25);
 
 		$form = functions\makeForm::open(array(
 			"action"=>"?",
@@ -100,6 +103,23 @@ class addModuleForm
 
   		$form .= "</div>";
 
+  		$form .= "<div style=\"clear:both\"></div>";
+
+  		$form .= "<div class=\"input-field\">
+            <label>ფაილის მიმაგრება: </label>
+          </div>";
+
+        $form .= "<div style=\"clear:both\"></div>";
+
+        $form .= "<a href=\"javascript:void(0)\" class=\"waves-effect waves-light btn margin-bottom-20\" style=\"clear:both; margin-top: 40px;\" onclick=\"openFileManagerForFiles('attachfiles')\"><i class=\"material-icons left\">note_add</i>ატვირთვა</a>";
+
+  		$form .= "<input type=\"hidden\" name=\"random\" id=\"random\" value=\"".$random."\" />";
+  		$form .= "<input type=\"hidden\" name=\"file_attach_type\" id=\"file_attach_type\" value=\"module\" />";
+  		$form .= "<ul class=\"collection with-header\" id=\"sortableFiles-box\">";
+
+
+      	$form .= "</ul>";
+
 		$form .= functions\makeForm::close();
 
 		
@@ -110,7 +130,7 @@ class addModuleForm
 				"Details"=>""
 			),
 			"form" => $form,
-			"attr" => "formModuleAdd('".$moduleSlug."')"
+			"attr" => "formModuleAdd('".$moduleSlug."', '".$lang."')"
 		);
 
 

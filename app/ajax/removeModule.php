@@ -42,6 +42,13 @@ class removeModule
 					'idx'=>$idx
 			));
 			$output = $Database->getter();
+
+			$Database = new Database('file', array(
+					'method'=>'removeFileByPageId', 
+					'page_id'=>$idx, 
+					'type'=>"module"
+			));
+
 			if($output){
 				$this->out = array(
 					"Error" => array(

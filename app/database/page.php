@@ -31,21 +31,21 @@ class page
 		return $fetch;
 	}
 
-	private function selectAboutContent($args)
-	{
-		$fetch = array();
-		$select = "SELECT `title`,`text` FROM `navigation` WHERE `idx`=:idx AND `lang`=:lang AND `status`!=:one";
-		$prepare = $this->conn->prepare($select);
-		$prepare->execute(array(
-			":idx"=>$args['idx'], 
-			":lang"=>$args['lang'], 
-			":one"=>1
-		));
-		if($prepare->rowCount()){
-			$fetch = $prepare->fetch(PDO::FETCH_ASSOC);
-		}
-		return $fetch;
-	}
+	// private function selectAboutContent($args)
+	// {
+	// 	$fetch = array();
+	// 	$select = "SELECT `title`,`text` FROM `navigation` WHERE `idx`=:idx AND `lang`=:lang AND `status`!=:one";
+	// 	$prepare = $this->conn->prepare($select);
+	// 	$prepare->execute(array(
+	// 		":idx"=>$args['idx'], 
+	// 		":lang"=>$args['lang'], 
+	// 		":one"=>1
+	// 	));
+	// 	if($prepare->rowCount()){
+	// 		$fetch = $prepare->fetch(PDO::FETCH_ASSOC);
+	// 	}
+	// 	return $fetch;
+	// }
 
 	private function updateVisibility($args)
 	{
@@ -84,8 +84,27 @@ class page
 		return $fetch;
 	}
 
+	private function selecteBySlug($args){
+		$fetch = array();
+		$slug = $args['slug']; 
+		$lang = $args['lang'];
+
+		$select = "SELECT `type` FROM `navigation` WHERE `slug`=:slug AND `lang`=:lang AND `status`!=:one";
+		$prepare = $this->conn->prepare($select);
+		$prepare->execute(array(
+			":slug"=>$slug, 
+			":lang"=>$lang, 
+			":one"=>1 
+		)); 
+		if($prepare->rowCount()){
+			$fetch = $prepare->fetch(PDO::FETCH_ASSOC);
+		}
+		return $fetch;
+	}
+
 	private function add($args)
 	{
+		$current_lang = $args["lang"];
 		$input_cid = (int)$args["input_cid"];
 		$navtype = (int)$args["chooseNavType"];
 		$type = $args["choosePageType"];
@@ -185,22 +204,24 @@ class page
 			foreach ($args["serialFiles"] as $file) {
 				if(!empty($file)):
 				$explode = explode(",",$file); 
-				$random = (isset($explode[0])) ? $explode[0] : "";
-				$idx = (isset($explode[1])) ? $explode[1] : "";
-				$cid = (isset($explode[2])) ? $explode[2] : "";
-				$path = (isset($explode[3])) ? $explode[3] : "";
+				$type = (isset($explode[0])) ? $explode[0] : "";
+				$random = (isset($explode[1])) ? $explode[1] : "";
+				$idx = (isset($explode[2])) ? $explode[2] : "";
+				$cid = (isset($explode[3])) ? $explode[3] : "";
+				$path = (isset($explode[4])) ? $explode[4] : "";
 
-				if($random != "" && $idx != "" && $cid != "" && $path != ""){
-					$files = 'UPDATE `file_system` SET `random`=:clear, `page_id`=:page_id, `lang`=:lang, `position`=:position WHERE `idx`=:idx AND `cid`=:cid AND `random`=:random';
+				if($type != "" && $random != "" && $idx != "" && $cid != "" && $path != ""){
+					$files = 'UPDATE `file_system` SET `type`=:type, `random`=:clear, `page_id`=:page_id, `lang`=:lang, `position`=:position WHERE `idx`=:idx AND `cid`=:cid AND `random`=:random';
 					$filePerpare = $this->conn->prepare($files);
 					$filePerpare->execute(array(
 					":clear"=>"", 
 					":page_id"=>$maxId, 
 					":position"=>$fileposition, 
-					":lang"=>$lang,
+					":lang"=>$current_lang,
 					":idx"=>$idx, 
 					":cid"=>$cid, 
-					":random"=>$random 
+					":random"=>$random, 
+					":type"=>$type 
 					));
 
 					$fileposition++;					
@@ -278,11 +299,12 @@ class page
 
 
 		// remove old files
-		$removeFiles = "DELETE FROM `file_system` WHERE `page_id`=:page_id AND `lang`=:lang"; 
+		$removeFiles = "DELETE FROM `file_system` WHERE `page_id`=:page_id AND `type`=:type AND `lang`=:lang"; 
 		$fileDeletePerpare = $this->conn->prepare($removeFiles);
 		$fileDeletePerpare->execute(array(
 			":page_id"=>$args["idx"], 
-			":lang"=>$lang 
+			":lang"=>$lang, 
+			":type"=>"page"  
 		));
 		
 
@@ -291,16 +313,17 @@ class page
 			foreach ($args["serialFiles"] as $file) {
 				if(!empty($file)):
 				$explode = explode(",",$file); 
-				$random = (isset($explode[0])) ? $explode[0] : "";
-				$idx = (isset($explode[1])) ? $explode[1] : "";
-				$cid = (isset($explode[2])) ? $explode[2] : "";
-				$path = (isset($explode[3])) ? $explode[3] : "";
+				$type = (isset($explode[0])) ? $explode[0] : "";
+				$random = (isset($explode[1])) ? $explode[1] : "";
+				$idx = (isset($explode[2])) ? $explode[2] : "";
+				$cid = (isset($explode[3])) ? $explode[3] : "";
+				$path = (isset($explode[4])) ? $explode[4] : "";
 
 				$fpath = Config::WEBSITE.Config::PUBLIC_FOLDER_NAME."/".$path;
 				$file_size = functions\files::get_size($fpath);
 
 				if($idx != "" && $cid != "" && $path != ""){
-					$files = 'INSERT INTO `file_system` SET `date`=:datex, `idx`=:idx, `cid`=:cid, `page_id`=:page_id, `file_path`=:file_path, `file_size`=:file_size, `lang`=:lang, `position`=:position';
+					$files = 'INSERT INTO `file_system` SET `date`=:datex, `idx`=:idx, `cid`=:cid, `page_id`=:page_id, `file_path`=:file_path, `file_size`=:file_size, `type`=:type, `lang`=:lang, `position`=:position';
 					$filePerpare = $this->conn->prepare($files);
 					$filePerpare->execute(array(
 					":datex"=>time(), 
@@ -310,6 +333,7 @@ class page
 					":file_path"=>$path, 
 					":file_size"=>$file_size,
 					":lang"=>$lang,
+					":type"=>$type,
 					":position"=>$fileposition					
 					));
 

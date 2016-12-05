@@ -221,6 +221,9 @@
 			}
 		}
 	}
+	.file:hover{
+		opacity: 0.8;
+	}
 }
 .files-no-bg{
 	margin: 20px 0 40px 0; 
@@ -282,6 +285,9 @@
 				}		
 			}
 		}
+	}
+	.file:hover{
+		border: solid 1px $yellowColor;
 	}
 }
 
@@ -484,7 +490,7 @@ footer{
 						width: $fullWidth;
 					}
 					.logo{
-						width: 65px;
+						width: 65px !important;
 					}
 				}
 
@@ -667,7 +673,7 @@ footer{
 		}
 	}
 	.collapsible-body{
-		margin-top: -10px;
+		margin-top: -10px !important;
 		margin-bottom: 10px !important;
 		-webkit-box-shadow: 0px 0px 10px 0px rgba(215,215,215,1) !important;
 		-moz-box-shadow: 0px 0px 10px 0px rgba(215,215,215,1) !important;
@@ -796,3 +802,6 @@ footer{
 		background-color: $yellowColor;
 	} 
 }
+.input-field .active{
+	color: $blueColor !important;
+};

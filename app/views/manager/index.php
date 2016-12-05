@@ -15,8 +15,6 @@
 </head>
 <body>
 
-
-<!-- Administrator <?=$data["name"]?> -->
 <section class="materialize sign-in-box">
 	<form class="col s12">
 			

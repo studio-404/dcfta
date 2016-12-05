@@ -118,6 +118,10 @@ var openComment = function(cid){
 $(document).ready(function(){
 	filesMobilize();
 	leftNavYellowBoxChangeHeight(); 
+
+	$('.collapsible').collapsible({
+	  accordion : false
+	});
 });
 
 $(document).ready(function(){

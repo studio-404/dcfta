@@ -35,19 +35,21 @@ class file
 		`idx`=:idx, 
 		`cid`=:cid, 
 		`random`=:random, 
+		`type`=:type, 
 		`page_id`=:page_id, 
 		`file_path`=:file_path, 
 		`file_size`=:file_size 
 		";
 		$prepare2 = $this->conn->prepare($insert);
 		$prepare2->execute(array(
-			"datex"=>time(), 
-			"idx"=>$idx, 
-			"cid"=>0, 
-			"random"=>$args['random'], 
-			"page_id"=>0, 
-			"file_path"=>$file_path,  
-			"file_size"=>$file_size  
+			":datex"=>time(), 
+			":idx"=>$idx, 
+			":cid"=>0, 
+			":random"=>$args['random'], 
+			":type"=>$args['file_attach_type'], 
+			":page_id"=>0, 
+			":file_path"=>$file_path,  
+			":file_size"=>$file_size  
 		));
 		if($prepare2->rowCount()){
 			return $idx;
@@ -78,6 +80,7 @@ class file
 		`idx`=:idx, 
 		`cid`=:cid, 
 		`random`=:random, 
+		`type`=:type, 
 		`page_id`=:page_id, 
 		`file_path`=:file_path, 
 		`file_size`=:file_size 
@@ -88,6 +91,7 @@ class file
 			"idx"=>$idx, 
 			"cid"=>$args['item'], 
 			"random"=>$args['random'], 
+			"type"=>$args['file_attach_type'], 
 			"page_id"=>0, 
 			"file_path"=>$file_path,  
 			"file_size"=>$file_size  
@@ -111,16 +115,31 @@ class file
 		return 0; 
 	}
 
+	public function removeFileByPageId($args)
+	{
+		$delete = "DELETE FROM `file_system` WHERE `page_id`=:page_id AND `type`=:type";
+		$prepare = $this->conn->prepare($delete);
+		$prepare->execute(array(
+			":page_id"=>$args['page_id'], 
+			":type"=>$args['type'] 
+		));
+		if($prepare->rowCount()){
+			return 1;
+		}
+		return 0; 
+	}	
+
 	public function selectFilesByPageId($args)
 	{
 		$fetch = array(); 
 		$cid = (isset($args['cid'])) ? $args['cid'] : 0;
-		$select = "SELECT * FROM `file_system` WHERE `cid`=:zero AND `page_id`=:page_id AND `lang`=:lang";
+		$select = "SELECT * FROM `file_system` WHERE `cid`=:zero AND `type`=:type AND `page_id`=:page_id AND `lang`=:lang";
 		$prepare = $this->conn->prepare($select);
 		$prepare->execute(array(
 			":zero"=>$cid, 
 			":page_id"=>$args['page_id'], 
-			":lang"=>$args['lang'] 
+			":lang"=>$args['lang'],  
+			":type"=>$args['type']   
 		));
 		if($prepare->rowCount()){
 			$fetch = $prepare->fetchAll(PDO::FETCH_ASSOC);

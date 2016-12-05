@@ -22,7 +22,7 @@
   border: 0px; }
 
 body {
-  overflow-x: hidden; }
+  overflow-x: hidden !important; }
 
 .clearer {
   clear: both; }
@@ -550,6 +550,8 @@ main {
           text-decoration: none;
           color: #ffcd00;
           font-weight: 500; }
+  .files .file:hover {
+    opacity: 0.8; }
 
 .files-no-bg {
   margin: 20px 0 40px 0;
@@ -604,6 +606,8 @@ main {
           text-decoration: none;
           color: #5d5d5d;
           font-weight: 500; }
+  .files-no-bg .file:hover {
+    border: solid 1px #ffcd00; }
 
 .leftNavigation {
   margin: 0px;
@@ -777,7 +781,7 @@ footer {
           outline: 0px;
           width: 100%; }
         footer .centerWidth .footerText .right a .logo {
-          width: 65px; }
+          width: 65px !important; }
 
 .InternationalSupport .box {
   margin-bottom: 20px;
@@ -924,7 +928,7 @@ footer {
       font-family: "noto_sansregular";
       color: #003399; }
   .collapsible .collapsible-body {
-    margin-top: -10px;
+    margin-top: -10px !important;
     margin-bottom: 10px !important;
     -webkit-box-shadow: 0px 0px 10px 0px #d7d7d7 !important;
     -moz-box-shadow: 0px 0px 10px 0px #d7d7d7 !important;
@@ -1039,6 +1043,9 @@ footer {
   .timeLeft span {
     padding: 0 5px;
     background-color: #ffcd00; }
+
+.input-field .active {
+  color: #003399 !important; }
 
 .CalendarBox {
   margin-top: 20px;
@@ -1195,7 +1202,7 @@ footer {
     font-size: 30px; }
 
   header .topBottom .logo .text {
-    font-size: 13px; }
+    font-size: 11px; }
 
   header .topBottom {
     height: 120px; }
@@ -1266,7 +1273,7 @@ footer {
       font-size: 12px; }
 
   footer .centerWidth a img {
-    width: 100%; }
+    width: 100% !important; }
 
   .footerText {
     width: calc(100% - 20px) !important;
@@ -1324,5 +1331,8 @@ footer {
 
   header .nav_bg {
     top: -5px; } }
+@media (max-width: 320px) {
+  header .topBottom .logo .text {
+    font-size: 9px; } }
 
 /*# sourceMappingURL=style.css.map */

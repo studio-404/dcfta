@@ -66,13 +66,7 @@
 		<section class="navigation">
 			<ul>
 				<li><a href="index.php"><span>Home</span></a></li>
-				<li class="sub" data-sub="i24">
-					<a href="about.php" class="slide"><span>About</span></a>  <i class="arrow"></i>
-					<ul class="i24">
-						<li><a href=""><span>About us</span></a></li>
-						<li><a href=""><span>Our Team</span></a></li>
-					</ul>
-				</li>
+				<li><a href="about.php"><span>About</span></a></li>
 				<li><a href="agreement.php"><span>Agreement</span></a></li>
 				<li><a href="implimentation.php"><span>Implimentation</span></a></li>
 				<li><a href="coordination.php"><span>Coordination</span></a></li>
@@ -231,8 +225,8 @@ Georgia's economy is supported by a relatively free and transparent atmosphere i
 		<section class="row marginBottom55">
 			<section class="marginminus10">
 				<section class="col s12 m12 l12">
-					<section class="col s6 m3 l3"><a href=""><img src="img/geoeuro.jpg" alt="" class="bigImage" /></a></section>
-					<section class="col s6 m3 l2"><a href=""><img src="img/giz.jpg" alt="" /></a></section>
+					<section class="col s12 m3 l3"><a href=""><img src="img/geoeuro.jpg" alt="" class="bigImage" /></a></section>
+					<section class="col s12 m3 l2"><a href=""><img src="img/giz.jpg" alt="" /></a></section>
 					<section class="col s12 m3 l5 mobileMarginTop20"><p>This website has been produced with support of the EU funded project “SME Development and DCFTA in Georgia” implemented by Deutsche Gesellschaft für Internationale Zusammenarbeit (GIZ) GmbH on behalf of German Federal Ministry for Economic Cooperation and Development (BMZ). The contents of this website do not necessarily reflect the views of the European Union.</p></section>	
 					<section class="col s12 m2 l3"></section>				
 				</section>

@@ -31,6 +31,7 @@ class editFormModules
 		$pageText = functions\request::index("POST","pageText");
 		$link = functions\request::index("POST","link");
 		$serialPhotos = unserialize(functions\request::index("POST","serialPhotos"));
+		$serialFiles = unserialize(functions\request::index("POST","serialFiles"));
 		
 		
 		if($idx == "" || $lang=="" || $date=="" || $title=="" || $pageText=="")
@@ -51,7 +52,8 @@ class editFormModules
 					'title'=>$title, 
 					'pageText'=>$pageText, 
 					'link'=>$link, 
-					'serialPhotos'=>$serialPhotos
+					'serialPhotos'=>$serialPhotos, 
+					'serialFiles'=>$serialFiles  
 			));
 			$output = $Database->getter();
 

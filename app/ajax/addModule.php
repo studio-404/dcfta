@@ -25,11 +25,13 @@ class addModule
 		);
 
 		$moduleSlug = functions\request::index("POST","moduleSlug");
+		$lang = functions\request::index("POST","lang");
 		$date = functions\request::index("POST","date");
 		$title = functions\request::index("POST","title");
 		$pageText = functions\request::index("POST","pageText");
 		$link = functions\request::index("POST","link");
 		$serialPhotos = unserialize(functions\request::index("POST","serialPhotos"));
+		$serialFiles = unserialize(functions\request::index("POST","serialFiles"));
 
 
 		if($moduleSlug=="" || $date=="" || $title=="" || $pageText=="")
@@ -45,11 +47,13 @@ class addModule
 			$Database = new Database('modules', array(
 					'method'=>'add', 
 					'moduleSlug'=>$moduleSlug, 
+					'lang'=>$lang, 
 					'date'=>$date, 
 					'title'=>$title, 
 					'pageText'=>$pageText, 
 					'link'=>$link, 
-					'serialPhotos'=>$serialPhotos
+					'serialPhotos'=>$serialPhotos, 
+					'serialFiles'=>$serialFiles  
 			));
 			$output = $Database->getter();
 			if($output){

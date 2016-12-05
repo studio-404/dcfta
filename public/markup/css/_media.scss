@@ -52,7 +52,7 @@
   	font-size: $topLogoBigFontSize - 15;
   }
   header .topBottom .logo .text{
-  	font-size: $topLogoSmallFontSize - 3;	
+  	font-size: $topLogoSmallFontSize - 5;	
   }
   header .topBottom{
   	height: $topBottomHeightMobile;
@@ -134,7 +134,7 @@
       }
    }
    footer .centerWidth a img{
-    width: $fullWidth;
+    width: $fullWidth !important;
    }
    .footerText{
       width: calc(100% - 20px) !important; 
@@ -158,7 +158,6 @@
     font-size: 10px;
    }
 }
-
 
 @media (max-width: $breakpoint-smallmobile) {
   header .top .top-box .social-networks{
@@ -201,5 +200,11 @@
   }
   header .nav_bg{
   	top: -5px;
+  }
+}
+
+@media (max-width: $breakpoint-extra-smallmobile) {
+  header .topBottom .logo .text{
+    font-size: 9px;
   }
 }

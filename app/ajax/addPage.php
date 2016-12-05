@@ -24,11 +24,12 @@ class addPage
 			)
 		);
 
+		$lang = functions\request::index("POST","lang");
 		$input_cid = functions\request::index("POST","input_cid");
 		$chooseNavType = functions\request::index("POST","chooseNavType");
 		$choosePageType = functions\request::index("POST","choosePageType");
 		$title = functions\request::index("POST","title");
-		$slug = functions\request::index("POST","slug");
+		$slug = str_replace(" ", "-", functions\request::index("POST","slug"));
 		$cssClass = functions\request::index("POST","cssClass");
 		$attachModule = functions\request::index("POST","attachModule");
 		$redirect = functions\request::index("POST","redirect");
@@ -46,10 +47,19 @@ class addPage
 					"Details"=>"!"
 				)
 			);
+		}else if(in_array($slug, explode("|", Config::RESTRICTED_SLUGS))){
+			$this->out = array(
+				"Error" => array(
+					"Code"=>1, 
+					"Text"=>"ბმულში გამოყენებულია აკრძალილი სიტყვა, გთხოვთ შეცვალეთ ".$slug." !",
+					"Details"=>"!"
+				)
+			);
 		}else{
 			$input_cid = (empty($input_cid) || $input_cid==0) ? 0 : $input_cid;
 			$Database = new Database('page', array(
 					'method'=>'add', 
+					'lang'=>$lang, 
 					'input_cid'=>$input_cid, 
 					'chooseNavType'=>$chooseNavType, 
 					'choosePageType'=>$choosePageType, 

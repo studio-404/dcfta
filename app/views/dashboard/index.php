@@ -37,7 +37,7 @@
 		</nav>
 
 		<section class="body">
-			<a href="javascript:void(0)" onclick="add_page('0')" class="waves-effect waves-light btn margin-bottom-20"><i class="material-icons left">note_add</i>დამატება</a>
+			<a href="javascript:void(0)" onclick="add_page('0', '<?=$_SESSION["LANG"]?>')" class="waves-effect waves-light btn margin-bottom-20"><i class="material-icons left">note_add</i>დამატება</a>
 
 			<div style="float: right; margin: 0 0 10px 0; width: 250px;">
 			<select class="language-chooser" id="language-chooser" onchange="changeLanguage('<?=$_SESSION["LANG"]?>')">

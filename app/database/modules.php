@@ -127,6 +127,8 @@ class modules
 
 	private function edit($args)
 	{
+		require_once 'app/functions/files.php';
+
 		$idx = $args["idx"];
 		$lang = $args["lang"];
 		$date = strtotime($args["date"]);
@@ -171,6 +173,51 @@ class modules
 					":lang"=>$lang, 
 					":zero"=>0
 				));
+				endif;
+			}
+		}
+
+		// remove old files
+		$removeFiles = "DELETE FROM `file_system` WHERE `page_id`=:page_id AND `type`=:type AND `lang`=:lang"; 
+		$fileDeletePerpare = $this->conn->prepare($removeFiles);
+		$fileDeletePerpare->execute(array(
+			":page_id"=>$args["idx"], 
+			":lang"=>$lang, 
+			":type"=>"module"  
+		));
+
+		if(count($args["serialFiles"])){
+			$fileposition = 1;
+			foreach ($args["serialFiles"] as $file) {
+				if(!empty($file)):
+				$explode = explode(",",$file); 
+				$type = (isset($explode[0])) ? $explode[0] : "";
+				$random = (isset($explode[1])) ? $explode[1] : "";
+				$idx = (isset($explode[2])) ? $explode[2] : "";
+				$cid = (isset($explode[3])) ? $explode[3] : "";
+				$path = (isset($explode[4])) ? $explode[4] : "";
+
+				$fpath = Config::WEBSITE.Config::PUBLIC_FOLDER_NAME."/".$path;
+				$file_size = functions\files::get_size($fpath);
+
+				if($idx != "" && $cid != "" && $path != ""){
+					$files = 'INSERT INTO `file_system` SET `date`=:datex, `idx`=:idx, `cid`=:cid, `page_id`=:page_id, `file_path`=:file_path, `file_size`=:file_size, `type`=:type, `lang`=:lang, `position`=:position';
+					$filePerpare = $this->conn->prepare($files);
+					$filePerpare->execute(array(
+					":datex"=>time(), 
+					":idx"=>$idx, 
+					":cid"=>$cid, 
+					":page_id"=>$args["idx"], 
+					":file_path"=>$path, 
+					":file_size"=>$file_size,
+					":lang"=>$lang,
+					":type"=>$type,
+					":position"=>$fileposition					
+					));
+
+					$fileposition++;					
+				}
+				
 				endif;
 			}
 		}
@@ -258,6 +305,39 @@ class modules
 					));
 					endif;
 				}
+			}
+		}
+
+		if(count($args["serialFiles"])){
+			$fileposition = 1;
+			foreach ($args["serialFiles"] as $file) {
+				if(!empty($file)):
+				$explode = explode(",",$file); 
+				$type = (isset($explode[0])) ? $explode[0] : "";
+				$random = (isset($explode[1])) ? $explode[1] : "";
+				$idx = (isset($explode[2])) ? $explode[2] : "";
+				$cid = (isset($explode[3])) ? $explode[3] : "";
+				$path = (isset($explode[4])) ? $explode[4] : "";
+				$current_lang = $args['lang'];
+
+				if($type != "" && $random != "" && $idx != "" && $cid != "" && $path != ""){
+					$files = 'UPDATE `file_system` SET `type`=:type, `random`=:clear, `page_id`=:page_id, `lang`=:lang, `position`=:position WHERE `idx`=:idx AND `cid`=:cid AND `random`=:random';
+					$filePerpare = $this->conn->prepare($files);
+					$filePerpare->execute(array(
+					":clear"=>"", 
+					":page_id"=>$maxId, 
+					":position"=>$fileposition, 
+					":lang"=>$current_lang,
+					":idx"=>$idx, 
+					":cid"=>$cid, 
+					":random"=>$random, 
+					":type"=>$type 
+					));
+
+					$fileposition++;					
+				}
+				
+				endif;
 			}
 		}
 		return 1;
