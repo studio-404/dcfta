@@ -88,8 +88,11 @@ class page
 		$fetch = array();
 		$slug = $args['slug']; 
 		$lang = $args['lang'];
-
-		$select = "SELECT `type` FROM `navigation` WHERE `slug`=:slug AND `lang`=:lang AND `status`!=:one";
+		if(!isset($args['all'])){
+			$select = "SELECT `type` FROM `navigation` WHERE `slug`=:slug AND `lang`=:lang AND `status`!=:one";
+		}else{
+			$select = "SELECT * FROM `navigation` WHERE `slug`=:slug AND `lang`=:lang AND `status`!=:one";
+		}
 		$prepare = $this->conn->prepare($select);
 		$prepare->execute(array(
 			":slug"=>$slug, 

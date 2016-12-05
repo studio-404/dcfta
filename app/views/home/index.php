@@ -5,12 +5,7 @@
 		<section class="centerWidth topCenter">
 			<section class="top-box">
 				<section class="social-networks">
-					<!-- <ul>
-						<li class="fb"><a href=""></a></li>
-						<li class="tw"><a href=""></a></li>
-						<li class="yt"><a href=""></a></li>
-					</ul> -->
-					<?=$data['socialNetworks']?>
+					<?=$data['socialNetworksModule']?>
 				</section>
 				<section class="languages">
 					<?=$data['languagesModule']?>
@@ -47,29 +42,7 @@
 		</section>
 
 		<section class="navigation">
-			<ul>
-				<li><a href="index.php" class="active"><span>Home</span></a></li>
-				<li><a href="about.php"><span>About</span></a></li>
-				<li><a href="agreement.php"><span>Agreement</span></a></li>
-				<li><a href="implimentation.php"><span>Implimentation</span></a></li>
-				<li><a href="coordination.php"><span>Coordination</span></a></li>
-				<li><a href="legislation.php"><span>Legislation</span></a></li>
-				<li><a href="is.php"><span>International Support</span></a></li>
-				<li class="sub" data-sub="i25">
-					<a href="dcfta.php" class="slide"><span>DCFTA for bussiness</span></a> <i class="arrow"></i>
-					<ul class="i25">
-						<li><a href=""><span>Sectors</span></a></li>
-						<li><a href=""><span>Technical requirements</span></a></li>
-						<li><a href=""><span>Public services</span></a></li>
-						<li><a href=""><span>Standarts</span></a></li>
-						<li><a href=""><span>Certifications</span></a></li>
-						<li><a href=""><span>Rules of origin</span></a></li>
-						<li><a href=""><span>Custom procedures</span></a></li>
-					</ul>
-				</li>
-				<li><a href="news.php"><span>News &amp; Events</span></a></li>
-				<li><a href="contact.php"><span>Contact</span></a></li>
-			</ul>
+			<?=$data['navigationModule']?>
 		</section>
 
 
@@ -89,10 +62,10 @@
 			<section class="col s12 m6 l8 leftSide">
 				<section class="headerText">
 					<div class="line"></div>
-					<div class="title">What We Do</div>
+					<div class="title"><?=html_entity_decode($data['pageData']['description'])?></div>
 				</section>
 				<section class="mainText">
-					The first duty of the government is to keep citizens safe and the country secure. The Home Office has been at the front line of this endeavour since 1782. As such, the Home Office plays a fundamental role in the security and economic prosperity of the United Kingdom.
+					<?=html_entity_decode($data['pageData']['text'])?>
 				</section>
 				
 				<section class="marginminus10">

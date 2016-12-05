@@ -18,8 +18,25 @@ class Home extends Controller
 			"method"=>"selectModuleByType", 
 			"type"=>"social"
 		));
+
+		$db_navigation = new Database("page", array(
+			"method"=>"select", 
+			"cid"=>0, 
+			"nav_type"=>0,
+			"lang"=>$_SESSION['LANG'],
+			"status"=>0 
+		));
+
+		$db_pagedata = new Database("page", array(
+			"method"=>"selecteBySlug", 
+			"slug"=>$_SESSION["URL"][1],
+			"lang"=>$_SESSION['LANG'], 
+			"all"=>true
+		));
+
+
 		// echo "<pre>";
-		// print_r($db_langs->getter()); 
+		// print_r($db_navigation->getter()); 
 		// echo "</pre>";
 
 		/* HEDARE */
@@ -35,6 +52,10 @@ class Home extends Controller
 		$languages = $this->model('_lang'); 
 		$languages->langs = $db_langs->getter();
 
+		/* NAVIGATION */
+		$navigation = $this->model('_navigation');
+		$navigation->data = $db_navigation->getter();
+
 		/* view */
 		$this->view('home/index', [
 			"header"=>array(
@@ -43,7 +64,9 @@ class Home extends Controller
 			),
 			"headerModule"=>$header->index(), 
 			"languagesModule"=>$languages->index(), 
-			"socialNetworks"=>$social->index() 
+			"socialNetworksModule"=>$social->index(), 
+			"navigationModule"=>$navigation->index(), 
+			"pageData"=>$db_pagedata->getter() 
 		]);
 	}
 

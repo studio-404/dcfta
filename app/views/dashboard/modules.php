@@ -42,7 +42,7 @@
 			<div class="row" style="display: block;">
 				<div class="col s3">
 				<?php
-				$module_slug = (isset($data['parsed_url'][3])) ? $data['parsed_url'][3] : "test";
+				$module_slug = (isset($data['parsed_url'][3])) ? $data['parsed_url'][3] : Config::DEFAULT_MODULE;
 				echo $data['parentModel'];
 				?>					
 				</div>
