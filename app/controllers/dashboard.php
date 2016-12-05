@@ -38,7 +38,7 @@ class dashboard extends Controller
 		$this->managerNavigation = $this->model('managerNavigation');
 		$this->managerNavigation->navigation = array(
 			$_SESSION["LANG"]."/dashboard/index"=>"გვერდები",
-			$_SESSION["LANG"]."/dashboard/modules/test"=>"მოდულები", 
+			$_SESSION["LANG"]."/dashboard/modules/".Config::DEFAULT_MODULE=>"მოდულები", 
 			$_SESSION["LANG"]."/dashboard/statements"=>"განაცხადები",
 			$_SESSION["LANG"]."/dashboard/filemanager"=>"ფაილ მენეჯერი", 
 			$_SESSION["LANG"]."/manager/index"=>"გასვლა"

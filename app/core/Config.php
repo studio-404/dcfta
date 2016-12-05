@@ -31,4 +31,5 @@ class Config
 	const EMAIL_TO_NAME = "";
 	const EMAIL_TO = "";	
 	const RESTRICTED_SLUGS = "ajax|dashboard|image|manager|news|text|read";	
+	const DEFAULT_MODULE = "social";	
 }
