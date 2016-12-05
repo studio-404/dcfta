@@ -62,10 +62,10 @@
 			<section class="col s12 m6 l8 leftSide">
 				<section class="headerText">
 					<div class="line"></div>
-					<div class="title"><?=html_entity_decode($data['pageData']['description'])?></div>
+					<div class="title"><?=@html_entity_decode($data['pageData']['description'])?></div>
 				</section>
 				<section class="mainText">
-					<?=html_entity_decode($data['pageData']['text'])?>
+					<?=@html_entity_decode($data['pageData']['text'])?>
 				</section>
 				
 				<section class="marginminus10">
@@ -81,25 +81,11 @@
 
 					<section class="files files-desktop">
 						<section class="col s12 m12 l6 reports">
-							<section class="file">
-								<a href="">
-									<p class="pdfIcon"></p>
-									<p class="downloadIcon"></p>
-									<p class="title"><span>Georgia-EU Deep & Comprehensive Free Trade Area  Report 2016</span><br /><b>355kb</b></p>
-								</a>
-							</section>
-
-							<section class="file">
-								<a href="">
-									<p class="pdfIcon"></p>
-									<p class="downloadIcon"></p>
-									<p class="title"><span>Georgia-EU Deep & Comprehensive Free Trade Area  Report 2016</span><br /><b>355kb</b></p>
-								</a>
-							</section>
+							<?=$data['reports']?>
 						</section>
 
 						<section class="col s12 m12 l6 publications">
-							<section class="file">
+							<!-- <section class="file">
 								<a href="">
 									<p class="pdfIcon"></p>
 									<p class="downloadIcon"></p>
@@ -113,7 +99,8 @@
 									<p class="downloadIcon"></p>
 									<p class="title"><span>Georgia-EU Deep & Comprehensive Free Trade Area  Report 2016</span><br /><b>355kb</b></p>
 								</a>
-							</section>
+							</section> -->
+							<?=$data['publications']?>
 						</section>
 					</section>
 				</section>
@@ -163,49 +150,6 @@
 			</section>
 			<section class="col s12 m6 l4 rightSide">
 				<section class="justTitle">EU Important links</section>
-				<!-- <ul class="usefullLinks">
-					<li>
-						<a href="" class="waves-effect waves-light">
-							<img src="<?=$data['header']['public']?>img/eur2.png" alt="" />
-							<span>European Union Commission</span>
-						</a>
-					</li>
-					<li>
-						<a href="" class="waves-effect waves-light">
-							<img src="<?=$data['header']['public']?>img/eur2.png" alt="" />
-							<span>European Parliament</span>
-						</a>
-					</li>
-					<li>
-						<a href="" class="waves-effect waves-light"><img src="<?=$data['header']['public']?>img/eur2.png" alt="" />
-							<span>European consillium</span>
-						</a>
-					</li>
-					<li>
-						<a href="" class="waves-effect waves-light">
-							<img src="<?=$data['header']['public']?>img/eur2.png" alt="" />
-							<span>European central bank</span>
-						</a>
-					</li>
-					<li>
-						<a href="" class="waves-effect waves-light">
-							<img src="<?=$data['header']['public']?>img/eur2.png" alt="" />
-							<span>European investment bank</span>
-						</a>
-					</li>
-					<li>
-						<a href="" class="waves-effect waves-light">
-							<img src="<?=$data['header']['public']?>img/eur2.png" alt="" />
-							<span>European ombudsmen</span>
-						</a>
-					</li>
-					<li>
-						<a href="" class="waves-effect waves-light">
-							<img src="<?=$data['header']['public']?>img/eur2.png" alt="" />
-							<span>European youth parliament</span>
-						</a>
-					</li>
-				</ul> -->
 				<?=$data['euLinks']?>
 				<section class="justTitle marginTop40">Event Calendar</section>
 				

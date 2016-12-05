@@ -19,7 +19,7 @@ class _navigation
 					$out .= sprintf(
 						"<li class=\"sub\" data-sub=\"%s\">\n<a href=\"%s\" class=\"slide\"><span>%s</span></a> <i class=\"arrow\"></i>\n",
 						"i".$value['idx'], 
-						$value['slug'], 
+						Config::WEBSITE.$_SESSION['LANG']."/".$value['slug'], 
 						$value['title']  
 					);
 
@@ -30,7 +30,7 @@ class _navigation
 					foreach ($subNavigation->getter() as $val) {
 						$out .= sprintf(
 							"<li><a href=\"%s\"><span>%s</span></a></li>\n",
-							$val['slug'], 
+							Config::WEBSITE.$_SESSION['LANG']."/".$val['slug'], 
 							$val['title']  
 						);	
 					}
@@ -40,7 +40,7 @@ class _navigation
 				}else{
 					$out .= sprintf(
 						"<li><a href=\"%s\"><span>%s</span></a></li>\n",
-						$value['slug'], 
+						Config::WEBSITE.$_SESSION['LANG']."/".$value['slug'], 
 						$value['title']  
 					);	
 				}

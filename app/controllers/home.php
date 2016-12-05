@@ -27,9 +27,10 @@ class Home extends Controller
 			"status"=>0 
 		));
 
+		$s = (isset($_SESSION["URL"][1])) ? $_SESSION["URL"][1] : Config::MAIN_CLASS;
 		$db_pagedata = new Database("page", array(
 			"method"=>"selecteBySlug", 
-			"slug"=>$_SESSION["URL"][1],
+			"slug"=>$s,
 			"lang"=>$_SESSION['LANG'], 
 			"all"=>true
 		));
@@ -41,9 +42,23 @@ class Home extends Controller
 			"num"=>10
 		));
 
+		$db_reports = new Database("modules", array(
+			"method"=>"selectModuleByType", 
+			"type"=>"reports",
+			"from"=>0, 
+			"num"=>2
+		));
+
+		$db_publicationss = new Database("modules", array(
+			"method"=>"selectModuleByType", 
+			"type"=>"publications",
+			"from"=>0, 
+			"num"=>2
+		));
+
 
 		// echo "<pre>";
-		// print_r($db_eulinks->getter()); 
+		// print_r($db_reports->getter()); 
 		// echo "</pre>";
 
 		/* HEDARE */
@@ -67,6 +82,14 @@ class Home extends Controller
 		$euLinks = $this->model('_eulinks');
 		$euLinks->data = $db_eulinks->getter(); 
 
+		/* Reports */
+		$reports = $this->model('_reports');
+		$reports->data = $db_reports->getter(); 
+
+		/* publications */
+		$publications = $this->model('_publications');
+		$publications->data = $db_publicationss->getter(); 
+
 		/* view */
 		$this->view('home/index', [
 			"header"=>array(
@@ -78,7 +101,9 @@ class Home extends Controller
 			"socialNetworksModule"=>$social->index(), 
 			"navigationModule"=>$navigation->index(), 
 			"pageData"=>$db_pagedata->getter(), 
-			"euLinks"=>$euLinks->index()
+			"euLinks"=>$euLinks->index(), 
+			"reports"=>$reports->index(), 
+			"publications"=>$publications->index() 
 		]);
 	}
 
