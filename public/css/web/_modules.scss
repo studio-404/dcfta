@@ -1,0 +1,807 @@
+.headerText{
+	margin: 0 0 10px 0;
+	padding: $zero;
+	width: $fullWidth;
+	line-height: 26px;
+	height: 26px;
+	position: relative;
+	.line{
+		margin: $zero;
+		padding: $zero;
+		width: $fullWidth;
+		height: 1px;
+		background-color: $blueColor;
+		position: absolute;
+		top: 15px;
+		z-index: 1;
+	}
+	.title{
+		margin: $zero; 
+		padding: 0 20px 0 0; 
+		font-family: "noto_sansregular"; 
+		font-size: 24px;
+		line-height: 26px;
+		background-color: $whiteColor; 
+		position: absolute;
+		left: 0; 
+		top: 0;
+		color: $blueColor; 
+		z-index: 2;
+	}
+}
+.mainText{
+	margin: 10px 0 40px 0; 
+	padding: $zero; 
+	font-family: "noto_sansregular"; 
+	font-size: 20px;
+	color: $blueColor; 
+	p{
+		font-size: 20px;
+		color: #3d3d3d;
+		font-family: "noto_sansregular"; 
+	}
+	a{
+		font-family: "noto_sansregular"; 
+		color: $blueColor; 
+		text-decoration: underline;
+	}
+	ul{
+		margin: 20px $zero;
+		padding: $zero; 
+		list-style-type: none;
+		li{
+			font-size: 20px;
+			color: #3d3d3d;
+			font-family: "noto_sansregular"; 
+			padding-left: 20px;
+			position: relative;
+			a{
+				color: $blueColor;
+			}
+		}
+		li:after{
+			content: '';
+			width: 10px;
+			height: 10px;
+			background-color: $blueColor; 
+			position: absolute;
+			left: 0;
+			top: 10px;
+			-moz-border-radius: 4px;
+			-webkit-border-radius: 4px;
+			border-radius: 4px;
+		}
+	}
+}
+.justTitle, h2{
+	margin: $zero; 
+	padding: $zero; 
+	line-height: 26px;
+	font-size: 24px;
+	font-family: "noto_sansregular"; 
+	color: $blueColor;
+}
+.justSubTitle{
+	margin: 10px 0px; 
+	padding: $zero; 
+	line-height: 25px;
+	font-size: 20px;
+	font-family: "noto_sansregular"; 
+	color: $blueColor;
+}
+.justDate{
+	margin: $zero; 
+	padding: $zero; 
+	line-height: 25px;
+	font-size: 15px;
+	font-family: "noto_sansregular"; 
+	color: #3d3d3d;
+}
+.usefullLinks{
+	margin: $zero; 
+	padding: $zero;
+	width: $fullWidth; 
+	list-style-type: none;
+	li{
+		width: $fullWidth; 
+		line-height: 50px;
+		height: 50px;
+		background-color: $greyColor; 
+		margin: 5px 0 5px 0;
+		position: relative;
+		-webkit-transition: background-color 500ms linear;
+        -moz-transition: background-color 500ms linear;
+        -o-transition: background-color 500ms linear;
+        -ms-transition: background-color 500ms linear;
+        transition: background-color 500ms linear;
+
+        -webkit-border-radius: $borderRadius;
+		-moz-border-radius: $borderRadius;
+		border-radius: $borderRadius;
+		a{
+			text-decoration: none;
+			display: block;
+			width: $fullWidth; 
+			height: $fullHeight;
+			position: absolute;
+			color: $blueColor;
+			img{
+				margin: 12px 10px 10px 10px; 
+				padding: $zero; 
+				border: $zero; 
+				outline: $zero; 
+				height: 25px;
+				width: 45px;
+				float: left;
+			}
+			span{
+				font-family: "noto_sansregular"; 
+				font-size: 15px;
+				line-height: 50px;
+				float: left;
+			}
+		}
+		a:hover{
+			color: $whiteColor;
+		}
+	}
+	li:hover{
+		background-color: $yellowColor; 
+		-webkit-transition: background-color 500ms linear;
+        -moz-transition: background-color 500ms linear;
+        -o-transition: background-color 500ms linear;
+        -ms-transition: background-color 500ms linear;
+        transition: background-color 500ms linear;
+	}
+}
+.files{
+	margin: 10px 10px 40px 10px; 
+	padding: $zero;
+	width: calc(#{$fullWidth} - 20px); 
+	background-image: url('../../img/bigflags.jpg');
+	background-position: center center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	clear: both;
+	float: left;
+	.file{
+		margin: 10px 0;
+		padding: 10px;
+		border: solid 1px $whiteColor;
+		width: $fullWidth;
+		min-height: 80px;
+		overflow: hidden;
+		position: relative;
+		a{
+			display: block;
+			color: $whiteColor; 
+			.pdfIcon{
+				margin: 4px 10px 0 0;
+				padding: $zero; 
+				width: 40px;
+				height: 50px;
+				float: left;
+				background-image: url('../../img/pdf.png');
+				background-repeat: no-repeat;
+				background-position: center;
+				background-size: 40px 50px; 
+			}
+			.downloadIcon{
+				margin: $zero;
+				padding: $zero; 
+				width: 12px;
+				height: 14px;
+				background-image: url('../../img/download.png');
+				background-repeat: no-repeat;
+				background-position: center;
+				background-size: 12px 14px; 
+				position: absolute;
+				right: 10px;
+				top: 10px;
+				z-index: 1;
+			}
+			.title{
+				margin: $zero; 
+				padding: 0 10px 0 0; 
+				float: left;
+				font-size: 15px;
+				line-height: 18px;
+				font-family: 'noto_sansregular';
+				color: $whiteColor;
+				width: calc(#{$fullWidth} - 60px);
+				span{
+					text-decoration: underline;
+					font-weight: bold;
+				}
+				b{
+					text-decoration: none;
+					color: $yellowColor;
+					font-weight: 500; 
+				}		
+			}
+		}
+	}
+	.file:hover{
+		opacity: 0.8;
+	}
+}
+.files-no-bg{
+	margin: 20px 0 40px 0; 
+	padding: $zero;
+	width: $fullWidth; 
+	.file{
+		margin: 10px 0;
+		padding: 10px;
+		border: solid 1px $greyColor;
+		width: $fullWidth;
+		// min-height: 120px;
+		overflow: hidden;
+		position: relative;
+		a{
+			display: block;
+			color: $blueColor; 
+			.pdfIcon{
+				margin: 4px 10px 0 0;
+				padding: $zero; 
+				width: 40px;
+				height: 50px;
+				float: left;
+				background-image: url('../../img/pdf.png');
+				background-repeat: no-repeat;
+				background-position: center;
+				background-size: 40px 50px; 
+			}
+			.downloadIcon{
+				margin: $zero;
+				padding: $zero; 
+				width: 12px;
+				height: 14px;
+				background-image: url('../../img/download2.png');
+				background-repeat: no-repeat;
+				background-position: center;
+				background-size: 12px 14px; 
+				position: absolute;
+				right: 10px;
+				top: 10px;
+				z-index: 1;
+			}
+			.title{
+				margin: $zero; 
+				padding: 0 10px 0 0; 
+				float: left;
+				font-size: 15px;
+				line-height: 18px;
+				font-family: 'noto_sansregular';
+				color: $blueColor;
+				width: calc(#{$fullWidth} - 60px);
+				span{
+					text-decoration: underline;
+					font-weight: bold;
+				}
+				b{
+					text-decoration: none;
+					color: $darkGreyColor;
+					font-weight: 500; 
+				}		
+			}
+		}
+	}
+	.file:hover{
+		border: solid 1px $yellowColor;
+	}
+}
+
+.leftNavigation{
+	margin: $zero;
+	padding: $zero;
+	width: $fullWidth;
+	position: relative;
+	.yellowBG{
+		margin: 0 20px 0 0;
+		padding: $zero; 
+		width: calc(#{$fullWidth} - 20px); 
+		background-color: $yellowColor; 
+		min-height: 60px;
+		position: absolute;
+		left: 0px;
+		top: 0px;
+		z-index: 1;
+	}
+	.nav{
+		margin: 20px 0 20px 20px;
+		padding: 10px 0; 
+		width: calc(#{$fullWidth} - 20px); 
+		background-color: $blueColor; 
+		min-height: 20px;
+		position: relative;
+		z-index: 2;
+		float: left;
+		ul{
+			margin: $zero;
+			padding: $zero;
+			width: $fullWidth; 
+			list-style-type: none;
+			li{
+				margin: $zero;
+				padding: 0 20px;
+				a{
+					color: $whiteColor; 
+					font-size: 15px;
+					line-height: 35px;
+					position: relative;
+					width: $fullWidth; 
+					display: block;
+				}
+				.active{
+					font-weight: bold;
+				}
+				.active:after{
+					content: '';
+					margin: $zero; 
+					padding: $zero; 
+					width: 16px;
+					height: 16px; 
+					position: absolute;
+					right: $zero; 
+					top: 9px;
+					background-image: url('../../img/navArrow.png');
+					background-size: 16px 16px;
+					background-repeat: no-repeat;
+					background-position: center center; 
+				}
+			}
+		}
+	}
+}
+
+.files-mobile{
+	display: none;
+}
+.files-desktop{
+	display: block;
+}
+.newsBox{
+	margin: 10px 0; 
+	padding: $zero; 
+	width: $fullWidth; 
+	a{
+		margin: $zero;
+		padding: $zero;
+		text-decoration: none;
+		display: block;
+		.imageBox{
+			margin: $zero; 
+			padding: $zero; 
+			width: $fullWidth; 
+			border: $zero;
+			line-height: $zero;
+			img{
+				width: $fullWidth;
+			}
+		}
+		.data{
+			margin: $zero; 
+			padding: 0 10px;
+			line-height: 30px;
+			height: 30px;
+			background-color: $blueColor;
+			p{
+				font-family: 'noto_sansregular'; 
+				font-size: 13px;
+				color: $whiteColor;
+			}
+			p:first-child{
+				float: left;
+			}
+			p:last-child{
+				float: right;
+			}
+		}
+		.title{
+			margin: 5px 0; 
+			padding: $zero;
+			font-family: "noto_sansregular"; 
+			font-size: 15px;
+			font-weight: bold;
+			color: $blueColor;
+			line-height: 18px;
+		}
+		.text{
+			margin: 5px 0; 
+			padding: $zero;
+			font-family: "noto_sansregular";  
+			font-size: 15px;
+			line-height: 18px;
+			color: $darkGreyColor;	
+		}
+	}
+	a:hover .imageBox img{
+		opacity: 0.8;
+	}
+	a:hover .title{
+		text-decoration: underline;
+	} 
+}
+footer{
+	margin: 150px 0px 0px 0px;
+	padding: 20px 0px;
+	width: $fullWidth; 
+	min-height: 200px;
+	background-color: $greyColor; 
+	border-top: solid 5px $redColor;
+	position: relative;
+	.centerWidth{
+		a{
+			margin: 0; 
+			padding: 0;
+			display: block;
+			text-decoration: none;
+			img{
+				margin: 0; 
+				padding: 0;
+				width: 180px;
+				-moz-border-radius: $borderRadius;
+				-webkit-border-radius: $borderRadius;
+				border-radius: $borderRadius;
+			}
+		}
+		a .bigImage{
+			width: 286px;
+		}
+		p{
+			margin: 0; 
+			padding: 0;
+			font-size: 10px;
+			font-family: "noto_sansregular";  
+			line-height: 14px;
+			color: $darkGreyColor2
+		}
+		.marginBottom55{
+			margin-bottom: 55px; 
+		}
+		.footerText{
+			margin: 0; 
+			padding: 0; 
+			width: $fullWidth; 
+			.left{
+				margin: $zero; 
+				padding: $zero;
+				font-family: "noto_sansregular";  
+				font-size: 12px;
+				line-height: 18px;
+				color: $blackColor;
+				float: left;
+			}
+			.right{
+				margin: $zero; 
+				padding: $zero;
+				float: right;
+				line-height: 43px;
+				a{
+					margin: $zero; 
+					padding: $zero;
+					outline: $zero;
+					display: block;
+					text-decoration: none;
+					img{
+						margin: $zero;
+						padding: $zero;
+						outline: $zero;
+						width: $fullWidth;
+					}
+					.logo{
+						width: 65px !important;
+					}
+				}
+
+			}
+		}
+	}
+}
+.InternationalSupport{
+	.box{
+		margin-bottom: 20px;
+		padding: 20px;
+		border: solid 2px #d7d7d7;
+		-webkit-box-shadow: 0px 0px 10px 0px rgba(215,215,215,1);
+		-moz-box-shadow: 0px 0px 10px 0px rgba(215,215,215,1);
+		box-shadow: 0px 0px 10px 0px rgba(215,215,215,1);
+		min-height: 460px;
+		overflow: hidden;
+		img{
+			margin: $zero;
+			padding: $zero;
+			width: $fullWidth;
+		}
+		.title{
+			padding-top: 30px;
+			font-size: 20px;
+			font-weight: bold;
+			font-family: 'noto_sansregular'; 
+		}
+		.text{
+			font-size: 20px;
+			font-family: 'noto_sansregular'; 
+		}
+	}
+	.box:hover{
+		border: solid 2px $yellowColor;
+	}
+}
+.linkWithIcon{
+	margin: 10px 0; 
+	padding: $zero; 
+	height: 30px;
+	line-height: 30px;
+	a{
+		margin: $zero; 
+		padding: $zero;
+		line-height: 30px; 	
+		text-decoration: none;
+		img{
+			width: 20px !important;
+			height: 20px !important;
+			float: left;
+			margin-right: 20px; 
+			margin-top: 5px !important;
+		}
+		span{
+			margin-left: 10px;
+			font-size: 18px;
+			line-height: 30px;
+			font-family: "noto_sansregular";
+			color: $blueColor;
+		}
+
+	}
+}
+.contactDetails{
+	margin: $zero; 
+	padding: 40px 0px; 
+	width: $fullWidth;
+	font-size: 18px;
+	font-family: "noto_sansregular"; 
+	color: $blueColor;
+	line-height: 27px;
+	p{
+		margin: $zero; 
+		padding: $zero; 
+		line-height: 27px;	
+		font-size: 20px;
+		font-family: "noto_sansregular"; 
+		color: $blueColor;
+	}
+}
+.contactForm{
+	margin: 20px 0px; 
+	padding: $zero; 
+	form{
+		margin: $zero; 
+		padding: $zero; 
+		input[type='text']{
+			border-bottom: solid 1px $yellowColor;
+		}
+		input[type='text']:focus:not([readonly]){
+			border-bottom: solid 1px $yellowColor;
+			box-shadow: 0 1px 0 0 $yellowColor;
+		}
+		label{
+			color: #3c3c3c; 
+			font-size: 15px;
+			font-family: "noto_sansregular"; 
+		}
+		.active{
+			color: red; 
+			font-size: 15px;
+			font-family: "noto_sansregular"; 
+		}
+		.submit{
+			margin: 20px 0;
+			padding: $zero 20px;
+			line-height: 35px; 
+			font-size: 16px;
+			font-family: "noto_sansregular"; 
+			font-weight: bold;
+			text-align: center;
+			color: $whiteColor; 
+			background-color: $blueColor; 
+			float: right;
+		}
+	}
+}
+.map{
+	margin: $zero;
+	padding: $zero; 
+	width: $fullWidth; 
+	.header{
+		margin: $zero;
+		padding: 0 10px;
+		font-size: 20px;
+		font-family: "noto_sansregular"; 
+		color: $blueColor;
+		background-color: $yellowColor;
+		height: 60px;
+		line-height: 60px;
+	}
+	.init-map{
+		margin: $zero;
+		padding: $zero; 
+		width: $fullWidth; 
+		height: 320px;
+		background-color: #f2f2f2;
+	}
+}
+.material-tooltip{
+	background-color: $whiteColor;
+	-webkit-box-shadow: 0px 0px 10px 0px rgba(215,215,215,1);
+	-moz-box-shadow: 0px 0px 10px 0px rgba(215,215,215,1);
+	box-shadow: 0px 0px 10px 0px rgba(215,215,215,1);
+
+	-webkit-border-radius: $borderRadius;
+	-moz-border-radius: $borderRadius;
+	border-radius: $borderRadius;
+	
+	.backdrop{
+		background-color: $whiteColor;
+	}
+	span{
+		font-size: 20px;
+		font-family: "noto_sansregular";
+		color: #3d3d3d; 
+	}
+}
+.collapsible{
+	border: none !important;
+	box-shadow: none !important;
+	.active{
+		.collapsible-header{
+			.blueArraw-icon{
+				transform: rotate(90deg);
+			}
+		}
+	}
+	.collapsible-header{
+		margin-bottom: 10px !important;
+		border: none !important;
+		-webkit-box-shadow: 0px 0px 10px 0px rgba(215,215,215,1) !important;
+		-moz-box-shadow: 0px 0px 10px 0px rgba(215,215,215,1) !important;
+		box-shadow: 0px 0px 10px 0px rgba(215,215,215,1) !important;
+		span{
+			font-size: 15px;
+			font-family: "noto_sansregular"; 
+			color: $blueColor;
+		}
+	}
+	.collapsible-body{
+		margin-top: -10px !important;
+		margin-bottom: 10px !important;
+		-webkit-box-shadow: 0px 0px 10px 0px rgba(215,215,215,1) !important;
+		-moz-box-shadow: 0px 0px 10px 0px rgba(215,215,215,1) !important;
+		box-shadow: 0px 0px 10px 0px rgba(215,215,215,1) !important;
+		position: relative;
+		.hideShadow{
+			margin: $zero;
+			padding: $zero; 
+			width: $fullWidth; 
+			height: 20px;
+			position: absolute;
+			top: -10px;
+			left: $zero;
+			background-color: $whiteColor;
+		}
+		p{
+			padding: 0px;
+		}
+	}
+}
+.penIcon{
+	margin: $zero; 
+	padding: $zero; 
+	width: 16px;
+	height: 16px;
+	float: left;
+	background-image: url('../../img/pen.png');
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: 16px 16px; 
+}
+.blueArraw-icon{
+	margin: $zero;
+	padding: $zero;
+	width: 16px !important;
+	height: 16px !important;
+	background-image: url('../../img/icon-arrow.png');
+	background-size: 16px 16px;
+	background-repeat: no-repeat;
+	background-position: center center; 
+}
+.fileTree{
+	margin: 0;
+	padding: 20px 20px 0 20px;
+	width: $fullWidth; 
+	min-height: 80px;
+	ul{
+		margin: $zero;
+		padding: $zero;
+		list-style-type: none;
+		li{
+			margin: $zero;
+			padding: 3px 0px;
+			width: $fullWidth;			
+			line-height: 30px;
+			clear: both;
+			.line{
+				margin: $zero;
+				padding: $zero;
+				width: $fullWidth; 
+				height: 1px;
+				background-color: #d7d7d7;
+				clear: both;
+			}
+			.icon{
+				margin: $zero;
+				padding: $zero;
+				width: 16px;
+				line-height: 30px;
+				height: 30px;
+				background-image: url('../../img/pdf.png');
+				background-size: 16px 20px;
+				background-repeat: no-repeat;
+				background-position: center center;
+				float: left;				
+			}
+			.text{
+				margin: 0px  0px 0px 10px;
+				padding: $zero;
+				float: left;
+				line-height: 30px;
+				height: 30px;
+				a{
+					margin: $zero;
+					padding: $zero; 
+					text-decoration: underline;
+					font-family: "noto_sansregular";
+					font-size: 15px;
+					font-weight: bold;
+					color: $blueColor;
+					display: block;
+					line-height: 30px;
+					height: 30px;
+				}
+			}
+			.rightSide{
+				margin: $zero;
+				padding: $zero; 
+				float: right;
+				font-family: "noto_sansregular";
+				font-size: 13px;
+				color: #666666;
+				line-height: 30px;
+				height: 30px;
+			}
+			ul{
+				margin-left: 20px;
+				li:first-child{
+					border-top: 0px;
+				}
+			}
+		}
+	}
+}
+.commentForm{
+	display: none;
+}
+.timeLeft{
+	margin: $zero;
+	padding: $zero;
+	font-size: 13px;
+	font-family: "noto_sansregular";
+	color: $blueColor;
+	span{
+		padding: 0 5px;
+		background-color: $yellowColor;
+	} 
+}
+.input-field .active{
+	color: $blueColor !important;
+};

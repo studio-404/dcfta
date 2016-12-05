@@ -76,7 +76,7 @@ class dashboard extends Controller
 		$modules = new Database('modules', array(
 			"method"=>"select",
 			"parsed_url"=>$getUrl,
-			"lang"=>"ge",
+			"lang"=>$_SESSION['LANG'],
 			"itemPerPage"=>$itemPerPage
 		));
 		$getter = $modules->getter();

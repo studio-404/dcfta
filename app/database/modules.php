@@ -71,15 +71,15 @@ class modules
 		return $out;
 	}
 
-	private function selectAllFaq($args)
+	private function selectModuleByType($args)
 	{
 		$fetch = array();
-		$select = "SELECT `title`, `description` FROM `usefull` WHERE `type`=:type AND `visibility`!=:one AND `lang`=:lang AND `status`!=:one ORDER BY `date` DESC";
+		$select = "SELECT * FROM `usefull` WHERE `type`=:type AND `visibility`!=:one AND `lang`=:lang AND `status`!=:one ORDER BY `date` DESC";
 		$prepare = $this->conn->prepare($select);
 		$prepare->execute(array(
-			":type"=>"test", 
+			":type"=>$args['type'], 
 			":one"=>1,
-			":lang"=>"ge"
+			":lang"=>$_SESSION["LANG"]
 		));
 		if($prepare->rowCount()){
 			$fetch = $prepare->fetchAll(PDO::FETCH_ASSOC);
@@ -135,13 +135,15 @@ class modules
 		$title = $args["title"];
 		$description = $args["pageText"];
 		$url = (!empty($args["link"])) ? $args["link"] : "";
+		$classname = (!empty($args["classname"])) ? $args["classname"] : "";
 		$type = $this->getTypeByIdx($args["idx"]);
 
 		$update = "UPDATE `usefull` SET 
 		`date`=:datex, 
 		`title`=:title, 
 		`description`=:description, 
-		`url`=:url 
+		`url`=:url, 
+		`classname`=:classname 
 		WHERE `idx`=:idx AND `lang`=:lang";
 		$prepare = $this->conn->prepare($update);
 		$prepare->execute(array(
@@ -149,6 +151,7 @@ class modules
 			":title"=>$title,
 			":description"=>$description,
 			":url"=>$url,
+			":classname"=>$classname,
 			":idx"=>$idx, 
 			":lang"=>$lang 
 		));	
@@ -266,6 +269,7 @@ class modules
 		$title = $args['title'];
 		$pageText = $args['pageText'];
 		$link = (!empty($args["link"])) ? $args["link"] : "";
+		$classname = (!empty($args["classname"])) ? $args["classname"] : "";
 
 		$select = "SELECT `title` FROM `languages`";
 		$prepare = $this->conn->prepare($select);
@@ -279,7 +283,7 @@ class modules
 		$maxId = ($fetch2["maxidx"]) ? $fetch2["maxidx"] + 1 : 1;
 
 		foreach ($fetch as $val) {
-			$insert = "INSERT INTO `usefull` SET `idx`=:idx, `date`=:datex, `type`=:type, `title`=:title, `description`=:description, `url`=:url, `lang`=:lang";
+			$insert = "INSERT INTO `usefull` SET `idx`=:idx, `date`=:datex, `type`=:type, `title`=:title, `description`=:description, `url`=:url, `classname`=:classname, `lang`=:lang";
 			$prepare3 = $this->conn->prepare($insert);
 			$prepare3->execute(array(
 				":idx"=>$maxId, 
@@ -288,6 +292,7 @@ class modules
 				":title"=>$title, 
 				":description"=>$pageText, 
 				":url"=>$link,
+				":classname"=>$classname,
 				":lang"=>$val['title']
 			)); 
 

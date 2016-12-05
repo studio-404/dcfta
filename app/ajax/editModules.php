@@ -115,6 +115,13 @@ class editModules
 				"value"=>$output['url']
 			));
 
+			$form .= functions\makeForm::inputText(array(
+				"placeholder"=>"კლასი", 
+				"id"=>"classname", 
+				"name"=>"classname",
+				"value"=>$output['classname'] 
+			));
+
 
 
 			$form .= "<div class=\"row\" id=\"photoUploaderBox\" style=\"margin:0 -10px\">";

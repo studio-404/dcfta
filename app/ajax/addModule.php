@@ -30,6 +30,7 @@ class addModule
 		$title = functions\request::index("POST","title");
 		$pageText = functions\request::index("POST","pageText");
 		$link = functions\request::index("POST","link");
+		$classname = functions\request::index("POST","classname");
 		$serialPhotos = unserialize(functions\request::index("POST","serialPhotos"));
 		$serialFiles = unserialize(functions\request::index("POST","serialFiles"));
 
@@ -52,6 +53,7 @@ class addModule
 					'title'=>$title, 
 					'pageText'=>$pageText, 
 					'link'=>$link, 
+					'classname'=>$classname, 
 					'serialPhotos'=>$serialPhotos, 
 					'serialFiles'=>$serialFiles  
 			));

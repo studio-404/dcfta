@@ -75,6 +75,13 @@ class addModuleForm
 		));
 
 		$form .= functions\makeForm::inputText(array(
+			"placeholder"=>"კლასი", 
+			"id"=>"classname", 
+			"name"=>"classname",
+			"value"=>""
+		));
+
+		$form .= functions\makeForm::inputText(array(
 			"placeholder"=>"ბმული", 
 			"id"=>"link", 
 			"name"=>"link",

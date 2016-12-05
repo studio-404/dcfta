@@ -551,7 +551,8 @@ var formModuleEdit = function(idx, lang){
 	var file_attach_type = $("#file_attach_type").val();
 	var random = $("#random").val();
 	var pageText = tinymce.get('pageText').getContent();
-	var link = (typeof $("#link").val() === "undefined" || $("#link").val()=="") ? $("#link").val() : "empty";
+	var link = (typeof $("#link").val() !== "undefined" && $("#link").val()!="") ? $("#link").val() : "empty";
+	var classname = (typeof $("#classname").val() !== "undefined" && $("#classname").val()!="") ? $("#classname").val() : "";
 
 	var photos = new Array();
 	if($(".imageItem").length){
@@ -595,7 +596,7 @@ var formModuleEdit = function(idx, lang){
 		$.ajax({
 			method: "POST",
 			url: Config.ajax + ajaxFile,
-			data: { idx:idx, lang: lang, date: date, title: title, pageText: pageText, link:link, serialPhotos:serialPhotos, serialFiles:serialFiles }
+			data: { idx:idx, lang: lang, date: date, title: title, pageText: pageText, link:link, classname:classname, serialPhotos:serialPhotos, serialFiles:serialFiles }
 		}).done(function( msg ) {
 			var obj = $.parseJSON(msg);
 			if(obj.Error.Code==1){
@@ -616,7 +617,8 @@ var formModuleAdd = function(moduleSlug, lang){
 	var file_attach_type = $("#file_attach_type").val();
 	var random = $("#random").val();
 	var pageText = tinymce.get('pageText').getContent();
-	var link = (typeof $("#link").val() === "undefined" || $("#link").val()=="") ? $("#link").val() : "empty";
+	var link = (typeof $("#link").val() !== "undefined" && $("#link").val()!="") ? $("#link").val() : "empty";
+	var classname = (typeof $("#classname").val() !== "undefined" && $("#classname").val()!="") ? $("#classname").val() : "";
 
 	var photos = new Array();
 	if($(".imageItem").length){
@@ -656,7 +658,7 @@ var formModuleAdd = function(moduleSlug, lang){
 		$.ajax({
 			method: "POST",
 			url: Config.ajax + ajaxFile,
-			data: { moduleSlug: moduleSlug, lang:lang, date: date, title: title, pageText: pageText, link:link, serialPhotos:serialPhotos, serialFiles:serialFiles }
+			data: { moduleSlug: moduleSlug, lang:lang, date: date, title: title, pageText: pageText, link:link, classname:classname, serialPhotos:serialPhotos, serialFiles:serialFiles }
 		}).done(function( msg ) {
 			var obj = $.parseJSON(msg);
 			if(obj.Error.Code==1){

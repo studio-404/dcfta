@@ -1,0 +1,99 @@
+.CalendarBox{
+	margin-top: 20px;
+	padding: 10px 10px 10px 15px;
+	background-color: $yellowColor;
+	width: $fullWidth;
+	overflow: hidden;
+	-webkit-border-radius: $borderRadius;
+	-moz-border-radius: $borderRadius;
+	border-radius: $borderRadius;
+	table{ 
+		width:$fullWidth; 
+		font-size:15px; 
+		font-family:'noto_sansregular'; 
+		background: $yellowColor; 
+		color: $blueColor; 
+		tr{
+			margin: 10px 0px;
+			height: 45px;
+			td{
+				margin: 5px;
+				text-align:center; 
+				padding-top:5px; 
+				padding-bottom:5px;
+				div{
+					width: 30px;
+					height: 30px;
+					-moz-border-radius: 15px;
+					-webkit-border-radius: 15px;
+					border-radius: 15px;
+					background-color: $calendarDayColor; 
+					color: $whiteColor;
+					padding-top: 3px;
+					cursor: pointer;
+					font-size: 14px;
+					font-family: 'noto_sansregular';
+					a{
+						color: $whiteColor;
+						text-decoration: none;
+					}
+				}
+				div:hover{
+					background-color: $blueColor;
+				}
+				.currentDay{
+					background-color: $redColor; 
+				}
+				.event_exists{
+					background-color: $blueColor;
+				}
+			}
+		}
+		tr:first-child{
+			height: 20px;
+		}
+		tr:nth-child(2){
+			height: 10px;
+			td{
+				height: 10px;
+				line-height: 10px;
+			}
+		}
+		#title-calendar{ 
+			position:relative; 
+			text-align:center;
+			a{
+				text-decoration:none;  
+				width:10px; 
+				height:16px; 
+				padding: 0 30px;
+				font-family: 'noto_sansregular'; 
+				text-indent: -9999px;
+				background-repeat:no-repeat; 
+				background-size: 10px 16px;
+				background-position: center center;
+			}
+			a:first-child{
+				background-image: url('../img/calendarLeft.png'); 
+				
+			}
+			a:last-child{
+				background-image: url('../img/calendarRight.png'); 
+			}
+			a:hover{
+				text-decoration:none;
+			}
+		}
+		.day_numbers:hover{ 
+			// background:#ad443c; 
+			// color:#fff 
+		}
+		a{
+			color: black;
+		}
+		.weekday{ 
+			width:25px; 
+		}
+	}
+	
+}
