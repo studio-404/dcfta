@@ -84,6 +84,7 @@ class editModules
 				"name"=>"date",
 				"value"=>date("d-m-Y", $output['date'])
 			));
+			$form .= "<script type=\"text/javascript\"> $(\"#date\").datepicker({ dateFormat: \"dd-mm-yy\"}).attr(\"readonly\",\"readonly\");</script>";
 
 		
 			$form .= functions\makeForm::inputText(array(

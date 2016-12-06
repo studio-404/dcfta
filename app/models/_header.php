@@ -20,15 +20,23 @@ class _header
 			"<script src=\"%sjs/web/materialize.min.js\" type=\"text/javascript\"></script>\n", 
 			$this->public 
 		);
+
 		$out .= sprintf(
 			"<script src=\"%sjs/web/script.js\" type=\"text/javascript\"></script>\n", 
 			$this->public
 		);
+
 		$out .= "<link href=\"https://fonts.googleapis.com/icon?family=Material+Icons\" rel=\"stylesheet\">\n";
 		$out .= sprintf(
 			"<link rel=\"stylesheet\" type=\"text/css\" href=\"%scss/web/materialize.min.css\" />\n", 
 			$this->public 
 		);
+		
+		$out .= sprintf(
+			"<link rel=\"stylesheet\" type=\"text/css\" href=\"%scss/web/style.css\" />\n", 
+			$this->public
+		);
+
 		$out .= sprintf(
 			"<link rel=\"stylesheet\" type=\"text/css\" href=\"%scss/web/style.css\" />\n", 
 			$this->public

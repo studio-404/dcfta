@@ -1112,9 +1112,9 @@ footer {
         background-size: 10px 16px;
         background-position: center center; }
       .CalendarBox table #title-calendar a:first-child {
-        background-image: url("../img/calendarLeft.png"); }
+        background-image: url("../../img/calendarLeft.png"); }
       .CalendarBox table #title-calendar a:last-child {
-        background-image: url("../img/calendarRight.png"); }
+        background-image: url("../../img/calendarRight.png"); }
       .CalendarBox table #title-calendar a:hover {
         text-decoration: none; }
     .CalendarBox table a {

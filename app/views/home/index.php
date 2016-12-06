@@ -85,21 +85,6 @@
 						</section>
 
 						<section class="col s12 m12 l6 publications">
-							<!-- <section class="file">
-								<a href="">
-									<p class="pdfIcon"></p>
-									<p class="downloadIcon"></p>
-									<p class="title"><span>Georgia-EU Deep & Comprehensive Free Trade Area  Report 2016</span><br /><b>355kb</b></p>
-								</a>
-							</section>
-
-							<section class="file">
-								<a href="">
-									<p class="pdfIcon"></p>
-									<p class="downloadIcon"></p>
-									<p class="title"><span>Georgia-EU Deep & Comprehensive Free Trade Area  Report 2016</span><br /><b>355kb</b></p>
-								</a>
-							</section> -->
 							<?=$data['publications']?>
 						</section>
 					</section>
@@ -113,38 +98,7 @@
 						</section>
 					</section>
 					
-					<section class="col s12 m6 l6">
-						<section class="newsBox">
-							<a href="">
-								<section class="imageBox">
-									<img src="<?=$data['header']['public']?>img/news.jpg" width="100%" alt="" />
-								</section>
-								<section class="data">
-									<p>News</p>
-									<p>Jan 7, 2016</p>
-								</section>
-								<section class="title">Our agreement has been extended until Georgia becomes part of european union</section>
-								<section class="text">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes.</section>
-							</a>
-						</section>
-					</section>
-
-					<section class="col s12 m6 l6">
-						<section class="newsBox">
-							<a href="">
-								<section class="imageBox">
-									<img src="<?=$data['header']['public']?>img/news.jpg" width="100%" alt="" />
-								</section>
-								<section class="data">
-									<p>News</p>
-									<p>Jan 7, 2016</p>
-								</section>
-								<section class="title">Our agreement has been extended until Georgia becomes part of european union</section>
-								<section class="text">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes.</section>
-							</a>
-						</section>
-					</section>
-
+					<?=$data['news']?>
 				</section>
 
 			</section>
@@ -155,9 +109,9 @@
 				
 				<section class="CalendarBox">
 					<?php
-					// @include('calendar.php'); 
-					// $calendar = new calendar();
-					// echo $calendar->index("en"); 
+					require_once('app/functions/calendar.php'); 
+					$calendar = new functions\calendar();
+					echo $calendar->index($_SESSION['LANG']); 
 					?>
 				</section>
 
@@ -171,74 +125,7 @@
 					<div class="title">Usefull Links</div>
 				</section>
 				<section class="marginminus10">
-					<section class="col s12 m4 l4">
-						<ul class="usefullLinks">
-							<li>
-								<a href="" class="waves-effect waves-light">
-									<img src="<?=$data['header']['public']?>img/eur2.png" alt="" />
-									<span>European Union Commission</span>
-								</a>
-							</li>
-							<li>
-								<a href="" class="waves-effect waves-light">
-									<img src="<?=$data['header']['public']?>img/eur2.png" alt="" />
-									<span>European Union Commission</span>
-								</a>
-							</li>
-							<li>
-								<a href="" class="waves-effect waves-light">
-									<img src="<?=$data['header']['public']?>img/eur2.png" alt="" />
-									<span>European Union Commission</span>
-								</a>
-							</li>
-						</ul>
-					</section>
-
-					<section class="col s12 m4 l4">
-						<ul class="usefullLinks">
-							<li>
-								<a href="" class="waves-effect waves-light">
-									<img src="<?=$data['header']['public']?>img/eur2.png" alt="" />
-									<span>European Union Commission</span>
-								</a>
-							</li>
-							<li>
-								<a href="" class="waves-effect waves-light">
-									<img src="<?=$data['header']['public']?>img/eur2.png" alt="" />
-									<span>European Union Commission</span>
-								</a>
-							</li>
-							<li>
-								<a href="" class="waves-effect waves-light">
-									<img src="<?=$data['header']['public']?>img/eur2.png" alt="" />
-									<span>European Union Commission</span>
-								</a>
-							</li>
-						</ul>
-					</section>
-
-					<section class="col s12 m4 l4">
-						<ul class="usefullLinks">
-							<li>
-								<a href="" class="waves-effect waves-light">
-									<img src="<?=$data['header']['public']?>img/eur2.png" alt="" />
-									<span>European Union Commission</span>
-								</a>
-							</li>
-							<li>
-								<a href="" class="waves-effect waves-light">
-									<img src="<?=$data['header']['public']?>img/eur2.png" alt="" />
-									<span>European Union Commission</span>
-								</a>
-							</li>
-							<li>
-								<a href="" class="waves-effect waves-light">
-									<img src="<?=$data['header']['public']?>img/eur2.png" alt="" />
-									<span>European Union Commission</span>
-								</a>
-							</li>
-						</ul>
-					</section>
+					<?=$data['usefulllink']?>
 				</section>
 			</section>
 

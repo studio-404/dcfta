@@ -56,6 +56,20 @@ class Home extends Controller
 			"num"=>2
 		));
 
+		$db_usefulllinks = new Database("modules", array(
+			"method"=>"selectModuleByType", 
+			"type"=>"usefulllink",
+			"from"=>0, 
+			"num"=>9
+		));
+
+		$db_news = new Database("modules", array(
+			"method"=>"selectModuleByType", 
+			"type"=>"news",
+			"from"=>0, 
+			"num"=>2
+		));
+
 
 		// echo "<pre>";
 		// print_r($db_reports->getter()); 
@@ -90,6 +104,14 @@ class Home extends Controller
 		$publications = $this->model('_publications');
 		$publications->data = $db_publicationss->getter(); 
 
+		/* usefull links */
+		$usefulllink = $this->model('_usefulllink');
+		$usefulllink->data = $db_usefulllinks->getter(); 
+
+		/*news */
+		$news = $this->model('_news');
+		$news->data = $db_news->getter(); 
+
 		/* view */
 		$this->view('home/index', [
 			"header"=>array(
@@ -103,7 +125,9 @@ class Home extends Controller
 			"pageData"=>$db_pagedata->getter(), 
 			"euLinks"=>$euLinks->index(), 
 			"reports"=>$reports->index(), 
-			"publications"=>$publications->index() 
+			"publications"=>$publications->index(), 
+			"usefulllink"=>$usefulllink->index(), 
+			"news"=>$news->index() 
 		]);
 	}
 

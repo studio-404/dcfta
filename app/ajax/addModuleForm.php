@@ -51,6 +51,8 @@ class addModuleForm
 			"value"=>date("d-m-Y")
 		));
 
+		$form .= "<script type=\"text/javascript\"> $(\"#date\").datepicker({ dateFormat: \"dd-mm-yy\"}).attr(\"readonly\",\"readonly\");</script>";
+
 	
 		$form .= functions\makeForm::inputText(array(
 			"placeholder"=>"დასახელება", 
