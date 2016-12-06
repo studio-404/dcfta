@@ -70,6 +70,12 @@ class Home extends Controller
 			"num"=>2
 		));
 
+		$db_footer = new Database("modules", array(
+			"method"=>"selectById", 
+			"idx"=>18,
+			"lang"=>$_SESSION['LANG']
+		));
+
 
 		// echo "<pre>";
 		// print_r($db_reports->getter()); 
@@ -112,6 +118,10 @@ class Home extends Controller
 		$news = $this->model('_news');
 		$news->data = $db_news->getter(); 
 
+		/*footer */
+		$footer = $this->model('_footer');
+		$footer->data = $db_footer->getter(); 
+
 		/* view */
 		$this->view('home/index', [
 			"header"=>array(
@@ -127,7 +137,8 @@ class Home extends Controller
 			"reports"=>$reports->index(), 
 			"publications"=>$publications->index(), 
 			"usefulllink"=>$usefulllink->index(), 
-			"news"=>$news->index() 
+			"news"=>$news->index(), 
+			"footer"=>$footer->index() 
 		]);
 	}
 

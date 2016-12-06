@@ -133,8 +133,8 @@
 		</section>
 	</section>	
 </main>
-
-<footer>
+<?=$data['footer']?>
+<!-- <footer>
 	<section class="centerWidth">		
 		<section class="row marginBottom55">
 			<section class="marginminus10">
@@ -154,7 +154,7 @@
 			</section>
 		</section>
 	</section>
-</footer>
+</footer> -->
 
 </body>
 </html>
