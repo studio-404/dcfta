@@ -1,7 +1,11 @@
 var Config = {
-	website: "http://dcfta.404.ge", 
+	website: "http://dcfta.404.ge",
+	ajax:"http://dcfta.404.ge/ge/ajax/index",  
 	deviceWidth: (window.outterWidth > 0) ? window.outteWidth : screen.width, 
-	deviceHeight: (window.outteHeight > 0) ? window.outteHeight : screen.height
+	deviceHeight: (window.outteHeight > 0) ? window.outteHeight : screen.height,
+	waitGeo:"მოთხოვნა იგზავნება...",
+	waitEng:"Please wait...",
+	waitRus:"пожалуйста, подождите..."
 
 };
 
@@ -120,6 +124,29 @@ var changeLanguage = function(newLang, oldLang){
 	var find = "/"+oldLang+"/";
 	var replace = "/"+newLang+"/";
 	location.href = url.replace(find, replace); 
+};
+
+var loadCal = function(type, currentMonth, currentYear, lang){
+	var waitText = Config.waitGeo;
+	var ajaxFile = "/loadCalendar";
+	console.log(type + " " + currentMonth + " " + currentYear + " " + lang);
+	if(lang=="en"){ waitText = Config.waitEng; }
+	else if(lang=="en"){ waitText = Config.waitRus; }
+	$(".CalendarBox").html(waitText);
+	$.ajax({
+		method: "POST",
+		url: Config.ajax + ajaxFile,
+		data: { type: type, currentMonth: currentMonth, currentYear:currentYear, lang:lang }
+	}).done(function( msg ) {
+		var obj = $.parseJSON(msg);
+		if(obj.Error.Code==1){
+			console.log(obj.Error.Text);
+		}else if(obj.Success.Code==1){
+			$(".CalendarBox").html(obj.Success.Html);
+		}else{
+			$(".CalendarBox").html("Error");
+		}
+	});
 };
 
 $(document).ready(function(){

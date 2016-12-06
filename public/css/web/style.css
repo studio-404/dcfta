@@ -1055,7 +1055,9 @@ footer {
   overflow: hidden;
   -webkit-border-radius: 3px;
   -moz-border-radius: 3px;
-  border-radius: 3px; }
+  border-radius: 3px;
+  color: #ffffff;
+  font-family: 'noto_sansregular'; }
   .CalendarBox table {
     width: 100%;
     font-size: 15px;

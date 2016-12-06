@@ -16,6 +16,9 @@ class calendar
 	public $Cmonth;
 	public $Cyear;
 
+	public $getYear;
+	public $getMonth;
+
 	public function __construct()
 	{
 		$this->geomonth = array("January"=>"იანვარი", "February"=>"თებერვალი", "March"=>"მარტი", "April"=>"აპრილი", "May"=>"მაისი", "June"=>"ივნისი", "July"=>"ივლისი", "August"=>"აგვისტო", "September"=>"სექტემბერი", "October"=>"ოქტომბერი", "November"=>"ნოემბერი", "December"=>"დეკემბერი");
@@ -33,8 +36,8 @@ class calendar
 
 	public function index($lang)
 	{
-		if(isset($_GET["month"])){ $this->month=$_GET["month"]; }
-		if(isset($_GET["year"])){ $this->year=$_GET["year"]; }
+		if(isset($this->getMonth)){ $this->month=$this->getMonth; }
+		if(isset($this->getYear)){ $this->year=$this->getYear; }
 
 		$this->first_day = mktime(0, 0, 0, $this->month, 1, $this->year);
 		$this->title = date('F',$this->first_day);
@@ -84,10 +87,10 @@ class calendar
 		}
 
 		/* onclick="hashx('?month=<?=$yy_month?>&amp;year=<?=$yy_year?>&amp;lang=<?=$_GET[lang]?>')" */
-		$this->out .= "<a href=\"javascript:void(0)\">&nbsp;</a>";
+		$this->out .= "<a href=\"javascript:void(0)\" onclick=\"loadCal('prev', '".$this->month."', '".$this->year."', '".$_SESSION['LANG']."')\">&nbsp;</a>";
 		$this->out .= $this->title." ".$this->year;		
 		/* onclick="hashx('?month=<?=$xx_month?>&amp;year=<?=$xx_year?>&amp;lang=<?=$_GET[lang]?>')" */
-		$this->out .= "<a href=\"javascript:void(0)\">&nbsp;</a>";
+		$this->out .= "<a href=\"javascript:void(0)\" onclick=\"loadCal('next', '".$this->month."', '".$this->year."', '".$_SESSION['LANG']."')\">&nbsp;</a>";
 
 		$this->out .= "</td>\n";
 		$this->out .= "</tr>\n";
