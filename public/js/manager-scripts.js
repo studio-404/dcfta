@@ -524,7 +524,7 @@ var editModules = function(idx, lang){
 		    	items: ".imageItem",
 				update: function( event, ui ) {  }
 			});
-
+			$('.tooltipped').tooltip({delay: 50});
 			$("#sortableFiles-box").sortable({
 				items: ".level-0, .level-2", 
 				update: function( event, ui ) { 
@@ -588,8 +588,7 @@ var formModuleEdit = function(idx, lang){
 	$(".modal-message-box").html("გთხოვთ დაიცადოთ...");
 	if(
 		(typeof date === "undefined" || date=="") || 
-		(typeof title === "undefined" || title=="") || 
-		(typeof pageText === "undefined" || pageText=="")
+		(typeof title === "undefined" || title=="") 
 	){
 		$(".modal-message-box").html("ყველა ველი სავალდებულოა !");
 	}else{
@@ -652,7 +651,7 @@ var formModuleAdd = function(moduleSlug, lang){
 	var serialFiles = serialize(files);
 
 	var ajaxFile = "/addModule";
-	if(typeof moduleSlug == "undefined" || typeof date == "undefined" || typeof title === "undefined" || typeof pageText === "undefined"){
+	if(typeof moduleSlug == "undefined" || typeof date == "undefined" || typeof title === "undefined"){
 		$(".modal-message-box").html("E4");
 	}else{
 		$.ajax({
@@ -675,8 +674,8 @@ var formModuleAdd = function(moduleSlug, lang){
 };
 
  
-var searchStatement = function(pid){
-	var ajaxFile = "/searchStatement";
+var searchComments = function(id){
+	var ajaxFile = "/searchComments";
 	var header = "<h4>განცხადება</h4><p class=\"modal-message-box\"></p>";
 	var content = "<p>გთხოვთ დაიცადოთ...</p>";
 	var footer = "<a href=\"javascript:void(0)\" class=\"waves-effect waves-green btn-flat modal-close\">დახურვა</a>";
@@ -688,7 +687,7 @@ var searchStatement = function(pid){
 	$.ajax({
 		method: "POST",
 		url: Config.ajax + ajaxFile,
-		data: { pid: pid }
+		data: { id: id }
 	}).done(function( msg ) {
 		var obj = $.parseJSON(msg);
 		if(obj.Error.Code==1){
@@ -698,12 +697,13 @@ var searchStatement = function(pid){
 			var table = "<p>" + obj.table +"</p>";
 			$("#modal1 .modal-content").html(header + table);
 		}
+		scrollTop(); 
 	});
 };
 
-var askRemoveStatement = function(id){
+var askRemoveComments = function(id){
 	var header = "<h4>შეტყობინება</h4><p class=\"modal-message-box\">გნებავთ წაშალოთ მონაცემი ?</p>";
-	var footer = "<a href=\"javascript:void(0)\" onclick=\"removeStatement('"+id+"')\" class=\"waves-effect waves-green btn-flat\">დიახ</a>";
+	var footer = "<a href=\"javascript:void(0)\" onclick=\"removeComments('"+id+"')\" class=\"waves-effect waves-green btn-flat\">დიახ</a>";
 	footer += "<a href=\"javascript:void(0)\" class=\"waves-effect waves-green btn-flat modal-close\">დახურვა</a>";
 
 	$("#modal1 .modal-content").html(header);
@@ -711,8 +711,8 @@ var askRemoveStatement = function(id){
 	$('#modal1').openModal();	
 }; 
 
-var removeStatement = function(id){
-	var ajaxFile = "/removeStatement";
+var removeComments = function(id){
+	var ajaxFile = "/removeComments";
 	if(typeof id == "undefined"){
 		$(".modal-message-box").html("E4");
 	}else{
@@ -935,9 +935,6 @@ var openFileManagerForFiles = function(id){
         dialog: { width: 400, modal: true },
         closeOnEditorCallback: true, 
 		getFileCallback: function(url) {
-            // $("#"+id+" .card .card-image .activator").attr("src",Config.website+"ge/image/loadimage?f="+Config.website+"public/"+url.path+"&w=215&h=173");
-            // $("#"+id+" .card .card-image .managerFiles").val("/public/"+url.path);
-            // photoUploaderBox(photosBox);
             var ajaxFile = "/file_system";
             var random = $("#random").val(); 
             var file_attach_type = $("#file_attach_type").val(); 
@@ -989,8 +986,6 @@ var openFileManagerForSubFiles = function(id, item){
 				if(obj.Error.Code==1){
 					alert(obj.Error.Text);
 				}else if(obj.Success.Code==1){
-					// var f = filebox(url.path, obj.Success.insert_id);
-     //        		$("#sortableFiles-box").append(f); 
      				addsubfile(item, url.path, obj.Success.insert_id);
 				}else{
 					alert("E5");
@@ -1026,13 +1021,12 @@ var removeAttachedFile = function(classes, item, sub){
 };
 
 var filebox = function(path, returnid){
-	// var length = $("#sortableFiles-box .level-0").length + 1;
 	var split = path.split("/");
 	var file = "<li class=\"collection-item level-0 popupfile0\" data-item=\""+returnid+"\" data-cid=\"0\" data-file=\""+path+"\">";
 	file += "<div>";
 	file += split[split.length - 1];
 	file += "<a href=\"javascript:void(0)\" onclick=\"removeAttachedFile('level-0','"+returnid+"', true)\" class=\"secondary-content tooltipped\" data-position=\"bottom\" data-delay=\"50\" data-tooltip=\"წაშლა\"><i class=\"material-icons\">delete</i></a>";
-	file += "<a href=\"\" class=\"secondary-content tooltipped\" data-position=\"bottom\" data-delay=\"50\" data-tooltip=\"კომენტარი (5)\"><i class=\"material-icons\">comment</i></a>";
+	// file += "<a href=\"\" class=\"secondary-content tooltipped\" data-position=\"bottom\" data-delay=\"50\" data-tooltip=\"კომენტარი (5)\"><i class=\"material-icons\">comment</i></a>";
 	file += "<a href=\"javascript:void(0)\" onclick=\"openFileManagerForSubFiles('subfilex"+returnid+"','"+returnid+"')\" class=\"secondary-content tooltipped\" data-position=\"bottom\" data-delay=\"50\" data-tooltip=\"დამატება\"><i class=\"material-icons\">note_add</i></a>";
 	file += "</div>";
 	file += "</li>";
@@ -1050,7 +1044,7 @@ var addsubfile = function(item, path, inserted_id){
 	file += "<div>";
 	file += split[split.length - 1];
 	file += "<a href=\"javascript:void(0)\" onclick=\"removeAttachedFile('level-2','"+inserted_id+"', false)\"  class=\"secondary-content tooltipped\" data-position=\"bottom\" data-delay=\"50\" data-tooltip=\"წაშლა\"><i class=\"material-icons\">delete</i></a>";
-	file += "<a href=\"\" class=\"secondary-content tooltipped\" data-position=\"bottom\" data-delay=\"50\" data-tooltip=\"კომენტარი (5)\"><i class=\"material-icons\">comment</i></a>";
+	// file += "<a href=\"\" class=\"secondary-content tooltipped\" data-position=\"bottom\" data-delay=\"50\" data-tooltip=\"კომენტარი (5)\"><i class=\"material-icons\">comment</i></a>";
 	file += "</div>";
 	file += "</li>";
 	if(!$("#subfilex-"+item).length){

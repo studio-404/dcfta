@@ -39,6 +39,9 @@ footer .centerWidth .footerText .left{
 .mainText{
 	font-size: 16px;
 }
+header .navigation ul li .active span{
+	padding-bottom: 3px !important;
+}
 
 .files .file a .title{
 	font-size: 13px;
@@ -57,4 +60,7 @@ footer .centerWidth .footerText .left{
  }
  .CalendarBox{
  	font-family: 'noto_sans_georgianregular' !important;		
+ }
+ .mainText p{
+ 	font-family: 'noto_sans_georgianregular' !important;			
  }

@@ -134,27 +134,5 @@
 	</section>	
 </main>
 <?=$data['footer']?>
-<!-- <footer>
-	<section class="centerWidth">		
-		<section class="row marginBottom55">
-			<section class="marginminus10">
-				<section class="col s12 m12 l12">
-					<section class="col s12 m3 l3"><a href=""><img src="<?=$data['header']['public']?>img/geoeuro.jpg" alt="" class="bigImage" /></a></section>
-					<section class="col s12 m3 l2"><a href=""><img src="<?=$data['header']['public']?>img/giz.jpg" alt="" /></a></section>
-					<section class="col s12 m3 l5 mobileMarginTop20"><p>This website has been produced with support of the EU funded project “SME Development and DCFTA in Georgia” implemented by Deutsche Gesellschaft für Internationale Zusammenarbeit (GIZ) GmbH on behalf of German Federal Ministry for Economic Cooperation and Development (BMZ). The contents of this website do not necessarily reflect the views of the European Union.</p></section>	
-					<section class="col s12 m2 l3"></section>				
-				</section>
-			</section>
-		</section>
-
-		<section class="footerText">
-			<section class="marginminus10" style="margin:0">
-			<p class="left">Ministry of Economy and Sustainable Development of Georgia 2016. DCFTA.gov.ge</p>
-			<p class="right"><a href=""><img src="<?=$data['header']['public']?>img/logo.png" alt="logo" class="logo" /></a></p>
-			</section>
-		</section>
-	</section>
-</footer> -->
-
 </body>
 </html>

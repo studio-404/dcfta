@@ -129,6 +129,24 @@ class file
 		return 0; 
 	}	
 
+	public function selectFilesPathById($args)
+	{
+		$fetch = ""; 
+		$select = "SELECT `file_path` FROM `file_system` WHERE `idx`=:idx AND `type`=:type AND `lang`=:lang";
+		$prepare = $this->conn->prepare($select);
+		$prepare->execute(array(
+			":idx"=>$args['idx'], 
+			":lang"=>$args['lang'],  
+			":type"=>$args['type']   
+		));
+		if($prepare->rowCount()){
+			$f = $prepare->fetch(PDO::FETCH_ASSOC);
+			$fetch = $f['file_path']; 
+		}
+		return $fetch;
+	}
+	
+
 	public function selectFilesByPageId($args)
 	{
 		$fetch = array(); 

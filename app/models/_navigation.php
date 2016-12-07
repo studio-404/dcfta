@@ -14,12 +14,13 @@ class _navigation
 					"lang"=>$value['lang'], 
 					"status"=>0
 				));
-
-				if($subNavigation->getter()){
+				$active = (isset($_SESSION["URL"][1]) && $_SESSION["URL"][1]==$value['slug']) ? " active" : "";
+				if($subNavigation->getter()){					
 					$out .= sprintf(
-						"<li class=\"sub\" data-sub=\"%s\">\n<a href=\"%s\" class=\"slide\"><span>%s</span></a> <i class=\"arrow\"></i>\n",
+						"<li class=\"sub\" data-sub=\"%s\">\n<a href=\"%s\" class=\"slide%s\"><span>%s</span></a> <i class=\"arrow\"></i>\n",
 						"i".$value['idx'], 
 						Config::WEBSITE.$_SESSION['LANG']."/".$value['slug'], 
+						$active, 
 						$value['title']  
 					);
 
@@ -39,8 +40,9 @@ class _navigation
 					$out .= "</li>\n";
 				}else{
 					$out .= sprintf(
-						"<li><a href=\"%s\"><span>%s</span></a></li>\n",
+						"<li><a href=\"%s\" class=\"%s\"><span>%s</span></a></li>\n",
 						Config::WEBSITE.$_SESSION['LANG']."/".$value['slug'], 
+						$active, 
 						$value['title']  
 					);	
 				}

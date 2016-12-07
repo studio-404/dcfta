@@ -35,31 +35,26 @@
 		</nav>
 
 		<section class="body">
-			<div class="input-field margin-bottom-20">
-				<input id="personalID" type="text" class="validate">
-				<label for="personalID">პირადი ნომერი</label>
-				<a class="waves-effect waves-light btn" onclick="searchStatement($('#personalID').val())"><i class="material-icons left">search</i>ძებნა</a>
-			</div>
-
 			<table class="highlight">
 				<thead>
 					<tr>
 						<th data-field="id">ს.კ</th>
 						<th data-field="date">თარღი</th>
-						<th data-field="name">სახელი გვარი</th>
-						<th data-field="pid">პირადი ნომერი</th>
+						<th data-field="name">სახელი</th>
+						<th data-field="org">ორგანიზაცია</th>
+						<th data-field="email">ელ-ფოსტა</th>
 						<th data-field="action">მოქმედება</th>
 					</tr>
 				</thead>
 
 				<tbody>
-					<?=$data['theStatements']?>					
+					<?=$data['theComments']?>					
 				</tbody>
 			</table>
 
 			<?php 
-			if(count($data['statements'])) : 
-					$total = $data['statements'][0]['counted']; 
+			if(count($data['comments']) && !isset($_GET['file'])) : 
+					$total = $data['comments'][0]['counted']; 
 					$itemPerPage = $data['itemPerPage']; 
 					$pagination = $data['pagination'];
 					echo $pagination->index($total, $itemPerPage);

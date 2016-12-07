@@ -1,8 +1,8 @@
 <?php 
-class addModule
+class removeComments
 {
 	public $out; 
-	
+
 	public function __construct()
 	{
 		require_once 'app/core/Config.php';
@@ -24,38 +24,22 @@ class addModule
 			)
 		);
 
-		$moduleSlug = functions\request::index("POST","moduleSlug");
-		$lang = functions\request::index("POST","lang");
-		$date = functions\request::index("POST","date");
-		$title = functions\request::index("POST","title");
-		$pageText = functions\request::index("POST","pageText");
-		$link = functions\request::index("POST","link");
-		$classname = functions\request::index("POST","classname");
-		$serialPhotos = unserialize(functions\request::index("POST","serialPhotos"));
-		$serialFiles = unserialize(functions\request::index("POST","serialFiles"));
+		$id = functions\request::index("POST","id");
+		
 
-
-		if($moduleSlug=="" || $date=="" || $title=="")
+		if($id=="")
 		{
 			$this->out = array(
 				"Error" => array(
 					"Code"=>1, 
-					"Text"=>"ყველა ველი სავალდებულოა !",
+					"Text"=>"მოხდა შეცდომა !",
 					"Details"=>"!"
 				)
 			);
 		}else{
-			$Database = new Database('modules', array(
-					'method'=>'add', 
-					'moduleSlug'=>$moduleSlug, 
-					'lang'=>$lang, 
-					'date'=>$date, 
-					'title'=>$title, 
-					'pageText'=>$pageText, 
-					'link'=>$link, 
-					'classname'=>$classname, 
-					'serialPhotos'=>$serialPhotos, 
-					'serialFiles'=>$serialFiles  
+			$Database = new Database('comments', array(
+					'method'=>'removeComments', 
+					'id'=>$id
 			));
 			$output = $Database->getter();
 			if($output){

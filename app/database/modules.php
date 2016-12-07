@@ -21,7 +21,7 @@ class modules
 		$prepare = $this->conn->prepare($select);
 		$prepare->execute(array(
 			":one"=>1,
-			":lang"=>$args['lang']
+			":lang"=>$_SESSION["LANG"]
 		));
 		if($prepare->rowCount()){
 			$fetch = $prepare->fetchAll(PDO::FETCH_ASSOC);

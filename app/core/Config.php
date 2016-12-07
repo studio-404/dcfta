@@ -10,6 +10,7 @@ class Config
 	const WEBSITE = "http://dcfta.404.ge/";
 	const WEBSITE_ = "http://dcfta.404.ge";
 	const ADMIN_DASHBOARD = "http://dcfta.404.ge/ge/dashboard/index";
+	const ADMIN_DASHBOARD_COMMENTS = "http://dcfta.404.ge/ge/dashboard/comments";
 	const PUBLIC_FOLDER = "http://dcfta.404.ge/public/";
 	const AUTHER = "Getsadze Design";
 	const PAGE_PREFIX = "page";

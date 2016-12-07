@@ -1,7 +1,6 @@
 <?php 
-class Text extends Controller
+class Legislation extends Controller
 {
-	
 	public function __construct()
 	{
 		
@@ -19,9 +18,9 @@ class Text extends Controller
 			"type"=>"social"
 		));
 
-		$db_stateagencies = new Database("modules", array(
+		$db_legislation = new Database("modules", array(
 			"method"=>"selectModuleByType", 
-			"type"=>"stateagencies", 
+			"type"=>"legislation", 
 			"from"=>0, 
 			"num"=>10
 		));
@@ -66,9 +65,10 @@ class Text extends Controller
 		$navigation = $this->model('_navigation');
 		$navigation->data = $db_navigation->getter();
 
-		/* state agencies */
-		$stateagencies = $this->model('_stateagencies');
-		$stateagencies->data = $db_stateagencies->getter();
+		/* legislation */
+		$legislation = $this->model('_legislation');
+		$legislation->data = $db_legislation->getter();
+
 
 		/*footer */
 		$footer = $this->model('_footer');
@@ -76,7 +76,7 @@ class Text extends Controller
 
 	
 		/* view */
-		$this->view('text/index', [
+		$this->view('legislation/index', [
 			"header"=>array(
 				"website"=>Config::WEBSITE,
 				"public"=>Config::PUBLIC_FOLDER
@@ -86,9 +86,8 @@ class Text extends Controller
 			"socialNetworksModule"=>$social->index(), 
 			"navigationModule"=>$navigation->index(), 
 			"pageData"=>$db_pagedata->getter(), 
-			"stateagencies"=>$stateagencies->index(), 
+			"legislation"=>$legislation->index(), 
 			"footer"=>$footer->index() 
 		]);
 	}
-
 }

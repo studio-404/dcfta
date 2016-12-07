@@ -35,7 +35,7 @@ class editFormModules
 		$serialFiles = unserialize(functions\request::index("POST","serialFiles"));
 		
 		
-		if($idx == "" || $lang=="" || $date=="" || $title=="" || $pageText=="")
+		if($idx == "" || $lang=="" || $date=="" || $title=="")
 		{
 			$this->out = array(
 				"Error" => array(

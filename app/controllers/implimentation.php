@@ -1,7 +1,6 @@
 <?php 
-class Text extends Controller
+class Implimentation extends Controller
 {
-	
 	public function __construct()
 	{
 		
@@ -22,6 +21,20 @@ class Text extends Controller
 		$db_stateagencies = new Database("modules", array(
 			"method"=>"selectModuleByType", 
 			"type"=>"stateagencies", 
+			"from"=>0, 
+			"num"=>10
+		));
+
+		$db_implementation = new Database("modules", array(
+			"method"=>"selectModuleByType", 
+			"type"=>"implementation", 
+			"from"=>0, 
+			"num"=>10
+		));
+
+		$db_strategic = new Database("modules", array(
+			"method"=>"selectModuleByType", 
+			"type"=>"strategic", 
 			"from"=>0, 
 			"num"=>10
 		));
@@ -70,13 +83,23 @@ class Text extends Controller
 		$stateagencies = $this->model('_stateagencies');
 		$stateagencies->data = $db_stateagencies->getter();
 
+		/* implementation */
+		$implementation = $this->model('_implementation');
+		$implementation->data = $db_implementation->getter();
+
+		/* strategic documents */
+		$strategic = $this->model('_strategic');
+		$strategic->data = $db_strategic->getter();
+
+		
+
 		/*footer */
 		$footer = $this->model('_footer');
 		$footer->data = $db_footer->getter(); 
 
 	
 		/* view */
-		$this->view('text/index', [
+		$this->view('implimentation/index', [
 			"header"=>array(
 				"website"=>Config::WEBSITE,
 				"public"=>Config::PUBLIC_FOLDER
@@ -87,8 +110,9 @@ class Text extends Controller
 			"navigationModule"=>$navigation->index(), 
 			"pageData"=>$db_pagedata->getter(), 
 			"stateagencies"=>$stateagencies->index(), 
+			"implementation"=>$implementation->index(), 
+			"strategic"=>$strategic->index(), 
 			"footer"=>$footer->index() 
 		]);
 	}
-
 }

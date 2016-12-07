@@ -6,8 +6,16 @@ class files
 	public static function get_size($file)
 	{
 		try{
-			$headers = get_headers($file, 1);
-			return $headers['Content-Length'];
+            $curl = curl_init();
+            curl_setopt_array($curl, array(    
+                CURLOPT_URL => $file,
+                CURLOPT_HEADER => true,
+                CURLOPT_RETURNTRANSFER => true,
+                CURLOPT_NOBODY => true));
+
+            $headers = explode("\n", curl_exec($curl));
+            curl_close($curl);
+            return preg_replace("/[^0-9]/", "", $headers[5]);
 		}catch(Exception $e){
 			return 0;
 		}

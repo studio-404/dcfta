@@ -54,18 +54,25 @@
 	<section class="yellowBox"></section>
 	<section class="blueBox"></section>
 </section>
+
+
 <main>
 	<section class="centerWidth">
 		<section class="row">
 			<section class="col s12 m6 l8 leftSide">
 				<section class="headerText">
 					<div class="line"></div>
-					<div class="title"><?=strip_tags($data['pageData']['description'])?></div>
+					<div class="title"><?=@html_entity_decode($data['pageData']['description'])?></div>
 				</section>
 				<section class="mainText">
-					<?=html_entity_decode($data['pageData']['text'])?>
-				</section>			
+					<?=@html_entity_decode($data['pageData']['text'])?>
+				</section>
 
+				<section class="headerText">
+					<div class="line"></div>
+					<div class="title">Chapters</div>
+				</section>
+				<?=$data['chapters']?>
 			</section>
 			<section class="col s12 m6 l4 rightSide">
 				<section class="justTitle">State Agencies</section>
@@ -77,7 +84,7 @@
 		</section>
 	</section>	
 </main>
-<?=$data['footer']?>
 
+<?=$data['footer']?>
 </body>
 </html>

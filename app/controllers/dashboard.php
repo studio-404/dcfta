@@ -39,7 +39,7 @@ class dashboard extends Controller
 		$this->managerNavigation->navigation = array(
 			$_SESSION["LANG"]."/dashboard/index"=>"გვერდები",
 			$_SESSION["LANG"]."/dashboard/modules/".Config::DEFAULT_MODULE=>"მოდულები", 
-			$_SESSION["LANG"]."/dashboard/statements"=>"განაცხადები",
+			$_SESSION["LANG"]."/dashboard/comments"=>"კომენტარები",
 			$_SESSION["LANG"]."/dashboard/filemanager"=>"ფაილ მენეჯერი", 
 			$_SESSION["LANG"]."/manager/index"=>"გასვლა"
 		);
@@ -112,32 +112,35 @@ class dashboard extends Controller
 		]);
 	}
 
-	public function statements()
+	public function comments()
 	{
 		require_once 'app/functions/string.php';
 		require_once 'app/functions/pagination.php';
+		require_once 'app/functions/request.php';
 
 		$pagination = new functions\pagination();
+		$file = (int)functions\request::index("GET","file");
 
 		$itemPerPage = 10;
-		$statements = new Database('statements', array(
+		$comments = new Database('comments', array(
 			"method"=>"select",
+			"file"=>$file, 
 			"itemPerPage"=>$itemPerPage
 		));
-		$getter = $statements->getter();
+		$getter = $comments->getter();
 
-		// statements
-		$statementsView = $this->model('statementsView');
-		$statementsView->data = $getter;
+		// comments
+		$commentsView = $this->model('commentsView');
+		$commentsView->data = $getter;
 
-		$this->view('dashboard/statements', [
+		$this->view('dashboard/comments', [
 			"header" => array(
 				"website" => Config::WEBSITE,
 				"public" => Config::PUBLIC_FOLDER
 			),
-			"theStatements" => $statementsView->index(), 
+			"theComments" => $commentsView->index(), 
 			"itemPerPage"=>$itemPerPage,
-			"statements"=>$getter,
+			"comments"=>$getter,
 			"pagination"=>$pagination,
 			"nav" => $this->managerNavigation->index(),
 			"footerNav" => $this->managerNavigation->footer()

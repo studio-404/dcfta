@@ -1,7 +1,6 @@
 <?php 
-class Text extends Controller
+class Agreement extends Controller
 {
-	
 	public function __construct()
 	{
 		
@@ -22,6 +21,13 @@ class Text extends Controller
 		$db_stateagencies = new Database("modules", array(
 			"method"=>"selectModuleByType", 
 			"type"=>"stateagencies", 
+			"from"=>0, 
+			"num"=>10
+		));
+
+		$db_chapters = new Database("modules", array(
+			"method"=>"selectModuleByType", 
+			"type"=>"chapters", 
 			"from"=>0, 
 			"num"=>10
 		));
@@ -70,13 +76,17 @@ class Text extends Controller
 		$stateagencies = $this->model('_stateagencies');
 		$stateagencies->data = $db_stateagencies->getter();
 
+		/* Chapters */
+		$chapters = $this->model('_chapters');
+		$chapters->data = $db_chapters->getter();
+
 		/*footer */
 		$footer = $this->model('_footer');
 		$footer->data = $db_footer->getter(); 
 
 	
 		/* view */
-		$this->view('text/index', [
+		$this->view('agreement/index', [
 			"header"=>array(
 				"website"=>Config::WEBSITE,
 				"public"=>Config::PUBLIC_FOLDER
@@ -87,8 +97,8 @@ class Text extends Controller
 			"navigationModule"=>$navigation->index(), 
 			"pageData"=>$db_pagedata->getter(), 
 			"stateagencies"=>$stateagencies->index(), 
+			"chapters"=>$chapters->index(), 
 			"footer"=>$footer->index() 
 		]);
 	}
-
 }

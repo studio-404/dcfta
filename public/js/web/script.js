@@ -110,13 +110,40 @@ var leftNavYellowBoxChangeHeight = function(){
 	}, 200); 	
 };
 
-var openComment = function(cid){
-	console.log("shevida "+$('.commentForm:visible').length);
-	if($('.commentForm:visible').length == 0)
+var openComment = function(cid, commentForm){
+	if($('.'+commentForm+':visible').length == 0)
 	{
-		$('.commentForm').slideDown();
+		$('.'+commentForm).slideDown();
 	}
-	$('.commentForm #commentId').val(cid);
+	$('.'+commentForm+' .commentId').val(cid);
+};
+
+var comment = function(formBox, lang){
+	var ajaxFile = "/addcomment";
+	var commentId = $("."+formBox+" form .commentId").val();
+	var firstname = $("."+formBox+" form .first_name").val(); 
+	var organization = $("."+formBox+" form .organization").val(); 
+	var email = $("."+formBox+" form .email").val(); 
+	var comment = $("."+formBox+" form .comment").val(); 
+	
+	$("." + formBox + "_msg").text("please wait...");
+	$("." + formBox + " input[type='text']").attr("disabled","disabled");
+	$.ajax({
+		method: "POST",
+		url: Config.ajax + ajaxFile,
+		data: { commentId: commentId, firstname:firstname, organization:organization, email:email, comment:comment, lang:lang }
+	}).done(function( msg ) {
+		var obj = $.parseJSON(msg);
+		if(obj.Error.Code==1){
+			$("." + formBox + "_msg").text(obj.Error.Text);
+		}else if(obj.Success.Code==1){
+			$("." + formBox + "_msg").text(obj.Success.Text);
+			$("." + formBox + " input[type='text']").val('');
+		}else{
+			$("." + formBox + "_msg").text("Error");
+		}
+		$("." + formBox + " input[type='text']").removeAttr("disabled");
+	});
 };
 
 var changeLanguage = function(newLang, oldLang){

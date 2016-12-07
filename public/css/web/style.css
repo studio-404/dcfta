@@ -424,6 +424,13 @@ main {
   font-family: "noto_sansregular";
   color: #003399; }
 
+.collapsible-body h2 {
+  color: #3c3c3c; }
+
+.collapsible-body h2 span {
+  color: #3c3c3c;
+  font-family: "noto_sansregular"; }
+
 .justSubTitle {
   margin: 10px 0px;
   padding: 0px;
