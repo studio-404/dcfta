@@ -50,4 +50,7 @@ header .topBottom .search .input-field input[type=text] {
 .mainText p {
   font-family: 'noto_sans_georgianregular' !important; }
 
+.leftNavigation .nav ul li a {
+  font-family: 'noto_sans_georgianregular' !important; }
+
 /*# sourceMappingURL=_geo.css.map */

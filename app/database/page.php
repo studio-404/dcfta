@@ -68,6 +68,25 @@ class page
 		return $fetch;
 	}
 
+	private function selecteByCid($args)
+	{
+		$fetch = array();
+		$cid = $args['cid']; 
+		$lang = $args['lang'];
+
+		$select = "SELECT * FROM `navigation` WHERE `cid`=:cid AND `lang`=:lang AND `status`!=:one";
+		$prepare = $this->conn->prepare($select);
+		$prepare->execute(array(
+			":cid"=>$cid, 
+			":lang"=>$lang, 
+			":one"=>1 
+		)); 
+		if($prepare->rowCount()){
+			$fetch = $prepare->fetchAll(PDO::FETCH_ASSOC);
+		}
+		return $fetch;
+	}
+
 	private function selecteBySlug($args)
 	{
 		$fetch = array();

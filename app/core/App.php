@@ -14,7 +14,10 @@ class App{
 
 		$_SESSION["LANG"] = (isset($url[0])) ? $url[0] : "ge";
 		$_SESSION["URL"] = (count($url)) ? $url : array();
-		
+		if(isset($url[1])){
+			$url[1] = str_replace(array(" ","-"), "", $url[1]);
+		}
+
 		if(!isset($url[1])){ $url[1] = $this->controller; }
 
 
