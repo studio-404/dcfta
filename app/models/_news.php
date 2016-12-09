@@ -22,10 +22,12 @@ class _news
 				}else{
 					$image = "/public/filemanager/noimage.png";
 				}
+				$title = $value['title'];
+				$titleUrl = str_replace(array(" "), "-", $title); 
 
 				$out .= "<section class=\"col s12 m6 l6\">\n";
 				$out .= "<section class=\"newsBox\">\n";
-				$out .= "<a href=\"".Config::WEBSITE.$_SESSION['LANG']."/read/".$value['idx']."/test-test"."\">\n";
+				$out .= "<a href=\"".Config::WEBSITE.$_SESSION['LANG']."/news/".$value['idx']."/".$titleUrl."\">\n";
 				$out .= "<section class=\"imageBox\">\n";
 				$out .= "<img src=\"".$image."\" width=\"100%\" alt=\"\" />\n";
 				$out .= "</section>\n";
@@ -33,7 +35,7 @@ class _news
 				$out .= "<p>News</p>\n";
 				$out .= "<p>".date("M d, Y", $value['date'])."</p>\n";
 				$out .= "</section>\n";
-				$out .= "<section class=\"title\">".$sting->cut(html_entity_decode($value['title']),60)."</section>\n";
+				$out .= "<section class=\"title\">".$sting->cut(html_entity_decode($title),60)."</section>\n";
 				$out .= "<section class=\"text\">".$sting->cut(strip_tags($value['description']),160)."</section>\n";
 				$out .= "</a>\n";
 				$out .= "</section>\n";
