@@ -350,6 +350,52 @@ class modules
 		return 1;
 	}
 
+	private function selectMonthEvents($args)
+	{
+		$date = sprintf(
+			"%s-%s-%s", 
+			$args["day"],
+			$args["month"], 
+			$args["year"] 
+		);
+		$date = strtotime($date);
+
+		$fetch = array();
+		$sql = "SELECT `idx`,`title` FROM `usefull` WHERE `type`=:type AND `date`=:datex AND `lang`=:lang AND `visibility`!=:one AND `status`!=:one";
+		$prepare = $this->conn->prepare($sql);
+		$prepare->execute(array(
+			":type"=>"event", 
+			":datex"=>$date, 
+			":lang"=>$args['lang'], 
+			":one"=>1 
+		));
+		if($prepare->rowCount())
+		{
+			$fetch = $prepare->fetch(PDO::FETCH_ASSOC);
+			return $fetch;
+		}
+		return false;
+	}
+
+	private function translate($args)
+	{
+		$fetch = array();
+		$sql = "SELECT `description` FROM `usefull` WHERE `title`=:title AND `type`=:type AND `lang`=:lang AND `visibility`!=:one AND `status`!=:one";
+		$prepare = $this->conn->prepare($sql);
+		$prepare->execute(array(
+			":type"=>"language", 
+			":title"=>$args['word'], 
+			":lang"=>$args['lang'], 
+			":one"=>1 
+		));
+		if($prepare->rowCount())
+		{
+			$fetch = $prepare->fetch(PDO::FETCH_ASSOC);
+			return strip_tags($fetch['description']);
+		}
+		return "";
+	}
+
 	private function removeModule($args)
 	{
 		$idx = $args['idx'];

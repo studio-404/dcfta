@@ -6,7 +6,8 @@ class _legislation
 	public function index()
 	{
 		require_once("app/functions/timeleft.php"); 
-
+		require_once("app/functions/l.php"); 
+		$l = new functions\l(); 
 		$out = "";
 		if(count($this->data)){
 			$out .= "<ul class=\"collapsible\" data-collapsible=\"accordion\">\n";
@@ -67,37 +68,61 @@ class _legislation
 				
 
 
-				$out .= "<section class=\"col s12 m8 l8 commentForm".$value['idx']."\" style=\"display: none;\">";
-				$out .= "<section class=\"justTitle\" style=\"color:#3c3c3c\">You can leave your comments here</section><br>";
+				$out .= "<section class=\"col s12 m8 l8 commentForm".$value['idx']."\" style=\"display: none; margin-top:20px\">";
+				$out .= sprintf(
+					"<section class=\"justTitle\" style=\"color:#3c3c3c;\">%s</section><br>", 
+					$l->translate('youcanleavecommenthere')
+				);
 				$endtime = $value['date'] + 604800;
 				
 				$out .= sprintf(
-					"<section class=\"timeLeft\">* You can leave your comment here  <span>%s</span></section>",
+					"<section class=\"timeLeft\">* %s  <span>%s</span></section>",
+					$l->translate('youcanleavecommenthere'), 
 					functions\timeleft::index($endtime)
 				);
 				$out .= "<section class=\"contactForm\">";
 				$out .= "<form action=\"\" method=\"post\">";
-				$out .= "<div class=\"commentForm".$value['idx']."_msg\" style=\"padding:0 0 20px 0\"></div>";
+				$out .= sprintf(
+					"<div class=\"commMsG commentForm%s_msg\" style=\"padding:0 0 20px 0\"></div>",
+					$value['idx']
+				);
 				$out .= "<input type=\"hidden\" name=\"commentId\" class=\"commentId\" value=\"c1\">";
 				$out .= "<section class=\"marginminus10\">";
 				$out .= "<div class=\"input-field col s12 m6 l4\">";
 				$out .= "<input type=\"text\" class=\"validate first_name\">";
-				$out .= "<label>Your Name</label>";
+				$out .= sprintf(
+					"<label>%s</label>", 
+					$l->translate('name')
+				);
 				$out .= "</div>";
 				$out .= "<div class=\"input-field col s12 m6 l4\">";
 				$out .= "<input type=\"text\" class=\"validate organization\">";
-				$out .= "<label>Organization</label>";
+				$out .= sprintf(
+					"<label>%s</label>",
+					$l->translate('organization')
+				);
 				$out .= "</div>";
 				$out .= "<div class=\"input-field col s12 m6 l4\">";
 				$out .= "<input type=\"text\" class=\"validate email\">";
-				$out .= "<label>Email Address</label>";
+				$out .= sprintf(
+					"<label>%s</label>", 
+					$l->translate('email')
+				);
 				$out .= "</div>";
 				$out .= "<div class=\"input-field col s12 m12 l12\">";
 				$out .= "<input type=\"text\" class=\"validate comment\">";
-				$out .= "<label>Comment</label>";
+				$out .= sprintf(
+					"<label>%s</label>",
+					$l->translate('comment')
+				);
 				$out .= "</div>";
 				$out .= "<div class=\"col s12 m12 l12\">";
-				$out .= "<a class=\"waves-effect waves-light btn submit\" style=\"text-decoration: none;\" onclick=\"comment('commentForm".$value['idx']."','".$_SESSION['LANG']."')\">Submit</a>";
+				$out .= sprintf(
+					"<a class=\"waves-effect waves-light btn submit\" style=\"text-decoration: none;\" onclick=\"comment('commentForm%s','%s')\">%s</a>",
+					$value['idx'],
+					$_SESSION['LANG'], 
+					$l->translate('submit')
+				);
 				$out .= "</div>";
 				$out .= "</section>";
 				$out .= "</form>";

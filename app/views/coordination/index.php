@@ -1,4 +1,8 @@
-<?=$data['headerModule']?>
+<?php
+require_once("app/functions/l.php"); 
+$l = new functions\l();
+echo $data['headerModule']; 
+?>
 <header>
 	<section class="top">
 		<section class="centerWidth topCenter">
@@ -26,7 +30,7 @@
 			<section class="search">
 				<i class="material-icons">search</i>
 				<div class="input-field">
-					<input id="searchInput" type="text" value="Search" data-val="Search" onclick="searchInputOn()" onblur="searchInputOff()" />
+					<input id="searchInput" type="text" value="<?=$l->translate('search')?>" data-val="<?=$l->translate('search')?>" onclick="searchInputOn()" onblur="searchInputOff()" />
 				</div>
 			</section>
 	
@@ -71,7 +75,7 @@
 
 			</section>
 			<section class="col s12 m6 l4 rightSide">
-				<section class="justTitle">State Agencies</section>
+				<section class="justTitle"><?=$l->translate('stateagencies')?></section>
 				<?=$data['stateagencies']?>
 			</section>
 

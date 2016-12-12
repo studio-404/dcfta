@@ -7,7 +7,8 @@ class _usefulllink2
 	public function index()
 	{
 		$out = "";
-			
+		require_once("app/functions/string.php"); 
+		$string = new functions\string(); 
 		$out .= "<ul class=\"usefullLinks\">";
 		if(count($this->data))
 		{
@@ -34,7 +35,7 @@ class _usefulllink2
 					"<img src=\"%s\" alt=\"\" />\n", 
 					$image 
 				);
-				$out .= sprintf("<span>%s</span>\n", $value['title']);
+				$out .= sprintf("<span title=\"%s\">%s</span>\n", $value['title'], $string->cut($value['title'],16));
 				$out .= "</a>\n";
 				$out .= "</li>\n";					
 			}

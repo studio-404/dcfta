@@ -37,11 +37,6 @@ class _header
 			$this->public
 		);
 
-		$out .= sprintf(
-			"<link rel=\"stylesheet\" type=\"text/css\" href=\"%scss/web/style.css\" />\n", 
-			$this->public
-		);
-
 		if($_SESSION['LANG']=="ge"){
 			$out .= sprintf(
 				"<link rel=\"stylesheet\" type=\"text/css\" href=\"%scss/web/_geo.css\" />\n", 

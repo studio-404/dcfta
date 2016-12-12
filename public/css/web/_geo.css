@@ -2,7 +2,7 @@ header .navigation ul li a {
   padding: 0 5px; }
 header .navigation ul li a, header .navigation ul li span {
   font-family: 'noto_sans_georgianregular';
-  font-size: 12px; }
+  font-size: 13.5px; }
 
 .headerText .title,
 .mainText,
@@ -12,10 +12,10 @@ h2,
 .files .file a .title span {
   font-family: 'noto_sans_georgianregular'; }
 
-.CalendarBox table #title-calendar, .newsBox a .data p, footer .centerWidth p {
+.CalendarBox table #title-calendar, .newsBox a .data p {
   font-family: 'noto_sans_georgianregular'; }
 
-footer .centerWidth .footerText .left {
+.footerText .left {
   font-family: 'noto_sans_georgianregular' !important; }
 
 .headerText .title, .justTitle, h2, .headerText .title {
@@ -51,6 +51,24 @@ header .topBottom .search .input-field input[type=text] {
   font-family: 'noto_sans_georgianregular' !important; }
 
 .leftNavigation .nav ul li a {
+  font-family: 'noto_sans_georgianregular' !important; }
+
+.collapsible .collapsible-header span {
+  font-family: 'noto_sans_georgianregular' !important; }
+
+.collapsible .collapsible-body p {
+  font-family: 'noto_sans_georgianregular' !important; }
+
+.InternationalSupport .box .title, .InternationalSupport .box .text, .linkWithIcon a .geo {
+  font-family: 'noto_sans_georgianregular' !important; }
+
+.timeLeft {
+  font-family: 'noto_sans_georgianregular' !important; }
+
+.contactForm form input[type='text'], .contactForm form label, .contactForm form .submit {
+  font-family: 'noto_sans_georgianregular' !important; }
+
+.commMsG, .contactDetails p {
   font-family: 'noto_sans_georgianregular' !important; }
 
 /*# sourceMappingURL=_geo.css.map */

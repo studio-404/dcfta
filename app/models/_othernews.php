@@ -10,6 +10,52 @@ class _othernews
 		{
 			require_once("app/functions/string.php"); 
 			$sting = new functions\string();
+			require_once("app/functions/l.php"); 
+			$month = array(
+				"ge"=>array(
+					"Jan"=>"იან",
+					"Feb"=>"თებ",
+					"Mar"=>"მარ",
+					"Apr"=>"აპრ",
+					"May"=>"მაი",
+					"Jun"=>"ივნ",
+					"Jul"=>"ივლ",
+					"Aug"=>"აგვ",
+					"Sep"=>"სექ",
+					"Oct"=>"ოქტ",
+					"Nov"=>"ნოე",
+					"Dec"=>"დეკ"
+				),
+				"en"=>array(
+					"Jan"=>"Jan",
+					"Feb"=>"Feb",
+					"Mar"=>"Mar",
+					"Apr"=>"Apr",
+					"May"=>"May",
+					"Jun"=>"Jun",
+					"Jul"=>"Jul",
+					"Aug"=>"Aug",
+					"Sep"=>"Sep",
+					"Oct"=>"Oct",
+					"Nov"=>"Nov",
+					"Dec"=>"Dec"
+				),
+				"ru"=>array(
+					"Jan"=>"янв",
+					"Feb"=>"фев",
+					"Mar"=>"мар",
+					"Apr"=>"апр",
+					"May"=>"май",
+					"Jun"=>"июн",
+					"Jul"=>"июл",
+					"Aug"=>"авг",
+					"Sep"=>"сен",
+					"Oct"=>"окт",
+					"Nov"=>"ноя",
+					"Dec"=>"дек"
+				)
+			);
+			$l = new functions\l();
 
 			$slice = (isset($this->data[1])) ? array_slice($this->data, 1, 4) : $this->data;
 			foreach ($slice as $value) {
@@ -44,8 +90,12 @@ class _othernews
 				);
 				$out .= "</section>";
 				$out .= "<section class=\"data\">";
-				$out .= "<p>News</p>";
-				$out .= "<p>Jan 7, 2016</p>";
+				$out .= sprintf(
+					"<p>%s</p>\n",
+					$l->translate('singlenews')
+				);
+				$str = str_replace(date("M", $value['date']), $month[$_SESSION['LANG']][date("M", $value['date'])], date("M d, Y", $value['date']));
+				$out .= "<p>".$str."</p>\n";
 				$out .= "</section>";
 				$out .= sprintf(
 					"<section class=\"title\">%s</section>", 

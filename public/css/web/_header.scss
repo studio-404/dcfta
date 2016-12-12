@@ -43,6 +43,12 @@ body{
 .cursorPointer{
 	cursor: pointer !important;
 }
+.messageBox{
+	margin: 0px;
+	padding:10px !important;
+	color: red; 
+	font-weight: bold;
+}
 header{
 	.top{
 		background-color: $redColor;

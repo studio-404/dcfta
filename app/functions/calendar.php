@@ -36,6 +36,7 @@ class calendar
 
 	public function index($lang)
 	{
+
 		if(isset($this->getMonth)){ $this->month=$this->getMonth; }
 		if(isset($this->getYear)){ $this->year=$this->getYear; }
 
@@ -119,19 +120,37 @@ class calendar
 		{
 			$this->d = $this->year . "/" . $this->month . "/" . $this->day_num;
 			$this->to_time = strtotime($this->d);
-			if($this->day_num == $this->day && $this->month == $this->Cmonth && $this->year == $this->Cyear)
-			{
-				// today
-				$this->out .= "<td><div class=\"currentDay\">".$this->day_num."</div></td>";
-			}
-			else
-			{
-				if($this->day_num==5 || $this->day_num==25){
-					$this->out .= "<td class='day_numbers'><div class=\"event_exists tooltipped\" data-position=\"bottom\" data-delay=\"50\" data-tooltip=\"Meeting With International Donor organ\"><a href=\"http://dcfta.404.ge/public/markup/events.php\">".$this->day_num."</a></div></td>"; 	
+
+			$Database = new \Database("modules", array(
+					"method"=>"selectMonthEvents", 
+					"day"=>$this->day_num,
+					"month"=>$this->month,
+					"year"=>$this->year, 
+					"lang"=>$_SESSION['LANG']
+			));
+			$fetch = $Database->getter();
+
+			// if($this->day_num == $this->day && $this->month == $this->Cmonth && $this->year == $this->Cyear)
+			// {
+			// 	$this->out .= "<td><div class=\"currentDay\">".$this->day_num."</div></td>";
+			// }
+			// else
+			// {
+				if($fetch){
+					$link = \Config::WEBSITE.$_SESSION['LANG']."/event/".$fetch['idx']."/".urlencode($fetch['title']);
+					$this->out .= sprintf(
+						"<td class='day_numbers'><div class=\"event_exists tooltipped\" data-position=\"bottom\" data-delay=\"50\" data-tooltip=\"%s\"><a href=\"%s\">%s</a></div></td>",
+							htmlentities($fetch['title']), 
+							$link, 
+							$this->day_num 
+						); 	
 				}else{
-					$this->out .= "<td class='day_numbers'><div>".$this->day_num."</div></td>"; 
+					$this->out .= sprintf(
+						"<td class='day_numbers'><div>%s</div></td>", 
+						$this->day_num
+					); 
 				}
-			}
+			// }
 			$this->day_num++;
 			$this->day_count++;
 			

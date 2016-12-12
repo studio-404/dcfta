@@ -57,6 +57,12 @@ body {
 .cursorPointer {
   cursor: pointer !important; }
 
+.messageBox {
+  margin: 0px;
+  padding: 10px !important;
+  color: red;
+  font-weight: bold; }
+
 header .top {
   background-color: #ff0000;
   height: 24px;
@@ -1296,6 +1302,9 @@ footer {
 
   .mobileMarginTop20 {
     margin-top: 20px; }
+
+  .CalendarBox table {
+    margin-left: -10px !important; }
 
   footer .centerWidth .footerText .right {
     margin-top: 6px; }

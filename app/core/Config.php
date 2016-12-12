@@ -24,6 +24,7 @@ class Config
 	const SESSION_PREFIX = "dcfta_";
 	const ADMIN_USER = "capex";
 	const ADMIN_PASS = "123";
+	const RECIEVER_EMAIL = "giorgigvazava87@gmail.com";
 	const EMAIL_HOST = "404.ge";
 	const EMAIL_NAME = "dcfta";
 	const EMAIL_USERNAME = "info@404.ge";
@@ -31,6 +32,7 @@ class Config
 	const EMAIL_SUBJECT = "";
 	const EMAIL_TO_NAME = "";
 	const EMAIL_TO = "";	
-	const RESTRICTED_SLUGS = "ajax|dashboard|image|manager|news|text|read";	
+	const RESTRICTED_SLUGS = "ajax|dashboard|image|manager";	
 	const DEFAULT_MODULE = "social";	
+	const LANG_ARRAY = "ge|en|ru";	
 }

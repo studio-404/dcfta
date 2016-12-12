@@ -6,30 +6,8 @@ class _usefulllink
 
 	public function index()
 	{
-		/*
-		
-						<ul class="usefullLinks">
-							<li>
-								<a href="" class="waves-effect waves-light">
-									<img src="<?=$data['header']['public']?>img/eur2.png" alt="" />
-									<span>European Union Commission</span>
-								</a>
-							</li>
-							<li>
-								<a href="" class="waves-effect waves-light">
-									<img src="<?=$data['header']['public']?>img/eur2.png" alt="" />
-									<span>European Union Commission</span>
-								</a>
-							</li>
-							<li>
-								<a href="" class="waves-effect waves-light">
-									<img src="<?=$data['header']['public']?>img/eur2.png" alt="" />
-									<span>European Union Commission</span>
-								</a>
-							</li>
-						</ul>
-					</section>
-		*/
+		require_once("app/functions/string.php"); 
+		$string = new functions\string(); 
 		$nums = count($this->data);
 		$out = "";
 		if($nums){
@@ -69,7 +47,7 @@ class _usefulllink
 						"<img src=\"%s\" alt=\"\" />\n", 
 						$image 
 					);
-					$out .= sprintf("<span>%s</span>\n", $value['title']);
+					$out .= sprintf("<span>%s</span>\n", $string->cut($value['title'], 25));
 					$out .= "</a>\n";
 					$out .= "</li>\n";					
 				}

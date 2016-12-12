@@ -7,6 +7,8 @@ class _internationalsupport
 	{
 		if(count($this->data)){
 			require_once("app/functions/string.php"); 
+			require_once("app/functions/l.php"); 
+			$l = new functions\l(); 
 			$string = new functions\string(); 
 			foreach($this->data as $value) {
 				$title = strip_tags($value['title']);
@@ -44,7 +46,10 @@ class _internationalsupport
 					"<img src=\"%simg/icon-arrow.png\" alt=\"\" />", 
 					Config::PUBLIC_FOLDER
 				);
-				$out .= "<span>Project</span>";
+				$out .= sprintf(
+					"<span class=\"geo\">%s</span>",
+					$l->translate('project')
+				);
 				$out .= "</a>";
 				$out .= "</p>";
 				$out .= "<p class=\"linkWithIcon\">";
@@ -56,7 +61,10 @@ class _internationalsupport
 					"<img src=\"%simg/icon-link.png\" alt=\"\" />",
 					Config::PUBLIC_FOLDER
 				);
-				$out .= "<span>https://www.giz.de</span>";
+				$out .= sprintf(
+					"<span>%s</span>", 
+					$value['url']
+				);
 				$out .= "</a>";
 				$out .= "</p>";
 				$out .= "</section>";

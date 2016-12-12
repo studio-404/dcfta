@@ -5,6 +5,8 @@ class _eulinks
 
 	public function index()
 	{
+		require_once("app/functions/string.php"); 
+		$string = new functions\string(); 
 		$out = "<ul class=\"usefullLinks\">\n";
 		if(count($this->data)){
 			foreach($this->data as $value) {
@@ -29,7 +31,7 @@ class _eulinks
 					"<img src=\"%s\" alt=\"\" />\n", 
 					$image 
 				);
-				$out .= sprintf("<span>%s</span>\n", $value['title']);
+				$out .= sprintf("<span>%s</span>\n", $string->cut($value['title'], 35));
 				$out .= "</a>\n";
 				$out .= "</li>\n";
 			}

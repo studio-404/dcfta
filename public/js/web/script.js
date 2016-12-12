@@ -46,9 +46,13 @@ var openNavigation = function(){
 		}, 1000 );
 		$(".mobileNavigation .blueBox").html(navigation);
 		navToMobile();
+		$("main").css("display","none");
+		$("footer").css("display","none");
 	}else{
 		$(".mobileNavigation").fadeOut();	
 		$(".mobileNavigation .yellowBox").fadeOut(500);
+		$("main").css("display","block");
+		$("footer").css("display","block");
 	}
 };
 
@@ -172,6 +176,32 @@ var loadCal = function(type, currentMonth, currentYear, lang){
 			$(".CalendarBox").html(obj.Success.Html);
 		}else{
 			$(".CalendarBox").html("Error");
+		}
+	});
+};
+
+var sendEmail = function(){
+	var ajaxFile = "/sendEmail";
+	var input_subject = $("#input_subject").val(); 
+	var input_name = $("#input_name").val(); 
+	var input_organization = $("#input_organization").val(); 
+	var input_email = $("#input_email").val(); 
+	var input_phone = $("#input_phone").val(); 
+	var input_comment = $("#input_comment").val(); 
+
+	$.ajax({
+		method: "POST",
+		url: Config.ajax + ajaxFile,
+		data: { input_subject: input_subject, input_name: input_name, input_organization:input_organization, input_email:input_email, input_phone:input_phone, input_comment:input_comment }
+	}).done(function( msg ) {
+		var obj = $.parseJSON(msg);
+		if(obj.Error.Code==1){
+			console.log(obj.Error.Text);
+		}else if(obj.Success.Code==1){
+			$(".messageBox").html(obj.Success.Text);
+			$("input[type='text']").val(''); 
+		}else{
+			$(".messageBox").html("Error");
 		}
 	});
 };
