@@ -47,7 +47,7 @@ class _usefulllink
 						"<img src=\"%s\" alt=\"\" />\n", 
 						$image 
 					);
-					$out .= sprintf("<span>%s</span>\n", $string->cut($value['title'], 25));
+					$out .= sprintf("<span>%s</span>\n", $string->cut($value['title'], 20));
 					$out .= "</a>\n";
 					$out .= "</li>\n";					
 				}
@@ -83,7 +83,7 @@ class _usefulllink
 						"<img src=\"%s\" alt=\"\" />\n", 
 						$image 
 					);
-					$out .= sprintf("<span>%s</span>\n", $value['title']);
+					$out .= sprintf("<span>%s</span>\n", $string->cut($value['title'],20));
 					$out .= "</a>\n";
 					$out .= "</li>\n";					
 				}
@@ -118,7 +118,7 @@ class _usefulllink
 						"<img src=\"%s\" alt=\"\" />\n", 
 						$image 
 					);
-					$out .= sprintf("<span>%s</span>\n", $value['title']);
+					$out .= sprintf("<span>%s</span>\n", $string->cut($value['title'],20));
 					$out .= "</a>\n";
 					$out .= "</li>\n";					
 				}

@@ -213,7 +213,7 @@ class editModules
 			       		foreach ($subfiles as $sf) {
 			       			$ex = explode("/", $sf['file_path']); 
 			       			$fn = end($ex);
-							$form .= "<li class=\"collection-item level-2\" data-item=\"".$sf['idx']."\" data-cid=\"".$sf['cid']."\" data-path=\"".$sf['idx']."\">";
+							$form .= "<li class=\"collection-item level-2\" data-item=\"".$sf['idx']."\" data-cid=\"".$sf['cid']."\" data-path=\"".$sf['file_path']."\">";
 							$form .= "<div>";
 							$form .= $fn;
 							$form .= "<a href=\"javascript:void(0)\" onclick=\"removeAttachedFile('level-2','".$sf['idx']."', false)\"  class=\"secondary-content tooltipped\" data-position=\"bottom\" data-delay=\"50\" data-tooltip=\"წაშლა\"><i class=\"material-icons\">delete</i></a>";
