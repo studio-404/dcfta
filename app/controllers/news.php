@@ -53,6 +53,7 @@ class News extends Controller
 		$header = $this->model('_header');
 		$header->public = Config::PUBLIC_FOLDER; 
 		$header->lang = $_SESSION["LANG"]; 
+		
 
 		/* SOCIAL */
 		$social = $this->model('_social');
@@ -66,17 +67,22 @@ class News extends Controller
 		$navigation = $this->model('_navigation');
 		$navigation->data = $db_navigation->getter();
 
-
-
 		/* publications */
 		$publications = $this->model('_publications');
 		$publications->data = $db_publicationss->getter(); 
+
+		/* header top */
+		$headertop = $this->model('_top');
+		$headertop->data["socialNetworksModule"] = $social->index();
+		$headertop->data["languagesModule"] = $languages->index();
+		$headertop->data["navigationModule"] = $navigation->index();
 
 		/*footer */
 		$footer = $this->model('_footer');
 		$footer->data = $db_footer->getter(); 
 
 		if(!isset($newsId) || !is_numeric($newsId)){
+			$header->pagedata = $db_pagedata; 
 			$db_news = new Database("modules", array(
 				"method"=>"selectModuleByType", 
 				"type"=>"news", 
@@ -96,13 +102,11 @@ class News extends Controller
 					"public"=>Config::PUBLIC_FOLDER
 				),
 				"headerModule"=>$header->index(), 
-				"languagesModule"=>$languages->index(), 
-				"socialNetworksModule"=>$social->index(), 
-				"navigationModule"=>$navigation->index(), 
 				"pageData"=>$db_pagedata->getter(), 
 				"mainnews"=>$mainnews->index(), 
 				"othernews"=>$othernews->index(), 
 				"publications"=>$publications->index(), 
+				"headertop"=>$headertop->index(), 
 				"footer"=>$footer->index() 
 			]);
 		}else{
@@ -111,6 +115,7 @@ class News extends Controller
 				"lang"=>$_SESSION['LANG'],  
 				"idx"=>$newsId 
 			));
+			$header->pagedata = $db_news; 
 			/* MAIN NEWS */
 			$mainnews = $this->model('_mainnews');
 			$mainnews->data = $db_news->getter();
@@ -122,12 +127,10 @@ class News extends Controller
 					"public"=>Config::PUBLIC_FOLDER
 				),
 				"headerModule"=>$header->index(), 
-				"languagesModule"=>$languages->index(), 
-				"socialNetworksModule"=>$social->index(), 
-				"navigationModule"=>$navigation->index(), 
 				"pageData"=>$db_pagedata->getter(), 
 				"mainnews"=>$mainnews->index(), 
 				"publications"=>$publications->index(), 
+				"headertop"=>$headertop->index(), 
 				"footer"=>$footer->index() 
 			]);
 		}

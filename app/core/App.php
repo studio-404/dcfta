@@ -10,13 +10,13 @@ class App{
 
 	public function __construct()
 	{
+		require_once("app/functions/redirect.php");
 		$url = $this->parseUrl();
 
 		$_SESSION["LANG"] = (isset($url[0])) ? $url[0] : "ge";
 		$lang_array = explode("|", Config::LANG_ARRAY); 
 		if(isset($url[0]) && !in_array($url[0], $lang_array))
 		{
-			require_once("app/functions/redirect.php");
 			functions\redirect::url(Config::WEBSITE); 
 		}
 		$_SESSION["URL"] = (count($url)) ? $url : array();
@@ -38,7 +38,7 @@ class App{
 			));
 			$getter = $page->getter();
 
-			if(count($getter)):			
+			if(count($getter)){		
 				switch($getter['type']){
 					case "text":
 						$this->controller = "text";
@@ -49,8 +49,10 @@ class App{
 					case "readnews":
 						$this->controller = "read";
 						break;
+				}
+			}else{
+				functions\redirect::url(Config::WEBSITE); 
 			}
-			endif;
 		}
 
 		require_once 'app/controllers/'.$this->controller.'.php';

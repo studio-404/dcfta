@@ -51,6 +51,9 @@ body {
 .padding20 {
   padding: 20px !important; }
 
+.paddingTop0 {
+  padding-top: 0px !important; }
+
 .height30 {
   height: 30px !important; }
 
@@ -62,6 +65,22 @@ body {
   padding: 10px !important;
   color: red;
   font-weight: bold; }
+
+.space20 {
+  margin: 0;
+  padding: 0;
+  clear: both;
+  height: 20px;
+  width: 100%; }
+
+.date {
+  margin: 5px 0 0 0;
+  padding: 0px;
+  color: white; }
+  .date span {
+    background-color: #003399;
+    padding-right: 5px;
+    font-size: 18px; }
 
 header .top {
   background-color: #ff0000;
@@ -384,6 +403,51 @@ main {
     color: #003399;
     z-index: 2; }
 
+.collapsible-header {
+  height: 100%;
+  padding: 0;
+  margin: 0;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  align-items: center;
+  justify-content: center; }
+
+.collapsible-header i {
+  margin: 0 10px !important; }
+
+.collapsible .collapsible-header > div {
+  width: calc(100% - 26px);
+  float: right;
+  line-height: 25px;
+  color: #003399;
+  padding: 1px 0px; }
+
+.collapsible .collapsible-body .padding20 ul {
+  margin: 20px 0px;
+  padding: 0px;
+  list-style-type: none; }
+  .collapsible .collapsible-body .padding20 ul li {
+    color: #3d3d3d;
+    font-family: "noto_sansregular";
+    padding-left: 20px;
+    position: relative; }
+    .collapsible .collapsible-body .padding20 ul li a {
+      color: #003399; }
+  .collapsible .collapsible-body .padding20 ul li:after {
+    content: '';
+    width: 6px;
+    height: 6px;
+    background-color: #3d3d3d;
+    position: absolute;
+    left: 5px;
+    top: 9px;
+    -moz-border-radius: 4px;
+    -webkit-border-radius: 4px;
+    border-radius: 4px; }
+
 .mainText {
   margin: 10px 0 40px 0;
   padding: 0px;
@@ -412,12 +476,12 @@ main {
         color: #003399; }
     .mainText ul li:after {
       content: '';
-      width: 10px;
-      height: 10px;
-      background-color: #003399;
+      width: 6px;
+      height: 6px;
+      background-color: #3d3d3d;
       position: absolute;
-      left: 0;
-      top: 10px;
+      left: 5px;
+      top: 9px;
       -moz-border-radius: 4px;
       -webkit-border-radius: 4px;
       border-radius: 4px; }
@@ -953,7 +1017,7 @@ footer {
       width: 100%;
       height: 20px;
       position: absolute;
-      top: -10px;
+      top: -5px;
       left: 0px;
       background-color: #ffffff; }
     .collapsible .collapsible-body p {
@@ -1014,22 +1078,21 @@ footer {
         background-position: center center;
         float: left; }
       .fileTree ul li .text {
-        margin: 0px  0px 0px 10px;
+        margin: 0px  0px 0px 5px;
         padding: 0px;
         float: left;
         line-height: 30px;
         height: 30px; }
         .fileTree ul li .text a {
           margin: 0px;
-          padding: 0px;
+          padding: 0 5px;
           text-decoration: underline;
           font-family: "noto_sansregular";
           font-size: 15px;
           font-weight: bold;
-          color: #003399;
-          display: block;
-          line-height: 30px;
-          height: 30px; }
+          color: #003399; }
+        .fileTree ul li .text a:hover {
+          background-color: #f2f2f2; }
       .fileTree ul li .rightSide {
         margin: 0px;
         padding: 0px;
@@ -1338,8 +1401,8 @@ footer {
     margin-right: 5px; }
 
   header .topBottom .logo .flags p img {
-    width: 33.5px;
-    height: 17.5px; }
+    width: 38.5px;
+    height: 22.5px; }
 
   header .topBottom .logo .flags p:last-child {
     font-size: 25px; }
@@ -1348,7 +1411,11 @@ footer {
     font-size: 10px; }
 
   header .nav_bg {
-    top: -5px; } }
+    top: -5px; }
+
+  .fileTree ul li .text {
+    max-width: 180px;
+    overflow: hidden; } }
 @media (max-width: 320px) {
   header .topBottom .logo .text {
     font-size: 9px; } }

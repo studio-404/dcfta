@@ -22,7 +22,14 @@ class Legislation extends Controller
 			"method"=>"selectModuleByType", 
 			"type"=>"legislation", 
 			"from"=>0, 
-			"num"=>10
+			"num"=>20
+		));
+
+		$db_adopted_legislation = new Database("modules", array(
+			"method"=>"selectModuleByType", 
+			"type"=>"adopedlegislation", 
+			"from"=>0, 
+			"num"=>20
 		));
 
 		$db_navigation = new Database("page", array(
@@ -52,6 +59,7 @@ class Legislation extends Controller
 		$header = $this->model('_header');
 		$header->public = Config::PUBLIC_FOLDER; 
 		$header->lang = $_SESSION["LANG"]; 
+		$header->pagedata = $db_pagedata; 
 
 		/* SOCIAL */
 		$social = $this->model('_social');
@@ -69,6 +77,15 @@ class Legislation extends Controller
 		$legislation = $this->model('_legislation');
 		$legislation->data = $db_legislation->getter();
 
+		/* adopted legislation */
+		$adoptedLegislation = $this->model('_adoptedLegislation');
+		$adoptedLegislation->data = $db_adopted_legislation->getter();
+
+		/* header top */
+		$headertop = $this->model('_top');
+		$headertop->data["socialNetworksModule"] = $social->index();
+		$headertop->data["languagesModule"] = $languages->index();
+		$headertop->data["navigationModule"] = $navigation->index();
 
 		/*footer */
 		$footer = $this->model('_footer');
@@ -82,11 +99,10 @@ class Legislation extends Controller
 				"public"=>Config::PUBLIC_FOLDER
 			),
 			"headerModule"=>$header->index(), 
-			"languagesModule"=>$languages->index(), 
-			"socialNetworksModule"=>$social->index(), 
-			"navigationModule"=>$navigation->index(), 
+			"headertop"=>$headertop->index(), 
 			"pageData"=>$db_pagedata->getter(), 
 			"legislation"=>$legislation->index(), 
+			"adoptedLegislation"=>$adoptedLegislation->index(), 
 			"footer"=>$footer->index() 
 		]);
 	}

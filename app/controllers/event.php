@@ -50,6 +50,7 @@ class Event extends Controller
 		$header = $this->model('_header');
 		$header->public = Config::PUBLIC_FOLDER; 
 		$header->lang = $_SESSION["LANG"]; 
+		
 
 		/* SOCIAL */
 		$social = $this->model('_social');
@@ -63,22 +64,28 @@ class Event extends Controller
 		$navigation = $this->model('_navigation');
 		$navigation->data = $db_navigation->getter();
 
-
-
 		/* publications */
 		$publications = $this->model('_publications');
 		$publications->data = $db_publicationss->getter(); 
+
+		/* header top */
+		$headertop = $this->model('_top');
+		$headertop->data["socialNetworksModule"] = $social->index();
+		$headertop->data["languagesModule"] = $languages->index();
+		$headertop->data["navigationModule"] = $navigation->index();
 
 		/*footer */
 		$footer = $this->model('_footer');
 		$footer->data = $db_footer->getter(); 
 
-		if(isset($newsId) || is_numeric($newsId)){
+		if(isset($newsId) && is_numeric($newsId)){
+
 			$db_events = new Database("modules", array(
 				"method"=>"selectById", 
 				"lang"=>$_SESSION['LANG'],  
 				"idx"=>$newsId 
 			));
+			$header->pagedata = $db_events; 
 			/* MAIN NEWS */
 			$mainevents = $this->model('_mainevents');
 			$mainevents->data = $db_events->getter();
@@ -89,14 +96,15 @@ class Event extends Controller
 					"public"=>Config::PUBLIC_FOLDER
 				),
 				"headerModule"=>$header->index(), 
-				"languagesModule"=>$languages->index(), 
-				"socialNetworksModule"=>$social->index(), 
-				"navigationModule"=>$navigation->index(), 
+				"headertop"=>$headertop->index(), 
 				"pageData"=>$db_pagedata->getter(), 
 				"mainevents"=>$mainevents->index(), 
 				"publications"=>$publications->index(), 
 				"footer"=>$footer->index() 
 			]);	
+		}else{
+			require_once('app/functions/redirect.php'); 
+			functions\redirect::url(Config::WEBSITE);
 		}
 	}
 }

@@ -2,63 +2,8 @@
 require_once("app/functions/l.php"); 
 $l = new functions\l();
 echo $data['headerModule']; 
+echo $data['headertop']; 
 ?>
-<header>
-	<section class="top">
-		<section class="centerWidth topCenter">
-			<section class="top-box">
-				<section class="social-networks">
-					<?=$data['socialNetworksModule']?>
-				</section>
-				<section class="languages">
-					<?=$data['languagesModule']?>
-				</section>
-			</section>
-		</section>
-	</section>
-
-	<section class="topBottom">
-		<section class="centerWidth">
-			<section class="logo">
-				<div class="flags">
-					<p><img src="<?=$data['header']['public']?>img/geo.png" alt="Georgian Flag" /></p>
-					<p><img src="<?=$data['header']['public']?>img/eur.png" alt="Georgian Flag" /></p>
-					<p>dcfta.gov.ge</p>
-				</div>
-				<div class="text">Georgia-EU Deep &amp; Comprehensive Free Trade Area</div>
-			</section>
-			<section class="search">
-				<i class="material-icons">search</i>
-				<div class="input-field">
-					<input id="searchInput" type="text" value="<?=$l->translate('search')?>" data-val="<?=$l->translate('search')?>" onclick="searchInputOn()" onblur="searchInputOff()" />
-				</div>
-			</section>
-	
-			<section class="nav_bg">
-				<div class="nav_bar" onclick="openNavigation()">
-					<div class="c-hamburger c-hamburger--htx">
-					<span>toggle menu</span>
-				</div>
-			</section>
-
-
-		</section>
-
-		<section class="navigation">
-			<?=$data['navigationModule']?>
-		</section>
-
-
-		
-	</section>
-
-</header>
-
-<section class="mobileNavigation">
-	<section class="yellowBox"></section>
-	<section class="blueBox"></section>
-</section>
-
 <main>
 	<section class="centerWidth">
 		<section class="row">
@@ -69,6 +14,34 @@ echo $data['headerModule'];
 				</section>
 				<section class="event">
 					<?=$data['mainevents']?>
+					<section class="contactForm">
+						<form action="" method="post">
+							<div class="commMsG commentForm24_msg" style="padding:0 0 20px 0"></div>
+							<input type="hidden" name="eventid" class="eventid" value="c22"/>
+
+							<section class="marginminus10">
+								<div class="input-field col s12 m6 l4">
+									<input type="text" class="validate first_name" />
+									<label class=""><?=$l->translate('name')?></label>
+								</div>
+								<div class="input-field col s12 m6 l4">
+									<input type="text" class="validate organization" />
+									<label><?=$l->translate('organization')?></label>
+								</div>
+								<div class="input-field col s12 m6 l4">
+									<input type="text" class="validate email" />
+									<label><?=$l->translate('email')?></label>
+								</div>
+								<div class="input-field col s12 m6 l4">
+									<input type="text" class="validate phone" />
+									<label><?=$l->translate('phone')?></label>
+								</div>
+								<div class="col s12 m12 l12">
+									<a class="waves-effect waves-light btn submit" style="text-decoration: none;"><?=$l->translate('submit')?></a>
+								</div>
+							</section>
+						</form>
+					</section>
 				</section>
 			</section>
 			<section class="col s12 m6 l4">

@@ -122,7 +122,10 @@ class addModuleForm
 
         $form .= "<a href=\"javascript:void(0)\" class=\"waves-effect waves-light btn margin-bottom-20\" style=\"clear:both; margin-top: 40px;\" onclick=\"openFileManagerForFiles('attachfiles')\"><i class=\"material-icons left\">note_add</i>ატვირთვა</a>";
 
-  		$form .= "<input type=\"hidden\" name=\"random\" id=\"random\" value=\"".$random."\" />";
+  		$form .= sprintf(
+  			"<input type=\"hidden\" name=\"random\" id=\"random\" value=\"%s\" />",
+  			$random
+  		);
   		$form .= "<input type=\"hidden\" name=\"file_attach_type\" id=\"file_attach_type\" value=\"module\" />";
   		$form .= "<ul class=\"collection with-header\" id=\"sortableFiles-box\">";
 

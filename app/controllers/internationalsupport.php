@@ -46,12 +46,11 @@ class Internationalsupport extends Controller
 			"lang"=>$_SESSION['LANG']
 		));
 
-		
-
 		/* HEDARE */
 		$header = $this->model('_header');
 		$header->public = Config::PUBLIC_FOLDER; 
 		$header->lang = $_SESSION["LANG"]; 
+		
 
 		/* SOCIAL */
 		$social = $this->model('_social');
@@ -65,6 +64,12 @@ class Internationalsupport extends Controller
 		$navigation = $this->model('_navigation');
 		$navigation->data = $db_navigation->getter();
 
+		/* header top */
+		$headertop = $this->model('_top');
+		$headertop->data["socialNetworksModule"] = $social->index();
+		$headertop->data["languagesModule"] = $languages->index();
+		$headertop->data["navigationModule"] = $navigation->index();
+
 		/*footer */
 		$footer = $this->model('_footer');
 		$footer->data = $db_footer->getter(); 
@@ -73,7 +78,8 @@ class Internationalsupport extends Controller
 			/* international support */
 			$miniinternationalsupport = $this->model('_miniinternationalsupport');
 			$miniinternationalsupport->data = $db_internationalsupport->getter();
-
+			$header->pagedata = $db_internationalsupport; 
+			
 			$db_selectById = new Database("modules", array(
 				"method"=>"selectById", 
 				"type"=>"internationalsupport", 
@@ -88,16 +94,14 @@ class Internationalsupport extends Controller
 					"public"=>Config::PUBLIC_FOLDER
 				),
 				"headerModule"=>$header->index(), 
-				"languagesModule"=>$languages->index(), 
-				"socialNetworksModule"=>$social->index(), 
-				"navigationModule"=>$navigation->index(), 
 				"pageData"=>$db_pagedata->getter(), 
 				"moduleData"=>$db_selectById->getter(), 
 				"miniinternationalsupport"=>$miniinternationalsupport->index(), 
+				"headertop"=>$headertop->index(), 
 				"footer"=>$footer->index() 
 			]);
 		}else{
-			
+			$header->pagedata = $db_pagedata; 
 			/* international support */
 			$internationalsupport = $this->model('_internationalsupport');
 			$internationalsupport->data = $db_internationalsupport->getter();
@@ -109,11 +113,9 @@ class Internationalsupport extends Controller
 					"public"=>Config::PUBLIC_FOLDER
 				),
 				"headerModule"=>$header->index(), 
-				"languagesModule"=>$languages->index(), 
-				"socialNetworksModule"=>$social->index(), 
-				"navigationModule"=>$navigation->index(), 
 				"pageData"=>$db_pagedata->getter(), 
 				"internationalsupport"=>$internationalsupport->index(), 
+				"headertop"=>$headertop->index(), 
 				"footer"=>$footer->index() 
 			]);
 		}

@@ -192,8 +192,8 @@
   	margin-right: 5px;
   }
   header .topBottom .logo .flags p img{
-  	width: $topFlagImageWidth - 15px;
-  	height: $topFlagImageHeight - 15px;
+  	width: $topFlagImageWidth - 10px;
+  	height: $topFlagImageHeight - 10px;
   }
   header .topBottom .logo .flags p:last-child{
   	font-size: $topLogoBigFontSize - 20;
@@ -204,6 +204,11 @@
   header .nav_bg{
   	top: -5px;
   }
+  .fileTree ul li .text{
+    max-width: 180px;
+    overflow: hidden;
+  }
+  
 }
 
 @media (max-width: $breakpoint-extra-smallmobile) {

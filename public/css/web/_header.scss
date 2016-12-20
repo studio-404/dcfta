@@ -37,6 +37,9 @@ body{
 .padding20{
 	padding: 20px !important;
 }
+.paddingTop0{
+	padding-top: 0px !important;
+}
 .height30{
 	height: 30px !important;
 }
@@ -48,6 +51,23 @@ body{
 	padding:10px !important;
 	color: red; 
 	font-weight: bold;
+}
+.space20{
+	margin: 0;
+	padding: 0; 
+	clear: both;
+	height: 20px;
+	width: 100%;
+}
+.date{
+	margin: 5px 0 0 0;
+	padding: 0px;
+	color: white;
+	span{
+		background-color: #003399; 
+		padding-right: 5px;
+		font-size: 18px;
+	}
 }
 header{
 	.top{

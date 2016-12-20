@@ -14,7 +14,7 @@ header {
 	} 
 }
 .headerText .title, 
-.mainText, 
+.mainText, .mainText a, .mainText ul li, .mainText ul li a,
 .justTitle, 
 h2, 
 .usefullLinks li a span, 
@@ -25,11 +25,14 @@ h2,
 	font-family: 'noto_sans_georgianregular';
 }
 .footerText .left{
-	font-family: 'noto_sans_georgianregular' !important;	
+	// font-family: 'noto_sans_georgianregular' !important;	
+}
+.collapsible .collapsible-header > div:not(.rightSide){
+	font-family: 'noto_sans_georgianregular' !important;
 }
 
 .headerText .title, .justTitle, h2, .headerText .title{
-	font-size: 21px;
+	font-size: 20px;
 }
 
 .usefullLinks li a span{
@@ -39,12 +42,15 @@ h2,
 .mainText{
 	font-size: 16px;
 }
+.mainText p, .mainText ul li, .InternationalSupport .box .title, .InternationalSupport .box .text, .contactDetails p{
+	font-size: 18px;
+}
 header .navigation ul li .active span{
 	padding-bottom: 3px !important;
 }
 
 .files .file a .title{
-	font-size: 13px;
+	font-size: 13.5px;
 }
 
 .newsBox a .title{
@@ -52,7 +58,7 @@ header .navigation ul li .active span{
 	font-family: 'noto_sans_georgianregular' !important;
  }
  .newsBox a .text{
- 	font-size: 12px;
+ 	font-size: 13.5px;
  	font-family: 'noto_sans_georgianregular' !important;
  }
  header .topBottom .search .input-field input[type=text]{
@@ -70,7 +76,7 @@ header .navigation ul li .active span{
  .collapsible .collapsible-header span{
  	font-family: 'noto_sans_georgianregular' !important;	
  }
- .collapsible .collapsible-body p{
+ .collapsible .collapsible-body p, .collapsible .collapsible-body div:not(.rightSide), .collapsible .collapsible-body ul li{
  	font-family: 'noto_sans_georgianregular' !important; 	
  }
  .InternationalSupport .box .title, .InternationalSupport .box .text, .linkWithIcon a .geo{
@@ -85,3 +91,22 @@ header .navigation ul li .active span{
  .commMsG, .contactDetails p{
  	font-family: 'noto_sans_georgianregular' !important; 		
  }
+.messageBox{
+	font-family: 'noto_sans_georgianregular' !important;	
+}
+header .topBottom .logo .text{
+	padding-top: 5px;
+	font-size: 8px;
+	font-family: 'noto_sans_georgianregular' !important;	
+}
+header .topBottom .logo{
+	margin-bottom: 24px;
+}
+svg{
+	overflow: visible !important;
+	position: relative !important; 
+
+	g:hover{
+		cursor: pointer !important;
+	}
+}

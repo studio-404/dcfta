@@ -27,6 +27,10 @@ class _mainevents
 				$ourData['title']
 			);
 			$out .= sprintf(
+				"<section class=\"date\"><span>%s</span></section>", 
+				date("M d, Y",$ourData['date'])
+			);
+			$out .= sprintf(
 				"<section class=\"mainText\">%s</section>", 
 				html_entity_decode($ourData['description'])
 			);

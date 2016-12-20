@@ -85,6 +85,7 @@ class Home extends Controller
 		$header = $this->model('_header');
 		$header->public = Config::PUBLIC_FOLDER; 
 		$header->lang = $_SESSION["LANG"]; 
+		$header->pagedata = $db_pagedata; 
 
 		/* SOCIAL */
 		$social = $this->model('_social');
@@ -118,6 +119,12 @@ class Home extends Controller
 		$news = $this->model('_news');
 		$news->data = $db_news->getter(); 
 
+		/* header top */
+		$headertop = $this->model('_top');
+		$headertop->data["socialNetworksModule"] = $social->index();
+		$headertop->data["languagesModule"] = $languages->index();
+		$headertop->data["navigationModule"] = $navigation->index();
+
 		/*footer */
 		$footer = $this->model('_footer');
 		$footer->data = $db_footer->getter(); 
@@ -129,9 +136,7 @@ class Home extends Controller
 				"public"=>Config::PUBLIC_FOLDER
 			),
 			"headerModule"=>$header->index(), 
-			"languagesModule"=>$languages->index(), 
-			"socialNetworksModule"=>$social->index(), 
-			"navigationModule"=>$navigation->index(), 
+			"headertop"=>$headertop->index(), 
 			"pageData"=>$db_pagedata->getter(), 
 			"euLinks"=>$euLinks->index(), 
 			"reports"=>$reports->index(), 

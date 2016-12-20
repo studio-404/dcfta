@@ -139,7 +139,7 @@ class calendar
 				if($fetch){
 					$link = \Config::WEBSITE.$_SESSION['LANG']."/event/".$fetch['idx']."/".urlencode($fetch['title']);
 					$this->out .= sprintf(
-						"<td class='day_numbers'><div class=\"event_exists tooltipped\" data-position=\"bottom\" data-delay=\"50\" data-tooltip=\"%s\"><a href=\"%s\">%s</a></div></td>",
+						"<td class='day_numbers'><div class=\"event_exists tooltipped\" data-position=\"left\" data-delay=\"50\" data-tooltip=\"%s\"><a href=\"%s\">%s</a></div></td>",
 							htmlentities($fetch['title']), 
 							$link, 
 							$this->day_num 

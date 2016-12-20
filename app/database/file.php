@@ -132,7 +132,7 @@ class file
 	public function selectFilesPathById($args)
 	{
 		$fetch = ""; 
-		$select = "SELECT `file_path` FROM `file_system` WHERE `idx`=:idx AND `type`=:type AND `lang`=:lang";
+		$select = "SELECT `file_path` FROM `file_system` WHERE `idx`=:idx AND `type`=:type AND `lang`=:lang ORDER BY `id` ASC";
 		$prepare = $this->conn->prepare($select);
 		$prepare->execute(array(
 			":idx"=>$args['idx'], 
@@ -151,7 +151,7 @@ class file
 	{
 		$fetch = array(); 
 		$cid = (isset($args['cid'])) ? $args['cid'] : 0;
-		$select = "SELECT * FROM `file_system` WHERE `cid`=:zero AND `type`=:type AND `page_id`=:page_id AND `lang`=:lang";
+		$select = "SELECT * FROM `file_system` WHERE `cid`=:zero AND `type`=:type AND `page_id`=:page_id AND `lang`=:lang ORDER BY `id` ASC";
 		$prepare = $this->conn->prepare($select);
 		$prepare->execute(array(
 			":zero"=>$cid, 

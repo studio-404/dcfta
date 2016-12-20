@@ -58,6 +58,11 @@ class Dcftaforbussinness extends Controller
 		));
 		$pageData2 = $db_pagedata2->getter();
 
+		if(!count($pageData2) || !isset($_SESSION["URL"][2])){
+			require_once("app/functions/redirect.php");
+			functions\redirect::url(Config::WEBSITE);
+		}
+
 		$db_footer = new Database("modules", array(
 			"method"=>"selectById", 
 			"idx"=>18,
@@ -68,6 +73,7 @@ class Dcftaforbussinness extends Controller
 		$header = $this->model('_header');
 		$header->public = Config::PUBLIC_FOLDER; 
 		$header->lang = $_SESSION["LANG"]; 
+		$header->pagedata = $db_pagedata2; 
 
 		/* SOCIAL */
 		$social = $this->model('_social');
@@ -99,6 +105,12 @@ class Dcftaforbussinness extends Controller
 		$usefulllink = $this->model('_usefulllink2');
 		$usefulllink->data = $db_usefulllinks->getter(); 
 
+		/* header top */
+		$headertop = $this->model('_top');
+		$headertop->data["socialNetworksModule"] = $social->index();
+		$headertop->data["languagesModule"] = $languages->index();
+		$headertop->data["navigationModule"] = $navigation->index();
+
 		/*footer */
 		$footer = $this->model('_footer');
 		$footer->data = $db_footer->getter(); 
@@ -110,10 +122,8 @@ class Dcftaforbussinness extends Controller
 				"website"=>Config::WEBSITE,
 				"public"=>Config::PUBLIC_FOLDER
 			),
-			"headerModule"=>$header->index(), 
-			"languagesModule"=>$languages->index(), 
-			"socialNetworksModule"=>$social->index(), 
-			"navigationModule"=>$navigation->index(), 
+			"headerModule"=>$header->index(),  
+			"headertop"=>$headertop->index(), 
 			"pageData"=>$pageData, 
 			"pageData2"=>$pageData2, 
 			"leftnav"=>$leftnav->index(), 

@@ -29,6 +29,56 @@
 		z-index: 2;
 	}
 }
+.collapsible-header{
+	height: 100%;
+    padding: 0;
+    margin: 0;
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.collapsible-header i{
+	margin: 0 10px !important;
+}
+.collapsible .collapsible-header > div{
+	width: calc(100% - 26px);
+    float: right;
+    line-height: 25px;
+    color: #003399;
+    padding: 1px 0px;
+}
+.collapsible .collapsible-body .padding20{
+	ul{
+		margin: 20px $zero;
+		padding: $zero; 
+		list-style-type: none;
+		li{
+			color: #3d3d3d;
+			font-family: "noto_sansregular"; 
+			padding-left: 20px;
+			position: relative;
+			a{
+				color: $blueColor;
+			}
+		}
+		li:after{
+			content: '';
+			width: 6px;
+			height: 6px;
+			background-color: #3d3d3d; 
+			position: absolute;
+			left: 5px;
+			top: 9px;
+			-moz-border-radius: 4px;
+			-webkit-border-radius: 4px;
+			border-radius: 4px;
+		}
+	}
+}
 .mainText{
 	margin: 10px 0 40px 0; 
 	padding: $zero; 
@@ -61,12 +111,12 @@
 		}
 		li:after{
 			content: '';
-			width: 10px;
-			height: 10px;
-			background-color: $blueColor; 
+			width: 6px;
+			height: 6px;
+			background-color: #3d3d3d; 
 			position: absolute;
-			left: 0;
-			top: 10px;
+			left: 5px;
+			top: 9px;
 			-moz-border-radius: 4px;
 			-webkit-border-radius: 4px;
 			border-radius: 4px;
@@ -692,7 +742,7 @@ footer{
 			width: $fullWidth; 
 			height: 20px;
 			position: absolute;
-			top: -10px;
+			top: -5px;
 			left: $zero;
 			background-color: $whiteColor;
 		}
@@ -758,22 +808,25 @@ footer{
 				float: left;				
 			}
 			.text{
-				margin: 0px  0px 0px 10px;
+				margin: 0px  0px 0px 5px;
 				padding: $zero;
 				float: left;
 				line-height: 30px;
 				height: 30px;
 				a{
 					margin: $zero;
-					padding: $zero; 
+					padding: 0 5px; 
 					text-decoration: underline;
 					font-family: "noto_sansregular";
 					font-size: 15px;
 					font-weight: bold;
 					color: $blueColor;
-					display: block;
-					line-height: 30px;
-					height: 30px;
+					// display: block;
+					// line-height: 30px;
+					// height: 30px;
+				}
+				a:hover{
+					background-color: #f2f2f2;
 				}
 			}
 			.rightSide{

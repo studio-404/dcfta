@@ -53,7 +53,8 @@ class Text extends Controller
 		$header = $this->model('_header');
 		$header->public = Config::PUBLIC_FOLDER; 
 		$header->lang = $_SESSION["LANG"]; 
-
+		$header->pagedata = $db_pagedata; 
+		
 		/* SOCIAL */
 		$social = $this->model('_social');
 		$social->networks = $db_socials->getter(); 
@@ -70,6 +71,12 @@ class Text extends Controller
 		$stateagencies = $this->model('_stateagencies');
 		$stateagencies->data = $db_stateagencies->getter();
 
+		/* header top */
+		$headertop = $this->model('_top');
+		$headertop->data["socialNetworksModule"] = $social->index();
+		$headertop->data["languagesModule"] = $languages->index();
+		$headertop->data["navigationModule"] = $navigation->index();
+
 		/*footer */
 		$footer = $this->model('_footer');
 		$footer->data = $db_footer->getter(); 
@@ -82,11 +89,9 @@ class Text extends Controller
 				"public"=>Config::PUBLIC_FOLDER
 			),
 			"headerModule"=>$header->index(), 
-			"languagesModule"=>$languages->index(), 
-			"socialNetworksModule"=>$social->index(), 
-			"navigationModule"=>$navigation->index(), 
 			"pageData"=>$db_pagedata->getter(), 
 			"stateagencies"=>$stateagencies->index(), 
+			"headertop"=>$headertop->index(), 
 			"footer"=>$footer->index() 
 		]);
 	}

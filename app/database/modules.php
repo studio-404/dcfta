@@ -75,6 +75,7 @@ class modules
 	{
 		$fetch = array();
 		$limit = (isset($args['from']) && isset($args['num'])) ? " LIMIT ".$args["from"].",".$args['num'] : "";
+		
 		$select = "SELECT * FROM `usefull` WHERE `type`=:type AND `visibility`!=:one AND `lang`=:lang AND `status`!=:one ORDER BY `date` DESC".$limit;
 
 		$prepare = $this->conn->prepare($select);

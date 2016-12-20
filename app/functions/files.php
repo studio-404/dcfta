@@ -6,6 +6,7 @@ class files
 	public static function get_size($file)
 	{
 		try{
+            $file = str_replace(' ','%20', $file);
             $curl = curl_init();
             curl_setopt_array($curl, array(    
                 CURLOPT_URL => $file,
@@ -33,7 +34,7 @@ class files
         }
         elseif ($bytes >= 1024)
         {
-            $bytes = number_format($bytes / 1024, 2) . ' kB';
+            $bytes = number_format($bytes / 1024, 2) . ' KB';
         }
         elseif ($bytes > 1)
         {

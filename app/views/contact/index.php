@@ -2,64 +2,8 @@
 require_once("app/functions/l.php"); 
 $l = new functions\l();
 echo $data['headerModule']; 
+echo $data['headertop']; 
 ?>
-<header>
-	<section class="top">
-		<section class="centerWidth topCenter">
-			<section class="top-box">
-				<section class="social-networks">
-					<?=$data['socialNetworksModule']?>
-				</section>
-				<section class="languages">
-					<?=$data['languagesModule']?>
-				</section>
-			</section>
-		</section>
-	</section>
-
-	<section class="topBottom">
-		<section class="centerWidth">
-			<section class="logo">
-				<div class="flags">
-					<p><img src="<?=$data['header']['public']?>img/geo.png" alt="Georgian Flag" /></p>
-					<p><img src="<?=$data['header']['public']?>img/eur.png" alt="Georgian Flag" /></p>
-					<p>dcfta.gov.ge</p>
-				</div>
-				<div class="text">Georgia-EU Deep &amp; Comprehensive Free Trade Area</div>
-			</section>
-			<section class="search">
-				<i class="material-icons">search</i>
-				<div class="input-field">
-					<input id="searchInput" type="text" value="<?=$l->translate('search')?>" data-val="<?=$l->translate('search')?>" onclick="searchInputOn()" onblur="searchInputOff()" />
-				</div>
-			</section>
-	
-			<section class="nav_bg">
-				<div class="nav_bar" onclick="openNavigation()">
-					<div class="c-hamburger c-hamburger--htx">
-					<span>toggle menu</span>
-				</div>
-			</section>
-
-
-		</section>
-
-		<section class="navigation">
-			<?=$data['navigationModule']?>
-		</section>
-
-
-		
-	</section>
-
-</header>
-
-<section class="mobileNavigation">
-	<section class="yellowBox"></section>
-	<section class="blueBox"></section>
-</section>
-
-
 <main>
 	<section class="centerWidth">
 		<section class="row">
