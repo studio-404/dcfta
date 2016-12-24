@@ -130,14 +130,20 @@ var comment = function(formBox, lang){
 	var firstname = $("."+formBox+" form .first_name").val(); 
 	var organization = $("."+formBox+" form .organization").val(); 
 	var email = $("."+formBox+" form .email").val(); 
+	var csrf = $("."+formBox+" form .csrf").val(); 
 	var comment = $("."+formBox+" form .comment").val(); 
-	
-	$("." + formBox + "_msg").text("please wait...");
+	if(lang=="ge"){
+		$("." + formBox + "_msg").text(Config.waitGeo);
+	}else if(lang=="en"){
+		$("." + formBox + "_msg").text(Config.waitEng);
+	}else{
+		$("." + formBox + "_msg").text(Config.waitRus);
+	}
 	$("." + formBox + " input[type='text']").attr("disabled","disabled");
 	$.ajax({
 		method: "POST",
 		url: Config.ajax + ajaxFile,
-		data: { commentId: commentId, firstname:firstname, organization:organization, email:email, comment:comment, lang:lang }
+		data: { commentId: commentId, firstname:firstname, organization:organization, email:email, comment:comment, csrf:csrf, lang:lang }
 	}).done(function( msg ) {
 		var obj = $.parseJSON(msg);
 		if(obj.Error.Code==1){
@@ -145,6 +151,9 @@ var comment = function(formBox, lang){
 		}else if(obj.Success.Code==1){
 			$("." + formBox + "_msg").text(obj.Success.Text);
 			$("." + formBox + " input[type='text']").val('');
+			setTimeout(function(){
+				location.reload();
+			}, 1500);
 		}else{
 			$("." + formBox + "_msg").text("Error");
 		}
@@ -197,18 +206,22 @@ var sendEmail = function(){
 	var input_email = $("#input_email").val(); 
 	var input_phone = $("#input_phone").val(); 
 	var input_comment = $("#input_comment").val(); 
+	var csrf = $(".csrf").val(); 
 
 	$.ajax({
 		method: "POST",
 		url: Config.ajax + ajaxFile,
-		data: { input_subject: input_subject, input_name: input_name, input_organization:input_organization, input_email:input_email, input_phone:input_phone, input_comment:input_comment }
+		data: { input_subject: input_subject, input_name: input_name, input_organization:input_organization, input_email:input_email, input_phone:input_phone, input_comment:input_comment, csrf:csrf }
 	}).done(function( msg ) {
 		var obj = $.parseJSON(msg);
 		if(obj.Error.Code==1){
 			$(".messageBox").html(obj.Error.Text);
 		}else if(obj.Success.Code==1){
 			$(".messageBox").html(obj.Success.Text);
-			$("input[type='text']").val(''); 
+			$("input[type='text']").val('');
+			setTimeout(function(){
+				location.reload();
+			}, 1500); 
 		}else{
 			$(".messageBox").html("Error");
 		}
@@ -265,6 +278,35 @@ var timeConverter = function(UNIX_timestamp, lang){
 
   var formattedTime = month + ' ' + date + ', ' + year;
   return formattedTime;
+};
+var v = 1;
+var reloadProtect = function(input, cl){
+	v=v+1;
+	var ajaxFile = "/realodProtect"; 
+	var src = Config.website+"/"+Config.mainLang+"/protect?v="+v;
+	$(input).attr("disabled","disabled");
+	$.ajax({
+		method: "POST",
+		url: Config.ajax + ajaxFile,
+		data: { call: true }
+	}).done(function( msg ) {
+		var obj = $.parseJSON(msg);
+		if(obj.Error.Code==1){
+			alert("Error 1");
+		}else if(obj.Success.Code==1){
+			$(input).removeAttr("disabled");
+			$(cl).attr("src", src);
+		}else{
+			alert("Error 2");
+		}
+	});
+};
+
+window.onbeforeprint = function() {
+    console.log('This will be called before the user prints.');
+};
+window.onafterprint = function() {
+    console.log('This will be called after the user prints');   
 };
 
 $(document).ready(function(){

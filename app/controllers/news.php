@@ -116,9 +116,23 @@ class News extends Controller
 				"idx"=>$newsId 
 			));
 			$header->pagedata = $db_news; 
+
+
+			$db_news2 = new Database("modules", array(
+				"method"=>"selectModuleByType", 
+				"type"=>"news", 
+				"from"=>0, 
+				"num"=>5
+			));
 			/* MAIN NEWS */
 			$mainnews = $this->model('_mainnews');
 			$mainnews->data = $db_news->getter();
+
+			/* OTHER NEWS */
+			$othernews = $this->model('_othernews');
+			$othernews->data = $db_news2->getter();
+			$othernews->startAt = 0;
+
 			$mainnews->inside = "true";
 			/* view */
 			$this->view('news/index', [
@@ -130,6 +144,7 @@ class News extends Controller
 				"pageData"=>$db_pagedata->getter(), 
 				"mainnews"=>$mainnews->index(), 
 				"publications"=>$publications->index(), 
+				"othernews"=>$othernews->index(), 
 				"headertop"=>$headertop->index(), 
 				"footer"=>$footer->index() 
 			]);

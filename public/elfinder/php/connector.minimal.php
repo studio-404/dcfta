@@ -1,6 +1,11 @@
 <?php
-
+session_start();
 error_reporting(0); // Set E_ALL for debuging
+
+if(!isset($_SESSION["dcfta_username"]))
+{
+	exit();
+}
 
 // load composer autoload before load elFinder autoload If you need composer
 //require './vendor/autoload.php';

@@ -4,7 +4,7 @@ class Config
 	const MIN_PHP_VERSION = "5.4.4";
 	const MAIN_CLASS = "home";
 	const MAIN_METHOD = "index";
-	const DIR = "/home/dcfta.404.ge/";
+	const DIR = "/home/geoweb/dcfta.404.ge/";
 	const PUBLIC_FOLDER_NAME = "public";
 	const CHARSET = "utf-8";
 	const WEBSITE = "http://dcfta.404.ge/";
@@ -32,7 +32,7 @@ class Config
 	const EMAIL_SUBJECT = "";
 	const EMAIL_TO_NAME = "";
 	const EMAIL_TO = "";	
-	const RESTRICTED_SLUGS = "ajax|dashboard|image|manager";	
+	const RESTRICTED_SLUGS = "ajax|dashboard|image|manager|protect";	
 	const DEFAULT_MODULE = "social";	
 	const LANG_ARRAY = "ge|en|ru";	
 	const MAIN_LANG = "ge";	

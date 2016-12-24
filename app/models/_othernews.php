@@ -2,6 +2,7 @@
 class _othernews
 {
 	public $data; 
+	public $startAt = 1; 
 	public $count; 
 
 	public function index()
@@ -59,7 +60,7 @@ class _othernews
 			);
 			$l = new functions\l();
 
-			$slice = (isset($this->data[1])) ? array_slice($this->data, 1, 4) : $this->data;
+			$slice = (isset($this->data[1])) ? array_slice($this->data, $this->startAt, 4) : $this->data;
 			$out .= '<div class="othernews-box">';
 			$i = 1;
 			foreach ($slice as $value) {
@@ -80,7 +81,7 @@ class _othernews
 				$titleUrl = str_replace(array(" "), "-", $title);
 				$theUrl = Config::WEBSITE.$_SESSION['LANG']."/news/".$value['idx']."/".$titleUrl;
 
-				$out .= "<section class=\"col s12 m6 l6 news-item\">";
+				$out .= "<section class=\"col s12 m12 l6 news-item\">";
 				$out .= "<section class=\"newsBox\">";
 				$out .= sprintf(
 					"<a href=\"%s\">", 
@@ -118,7 +119,12 @@ class _othernews
 				$i++;
 			}
 			$out .= '</div>';
-			$out .= '<input type="hidden" name="counterVals" id="counterVals" value="'.$this->count.'" />';
+			if($this->startAt==0){
+				$out .= '<input type="hidden" name="counterVals" id="counterVals" value="4" />';
+			}else{
+				$out .= '<input type="hidden" name="counterVals" id="counterVals" value="'.$this->count.'" />';	
+			}
+			
 			$out .= "<section class=\"col s12 m12 l12 loadergif\" style=\"text-align: center; margin-top: 30px; display:none\"><img src=\"/public/img/ajax-loader.gif\" style=\"width:40px;\" align=\"center\" /></section>";
 		}
 		return $out;

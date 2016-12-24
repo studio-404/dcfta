@@ -29,6 +29,11 @@
     float: left;
   }
 }
+@media(max-width: 1025px){
+  .centerWidth .event #mainImage{
+    width: auto !important;
+  }
+}
 
 @media (max-width: $breakpoint-mobile) {
   .centerWidth{
@@ -167,6 +172,18 @@
    }
    footer .centerWidth .footerText .left{
     font-size: 10px;
+   }
+   footer .centerWidth .marginBottom55{
+      margin-bottom: 40px !important;
+   }
+   .footer-logo1{
+    width: 200px !important;
+   }
+   footer .centerWidth .footer-logo1 a img{
+    width: 200px !important;
+   }
+   footer .centerWidth .footer-text{
+    width: 270px !important;
    }
 }
 

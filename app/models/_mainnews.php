@@ -23,7 +23,7 @@ class _mainnews
 				$pic = $photos->getter();
 				$image = Config::WEBSITE.$_SESSION['LANG']."/image/loadimage?f=".Config::WEBSITE_.$pic[0]['path']."&w=350&h=218";
 				$out .= sprintf(
-					"<img src=\"%s\" width=\"350\" height=\"218\" alt=\"\" align=\"left\" style=\"margin: 0 10px 0px 0px\" />", 
+					"<img src=\"%s\" width=\"350\" height=\"218\" alt=\"\" align=\"left\" style=\"margin: 0 10px 0px 0px\" id=\"mainImage\" />", 
 					$image
 				);
 			}

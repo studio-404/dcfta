@@ -19,7 +19,7 @@
 		margin: $zero; 
 		padding: 0 20px 0 0; 
 		font-family: "noto_sansregular"; 
-		font-size: 24px;
+		font-size: 20px;
 		line-height: 26px;
 		background-color: $whiteColor; 
 		position: absolute;
@@ -83,10 +83,11 @@
 	margin: 10px 0 40px 0; 
 	padding: $zero; 
 	font-family: "noto_sansregular"; 
-	font-size: 20px;
+	font-size: 18px;
 	color: $blueColor; 
+	text-align: justify;
 	p{
-		font-size: 20px;
+		font-size: 18px;
 		color: #3d3d3d;
 		font-family: "noto_sansregular"; 
 	}
@@ -127,7 +128,7 @@
 	margin: $zero; 
 	padding: $zero; 
 	line-height: 26px;
-	font-size: 24px;
+	font-size: 20px;
 	font-family: "noto_sansregular"; 
 	color: $blueColor;
 }
@@ -180,8 +181,6 @@
 			width: $fullWidth; 
 			height: $fullHeight;
 			color: $blueColor;
-	
-			height: 100%;
 		    padding: 0;
 		    margin: 0;
 		    display: -webkit-box;
@@ -671,7 +670,7 @@ footer{
 		margin: $zero; 
 		padding: $zero; 
 		line-height: 27px;	
-		font-size: 20px;
+		font-size: 18px;
 		font-family: "noto_sansregular"; 
 		color: $blueColor;
 	}
@@ -720,12 +719,11 @@ footer{
 	.header{
 		margin: $zero;
 		padding: 0 10px;
-		font-size: 20px;
+		font-size: 18px;
 		font-family: "noto_sansregular"; 
 		color: $blueColor;
 		background-color: $yellowColor;
-		height: 60px;
-		line-height: 60px;
+		line-height: 30px;
 	}
 	.init-map{
 		margin: $zero;

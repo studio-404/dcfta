@@ -83,7 +83,7 @@ echo $data['headertop'];
 								var theUrl = "<?=Config::WEBSITE.$_SESSION['LANG']?>/news/"+news[i].idx+"/"+titleUrl;
 								var image ="<?=Config::WEBSITE.$_SESSION['LANG']?>/image/loadimage?f=<?=Config::WEBSITE_?>"+news[i].photo+"&w=383&h=235";
 
-								item += '<section class="col s12 m6 l6 news-item">';
+								item += '<section class="col s12 m12 l6 news-item">';
 					       		item += '<section class="newsBox">';
 					       		item += '<a href="' + theUrl + '">';
 					       		item += '<section class="imageBox">';

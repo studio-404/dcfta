@@ -43,7 +43,7 @@ class _footer
 			$l->translate('copyright')
 		);
 		$out .= "<p class=\"right\"><a href=\"\"><img src=\"".Config::PUBLIC_FOLDER."img/logo.png\" alt=\"logo\" class=\"logo\" /></a></p>\n";
-		$out .= "</section></section></section></footer>\n";
+		$out .= "</section></section></section><div style=\"clear:both\"></div></footer>\n";
 
 		return $out;
 	}

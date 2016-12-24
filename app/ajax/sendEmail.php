@@ -27,13 +27,23 @@ class sendEmail
 		$input_email = functions\request::index("POST","input_email");
 		$input_phone = functions\request::index("POST","input_phone");
 		$input_comment = functions\request::index("POST","input_comment");
+		$csrf = functions\request::index("POST","csrf");
 
-		if($input_subject=="" || $input_name=="" || $input_organization=="" || $input_email=="" || $input_phone=="" || $input_comment=="")
+		if($input_subject=="" || $input_name=="" || $input_organization=="" || $input_email=="" || $input_phone=="" || $input_comment=="" || $csrf=="")
 		{
 			$this->out = array(
 				"Error" => array(
 					"Code"=>1, 
 					"Text"=>"მოხდა შეცდომა, ყველა ველი სავალდებულოა !",
+					"Details"=>"!"
+				)
+			);
+		}else if($_SESSION['protect_x']!=$csrf)
+		{
+			$this->out = array(
+				"Error" => array(
+					"Code"=>1, 
+					"Text"=>"მოხდა შეცდომა !",
 					"Details"=>"!"
 				)
 			);

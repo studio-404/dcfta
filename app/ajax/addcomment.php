@@ -25,14 +25,24 @@ class addcomment
 		$organization = functions\request::index("POST","organization");
 		$email = functions\request::index("POST","email");
 		$comment = functions\request::index("POST","comment");
+		$csrf = functions\request::index("POST","csrf");
 		$lang = functions\request::index("POST","lang");
 
-		if($commentId=="" || $firstname=="" || $organization=="" || $email=="" || $comment=="" || $lang=="")
+		if($commentId=="" || $firstname=="" || $organization=="" || $email=="" || $comment=="" || $lang=="" || $csrf=="")
 		{
 			$this->out = array(
 				"Error" => array(
 					"Code"=>1, 
 					"Text"=>"მოხდა შეცდომა, ყველა ველი სავალდებულოა !",
+					"Details"=>"!"
+				)
+			);
+		}else if($_SESSION['protect_x']!=$csrf)
+		{
+			$this->out = array(
+				"Error" => array(
+					"Code"=>1, 
+					"Text"=>"მოხდა შეცდომა !",
 					"Details"=>"!"
 				)
 			);

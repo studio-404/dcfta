@@ -90,6 +90,10 @@ header .topBottom .search .input-field input[type=text] {
 .mobileNavigation .blueBox ul li a {
   font-family: 'noto_sans_georgianregular' !important; }
 
+.map .header {
+  font-family: 'noto_sans_georgianregular' !important;
+  font-size: 17px; }
+
 header .topBottom .logo .text {
   padding-top: 12px;
   font-size: 8px;
