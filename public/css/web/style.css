@@ -171,12 +171,12 @@ header .topBottom {
   height: 140px;
   background-color: #f2f3f6; }
   header .topBottom .logo {
-    margin-top: 30px;
+    margin-top: 20px;
     width: 50%;
     float: left;
     cursor: pointer;
     display: block;
-    margin-bottom: 16px; }
+    margin-bottom: 5px; }
     header .topBottom .logo .flags {
       width: 100%; }
       header .topBottom .logo .flags p {
@@ -190,7 +190,7 @@ header .topBottom {
           width: 48.5px;
           height: 32.5px; }
       header .topBottom .logo .flags p:last-child {
-        font-size: 45px;
+        font-size: 60px;
         font-family: 'museo700';
         color: #003399; }
     header .topBottom .logo .text {
@@ -539,11 +539,19 @@ main {
     border-radius: 3px; }
     .usefullLinks li a {
       text-decoration: none;
-      display: block;
       width: 100%;
       height: 100%;
-      position: absolute;
-      color: #003399; }
+      color: #003399;
+      height: 100%;
+      padding: 0;
+      margin: 0;
+      display: -webkit-box;
+      display: -moz-box;
+      display: -ms-flexbox;
+      display: -webkit-flex;
+      display: flex;
+      align-items: center;
+      justify-content: center; }
       .usefullLinks li a img {
         margin: 12px 10px 10px 10px;
         padding: 0px;
@@ -551,7 +559,13 @@ main {
         outline: 0px;
         height: 25px;
         width: 45px;
-        float: left; }
+        position: absolute;
+        left: 0;
+        top: 0; }
+      .usefullLinks li a div {
+        width: calc(100% - 85px);
+        margin-left: 65px;
+        line-height: 18px; }
       .usefullLinks li a span {
         font-family: "noto_sansregular";
         font-size: 15px;
@@ -818,8 +832,6 @@ footer {
       -moz-border-radius: 3px;
       -webkit-border-radius: 3px;
       border-radius: 3px; }
-  footer .centerWidth a .bigImage {
-    width: 286px; }
   footer .centerWidth p {
     margin: 0;
     padding: 0;
@@ -832,10 +844,12 @@ footer {
   footer .centerWidth .footerText {
     margin: 0;
     padding: 0;
-    width: 100%; }
+    width: calc(100% - 30px);
+    float: left;
+    margin-left: 10px; }
     footer .centerWidth .footerText .left {
       margin: 0px;
-      padding: 0px;
+      padding: 20px 0 0 0;
       font-family: "noto_sansregular";
       font-size: 12px;
       line-height: 18px;
@@ -843,9 +857,8 @@ footer {
       float: left; }
     footer .centerWidth .footerText .right {
       margin: 0px;
-      padding: 0px;
-      float: right;
-      line-height: 43px; }
+      padding: 10px 0 0 0;
+      float: right; }
       footer .centerWidth .footerText .right a {
         margin: 0px;
         padding: 0px;
@@ -859,6 +872,29 @@ footer {
           width: 100%; }
         footer .centerWidth .footerText .right a .logo {
           width: 65px !important; }
+  footer .centerWidth .footer-logo1 {
+    margin: 0 20px 0 0;
+    padding: 0;
+    width: 300px;
+    float: left; }
+    footer .centerWidth .footer-logo1 a img {
+      margin: 0;
+      padding: 0;
+      width: 300px; }
+  footer .centerWidth .footer-text {
+    margin: 0 20px 0 0;
+    padding: 0;
+    width: 370px;
+    float: left; }
+  footer .centerWidth .footer-logo2 {
+    margin: 0 20px 0 0;
+    padding: 0;
+    width: 145px;
+    float: left; }
+    footer .centerWidth .footer-logo2 a img {
+      margin: 0;
+      padding: 0;
+      width: 145px; }
 
 .InternationalSupport .box {
   margin-bottom: 20px;
@@ -1086,13 +1122,10 @@ footer {
         .fileTree ul li .text a {
           margin: 0px;
           padding: 0 5px;
-          text-decoration: underline;
           font-family: "noto_sansregular";
           font-size: 15px;
           font-weight: bold;
           color: #003399; }
-        .fileTree ul li .text a:hover {
-          background-color: #f2f2f2; }
       .fileTree ul li .rightSide {
         margin: 0px;
         padding: 0px;
@@ -1106,6 +1139,8 @@ footer {
         margin-left: 20px; }
         .fileTree ul li ul li:first-child {
           border-top: 0px; }
+    .fileTree ul li:hover .text a {
+      text-decoration: underline; }
 
 .commentForm {
   display: none; }
@@ -1134,6 +1169,12 @@ footer {
   border-radius: 3px;
   color: #ffffff;
   font-family: 'noto_sansregular'; }
+  .CalendarBox .weekDay {
+    font-family: 'noto_sansregular';
+    padding: 20px 0 20px 3px;
+    color: white !important;
+    font-size: 14px !important;
+    text-align: left !important; }
   .CalendarBox table {
     width: 100%;
     font-size: 15px;
@@ -1234,6 +1275,8 @@ footer {
 @media (max-width: 1200px) {
   .centerWidth {
     width: 90%; }
+    .centerWidth .event img {
+      width: 100%; }
 
   header .top .top-box {
     width: 100%; }
@@ -1250,7 +1293,10 @@ footer {
 
   header .navigation ul li .active:after {
     left: 7.5px;
-    width: calc(100% - 15px); } }
+    width: calc(100% - 15px); }
+
+  header .topBottom .logo .flags {
+    float: left; } }
 @media (max-width: 1023px) {
   .centerWidth {
     width: 90%; }
@@ -1265,7 +1311,7 @@ footer {
     display: none; }
 
   header .topBottom .logo {
-    margin-top: 35px;
+    margin-top: 20px;
     width: 85%; }
 
   header .topBottom .logo .flags p {
@@ -1277,7 +1323,7 @@ footer {
     height: 22.5px; }
 
   header .topBottom .logo .flags p:last-child {
-    font-size: 30px; }
+    font-size: 45px; }
 
   header .topBottom .logo .text {
     font-size: 11px; }
@@ -1392,8 +1438,11 @@ footer {
     display: none; }
 
   header .topBottom .logo {
-    margin-top: 35px;
+    margin-top: 20px;
     width: 85%; }
+
+  header .topBottom .logo .flags svg {
+    width: 100%; }
 
   header .topBottom .logo .flags p {
     line-height: 17.5px;
@@ -1405,7 +1454,7 @@ footer {
     height: 22.5px; }
 
   header .topBottom .logo .flags p:last-child {
-    font-size: 25px; }
+    font-size: 40px; }
 
   header .topBottom .logo .text {
     font-size: 10px; }
@@ -1418,6 +1467,9 @@ footer {
     overflow: hidden; } }
 @media (max-width: 320px) {
   header .topBottom .logo .text {
-    font-size: 9px; } }
+    font-size: 9px; }
+
+  header .topBottom .logo .flags svg {
+    width: 95%; } }
 
 /*# sourceMappingURL=style.css.map */

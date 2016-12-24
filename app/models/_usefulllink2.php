@@ -35,7 +35,8 @@ class _usefulllink2
 					"<img src=\"%s\" alt=\"\" />\n", 
 					$image 
 				);
-				$out .= sprintf("<span title=\"%s\">%s</span>\n", $value['title'], $string->cut($value['title'],14));
+				// $out .= sprintf("<div title=\"%s\">%s</div>\n", $value['title'], $string->cut($value['title'],14));
+				$out .= sprintf("<div title=\"%s\">%s</div>\n", $value['title'], $string->cut($value['title'],30));
 				$out .= "</a>\n";
 				$out .= "</li>\n";					
 			}

@@ -22,7 +22,7 @@ class Agreement extends Controller
 			"method"=>"selectModuleByType", 
 			"type"=>"stateagencies", 
 			"from"=>0, 
-			"num"=>10
+			"num"=>20
 		));
 
 		$db_chapters = new Database("modules", array(

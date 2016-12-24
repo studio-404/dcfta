@@ -21,9 +21,9 @@ class _mainnews
 			));
 			if($photos->getter()){
 				$pic = $photos->getter();
-				$image = $pic[0]['path'];
+				$image = Config::WEBSITE.$_SESSION['LANG']."/image/loadimage?f=".Config::WEBSITE_.$pic[0]['path']."&w=350&h=218";
 				$out .= sprintf(
-					"<img src=\"%s\" width=\"350\" height=\"218\" alt=\"\" align=\"left\" style=\"margin: 0 10px 10px 0px\" />", 
+					"<img src=\"%s\" width=\"350\" height=\"218\" alt=\"\" align=\"left\" style=\"margin: 0 10px 0px 0px\" />", 
 					$image
 				);
 			}

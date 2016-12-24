@@ -38,7 +38,7 @@ class editPage
 		$serialPhotos = unserialize(functions\request::index("POST","serialPhotos"));
 		$serialFiles = unserialize(functions\request::index("POST","serialFiles"));
 
-		if($idx == "" || $lang=="" || $chooseNavType=="" || $choosePageType=="" || $title=="" || $slug=="" || $pageDescription=="" || $pageText=="")
+		if($idx == "" || $lang=="" || $chooseNavType=="" || $choosePageType=="" || $title=="" || $slug=="")
 		{
 			$this->out = array(
 				"Error" => array(

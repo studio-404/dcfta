@@ -22,7 +22,7 @@ class Coordination extends Controller
 			"method"=>"selectModuleByType", 
 			"type"=>"stateagencies", 
 			"from"=>0, 
-			"num"=>10
+			"num"=>20
 		));
 
 		$db_navigation = new Database("page", array(
@@ -45,8 +45,6 @@ class Coordination extends Controller
 			"idx"=>18,
 			"lang"=>$_SESSION['LANG']
 		));
-
-		
 
 		/* HEDARE */
 		$header = $this->model('_header');

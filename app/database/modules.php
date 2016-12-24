@@ -91,6 +91,42 @@ class modules
 		return $fetch;
 	}
 
+	private function selectModuleByTypeLoadmore($args)
+	{
+		$fetch = array();
+		$limit = (isset($args['from']) && isset($args['num'])) ? " LIMIT ".(int)$args["from"].",".(int)$args['num'] : ""; 
+		
+		$select = "SELECT *, 
+		(
+			SELECT `photos`.`path` FROM `photos` WHERE 
+			`photos`.`parent`=`usefull`.`idx` AND 
+			`photos`.`lang`=:lang AND 
+			`photos`.`type`='news' AND 
+			`photos`.`status`!=:one 
+			ORDER BY `photos`.`id` ASC LIMIT 1
+		) as photo 
+		FROM 
+		`usefull` 
+		WHERE 
+		`usefull`.`type`=:type AND 
+		`usefull`.`visibility`!=:one AND 
+		`usefull`.`lang`=:lang AND 
+		`usefull`.`status`!=:one 
+		ORDER BY `usefull`.`date` DESC".$limit;	
+
+		$prepare = $this->conn->prepare($select);
+		$prepare->execute(array(
+			":type"=>$args['type'], 
+			":one"=>1,
+			":lang"=>$_SESSION["LANG"]
+		));
+		if($prepare->rowCount()){
+			$fetch = $prepare->fetchAll(PDO::FETCH_ASSOC);
+		}
+		
+		return $fetch;
+	}
+
 	private function select($args)
 	{
 		$fetch = array();

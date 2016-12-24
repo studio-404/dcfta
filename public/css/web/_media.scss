@@ -2,6 +2,11 @@
 @media(max-width: $breakpoint-tablet){
 	.centerWidth{
 		width: $mobileCenterWidth;
+    .event{
+      img{
+        width: $fullWidth;
+      }
+    }
 	}
 	header .top .top-box{
 	  	width: $fullWidth;
@@ -20,6 +25,9 @@
 		left: 7.5px;
 		width: calc(100% - 15px);
 	}
+  header .topBottom .logo .flags{
+    float: left;
+  }
 }
 
 @media (max-width: $breakpoint-mobile) {
@@ -37,7 +45,7 @@
   	display: none;
   }
   header .topBottom .logo{
-  	margin-top: 35px;
+  	margin-top: 20px;
   	width: 85%;
   }
   header .topBottom .logo .flags p{
@@ -183,8 +191,11 @@
   	display: none;
   }
   header .topBottom .logo{
-  	margin-top: 35px;
+  	margin-top: 20px;
   	width: 85%;
+  }
+  header .topBottom .logo .flags svg{
+    width: 100%; 
   }
   header .topBottom .logo .flags p{
   	line-height: $topFlagImageHeight - 15px;
@@ -214,5 +225,8 @@
 @media (max-width: $breakpoint-extra-smallmobile) {
   header .topBottom .logo .text{
     font-size: 9px;
+  }
+  header .topBottom .logo .flags svg{
+    width: 95%;
   }
 }

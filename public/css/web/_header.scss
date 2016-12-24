@@ -188,12 +188,12 @@ header{
 		height: $topBottomHeight; 
 		background-color: $topBottomBackgroundColor;
 		.logo{
-			margin-top: 30px;
+			margin-top: 20px;
 			width: $halfWidth;
 			float: left;
 			cursor: pointer;
 			display: block;
-			margin-bottom: $topLogoMarginBottom;
+			margin-bottom: 5px;
 			.flags{
 				width: $fullWidth;
 				p{

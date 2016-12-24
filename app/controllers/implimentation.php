@@ -22,7 +22,7 @@ class Implimentation extends Controller
 			"method"=>"selectModuleByType", 
 			"type"=>"stateagencies", 
 			"from"=>0, 
-			"num"=>10
+			"num"=>20
 		));
 
 		$db_implementation = new Database("modules", array(

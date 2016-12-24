@@ -31,7 +31,8 @@ class _stateagencies
 					"<img src=\"%s\" alt=\"\" />\n", 
 					$image 
 				);
-				$out .= sprintf("<span>%s</span>\n", $string->cut($value['title'],35));
+				$out .= sprintf("<div>%s</div>\n", $string->cut($value['title'],45));
+				// $out .= sprintf("<div>%s</div>\n", $value['title']);
 				$out .= "</a>\n";
 				$out .= "</li>\n";
 			}

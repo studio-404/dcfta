@@ -45,27 +45,30 @@ class calendar
 		if($lang=="ge")
 		{
 			$this->title = $this->geomonth[$this->title]; 
+			$this->weekDayNames = array("ორშ","სამ","ოთხ","ხუთ","პარ","შაბ","კვი");
 		}
 		else if($lang=="ru")
 		{
 			$this->title = $this->rusmonth[$this->title]; 	
+			$this->weekDayNames = array("Mon","Tue","Wed","Thu","Fri","Sat","Sun");
 		}
 		else
 		{ 
 			// english the same
+			$this->weekDayNames = array("Mon","Tue","Wed","Thu","Fri","Sat","Sun");
 		}
 
 		$this->day_of_week = date('D', $this->first_day);
 
 		switch($this->day_of_week)
 		{
-			case "Sun": $this->blank=0; break;
-			case "Mon": $this->blank=1; break;
-			case "Tue": $this->blank=2; break;
-			case "Wed": $this->blank=3; break;
-			case "Thu": $this->blank=4; break;
-			case "Fri": $this->blank=5; break;
-			case "Sat": $this->blank=6; break;
+			case "Mon": $this->blank=0; break;
+			case "Tue": $this->blank=1; break;
+			case "Wed": $this->blank=2; break;
+			case "Thu": $this->blank=3; break;
+			case "Fri": $this->blank=4; break;
+			case "Sat": $this->blank=5; break;
+			case "Sun": $this->blank=6; break;
 			default: exit;
 		}
 
@@ -97,11 +100,20 @@ class calendar
 		$this->out .= "</tr>\n";
 
 
-		$this->out .= "<tr>\n";
-		$this->out .= "<td colspan=\"7\">&nbsp;";
-		$this->out .= "</td>\n";
-		$this->out .= "</tr>\n";
+		// $this->out .= "<tr>\n";
+		// $this->out .= "<td colspan=\"7\">&nbsp;";
+		// $this->out .= "</td>\n";
+		// $this->out .= "</tr>\n";
 
+		$this->out .= "<tr style=\"margin:5px 0px\">\n";
+		$this->out .= sprintf("<td class=\"weekDay\">%s</td>\n", $this->weekDayNames[0]);
+		$this->out .= sprintf("<td class=\"weekDay\">%s</td>\n", $this->weekDayNames[1]);
+		$this->out .= sprintf("<td class=\"weekDay\">%s</td>\n", $this->weekDayNames[2]);
+		$this->out .= sprintf("<td class=\"weekDay\">%s</td>\n", $this->weekDayNames[3]);
+		$this->out .= sprintf("<td class=\"weekDay\">%s</td>\n", $this->weekDayNames[4]);
+		$this->out .= sprintf("<td class=\"weekDay\">%s</td>\n", $this->weekDayNames[5]);
+		$this->out .= sprintf("<td class=\"weekDay\">%s</td>\n", $this->weekDayNames[6]);
+		$this->out .= "</tr>\n";
 
 		$this->day_count = 1;
 

@@ -35,4 +35,5 @@ class Config
 	const RESTRICTED_SLUGS = "ajax|dashboard|image|manager";	
 	const DEFAULT_MODULE = "social";	
 	const LANG_ARRAY = "ge|en|ru";	
+	const MAIN_LANG = "ge";	
 }

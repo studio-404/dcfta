@@ -25,17 +25,36 @@ class _top
 		$out .= "<section class=\"centerWidth\">\n";
 		$out .= "<section class=\"logo\">\n";
 		$out .= "<div class=\"flags\">\n";
-		$out .= sprintf(
-			"<p><img src=\"%simg/geo.png\" alt=\"Georgian Flag\" /></p>",
-			Config::PUBLIC_FOLDER
-		);
-		$out .= sprintf(
-			"<p><img src=\"%simg/eur.png\" alt=\"Georgian Flag\" /></p>\n", 
-			Config::PUBLIC_FOLDER
-		);
-		$out .= "<p>dcfta.gov.ge</p>\n";
+		// $out .= sprintf(
+		// 	"<p><img src=\"%simg/geo.png\" alt=\"Georgian Flag\" /></p>",
+		// 	Config::PUBLIC_FOLDER
+		// );
+		// $out .= sprintf(
+		// 	"<p><img src=\"%simg/eur.png\" alt=\"Georgian Flag\" /></p>\n", 
+		// 	Config::PUBLIC_FOLDER
+		// );
+		if($_SESSION['LANG']=="ge"){
+		$out .= '<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 width="332.5px" height="80px" viewBox="0 0 332.5 80" enable-background="new 0 0 332.5 80" xml:space="preserve">
+<text transform="matrix(1 0 0 1 0 46)" fill="#19338F" font-family="museo700" font-size="55">dcfta.gov.ge</text>
+	<text transform="matrix(1 0 0 1 3 75)">
+		<tspan x="0" y="0" fill="#19338F" font-family="noto_sans_georgianregular" font-size="15">
+		ვებ-პორტალი </tspan>
+		<tspan x="115" y="0" fill="#19338F" font-family="museo700" font-size="15">
+		dcfta</tspan>
+		<tspan x="153" y="0" fill="#19338F" font-family="noto_sans_georgianregular" font-size="15">
+		-ის მხარდასაჭერად</tspan>
+	</text>
+</svg>
+';
+		}else{
+			$out .= '<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 width="326px" height="80px" viewBox="0 0 326 80" enable-background="new 0 0 326 80" xml:space="preserve">
+<text transform="matrix(1 0 0 1 0 46)" fill="#19338F" font-family="museo700" font-size="55">dcfta.gov.ge</text>
+<text transform="matrix(1 0 0 1 3 70.5)" fill="#19338F" font-family="noto_sansregular" font-size="13">Georgia-EU Deep &amp; Comprehensive Free Trade Area</text>
+</svg>';
+		}
 		$out .= "</div>\n";
-		$out .= "<div class=\"text\">".$l->translate('logotext')."</div>\n";
 		$out .= "</section>\n";
 		$out .= "<section class=\"search\">\n";
 		$out .= "<i class=\"material-icons\">search</i>\n";

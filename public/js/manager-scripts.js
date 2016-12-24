@@ -212,9 +212,7 @@ var formPageEdit = function(idx, lang){
 		(typeof chooseNavType === "undefined" || chooseNavType=="") || 
 		(typeof choosePageType === "undefined" || choosePageType=="") || 
 		(typeof title === "undefined" || title=="") || 
-		(typeof slug === "undefined" || slug=="") || 
-		(typeof pageDescription === "undefined" || pageDescription=="") || 
-		(typeof pageText === "undefined" || pageText=="")
+		(typeof slug === "undefined" || slug=="") 
 	){
 		$(".modal-message-box").html("ყველა ველი სავალდებულოა !");
 	}else{

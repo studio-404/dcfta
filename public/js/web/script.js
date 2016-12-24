@@ -1,5 +1,7 @@
 var Config = {
 	website: "http://dcfta.404.ge",
+	mainLang: "ge",
+	mainClass: "home",
 	ajax:"http://dcfta.404.ge/ge/ajax/index",  
 	deviceWidth: (window.outterWidth > 0) ? window.outteWidth : screen.width, 
 	deviceHeight: (window.outteHeight > 0) ? window.outteHeight : screen.height,
@@ -154,7 +156,13 @@ var changeLanguage = function(newLang, oldLang){
 	var url = window.location.href;
 	var find = "/"+oldLang+"/";
 	var replace = "/"+newLang+"/";
-	location.href = url.replace(find, replace); 
+	var replaced = url.replace(find, replace); 
+	console.log();
+	if(url.search(find)!="-1"){
+		location.href = replaced;
+	}else{
+		location.href = Config.website+"/"+Config.mainLang+"/"+Config.mainClass;
+	}
 };
 
 var loadCal = function(type, currentMonth, currentYear, lang){
@@ -174,6 +182,7 @@ var loadCal = function(type, currentMonth, currentYear, lang){
 			console.log(obj.Error.Text);
 		}else if(obj.Success.Code==1){
 			$(".CalendarBox").html(obj.Success.Html);
+			$('.tooltipped').tooltip({delay: 50});
 		}else{
 			$(".CalendarBox").html("Error");
 		}
@@ -225,6 +234,37 @@ var getAllStringInsideCurly = function(){
 	var content = strip($(".mainText").html());
 	var arr = content.match(/[^{}]+(?=\})/g); 
 	/*Test Programme*/
+};
+
+var dateFormat = function(unix_timestamp){
+	var date = new Date(unix_timestamp*1000);
+	var day = date.getDay();
+	var month = date.getMonth();
+	var year = date.getYear();
+
+	var formattedTime = month + ' ' + day + ', ' + year;
+	return formattedTime;
+};
+
+var timeConverter = function(UNIX_timestamp, lang){
+  var a = new Date(UNIX_timestamp * 1000);
+  if(lang=="ge"){
+  	var months = ['იან','თებ','მარ','აპრ','მაი','ივნ','ივლ','აგვ','სექ','ოქტ','ნოე','დეკ'];
+  }else if(lang=="ru"){
+  	var months = ['იან','თებ','მარ','აპრ','მაი','ივნ','ივლ','აგვ','სექ','ოქტ','ნოე','დეკ'];
+  }else{
+  	var months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+  }
+  
+  var year = a.getFullYear();
+  var month = months[a.getMonth()];
+  var date = a.getDate();
+  var hour = a.getHours();
+  var min = a.getMinutes();
+  var sec = a.getSeconds();
+
+  var formattedTime = month + ' ' + date + ', ' + year;
+  return formattedTime;
 };
 
 $(document).ready(function(){

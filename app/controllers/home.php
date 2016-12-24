@@ -60,7 +60,7 @@ class Home extends Controller
 			"method"=>"selectModuleByType", 
 			"type"=>"usefulllink",
 			"from"=>0, 
-			"num"=>9
+			"num"=>15
 		));
 
 		$db_news = new Database("modules", array(

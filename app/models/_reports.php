@@ -42,7 +42,7 @@ class _reports
 				$out .= "<p class=\"downloadIcon\"></p>\n";
 				$out .= sprintf(
 					"<p class=\"title\"><span>%s</span><br /><b>%s</b></p>\n", 
-					$sting->cut($value['title'],60),
+					$sting->cut($value['title'],40),
 					functions\files::formatSizeUnits($size) 
 				);
 				$out .= "</a>";

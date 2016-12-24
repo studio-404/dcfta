@@ -30,9 +30,11 @@ h2,
 .collapsible .collapsible-header > div:not(.rightSide){
 	font-family: 'noto_sans_georgianregular' !important;
 }
-
+.usefullLinks li a div{
+	font-family: 'noto_sans_georgianregular' !important;	
+}
 .headerText .title, .justTitle, h2, .headerText .title{
-	font-size: 20px;
+	font-size: 17px;
 }
 
 .usefullLinks li a span{
@@ -40,17 +42,17 @@ h2,
 }
 
 .mainText{
-	font-size: 16px;
+	font-size: 15px;
 }
 .mainText p, .mainText ul li, .InternationalSupport .box .title, .InternationalSupport .box .text, .contactDetails p{
-	font-size: 18px;
+	font-size: 15px;
 }
 header .navigation ul li .active span{
 	padding-bottom: 3px !important;
 }
 
-.files .file a .title{
-	font-size: 13.5px;
+.files .file a .title, .usefullLinks li a div{
+	font-size: 13px;
 }
 
 .newsBox a .title{
@@ -58,11 +60,18 @@ header .navigation ul li .active span{
 	font-family: 'noto_sans_georgianregular' !important;
  }
  .newsBox a .text{
- 	font-size: 13.5px;
+ 	font-size: 13px;
  	font-family: 'noto_sans_georgianregular' !important;
  }
  header .topBottom .search .input-field input[type=text]{
  	font-family: 'noto_sans_georgianregular' !important;	
+ }
+ .weekDay{
+ 	font-family: 'noto_sans_georgianregular' !important;
+ 	padding: 20px 0 20px 3px !important;
+ 	color: white !important;
+ 	font-size: 14px !important;	
+ 	text-align: left !important; 
  }
  .CalendarBox{
  	font-family: 'noto_sans_georgianregular' !important;		
@@ -94,13 +103,16 @@ header .navigation ul li .active span{
 .messageBox{
 	font-family: 'noto_sans_georgianregular' !important;	
 }
+.mobileNavigation .blueBox ul li a{
+	font-family: 'noto_sans_georgianregular' !important; 	
+}
 header .topBottom .logo .text{
-	padding-top: 5px;
+	padding-top: 12px;
 	font-size: 8px;
 	font-family: 'noto_sans_georgianregular' !important;	
 }
-header .topBottom .logo{
-	margin-bottom: 24px;
+footer .centerWidth p{
+	font-family: 'noto_sans_georgianregular' !important; 	
 }
 svg{
 	overflow: visible !important;

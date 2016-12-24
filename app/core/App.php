@@ -12,12 +12,11 @@ class App{
 	{
 		require_once("app/functions/redirect.php");
 		$url = $this->parseUrl();
-
 		$_SESSION["LANG"] = (isset($url[0])) ? $url[0] : "ge";
 		$lang_array = explode("|", Config::LANG_ARRAY); 
 		if(isset($url[0]) && !in_array($url[0], $lang_array))
 		{
-			functions\redirect::url(Config::WEBSITE); 
+			functions\redirect::url(Config::WEBSITE.Config::MAIN_LANG."/".Config::MAIN_CLASS); 
 		}
 		$_SESSION["URL"] = (count($url)) ? $url : array();
 		if(isset($url[1])){
@@ -78,6 +77,14 @@ class App{
 	public function parseUrl()
 	{
 		if(isset($_GET['url'])){
+			$findme   = array('\'','~','!','@','$','^','*','(',')','{','}','[',']','|',';','<','>','\\','..');
+			foreach ($findme as $f) {
+				$pos = strpos($_GET['url'], $f);
+				if ($pos !== false) {
+					require_once("app/functions/redirect.php");
+					functions\redirect::url(Config::WEBSITE.Config::MAIN_LANG."/".Config::MAIN_CLASS); 
+				}
+			}
 			return $url = explode("/", filter_var(rtrim($_GET['url'], '/'), FILTER_SANITIZE_URL));
 		}
 	}

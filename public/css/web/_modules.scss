@@ -177,11 +177,20 @@
 		border-radius: $borderRadius;
 		a{
 			text-decoration: none;
-			display: block;
 			width: $fullWidth; 
 			height: $fullHeight;
-			position: absolute;
 			color: $blueColor;
+	
+			height: 100%;
+		    padding: 0;
+		    margin: 0;
+		    display: -webkit-box;
+		    display: -moz-box;
+		    display: -ms-flexbox;
+		    display: -webkit-flex;
+		    display: flex;
+		    align-items: center;
+		    justify-content: center;
 			img{
 				margin: 12px 10px 10px 10px; 
 				padding: $zero; 
@@ -189,7 +198,15 @@
 				outline: $zero; 
 				height: 25px;
 				width: 45px;
-				float: left;
+
+				position: absolute;
+			    left: 0;
+			    top: 0;
+			}
+			div{
+				width: calc(100% - 85px);
+				margin-left: 65px;
+    			line-height: 18px;
 			}
 			span{
 				font-family: "noto_sansregular"; 
@@ -502,9 +519,6 @@ footer{
 				border-radius: $borderRadius;
 			}
 		}
-		a .bigImage{
-			width: 286px;
-		}
 		p{
 			margin: 0; 
 			padding: 0;
@@ -519,10 +533,12 @@ footer{
 		.footerText{
 			margin: 0; 
 			padding: 0; 
-			width: $fullWidth; 
+			width: calc(100% - 30px);
+		    float: left;
+		    margin-left: 10px;
 			.left{
 				margin: $zero; 
-				padding: $zero;
+				padding: 20px 0 0 0;
 				font-family: "noto_sansregular";  
 				font-size: 12px;
 				line-height: 18px;
@@ -531,9 +547,8 @@ footer{
 			}
 			.right{
 				margin: $zero; 
-				padding: $zero;
+				padding: 10px 0 0 0;
 				float: right;
-				line-height: 43px;
 				a{
 					margin: $zero; 
 					padding: $zero;
@@ -552,6 +567,38 @@ footer{
 				}
 
 			}
+		}
+		.footer-logo1{
+			margin: 0 20px 0 0;
+			padding:0;
+			width: 300px;
+			float: left; 
+			a{
+				img{
+					margin: 0;
+					padding:0;
+					width: 300px;
+				}
+			}
+		}
+		.footer-text{
+			margin: 0 20px 0 0;
+			padding:0;
+			width: 370px;
+			float: left; 
+		}
+		.footer-logo2{
+			margin: 0 20px 0 0;
+			padding:0;
+			width: 145px;
+			float: left;
+			a{
+				img{
+					margin: 0;
+					padding:0;
+					width: 145px;
+				}
+			} 
 		}
 	}
 }
@@ -816,7 +863,6 @@ footer{
 				a{
 					margin: $zero;
 					padding: 0 5px; 
-					text-decoration: underline;
 					font-family: "noto_sansregular";
 					font-size: 15px;
 					font-weight: bold;
@@ -824,9 +870,6 @@ footer{
 					// display: block;
 					// line-height: 30px;
 					// height: 30px;
-				}
-				a:hover{
-					background-color: #f2f2f2;
 				}
 			}
 			.rightSide{
@@ -845,6 +888,9 @@ footer{
 					border-top: 0px;
 				}
 			}
+		}
+		li:hover .text a{
+			text-decoration: underline;
 		}
 	}
 }
