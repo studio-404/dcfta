@@ -85,7 +85,7 @@ class App{
 					functions\redirect::url(Config::WEBSITE.Config::MAIN_LANG."/".Config::MAIN_CLASS); 
 				}
 			}
-			return $url = explode("/", filter_var(rtrim($_GET['url'], '/'), FILTER_SANITIZE_URL));
+			return $url = explode("/", rtrim($_GET['url'], '/'));
 		}
 	}
 }

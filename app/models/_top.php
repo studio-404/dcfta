@@ -59,10 +59,12 @@ class _top
 		$out .= "<section class=\"search\">\n";
 		$out .= "<i class=\"material-icons\">search</i>\n";
 		$out .= "<div class=\"input-field\">\n";
+		$searchText = (isset($this->data['searchText'])) ? $this->data['searchText'] : $l->translate('search');
 		$out .= sprintf(
-			"<input id=\"searchInput\" type=\"text\" value=\"%s\" data-val=\"%s\" onclick=\"searchInputOn()\" onblur=\"searchInputOff()\" />\n", 
-			$l->translate('search'), 
-			$l->translate('search')
+			"<input id=\"searchInput\" type=\"text\" value=\"%s\" data-val=\"%s\" onclick=\"searchInputOn()\" onblur=\"searchInputOff()\" data-lang=\"%s\" />\n", 
+			$searchText, 
+			$l->translate('search'),
+			$_SESSION['LANG']
 		);
 		$out .= "</div>\n";
 		$out .= "</section>\n";

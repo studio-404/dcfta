@@ -80,8 +80,9 @@ class _chapters
 
 				$out .= "<li>\n";
 				$out .= sprintf(
-					"<div class=\"collapsible-header\"><i class=\"blueArraw-icon\"></i><div>%s</div>
+					"<div class=\"collapsible-header\" id=\"open%s\"><i class=\"blueArraw-icon\"></i><div>%s</div>
 					<p style=\"clear:both\"></p></div>\n",
+					$value['idx'],
 					$value['title']
 				);
 				$out .= "<div class=\"collapsible-body\">\n";

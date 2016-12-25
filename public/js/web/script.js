@@ -329,6 +329,19 @@ $(document).ready(function(){
 	      }
 	    }, 300);
 	});
+
+	$("#searchInput").on('keyup', function (e) {
+	    if (e.keyCode == 13) {
+	       var val = $(this).val().replace(/ /g, '-');
+	       var lang = $(this).attr("data-lang");
+	       location.href = Config.website+"/"+lang+"/search/"+val;
+	    }
+	});
+
+	if(window.location.hash) {
+		var hash = window.location.hash.substring(1); 
+		$("#"+hash).click();
+	}
 });
 
 $(document).ready(function(){

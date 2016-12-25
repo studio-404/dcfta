@@ -581,7 +581,7 @@ footer{
 			}
 		}
 		.footer-text{
-			margin: 0 20px 0 0;
+			margin: 0 20px 20px 0;
 			padding:0;
 			width: 370px;
 			float: left; 
@@ -908,4 +908,14 @@ footer{
 }
 .input-field .active{
 	color: $blueColor !important;
-};
+}
+.searchCollectionBox{
+	a{
+		color: $blueColor !important;
+		text-decoration: none;
+	}
+	a:hover{
+		background-color: white !important;
+		text-decoration: underline;
+	}
+}

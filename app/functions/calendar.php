@@ -149,7 +149,8 @@ class calendar
 			// else
 			// {
 				if($fetch){
-					$link = \Config::WEBSITE.$_SESSION['LANG']."/event/".$fetch['idx']."/".urlencode($fetch['title']);
+					$titleUrl = str_replace(" ","-",strip_tags($fetch['title']));
+					$link = \Config::WEBSITE.$_SESSION['LANG']."/event/".$fetch['idx']."/".$titleUrl;
 					$this->out .= sprintf(
 						"<td class='day_numbers'><div class=\"event_exists tooltipped\" data-position=\"left\" data-delay=\"50\" data-tooltip=\"%s\"><a href=\"%s\">%s</a></div></td>",
 							htmlentities($fetch['title']), 

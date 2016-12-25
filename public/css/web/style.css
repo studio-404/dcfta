@@ -16,6 +16,27 @@
   src: url("../../fonts/web/noto/notosansgeorgian-regular-webfont.woff2") format("woff2"), url("../../fonts/web/fonts/noto/notosansgeorgian-regular-webfont.woff") format("woff");
   font-weight: normal;
   font-style: normal; }
+/* fallback */
+@font-face {
+  font-family: 'Material Icons';
+  font-style: normal;
+  font-weight: 400;
+  src: local("Material Icons"), local("MaterialIcons-Regular"), url(../../fonts/web/2fcrYFNaTjcS6g4U3t-Y5ZjZjT5FdEJ140U2DJYC3mY.woff2) format("woff2"); }
+.material-icons {
+  font-family: 'Material Icons';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px;
+  line-height: 1;
+  letter-spacing: normal;
+  text-transform: none;
+  display: inline-block;
+  white-space: nowrap;
+  word-wrap: normal;
+  direction: ltr;
+  -webkit-font-feature-settings: 'liga';
+  -webkit-font-smoothing: antialiased; }
+
 .no, *, .centerWidth, header .top .top-box .social-networks ul, header .top .top-box .social-networks ul li, header .top .top-box .languages ul, header .top .top-box .languages ul li, header .topBottom .search .input-field, main {
   margin: 0px;
   padding: 0px;
@@ -882,7 +903,7 @@ footer {
       padding: 0;
       width: 300px; }
   footer .centerWidth .footer-text {
-    margin: 0 20px 0 0;
+    margin: 0 20px 20px 0;
     padding: 0;
     width: 370px;
     float: left; }
@@ -1156,6 +1177,13 @@ footer {
 
 .input-field .active {
   color: #003399 !important; }
+
+.searchCollectionBox a {
+  color: #003399 !important;
+  text-decoration: none; }
+.searchCollectionBox a:hover {
+  background-color: white !important;
+  text-decoration: underline; }
 
 .CalendarBox {
   margin-top: 20px;

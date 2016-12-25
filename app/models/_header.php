@@ -36,7 +36,7 @@ class _header
 			$this->public
 		);
 
-		$out .= "<link href=\"https://fonts.googleapis.com/icon?family=Material+Icons\" rel=\"stylesheet\">\n";
+		// $out .= "<link href=\"https://fonts.googleapis.com/icon?family=Material+Icons\" rel=\"stylesheet\">\n";
 		$out .= sprintf(
 			"<link rel=\"stylesheet\" type=\"text/css\" href=\"%scss/web/materialize.min.css\" />\n", 
 			$this->public 
