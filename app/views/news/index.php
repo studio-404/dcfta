@@ -31,7 +31,7 @@ echo $data['headertop'];
 					?>
 				</section>
 			</section>
-			<section class="col s12 m6 l4">
+			<section class="col s12 m6 l4 rightSide">
 				<section class="justTitle"><?=$l->translate('eventcalendar')?></section>
 				<section class="CalendarBox">
 					<?php

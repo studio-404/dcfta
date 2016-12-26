@@ -15,21 +15,22 @@ echo $data['headertop'];
 				<section class="mainText">
 					<?=@html_entity_decode($data['pageData']['text'])?>
 				</section>
+				
+				<section class="noprint">
+					<section class="headerText">
+						<div class="line"></div>
+						<div class="title"><?=$l->translate('legislativedrafts')?></div>
+					</section>
+					<?=$data['legislation']?>	
 
-				<section class="headerText">
-					<div class="line"></div>
-					<div class="title"><?=$l->translate('legislativedrafts')?></div>
+					<!-- _adoptedLegislation -->		
+					<section class="space20"></section>
+					<section class="headerText">
+						<div class="line"></div>
+						<div class="title"><?=$l->translate('adoptedlegislation')?></div>
+					</section>
+					<?=$data['adoptedLegislation']?>	
 				</section>
-				<?=$data['legislation']?>	
-
-				<!-- _adoptedLegislation -->		
-				<section class="space20"></section>
-				<section class="headerText">
-					<div class="line"></div>
-					<div class="title"><?=$l->translate('adoptedlegislation')?></div>
-				</section>
-				<?=$data['adoptedLegislation']?>	
-
 			</section>
 		</section>
 	</section>	

@@ -108,4 +108,7 @@ svg {
   svg g:hover {
     cursor: pointer !important; }
 
+.leftSide a {
+  font-family: 'noto_sans_georgianregular' !important; }
+
 /*# sourceMappingURL=_geo.css.map */

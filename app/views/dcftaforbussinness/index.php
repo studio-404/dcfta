@@ -8,7 +8,7 @@ echo $data['headertop'];
 <main>
 	<section class="centerWidth">
 		<section class="row">
-			<section class="col s12 m6 l3 leftSide">
+			<section class="col s12 m6 l3 leftSide noprint">
 				<section class="leftNavigation">
 					<section class="yellowBG"></section>
 					<section class="nav">

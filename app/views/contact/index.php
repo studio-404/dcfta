@@ -67,13 +67,13 @@ echo $data['headertop'];
 
 			</section>
 
-			<section class="col s12 m6 l4 rightSide">
+			<section class="col s12 m6 l4 rightSide print">
 				<section class="justTitle"><?=$l->translate('contactdetails')?></section>
 				<section class="contactDetails">
 					<?=@html_entity_decode($data['contactData']['description'])?>
 				</section>
 
-				<section class="map">
+				<section class="map noprint">
 					<section class="header"><?=$l->translate('ministryName')?></section>
 					<section class="init-map"></section>
 				</section>

@@ -16,13 +16,15 @@ echo $data['headertop'];
 					<?=@html_entity_decode($data['pageData']['text'])?>
 				</section>
 
-				<?=$data['implementation']?>
-				<section class="space20"></section>
-				<section class="headerText">
-					<div class="line"></div>
-					<div class="title"><?=$l->translate('strategicdocuments')?></div>
+				<section class="noprint">
+					<?=$data['implementation']?>
+					<section class="space20"></section>
+					<section class="headerText">
+						<div class="line"></div>
+						<div class="title"><?=$l->translate('strategicdocuments')?></div>
+					</section>
+					<?=$data['strategic']?>
 				</section>
-				<?=$data['strategic']?>
 
 			</section>
 			<section class="col s12 m6 l4 rightSide">
