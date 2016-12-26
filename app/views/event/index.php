@@ -16,28 +16,43 @@ echo $data['headertop'];
 					<?=$data['mainevents']?>
 					<section class="contactForm">
 						<form action="" method="post">
-							<div class="commMsG commentForm24_msg" style="padding:0 0 20px 0"></div>
-							<input type="hidden" name="eventid" class="eventid" value="c22"/>
+							<?php
+							require_once("app/functions/string.php"); 
+							$_SESSION['protect_x'] = functions\string::random(6);
+							echo sprintf(
+								"<input type=\"hidden\" name=\"csrf\" id=\"csrf\" class=\"csrf\" value=\"%s\">", 
+								$_SESSION['protect_x']
+							);
+							echo sprintf(
+								"<input type=\"hidden\" name=\"evid\" id=\"evid\" class=\"evid\" value=\"%s\">",
+								(int)$_SESSION["URL"][2]
+							);
+							echo sprintf(
+								"<input type=\"hidden\" name=\"evn\" id=\"evn\" class=\"evn\" value=\"%s\">",
+								str_replace("-"," ",$_SESSION["URL"][3])
+							);
+							?>
 
 							<section class="marginminus10">
+								<div class="messageBox col s12 m12 l12"></div>
 								<div class="input-field col s12 m6 l4">
-									<input type="text" class="validate first_name" />
+									<input type="text" class="validate" id="input_name" value="" />
 									<label class=""><?=$l->translate('name')?></label>
 								</div>
 								<div class="input-field col s12 m6 l4">
-									<input type="text" class="validate organization" />
+									<input type="text" class="validate" id="input_organization" value="" />
 									<label><?=$l->translate('organization')?></label>
 								</div>
 								<div class="input-field col s12 m6 l4">
-									<input type="text" class="validate email" />
+									<input type="text" class="validate" id="input_email" value="" />
 									<label><?=$l->translate('email')?></label>
 								</div>
 								<div class="input-field col s12 m6 l4">
-									<input type="text" class="validate phone" />
+									<input type="text" class="validate" id="input_phone" value="" />
 									<label><?=$l->translate('phone')?></label>
 								</div>
 								<div class="col s12 m12 l12">
-									<a class="waves-effect waves-light btn submit" style="text-decoration: none;"><?=$l->translate('submit')?></a>
+									<a class="waves-effect waves-light btn submit" style="text-decoration: none;" onclick="registerEvent('<?=$_SESSION['LANG']?>')"><?=$l->translate('submit')?></a>
 								</div>
 							</section>
 						</form>

@@ -228,6 +228,44 @@ var sendEmail = function(){
 	});
 };
 
+var registerEvent = function(lang){
+	var ajaxFile = "/registerEvent";
+	var evid = $("#evid").val(); 
+	var evn = $("#evn").val(); 
+	var input_name = $("#input_name").val(); 
+	var input_organization = $("#input_organization").val(); 
+	var input_email = $("#input_email").val(); 
+	var input_phone = $("#input_phone").val(); 
+	var csrf = $(".csrf").val(); 
+
+	if(lang=="ge"){
+		$(".messageBox").text(Config.waitGeo);
+	}else if(lang=="en"){
+		$(".messageBox").text(Config.waitEng);
+	}else{
+		$(".messageBox").text(Config.waitRus);
+	}
+
+	$.ajax({
+		method: "POST",
+		url: Config.ajax + ajaxFile,
+		data: { evid: evid, evn: evn, input_name: input_name, input_organization:input_organization, input_email:input_email, input_phone:input_phone, csrf:csrf }
+	}).done(function( msg ) {
+		var obj = $.parseJSON(msg);
+		if(obj.Error.Code==1){
+			$(".messageBox").html(obj.Error.Text);
+		}else if(obj.Success.Code==1){
+			$(".messageBox").html(obj.Success.Text);
+			$("input[type='text']").val('');
+			setTimeout(function(){
+				location.reload();
+			}, 1500); 
+		}else{
+			$(".messageBox").html("Error");
+		}
+	});	
+};
+
 var coordinationSvg = function(showMe, showOrHide){
 	if(showOrHide=="true"){
 		$(showMe).fadeIn(); 

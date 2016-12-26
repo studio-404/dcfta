@@ -1,5 +1,5 @@
 <?php 
-class sendEmail
+class registerEvent
 {
 	public $out; 
 	
@@ -21,15 +21,16 @@ class sendEmail
 			)
 		);
 
-		$input_subject = functions\request::index("POST","input_subject");
+		$input_event_id = functions\request::index("POST","evid");
+		$input_event_name = functions\request::index("POST","evn");
+		$event_url = Config::WEBSITE.Config::MAIN_LANG."/event/".$input_event_id."/".str_replace(" ","-",$input_event_name);
 		$input_name = functions\request::index("POST","input_name");
 		$input_organization = functions\request::index("POST","input_organization");
 		$input_email = functions\request::index("POST","input_email");
 		$input_phone = functions\request::index("POST","input_phone");
-		$input_comment = functions\request::index("POST","input_comment");
 		$csrf = functions\request::index("POST","csrf");
 
-		if($input_subject=="" || $input_name=="" || $input_organization=="" || $input_email=="" || $input_phone=="" || $input_comment=="" || $csrf=="")
+		if($input_name=="" || $input_organization=="" || $input_email=="" || $input_phone=="" || $csrf=="")
 		{
 			$this->out = array(
 				"Error" => array(
@@ -51,13 +52,21 @@ class sendEmail
 			$send = new functions\send(); 
 
 			$a["sendTo"] = Config::RECIEVER_EMAIL; 
-			$a["subject"] = $input_subject;
+			$a["subject"] = "Register Event";
 			$a["body"] = sprintf(
-				"<strong>Subject</strong>: %s<br />", 
-				$input_subject
+				"<strong>Event ID</strong>: %s<br />", 
+				$input_event_id
 			);
 			$a["body"] .= sprintf(
-				"<strong>Name</strong>: %s<br />", 
+				"<strong>Event Name</strong>: %s<br />", 
+				$input_event_name
+			);
+			$a["body"] .= sprintf(
+				"<strong>Event Url</strong>: <a href=\"%s\">Go To</a><br />", 
+				$event_url
+			);
+			$a["body"] .= sprintf(
+				"<strong>First Name</strong>: %s<br />", 
 				$input_name
 			);
 			$a["body"] .= sprintf(
@@ -71,10 +80,6 @@ class sendEmail
 			$a["body"] .= sprintf(
 				"<strong>Phone</strong>: %s<br />", 
 				$input_phone
-			);
-			$a["body"] .= sprintf(
-				"<strong>Message</strong>:<br />%s", 
-				$input_comment
 			);
 
 			$sended = $send->index($a);
