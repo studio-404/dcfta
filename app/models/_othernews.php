@@ -7,6 +7,7 @@ class _othernews
 
 	public function index()
 	{
+		require_once("app/functions/strip_output.php");
 		$out = "";
 		$this->count = count($this->data);
 		if($this->count)
@@ -66,26 +67,38 @@ class _othernews
 			foreach ($slice as $value) {
 				$photos = new Database("photos",array(
 					"method"=>"selectByParent", 
-					"idx"=>$value['idx'],  
-					"lang"=>$_SESSION['LANG'],  
-					"type"=>$value['type'] 
+					"idx"=>(int)$value['idx'],  
+					"lang"=>strip_output::index($_SESSION['LANG']),  
+					"type"=>strip_output::index($value['type'])
 				));
 				if($photos->getter()){
 					$pic = $photos->getter();
-					$image = Config::WEBSITE.$_SESSION['LANG']."/image/loadimage?f=".Config::WEBSITE_.$pic[0]['path']."&w=383&h=235";
+					$image = sprintf(
+						"%s%s/image/loadimage?f=%s%s&w=383&h=235",
+						Config::WEBSITE,
+						strip_output::index($_SESSION['LANG']),
+						Config::WEBSITE_,
+						strip_output::index($pic[0]['path'])
+					);
 				}else{
 					$image = "/public/filemanager/noimage.png";
 				}
 
-				$title = $value['title'];
+				$title = strip_tags($value['title']);
 				$titleUrl = str_replace(array(" "), "-", $title);
-				$theUrl = Config::WEBSITE.$_SESSION['LANG']."/news/".$value['idx']."/".$titleUrl;
+				$theUrl = sprintf(
+					"%s%s/news/%s/%s",
+					Config::WEBSITE,
+					strip_output::index($_SESSION['LANG']),
+					(int)$value['idx'],
+					strip_output::index($titleUrl)
+				);
 
 				$out .= "<section class=\"col s12 m12 l6 news-item\">";
 				$out .= "<section class=\"newsBox\">";
 				$out .= sprintf(
 					"<a href=\"%s\">", 
-					$theUrl
+					strip_output::index($theUrl)
 				);
 				$out .= "<section class=\"imageBox\">";
 				$out .= sprintf(
@@ -99,12 +112,15 @@ class _othernews
 					"<p>%s</p>\n",
 					$l->translate('singlenews')
 				);
-				$str = str_replace(date("M", $value['date']), $month[$_SESSION['LANG']][date("M", $value['date'])], date("M d, Y", $value['date']));
-				$out .= "<p>".$str."</p>\n";
+				$str = str_replace(date("M", (int)$value['date']), $month[strip_output::index($_SESSION['LANG'])][date("M", (int)$value['date'])], date("M d, Y", (int)$value['date']));
+				$out .= sprintf(
+					"<p>%s</p>\n",
+					strip_output::index($str)
+				);
 				$out .= "</section>";
 				$out .= sprintf(
 					"<section class=\"title\">%s</section>", 
-					$sting->cut(html_entity_decode($title),60)
+					$sting->cut(strip_tags($title),60)
 				);
 				$out .= sprintf(
 					"<section class=\"text\">%s</section>", 
@@ -122,7 +138,10 @@ class _othernews
 			if($this->startAt==0){
 				$out .= '<input type="hidden" name="counterVals" id="counterVals" value="4" />';
 			}else{
-				$out .= '<input type="hidden" name="counterVals" id="counterVals" value="'.$this->count.'" />';	
+				$out .= sprintf(
+					'<input type="hidden" name="counterVals" id="counterVals" value="%s" />',
+					htmlspecialchars($this->count)
+				);	
 			}
 			
 			$out .= "<section class=\"col s12 m12 l12 loadergif\" style=\"text-align: center; margin-top: 30px; display:none\"><img src=\"/public/img/ajax-loader.gif\" style=\"width:40px;\" align=\"center\" /></section>";

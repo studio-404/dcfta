@@ -87,19 +87,24 @@ class Internationalsupport extends Controller
 				"lang"=>$_SESSION['LANG']
 			));
 			
-			/* view */
-			$this->view('internationalsupport/read', [
-				"header"=>array(
-					"website"=>Config::WEBSITE,
-					"public"=>Config::PUBLIC_FOLDER
-				),
-				"headerModule"=>$header->index(), 
-				"pageData"=>$db_pagedata->getter(), 
-				"moduleData"=>$db_selectById->getter(), 
-				"miniinternationalsupport"=>$miniinternationalsupport->index(), 
-				"headertop"=>$headertop->index(), 
-				"footer"=>$footer->index() 
-			]);
+			if(count($db_selectById->getter())){
+				/* view */
+				$this->view('internationalsupport/read', [
+					"header"=>array(
+						"website"=>Config::WEBSITE,
+						"public"=>Config::PUBLIC_FOLDER
+					),
+					"headerModule"=>$header->index(), 
+					"pageData"=>$db_pagedata->getter(), 
+					"moduleData"=>$db_selectById->getter(), 
+					"miniinternationalsupport"=>$miniinternationalsupport->index(), 
+					"headertop"=>$headertop->index(), 
+					"footer"=>$footer->index() 
+				]);
+			}else{
+				require_once("app/functions/redirect.php");
+				functions\redirect::url(Config::WEBSITE);
+			}
 		}else{
 			$header->pagedata = $db_pagedata; 
 			/* international support */

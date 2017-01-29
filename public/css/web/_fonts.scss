@@ -22,6 +22,14 @@
     font-weight: normal;
     font-style: normal;
 }
+@font-face {
+    font-family: 'bpg_supersquare_2013regular';
+    src: url('../../fonts/web/bpg_supersquare_2013-webfont.woff2') format('woff2'),
+         url('../../fonts/web/bpg_supersquare_2013-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
 
 /* fallback */
 @font-face {

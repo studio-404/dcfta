@@ -7,6 +7,7 @@ class _legislation
 	{
 		require_once("app/functions/timeleft.php"); 
 		require_once("app/functions/l.php"); 
+		require_once("app/functions/strip_output.php");
 		$l = new functions\l(); 
 		$out = "";
 		if(count($this->data)){
@@ -15,8 +16,8 @@ class _legislation
 				$fileTree = "";
 				$file = new Database("file", array(
 					"method"=>"selectFilesByPageId",  
-					"page_id"=>$value['idx'],  
-					"lang"=>$_SESSION['LANG'],  
+					"page_id"=>(int)$value['idx'],  
+					"lang"=>strip_output::index($_SESSION['LANG']),  
 					"type"=>"module"
 				));
 
@@ -24,22 +25,21 @@ class _legislation
 					$fileTree .= "<section class=\"fileTree\">\n";
 					$fileTree .= "<ul>\n";
 					foreach ($file->getter() as $f) {
-						
-
 						$explode = explode("/", $f['file_path']); 
 						$fileName = end($explode);
 
 						$fileTree .= "<li>\n";	
 						$fileTree .= "<div class=\"icon\"></div>\n";	
 						$fileTree .= sprintf(
-							"<div class=\"text\"><a href=\"%s\" target=\"_blank\">%s</a></div>\n",
-							Config::PUBLIC_FOLDER.$f['file_path'], 
+							"<div class=\"text\"><a href=\"%s%s\" target=\"_blank\">%s</a></div>\n",
+							Config::PUBLIC_FOLDER,
+							$f['file_path'], 
 							$fileName
 						);	
 						$fileTree .= sprintf(
 							"<div class=\"rightSide\"><i class=\"penIcon height30 cursorPointer\" onclick=\"openComment('c%s','commentForm%s')\"></i></div>\n",
-							$f['idx'], 
-							$value['idx'] 
+							(int)$f['idx'], 
+							(int)$value['idx'] 
 						);	
 						$fileTree .= "<div class=\"line\"></div>\n";
 
@@ -55,8 +55,8 @@ class _legislation
 				$out .= "<li>\n";
 				$out .= sprintf(
 					"<div class=\"collapsible-header\" id=\"open%s\"><i class=\"blueArraw-icon\"></i><div>%s</div><p style=\"clear:both\"></p></div>\n",
-					$value['idx'],
-					$value['title']
+					(int)$value['idx'],
+					strip_tags($value['title'])
 				);
 				$out .= "<div class=\"collapsible-body\">\n";
 				$out .= "<div class=\"hideShadow\"></div>\n";
@@ -67,13 +67,16 @@ class _legislation
 				$out .= "<section class=\"padding20\">\n";
 				$out .= sprintf(
 					"%s\n",
-					html_entity_decode($value['description'])
+					strip_output::index($value['description'])
 				);
 				
 				$endtime = $value['date'] + 604800;
 				$timeleft = functions\timeleft::index($endtime); 
 
-				$out .= "<section class=\"col s12 m8 l8 commentForm".$value['idx']."\" style=\"display: none; margin-top:20px\">";
+				$out .= sprintf(
+					"<section class=\"col s12 m8 l8 commentForm%s\" style=\"display: none; margin-top:20px\">", 
+					(int)$value['idx']
+				);
 				if($endtime>time()){					
 					$out .= sprintf(
 						"<section class=\"justTitle\" style=\"color:#3c3c3c;\">%s</section><br>", 
@@ -97,7 +100,7 @@ class _legislation
 
 					$out .= sprintf(
 						"<div class=\"commMsG commentForm%s_msg\" style=\"padding:0 0 20px 0\"></div>",
-						$value['idx']
+						(int)$value['idx']
 					);
 					$out .= "<input type=\"hidden\" name=\"commentId\" class=\"commentId\" value=\"c1\">";
 					$out .= "<section class=\"marginminus10\">";
@@ -134,8 +137,8 @@ class _legislation
 					$out .= "<div class=\"col s12 m12 l12\">";
 					$out .= sprintf(
 						"<a class=\"waves-effect waves-light btn submit\" style=\"text-decoration: none;\" onclick=\"comment('commentForm%s','%s')\">%s</a>",
-						$value['idx'],
-						$_SESSION['LANG'], 
+						(int)$value['idx'],
+						strip_output::index($_SESSION['LANG']), 
 						$l->translate('submit')
 					);
 					$out .= "</div>";

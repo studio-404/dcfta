@@ -24,10 +24,10 @@ class file_system
 			)
 		);
 
-		$random = functions\request::index("POST","random");
-		$path = functions\request::index("POST","path");
-		$item = functions\request::index("POST","item");
-		$file_attach_type = functions\request::index("POST","file_attach_type");
+		$random = strip_tags(functions\request::index("POST","random"));
+		$path = strip_tags(functions\request::index("POST","path"));
+		$item = strip_tags(functions\request::index("POST","item"));
+		$file_attach_type = strip_tags(functions\request::index("POST","file_attach_type"));
 		$output = false;
 
 		if($random=="" || $path=="")

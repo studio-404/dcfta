@@ -1,5 +1,6 @@
 <?php
 require_once("app/functions/l.php"); 
+require_once("app/functions/strip_output.php"); 
 $l = new functions\l();
 echo $data['headerModule']; 
 echo $data['headertop']; 
@@ -11,7 +12,7 @@ echo $data['headertop'];
 			<section class="col s12 m6 l8 leftSide">
 				<section class="headerText">
 					<div class="line"></div>
-					<div class="title"><?=strip_tags($data['pageData']['description'])?></div>
+					<div class="title"><?=strip_output::index($data['pageData']['description'])?></div>
 				</section>
 				
 				<section class="contactForm">
@@ -21,7 +22,7 @@ echo $data['headertop'];
 						$_SESSION['protect_x'] = functions\string::random(6);
 						echo sprintf(
 							"<input type=\"hidden\" name=\"csrf\" id=\"csrf\" class=\"csrf\" value=\"%s\">", 
-							$_SESSION['protect_x']
+							htmlspecialchars($_SESSION['protect_x'])
 						);
 						?>
 						<section class="marginminus10">
@@ -70,7 +71,7 @@ echo $data['headertop'];
 			<section class="col s12 m6 l4 rightSide print">
 				<section class="justTitle"><?=$l->translate('contactdetails')?></section>
 				<section class="contactDetails">
-					<?=@html_entity_decode($data['contactData']['description'])?>
+					<?=strip_output::index($data['contactData']['description'])?>
 				</section>
 
 				<section class="map noprint">

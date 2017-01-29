@@ -21,13 +21,13 @@ class sendEmail
 			)
 		);
 
-		$input_subject = functions\request::index("POST","input_subject");
-		$input_name = functions\request::index("POST","input_name");
-		$input_organization = functions\request::index("POST","input_organization");
-		$input_email = functions\request::index("POST","input_email");
-		$input_phone = functions\request::index("POST","input_phone");
-		$input_comment = functions\request::index("POST","input_comment");
-		$csrf = functions\request::index("POST","csrf");
+		$input_subject = strip_tags(functions\request::index("POST","input_subject")); 
+		$input_name = strip_tags(functions\request::index("POST","input_name"));
+		$input_organization = strip_tags(functions\request::index("POST","input_organization"));
+		$input_email = strip_tags(functions\request::index("POST","input_email"));
+		$input_phone = strip_tags(functions\request::index("POST","input_phone"));
+		$input_comment = strip_tags(functions\request::index("POST","input_comment"));
+		$csrf = strip_tags(functions\request::index("POST","csrf"));
 
 		if($input_subject=="" || $input_name=="" || $input_organization=="" || $input_email=="" || $input_phone=="" || $input_comment=="" || $csrf=="")
 		{

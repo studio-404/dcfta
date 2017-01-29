@@ -23,4 +23,8 @@ class string
 		$bytes = openssl_random_pseudo_bytes($length * 2);
 		return substr(str_replace(array('/', '+', '='), '', base64_encode($bytes)), 0, $length);
 	}
+
+	public static function escapeJavaScriptText($string){
+		return str_replace("\n", '\n', str_replace('"', '\"', addcslashes(str_replace("\r", '', (string)$string), "\0..\37'\\")));
+	}
 }

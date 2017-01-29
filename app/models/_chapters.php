@@ -6,6 +6,7 @@ class _chapters
 	public function index()
 	{
 		require_once("app/functions/files.php"); 
+		require_once("app/functions/strip_output.php");
 		$out = "";
 		if(count($this->data)){
 			$out .= "<ul class=\"collapsible\" data-collapsible=\"accordion\">\n";
@@ -24,9 +25,9 @@ class _chapters
 					foreach ($file->getter() as $f) {
 						$subfile = new Database("file", array(
 							"method"=>"selectFilesByPageId",  
-							"page_id"=>$value['idx'],  
-							"lang"=>$_SESSION['LANG'], 
-							"cid"=>$f['idx'], 
+							"page_id"=>(int)$value['idx'],  
+							"lang"=>strip_output::index($_SESSION['LANG']), 
+							"cid"=>(int)$f['idx'], 
 							"type"=>"module"
 						));
 
@@ -36,8 +37,9 @@ class _chapters
 						$fileTree .= "<li>\n";	
 						$fileTree .= "<div class=\"icon\"></div>\n";	
 						$fileTree .= sprintf(
-							"<div class=\"text\"><a href=\"%s\" target=\"_blank\">%s</a></div>\n",
-							Config::PUBLIC_FOLDER.$f['file_path'], 
+							"<div class=\"text\"><a href=\"%s%s\" target=\"_blank\">%s</a></div>\n",
+							Config::PUBLIC_FOLDER,
+							$f['file_path'], 
 							$fileName
 						);	
 						$fileTree .= sprintf(
@@ -55,8 +57,9 @@ class _chapters
 								$fileTree .= "<li>\n";	
 								$fileTree .= "<div class=\"icon\"></div>\n";	
 								$fileTree .= sprintf(
-									"<div class=\"text\"><a href=\"%s\" target=\"_blank\">%s</a></div>\n",
-									Config::PUBLIC_FOLDER.$f2['file_path'], 
+									"<div class=\"text\"><a href=\"%s%s\" target=\"_blank\">%s</a></div>\n",
+									Config::PUBLIC_FOLDER,
+									$f2['file_path'], 
 									$fileName2
 								);	
 								$fileTree .= sprintf(
@@ -82,8 +85,8 @@ class _chapters
 				$out .= sprintf(
 					"<div class=\"collapsible-header\" id=\"open%s\"><i class=\"blueArraw-icon\"></i><div>%s</div>
 					<p style=\"clear:both\"></p></div>\n",
-					$value['idx'],
-					$value['title']
+					(int)$value['idx'],
+					strip_output::index($value['title'])
 				);
 				$out .= "<div class=\"collapsible-body\">\n";
 				$out .= "<div class=\"hideShadow\"></div>\n";
@@ -91,7 +94,7 @@ class _chapters
 				$out .= "<section class=\"padding20\">\n";
 				$out .= sprintf(
 					"%s\n",
-					html_entity_decode($value['description'])
+					strip_output::index($value['description'])
 				);
 				$out .= "</section>\n";
 				$out .= "</div>\n";

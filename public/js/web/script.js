@@ -102,7 +102,6 @@ var slideDownMe = function(s){
 
 var filesMobilize = function(){
 	$(".files-mobile").each(function(){
-		console.log("count me"); 
 		var type = $(this).attr("data-type"); 
 		var ht = $("."+type).html(); 
 		$(this).html(ht); 
@@ -126,12 +125,12 @@ var openComment = function(cid, commentForm){
 
 var comment = function(formBox, lang){
 	var ajaxFile = "/addcomment";
-	var commentId = $("."+formBox+" form .commentId").val();
-	var firstname = $("."+formBox+" form .first_name").val(); 
-	var organization = $("."+formBox+" form .organization").val(); 
-	var email = $("."+formBox+" form .email").val(); 
-	var csrf = $("."+formBox+" form .csrf").val(); 
-	var comment = $("."+formBox+" form .comment").val(); 
+	var commentId = $("."+formBox+" form .commentId").val().replace(/<.*?>/g, '');
+	var firstname = $("."+formBox+" form .first_name").val().replace(/<.*?>/g, ''); 
+	var organization = $("."+formBox+" form .organization").val().replace(/<.*?>/g, '');
+	var email = $("."+formBox+" form .email").val().replace(/<.*?>/g, '');
+	var csrf = $("."+formBox+" form .csrf").val().replace(/<.*?>/g, '');
+	var comment = $("."+formBox+" form .comment").val().replace(/<.*?>/g, '');
 	if(lang=="ge"){
 		$("." + formBox + "_msg").text(Config.waitGeo);
 	}else if(lang=="en"){
@@ -170,7 +169,7 @@ var changeLanguage = function(newLang, oldLang){
 	if(url.search(find)!="-1"){
 		location.href = replaced;
 	}else{
-		location.href = Config.website+"/"+Config.mainLang+"/"+Config.mainClass;
+		location.href = Config.website+"/"+newLang+"/"+Config.mainClass;
 	}
 };
 
@@ -200,13 +199,13 @@ var loadCal = function(type, currentMonth, currentYear, lang){
 
 var sendEmail = function(){
 	var ajaxFile = "/sendEmail";
-	var input_subject = $("#input_subject").val(); 
-	var input_name = $("#input_name").val(); 
-	var input_organization = $("#input_organization").val(); 
-	var input_email = $("#input_email").val(); 
-	var input_phone = $("#input_phone").val(); 
-	var input_comment = $("#input_comment").val(); 
-	var csrf = $(".csrf").val(); 
+	var input_subject = $("#input_subject").val().replace(/<.*?>/g, ''); 
+	var input_name = $("#input_name").val().replace(/<.*?>/g, ''); 
+	var input_organization = $("#input_organization").val().replace(/<.*?>/g, ''); 
+	var input_email = $("#input_email").val().replace(/<.*?>/g, ''); 
+	var input_phone = $("#input_phone").val().replace(/<.*?>/g, ''); 
+	var input_comment = $("#input_comment").val().replace(/<.*?>/g, ''); 
+	var csrf = $(".csrf").val().replace(/<.*?>/g, ''); 
 
 	$.ajax({
 		method: "POST",
@@ -230,13 +229,13 @@ var sendEmail = function(){
 
 var registerEvent = function(lang){
 	var ajaxFile = "/registerEvent";
-	var evid = $("#evid").val(); 
-	var evn = $("#evn").val(); 
-	var input_name = $("#input_name").val(); 
-	var input_organization = $("#input_organization").val(); 
-	var input_email = $("#input_email").val(); 
-	var input_phone = $("#input_phone").val(); 
-	var csrf = $(".csrf").val(); 
+	var evid = $("#evid").val().replace(/<.*?>/g, ''); 
+	var evn = $("#evn").val().replace(/<.*?>/g, ''); 
+	var input_name = $("#input_name").val().replace(/<.*?>/g, ''); 
+	var input_organization = $("#input_organization").val().replace(/<.*?>/g, ''); 
+	var input_email = $("#input_email").val().replace(/<.*?>/g, ''); 
+	var input_phone = $("#input_phone").val().replace(/<.*?>/g, ''); 
+	var csrf = $(".csrf").val().replace(/<.*?>/g, ''); 
 
 	if(lang=="ge"){
 		$(".messageBox").text(Config.waitGeo);
@@ -351,7 +350,6 @@ $(document).ready(function(){
 	filesMobilize();
 	leftNavYellowBoxChangeHeight(); 
 	getAllStringInsideCurly();
-
 	$('.collapsible').collapsible({
 	  accordion : false
 	});
@@ -400,3 +398,21 @@ $(document).ready(function(){
       });
     }
 });
+
+var master = function(master, classx){
+	$('.'+master).hover(function(){
+			var title = $(this).attr('title');
+			if(title!="" && typeof title !== "undefined"){
+				$(this).data('tipText', title).removeAttr('title');
+				$('<p class="'+classx+'"></p>').html(title).appendTo('body').fadeIn('slow');
+			}
+		}, function() {
+				$(this).attr('title', $(this).data('tipText'));
+				$('.'+classx).remove();
+		}).mousemove(function(e) {
+				var mousex = e.pageX + 20;
+				var mousey = e.pageY + 10; 
+				$('.'+classx)
+				.css({ top: mousey, left: mousex })
+	});
+}

@@ -41,7 +41,6 @@ class removeModule
 					'method'=>'removeModule', 
 					'idx'=>$idx
 			));
-			$output = $Database->getter();
 
 			$Database = new Database('file', array(
 					'method'=>'removeFileByPageId', 
@@ -49,28 +48,18 @@ class removeModule
 					'type'=>"module"
 			));
 
-			if($output){
-				$this->out = array(
-					"Error" => array(
-						"Code"=>0, 
-						"Text"=>"",
-						"Details"=>""
-					),
-					"Success"=>array(
-						"Code"=>1, 
-						"Text"=>"ოპერაცია შესრულდა წარმატებით !",
-						"Details"=>""
-					)
-				);
-			}else{
-				$this->out = array(
-					"Error" => array(
-						"Code"=>1, 
-						"Text"=>"ოპერაციის შესრულებისას დაფიქსირდა შეცდომა !",
-						"Details"=>""
-					)
-				);
-			}
+			$this->out = array(
+				"Error" => array(
+					"Code"=>0, 
+					"Text"=>"",
+					"Details"=>""
+				),
+				"Success"=>array(
+					"Code"=>1, 
+					"Text"=>"ოპერაცია შესრულდა წარმატებით !",
+					"Details"=>""
+				)
+			);			
 		}
 
 		return $this->out;

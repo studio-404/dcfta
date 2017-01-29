@@ -662,11 +662,11 @@ var formModuleAdd = function(moduleSlug, lang){
 				$(".modal-message-box").html(obj.Error.Text);
 			}else if(obj.Success.Code==1){
 				$(".modal-message-box").html(obj.Success.Text);
-				//location.reload();
 			}else{
 				$(".modal-message-box").html("E5");
 			}
 			scrollTop();
+			location.reload();
 		});
 	}
 };
@@ -1336,4 +1336,57 @@ var updateMeSelect = function(col, pid){
 	});	
 
 	
+};
+
+var edit_chart = function(id, lang){
+	var ajaxFile = "/editChart";
+	var header = "<h4>რედაქტირება</h4><p class=\"modal-message-box\"></p>";
+	var content = "<p>გთხოვთ დაიცადოთ...</p>";
+	var footer = "<a href=\"javascript:void(0)\" id=\"modalButton\" class=\"waves-effect waves-green btn-flat\">რედაქტირება</a>";
+
+	$("#modal1 .modal-content").html(header + content);
+	$("#modal1 .modal-footer").html(footer);
+	$('#modal1').openModal();
+
+	$.ajax({
+		method: "POST",
+		url: Config.ajax + ajaxFile,
+		data: { id: id, lang:lang }
+	}).done(function( msg ) {
+		var obj = $.parseJSON(msg);
+		if(obj.Error.Code==1){
+			var errorText = "<p>" + obj.Error.Text +"</p>";
+			$("#modal1 .modal-content").html(header + errorText);
+		}else{
+			var form = "<div class=\"materialize\">" + obj.form +"</div>";
+			$("#modal1 .modal-content").html(header + form);
+			$("#modalButton").attr({"onclick": obj.attr });
+			tiny(".tinymceTextArea");
+		}
+	});
+};
+
+var formChartEdit = function(id, lang){
+	var ajaxFile = "/formChartEdit";
+	var title = $("#title").val();
+	var pageText = tinymce.get('pageText').getContent();
+	var tooltip =tinymce.get('tooltip').getContent();
+	
+	$(".modal-message-box").html("გთხოვთ დაიცადოთ...");
+
+	$.ajax({
+		method: "POST",
+		url: Config.ajax + ajaxFile,
+		data: { id: id, lang: lang, title: title, tooltip: tooltip, pageText: pageText }
+	}).done(function( msg ) {
+		var obj = $.parseJSON(msg);
+		if(obj.Error.Code==1){
+			$(".modal-message-box").html(obj.Error.Text);
+		}else if(obj.Success.Code==1){
+			$(".modal-message-box").html(obj.Success.Text);
+			location.reload(); 
+		}else{
+			$(".modal-message-box").html("E");
+		}
+	});
 };

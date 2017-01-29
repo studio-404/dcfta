@@ -1,5 +1,6 @@
 <?php
 require_once("app/functions/l.php"); 
+require_once("app/functions/strip_output.php"); 
 $l = new functions\l();
 echo $data['headerModule']; 
 echo $data['headertop']; 
@@ -11,10 +12,10 @@ echo $data['headertop'];
 			<section class="col s12 m6 l8 leftSide">
 				<section class="headerText">
 					<div class="line"></div>
-					<div class="title"><?=@html_entity_decode($data['pageData']['description'])?></div>
+					<div class="title"><?=strip_output::index($data['pageData']['description'])?></div>
 				</section>
 				<section class="mainText">
-					<?=@html_entity_decode($data['pageData']['text'])?>
+					<?=strip_output::index($data['pageData']['text'])?>
 				</section>
 				
 				<section class="noprint">
@@ -40,7 +41,7 @@ echo $data['headertop'];
 <script type="text/javascript" charset="utf-8">
 	$('.mainText').css({"overflow":"hidden"});
     $('.mainText').readmore({
-      moreLink: '<a href="#" style="margin-top: -40px; float:left"><?=$l->translate('readmore')?></a>',
+      moreLink: '<a href="#" class="readmoreLink"><?=$l->translate('readmore')?></a>',
       lessLink: '',
       collapsedHeight: 378
     });

@@ -7,7 +7,7 @@ header {
 				}
 				a, span{
 					font-family: 'noto_sans_georgianregular'; 
-					font-size: 13.5px; 
+					font-size: 13px; 
 				}
 			} 
 		}
@@ -121,11 +121,28 @@ footer .centerWidth p{
 svg{
 	overflow: visible !important;
 	position: relative !important; 
-
+	// width: 100%;
 	g:hover{
 		cursor: pointer !important;
 	}
 }
-.leftSide a{
+.readmoreLink{
+	font-family: 'noto_sans_georgianregular' !important;
+	margin-top: -40px; 
+	float:left;
+}
+.collapsible .collapsible-body{
+	font-family: 'noto_sans_georgianregular' !important;
+}
+.masterTooltip{
+	font-family: 'noto_sans_georgianregular' !important;	
+	font-size: 11px;
+	background-color: #f2f2f2;
+}
+.google-visualization-orgchart-node, .google-visualization-orgchart-node{
+	background:none !important;
+	background-color: #f2f2f2 !important;	
+}
+.tooltip{
 	font-family: 'noto_sans_georgianregular' !important;
 }

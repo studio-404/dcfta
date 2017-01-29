@@ -39,6 +39,7 @@ class dashboard extends Controller
 		$this->managerNavigation->navigation = array(
 			$_SESSION["LANG"]."/dashboard/index"=>"გვერდები",
 			$_SESSION["LANG"]."/dashboard/modules/".Config::DEFAULT_MODULE=>"მოდულები", 
+			$_SESSION["LANG"]."/dashboard/plugins"=>"პლაგინები", 
 			$_SESSION["LANG"]."/dashboard/comments"=>"კომენტარები",
 			$_SESSION["LANG"]."/dashboard/filemanager"=>"ფაილ მენეჯერი", 
 			$_SESSION["LANG"]."/manager/index"=>"გასვლა"
@@ -158,6 +159,25 @@ class dashboard extends Controller
 				"public" => Config::PUBLIC_FOLDER
 			),
 			"nav" => $this->managerNavigation->index(),
+			"footerNav" => $this->managerNavigation->footer()
+		]);
+	}
+
+	public  function plugins($lang, $type = "")
+	{
+		require_once 'app/functions/string.php';
+		require_once 'app/functions/scanMe.php';
+
+		$scanMe = new functions\scanMe();
+
+		$this->view('dashboard/plugins', [
+			"header" => array(
+				"website" => Config::WEBSITE,
+				"public" => Config::PUBLIC_FOLDER
+			),
+			"nav" => $this->managerNavigation->index(),
+			"scan" => $scanMe->index('app/_plugins'),
+			"type"=>$type, 
 			"footerNav" => $this->managerNavigation->footer()
 		]);
 	}

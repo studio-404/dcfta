@@ -25,18 +25,20 @@ class calendar
 		$this->rusmonth = array("January"=>"январь", "February"=>"февраль", "March"=>"март", "April"=>"апрель", "May"=>"май", "June"=>"июнь", "July"=>"июль", "August"=>"август", "September"=>"сентябрь", "October"=>"октябрь", "November"=>"ноябрь", "December"=>"декабрь");
 
 		$this->date = time();
-		$this->day = date('d',$this->date); 
-		$this->month = date('m',$this->date);
-		$this->year = date('Y',$this->date);
+		$this->day = date('d', $this->date); 
+		$this->month = date('m', $this->date);
+		$this->year = date('Y', $this->date);
 
-		$this->Cday = date('d',$this->date);
-		$this->Cmonth = date('m',$this->date);
-		$this->Cyear = date('Y',$this->date);
+		$this->Cday = date('d', $this->date);
+		$this->Cmonth = date('m', $this->date);
+		$this->Cyear = date('Y', $this->date);
 	}
 
 	public function index($lang)
 	{
-
+		if(!isset($this->month) || !isset($this->year) || $this->month=="" || $this->year==""){
+			exit();
+		}
 		if(isset($this->getMonth)){ $this->month=$this->getMonth; }
 		if(isset($this->getYear)){ $this->year=$this->getYear; }
 

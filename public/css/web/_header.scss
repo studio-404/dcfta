@@ -69,6 +69,20 @@ body{
 		font-size: 18px;
 	}
 }
+.tooltip {
+	display: none;
+	position: absolute;
+	background-color: #ffce37; 
+	padding: 15px;
+	color: #363636;
+	font-size: 14px;
+	z-index: 1010;
+	opacity: 1;
+	text-align: center;
+}
+.tooltip strong{
+	font-weight: bold;
+}
 header{
 	.top{
 		background-color: $redColor;
@@ -188,12 +202,12 @@ header{
 		height: $topBottomHeight; 
 		background-color: $topBottomBackgroundColor;
 		.logo{
-			margin-top: 20px;
+			margin-top: 10px;
 			width: $halfWidth;
 			float: left;
 			cursor: pointer;
 			display: block;
-			margin-bottom: 5px;
+			margin-bottom: 15px;
 			.flags{
 				width: $fullWidth;
 				p{
@@ -282,9 +296,9 @@ header{
 					padding: 0 10px;
 				}	
 				.active{
-					font-weight: bold;
 					position: relative;
 					span{
+						padding-bottom: 3px !important;
 						border-bottom: solid 3px $whiteColor;
 					}
 				}
@@ -298,7 +312,11 @@ header{
 				// 	left: 12.5px;
 				// }
 				a:hover{
-					font-weight: bold;	
+					position: relative;
+					span{
+						border-bottom: solid 3px $whiteColor;
+						padding-bottom: 3px !important;
+					}	
 				}			
 			}
 			li:after{

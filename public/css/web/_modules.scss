@@ -595,6 +595,8 @@ footer{
 				img{
 					margin: 0;
 					padding:0;
+					border:0;
+					outline:0;
 					width: 145px;
 				}
 			} 
@@ -919,3 +921,6 @@ footer{
 		text-decoration: underline;
 	}
 }
+svg .shadow { 
+	cursor: pointer;
+}  

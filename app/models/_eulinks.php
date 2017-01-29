@@ -5,7 +5,8 @@ class _eulinks
 
 	public function index()
 	{
-		require_once("app/functions/string.php"); 
+		require_once("app/functions/string.php");
+		require_once("app/functions/strip_output.php"); 
 		$string = new functions\string(); 
 		$out = "<ul class=\"usefullLinks\">\n";
 		if(count($this->data)){
@@ -25,14 +26,14 @@ class _eulinks
 				$out .= "<li>\n";
 				$out .= sprintf(
 					"<a href=\"%s\" class=\"waves-effect waves-light\" target=\"_blank\">\n", 
-					$value['url']
+					strip_output::index($value['url'])
 				);
 				$out .= sprintf(
 					"<img src=\"%s\" alt=\"\" />\n", 
 					$image 
 				);
 				// $out .= sprintf("<div>%s</div>\n", $string->cut($value['title'], 35));
-				$out .= sprintf("<div>%s</div>\n", $value['title']);
+				$out .= sprintf("<div>%s</div>\n", strip_output::index($value['title']));
 				$out .= "</a>\n";
 				$out .= "</li>\n";
 			}

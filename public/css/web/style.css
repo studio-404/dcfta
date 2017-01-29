@@ -16,6 +16,11 @@
   src: url("../../fonts/web/noto/notosansgeorgian-regular-webfont.woff2") format("woff2"), url("../../fonts/web/fonts/noto/notosansgeorgian-regular-webfont.woff") format("woff");
   font-weight: normal;
   font-style: normal; }
+@font-face {
+  font-family: 'bpg_supersquare_2013regular';
+  src: url("../../fonts/web/bpg_supersquare_2013-webfont.woff2") format("woff2"), url("../../fonts/web/bpg_supersquare_2013-webfont.woff") format("woff");
+  font-weight: normal;
+  font-style: normal; }
 /* fallback */
 @font-face {
   font-family: 'Material Icons';
@@ -102,6 +107,20 @@ body {
     background-color: #003399;
     padding-right: 5px;
     font-size: 18px; }
+
+.tooltip {
+  display: none;
+  position: absolute;
+  background-color: #ffce37;
+  padding: 15px;
+  color: #363636;
+  font-size: 14px;
+  z-index: 1010;
+  opacity: 1;
+  text-align: center; }
+
+.tooltip strong {
+  font-weight: bold; }
 
 header .top {
   background-color: #ff0000;
@@ -192,12 +211,12 @@ header .topBottom {
   height: 140px;
   background-color: #f2f3f6; }
   header .topBottom .logo {
-    margin-top: 20px;
+    margin-top: 10px;
     width: 50%;
     float: left;
     cursor: pointer;
     display: block;
-    margin-bottom: 5px; }
+    margin-bottom: 15px; }
     header .topBottom .logo .flags {
       width: 100%; }
       header .topBottom .logo .flags p {
@@ -272,12 +291,15 @@ header .navigation {
         font-size: 16px;
         padding: 0 10px; }
       header .navigation ul li .active {
-        font-weight: bold;
         position: relative; }
         header .navigation ul li .active span {
+          padding-bottom: 3px !important;
           border-bottom: solid 3px #ffffff; }
       header .navigation ul li a:hover {
-        font-weight: bold; }
+        position: relative; }
+        header .navigation ul li a:hover span {
+          border-bottom: solid 3px #ffffff;
+          padding-bottom: 3px !important; }
     header .navigation ul li:after {
       content: '';
       width: 1px;
@@ -918,6 +940,8 @@ footer {
     footer .centerWidth .footer-logo2 a img {
       margin: 0;
       padding: 0;
+      border: 0;
+      outline: 0;
       width: 145px; }
 
 .InternationalSupport .box {
@@ -1188,6 +1212,9 @@ footer {
   background-color: white !important;
   text-decoration: underline; }
 
+svg .shadow {
+  cursor: pointer; }
+
 .CalendarBox {
   margin-top: 20px;
   padding: 10px 10px 10px 15px;
@@ -1301,12 +1328,40 @@ footer {
     #chart_div table .google-visualization-orgchart-linetop {
       border-top: 1px solid #f2f3f6 !important; }
 
+#chart_div2 {
+  margin: 0px;
+  padding: 0px; }
+  #chart_div2 table {
+    margin: 0px;
+    padding: 0px; }
+    #chart_div2 table .google-visualization-orgchart-nodesel {
+      border: none !important; }
+    #chart_div2 table .google-visualization-orgchart-node {
+      padding: 5px;
+      border: none !important;
+      -webkit-border-radius: 3px !important;
+      -moz-border-radius: 3px !important;
+      border-radius: 3px !important;
+      -webkit-box-shadow: none !important;
+      -moz-box-shadow: none !important;
+      -ms-box-shadow: none !important;
+      box-shadow: none !important;
+      color: #363636 !important;
+      font-size: 15px !important;
+      font-family: "noto_sansregular" !important; }
+    #chart_div2 table .google-visualization-orgchart-lineleft {
+      border-left: 1px solid #f2f3f6 !important; }
+    #chart_div2 table .google-visualization-orgchart-lineright {
+      border-right: 1px solid #f2f3f6 !important; }
+    #chart_div2 table .google-visualization-orgchart-linebottom {
+      border-bottom: 1px solid #f2f3f6 !important; }
+    #chart_div2 table .google-visualization-orgchart-linetop {
+      border-top: 1px solid #f2f3f6 !important; }
+
 /* Media Queries */
 @media (max-width: 1200px) {
   .centerWidth {
     width: 90%; }
-    .centerWidth .event img {
-      width: 100%; }
 
   header .top .top-box {
     width: 100%; }
@@ -1330,6 +1385,9 @@ footer {
 @media (max-width: 1025px) {
   .centerWidth .event #mainImage {
     width: auto !important; } }
+@media (max-width: 875px) {
+  .centerWidth .event #mainImage {
+    width: 100% !important; } }
 @media (max-width: 1200px) {
   .centerWidth {
     width: 90%; }

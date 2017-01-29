@@ -5,18 +5,25 @@ class _miniinternationalsupport
 
 	public function index()
 	{
+		require_once("app/functions/strip_output.php");
 		$out = "";
 		if(count($this->data)){
 			foreach($this->data as $value) {
 				$photos = new Database("photos",array(
 					"method"=>"selectByParent", 
-					"idx"=>$value['idx'],  
-					"lang"=>$value['lang'],  
-					"type"=>$value['type'] 
+					"idx"=>(int)$value['idx'],  
+					"lang"=>strip_output::index($value['lang']),  
+					"type"=>strip_output::index($value['type']) 
 				));
 				if($photos->getter()){
 					$pic = $photos->getter();
-					$image = Config::WEBSITE.$_SESSION['LANG']."/image/loadimage?f=".Config::WEBSITE_.$pic[0]['path']."&w=230&h=50";
+					$image = sprintf(
+						"%s%s/image/loadimage?f=%s%s&w=230&h=50",
+						Config::WEBSITE,
+						strip_output::index($_SESSION['LANG']),
+						Config::WEBSITE_,
+						strip_output::index($pic[0]['path'])
+					);
 				}else{
 					$image = "/public/filemanager/noimage.png";
 				}
@@ -27,8 +34,11 @@ class _miniinternationalsupport
 				$links = str_replace(array(" "), array("-"), $title);
 
 				$out .= sprintf(
-					"<a href=\"%s\">",
-					Config::WEBSITE.$_SESSION['LANG']."/international-support/".$value['idx']."/".urlencode($links) 
+					"<a href=\"%s%s/international-support/%s/%s\">",
+					Config::WEBSITE,
+					strip_output::index($_SESSION['LANG']),
+					(int)$value['idx'],
+					urlencode($links) 
 				);
 				$out .= "<section class=\"box\" style=\"min-height: auto\">";			
 				$out .= sprintf(

@@ -5,6 +5,7 @@ class commentsView
 	public $string;
 
 	public function index(){
+		require_once("app/functions/strip_output.php"); 
 		$out = '';
 		if(count($this->data)) : 
 			foreach ($this->data as $val) {
@@ -21,14 +22,14 @@ class commentsView
 							<a href=\"javascript:void(0)\" onclick=\"askRemoveComments('%s')\"><i class=\"material-icons tooltipped\" data-position=\"bottom\" data-delay=\"50\" data-tooltip=\"წაშლა\">delete</i></a>
 						</td>
 					</tr>",
-					$read, 
-					$val['id'],
-					date("d/m/Y g:i:s", $val['date']), 
-					$val['firstname'],
-					$val['organization'],
-					$val['email'],
-					$val['id'], 
-					$val['id']
+					strip_output::index($read), 
+					(int)$val['id'],
+					date("d/m/Y g:i:s", (int)$val['date']), 
+					strip_output::index($val['firstname']),
+					strip_output::index($val['organization']),
+					strip_output::index($val['email']),
+					(int)$val['id'], 
+					(int)$val['id']
 				);
 			}
 		endif;

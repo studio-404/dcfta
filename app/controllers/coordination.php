@@ -46,6 +46,18 @@ class Coordination extends Controller
 			"lang"=>$_SESSION['LANG']
 		));
 
+		$chart = new Database("chart", array(
+			"method"=>"select", 
+			"cid"=>0,
+			"type"=>"coord1"
+		));
+
+		$chart2 = new Database("chart", array(
+			"method"=>"select", 
+			"cid"=>0,
+			"type"=>"coord2"
+		));
+
 		/* HEDARE */
 		$header = $this->model('_header');
 		$header->public = Config::PUBLIC_FOLDER; 
@@ -89,6 +101,8 @@ class Coordination extends Controller
 			"headertop"=>$headertop->index(), 
 			"pageData"=>$db_pagedata->getter(), 
 			"stateagencies"=>$stateagencies->index(), 
+			"chart"=>$chart->getter(), 
+			"chart2"=>$chart2->getter(), 
 			"footer"=>$footer->index() 
 		]);
 	}

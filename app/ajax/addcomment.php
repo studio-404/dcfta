@@ -21,12 +21,12 @@ class addcomment
 		);
 
 		$commentId = filter_var(functions\request::index("POST","commentId"), FILTER_SANITIZE_NUMBER_INT);
-		$firstname = functions\request::index("POST","firstname");
-		$organization = functions\request::index("POST","organization");
-		$email = functions\request::index("POST","email");
-		$comment = functions\request::index("POST","comment");
-		$csrf = functions\request::index("POST","csrf");
-		$lang = functions\request::index("POST","lang");
+		$firstname = strip_tags(functions\request::index("POST","firstname"));
+		$organization = strip_tags(functions\request::index("POST","organization"));
+		$email = strip_tags(functions\request::index("POST","email"));
+		$comment = strip_tags(functions\request::index("POST","comment"));
+		$csrf = strip_tags(functions\request::index("POST","csrf"));
+		$lang = strip_tags(functions\request::index("POST","lang"));
 
 		if($commentId=="" || $firstname=="" || $organization=="" || $email=="" || $comment=="" || $lang=="" || $csrf=="")
 		{

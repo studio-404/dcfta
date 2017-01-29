@@ -6,6 +6,7 @@ class _adoptedLegislation
 	public function index()
 	{
 		require_once("app/functions/files.php"); 
+		require_once("app/functions/strip_output.php");
 		$out = "";
 		if(count($this->data)){
 			$out .= "<ul class=\"collapsible\" data-collapsible=\"accordion\">\n";
@@ -36,8 +37,9 @@ class _adoptedLegislation
 						$fileTree .= "<li>\n";	
 						$fileTree .= "<div class=\"icon\"></div>\n";	
 						$fileTree .= sprintf(
-							"<div class=\"text\"><a href=\"%s\" target=\"_blank\">%s</a></div>\n",
-							Config::PUBLIC_FOLDER.$f['file_path'], 
+							"<div class=\"text\"><a href=\"%s%s\" target=\"_blank\">%s</a></div>\n",
+							Config::PUBLIC_FOLDER,
+							$f['file_path'], 
 							$fileName
 						);	
 						$fileTree .= sprintf(
@@ -55,8 +57,9 @@ class _adoptedLegislation
 								$fileTree .= "<li>\n";	
 								$fileTree .= "<div class=\"icon\"></div>\n";	
 								$fileTree .= sprintf(
-									"<div class=\"text\"><a href=\"%s\" target=\"_blank\">%s</a></div>\n",
-									Config::PUBLIC_FOLDER.$f2['file_path'], 
+									"<div class=\"text\"><a href=\"%s%s\" target=\"_blank\">%s</a></div>\n",
+									Config::PUBLIC_FOLDER,
+									$f2['file_path'], 
 									$fileName2
 								);	
 								$fileTree .= sprintf(
@@ -81,8 +84,8 @@ class _adoptedLegislation
 				$out .= "<li>\n";
 				$out .= sprintf(
 					"<div class=\"collapsible-header\" id=\"open%s\"><i class=\"blueArraw-icon\"></i><div>%s</div><p style=\"clear:both\"></p></div>\n",
-					$value['idx'], 
-					$value['title']
+					(int)$value['idx'], 
+					strip_output::index($value['title'])
 				);
 				$out .= "<div class=\"collapsible-body\">\n";
 				$out .= "<div class=\"hideShadow\"></div>\n";
@@ -90,7 +93,7 @@ class _adoptedLegislation
 				$out .= "<section class=\"padding20\">\n";
 				$out .= sprintf(
 					"%s\n",
-					html_entity_decode($value['description'])
+					strip_output::index($value['description'])
 				);
 				$out .= "</section>\n";
 				$out .= "</div>\n";

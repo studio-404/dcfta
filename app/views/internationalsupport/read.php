@@ -1,5 +1,6 @@
 <?php
 require_once("app/functions/l.php"); 
+require_once("app/functions/strip_output.php"); 
 $l = new functions\l();
 echo $data['headerModule']; 
 echo $data['headertop']; 
@@ -18,28 +19,28 @@ echo $data['headertop'];
 						<?php
 						$photos = new Database("photos",array(
 							"method"=>"selectByParent", 
-							"idx"=>$data['moduleData']['idx'],  
-							"lang"=>$_SESSION['LANG'],  
-							"type"=>$data['moduleData']['type'] 
+							"idx"=>(int)$data['moduleData']['idx'],  
+							"lang"=>htmlspecialchars($_SESSION['LANG']),  
+							"type"=>htmlspecialchars($data['moduleData']['type'])
 						));
 						?>
 
 						<section class="mainText">
 							<?php 
-							if($photos->getter()){
+							if($photos->getter() && isset($_SESSION['LANG'])){
 								$pic = $photos->getter();
 								$image = Config::WEBSITE.$_SESSION['LANG']."/image/loadimage?f=".Config::WEBSITE_.$pic[0]['path']."&w=340&h=71";
-								echo '<img src="'.$image.'" width="350" alt="" />';
+								echo '<img src="'.htmlspecialchars($image).'" width="350" alt="" />';
 								echo '<p class="marginTop40"></p>';
 							}
 							?>						
-							<p><strong><?=strip_tags($data['moduleData']['title'])?></strong></p>
-							<?=$data['moduleData']['description']?>
+							<p><strong><?=strip_output::index($data['moduleData']['title'])?></strong></p>
+							<?=strip_output::index($data['moduleData']['description'])?>
 
 							<p class="linkWithIcon marginTop40">
 								<a href="<?=$data['moduleData']['url']?>" target="_blank">
 									<img src="<?=Config::PUBLIC_FOLDER?>img/icon-link.png" alt="" />
-									<span><?=$data['moduleData']['url']?></span>
+									<span><?=strip_output::index($data['moduleData']['url'])?></span>
 								</a>
 							</p>
 						</section>

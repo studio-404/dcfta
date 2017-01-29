@@ -1,5 +1,5 @@
 <?php 
-class Dcftaforbussinness extends Controller
+class Dcftaforbusinness extends Controller
 {
 	public function __construct()
 	{
@@ -117,7 +117,7 @@ class Dcftaforbussinness extends Controller
 
 	
 		/* view */
-		$this->view('dcftaforbussinness/index', [
+		$this->view('dcftaforbusinness/index', [
 			"header"=>array(
 				"website"=>Config::WEBSITE,
 				"public"=>Config::PUBLIC_FOLDER

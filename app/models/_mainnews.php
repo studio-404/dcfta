@@ -6,6 +6,7 @@ class _mainnews
 
 	public function index()
 	{
+		require_once("app/functions/strip_output.php");
 		$out = "";
 		if(count($this->data)){
 			if(isset($this->inside) && $this->inside=="true"){
@@ -15,25 +16,31 @@ class _mainnews
 			}
 			$photos = new Database("photos",array(
 				"method"=>"selectByParent", 
-				"idx"=>$ourData['idx'],  
-				"lang"=>$_SESSION['LANG'],  
-				"type"=>$ourData['type'] 
+				"idx"=>(int)$ourData['idx'],  
+				"lang"=>strip_output::index($_SESSION['LANG']),  
+				"type"=>strip_output::index($ourData['type'])
 			));
 			if($photos->getter()){
 				$pic = $photos->getter();
-				$image = Config::WEBSITE.$_SESSION['LANG']."/image/loadimage?f=".Config::WEBSITE_.$pic[0]['path']."&w=350&h=218";
+				$image = sprintf(
+					"%s%s/image/loadimage?f=%s%s&w=350&h=218",
+					Config::WEBSITE,
+					strip_output::index($_SESSION['LANG']),
+					Config::WEBSITE_,
+					strip_output::index($pic[0]['path'])
+				);
 				$out .= sprintf(
-					"<img src=\"%s\" width=\"350\" height=\"218\" alt=\"\" align=\"left\" style=\"margin: 0 10px 0px 0px\" id=\"mainImage\" />", 
+					"<img src=\"%s\" alt=\"\" align=\"left\" style=\"margin: 0 10px 0px 0px\" id=\"mainImage\" />", 
 					$image
 				);
 			}
 			$out .= sprintf(
 				"<section class=\"justTitle\">%s</section>", 
-				$ourData['title']
+				strip_output::index($ourData['title'])
 			);
 			$out .= sprintf(
 				"<section class=\"mainText\">%s</section>", 
-				html_entity_decode($ourData['description'])
+				strip_output::index($ourData['description'])
 			);
 		}
 

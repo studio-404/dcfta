@@ -22,13 +22,19 @@ class registerEvent
 		);
 
 		$input_event_id = functions\request::index("POST","evid");
-		$input_event_name = functions\request::index("POST","evn");
-		$event_url = Config::WEBSITE.Config::MAIN_LANG."/event/".$input_event_id."/".str_replace(" ","-",$input_event_name);
-		$input_name = functions\request::index("POST","input_name");
-		$input_organization = functions\request::index("POST","input_organization");
-		$input_email = functions\request::index("POST","input_email");
-		$input_phone = functions\request::index("POST","input_phone");
-		$csrf = functions\request::index("POST","csrf");
+		$input_event_name = strip_tags(functions\request::index("POST","evn"));
+		$event_url = sprintf(
+			"%s%s/event/%s/%s",
+			Config::WEBSITE,
+			Config::MAIN_LANG,
+			$input_event_id,
+			str_replace(" ", "-", $input_event_name)
+		);
+		$input_name = strip_tags(functions\request::index("POST","input_name"));
+		$input_organization = strip_tags(functions\request::index("POST","input_organization"));
+		$input_email = strip_tags(functions\request::index("POST","input_email"));
+		$input_phone = strip_tags(functions\request::index("POST","input_phone"));
+		$csrf = strip_tags(functions\request::index("POST","csrf"));
 
 		if($input_name=="" || $input_organization=="" || $input_email=="" || $input_phone=="" || $csrf=="")
 		{

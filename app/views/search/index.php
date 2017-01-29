@@ -1,8 +1,10 @@
 <?php
 require_once("app/functions/l.php"); 
+require_once("app/functions/strip_output.php");
 $l = new functions\l();
 echo $data['headerModule']; 
 echo $data['headertop']; 
+$searchText = htmlspecialchars(strip_tags($data['searchText']));
 ?>
 
 <main>
@@ -14,18 +16,18 @@ echo $data['headertop'];
 					<div class="title"><?=strip_tags($data['pageData']['description'])?></div>
 				</section>
 				<section class="mainText">
-					<strong><?=$l->translate('searchword')?>: </strong><i><?=$data['searchText']?></i>
+					<strong><?=$l->translate('searchword')?>: </strong><i><?=$searchText?></i>
 
 					<div class="collection searchCollectionBox">
 						<?php
-						if(mb_strlen($data["searchText"],'UTF-8')<=6){
+						if(mb_strlen($searchText,'UTF-8')<=6){
 							echo sprintf(
 								'<a href="#!" class="collection-item">%s</a>',
 								$l->translate('tooshortsearchkey')
 							);
 						}else if(count($data['searchResults']->output)){
 							foreach ($data['searchResults']->output as $value) {
-								$title = strip_tags($value['page_title']);
+								$title = strip_output::index($value['page_title']);
 								$url = "#!";
 								switch ($value['page_type']) {
 									case 'news':
@@ -75,7 +77,7 @@ echo $data['headertop'];
 								echo sprintf(
 									'<a href="%s" class="collection-item">%s<span class="badge" style="font-family:roboto">%s</span></a>',
 									$url, 
-									strip_tags($title),
+									strip_output::index($title),
 									$searchType
 								);	
 							}							

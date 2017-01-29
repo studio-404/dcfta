@@ -2,7 +2,7 @@ header .navigation ul li a {
   padding: 0 5px; }
 header .navigation ul li a, header .navigation ul li span {
   font-family: 'noto_sans_georgianregular';
-  font-size: 13.5px; }
+  font-size: 13px; }
 
 .headerText .title,
 .mainText, .mainText a, .mainText ul li, .mainText ul li a,
@@ -108,7 +108,24 @@ svg {
   svg g:hover {
     cursor: pointer !important; }
 
-.leftSide a {
+.readmoreLink {
+  font-family: 'noto_sans_georgianregular' !important;
+  margin-top: -40px;
+  float: left; }
+
+.collapsible .collapsible-body {
+  font-family: 'noto_sans_georgianregular' !important; }
+
+.masterTooltip {
+  font-family: 'noto_sans_georgianregular' !important;
+  font-size: 11px;
+  background-color: #f2f2f2; }
+
+.google-visualization-orgchart-node, .google-visualization-orgchart-node {
+  background: none !important;
+  background-color: #f2f2f2 !important; }
+
+.tooltip {
   font-family: 'noto_sans_georgianregular' !important; }
 
 /*# sourceMappingURL=_geo.css.map */

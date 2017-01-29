@@ -1,5 +1,6 @@
 <?php
 require_once("app/functions/l.php"); 
+require_once("app/functions/strip_output.php");
 $l = new functions\l();
 echo $data['headerModule']; 
 echo $data['headertop']; 
@@ -14,7 +15,7 @@ echo $data['headertop'];
 					<div class="title"><?=strip_tags($data['pageData']['description'])?></div>
 				</section>
 				<section class="mainText">
-					<?=html_entity_decode($data['pageData']['text'])?>
+					<?=strip_output::index($data['pageData']['text'])?>
 				</section>			
 
 			</section>

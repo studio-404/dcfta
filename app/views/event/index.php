@@ -1,5 +1,6 @@
 <?php
 require_once("app/functions/l.php"); 
+require_once("app/functions/strip_output.php"); 
 $l = new functions\l();
 echo $data['headerModule']; 
 echo $data['headertop']; 
@@ -21,15 +22,17 @@ echo $data['headertop'];
 							$_SESSION['protect_x'] = functions\string::random(6);
 							echo sprintf(
 								"<input type=\"hidden\" name=\"csrf\" id=\"csrf\" class=\"csrf\" value=\"%s\">", 
-								$_SESSION['protect_x']
+								htmlspecialchars($_SESSION['protect_x'])
 							);
+							$evid = (isset($_SESSION["URL"][2])) ? $_SESSION["URL"][2] : "";
 							echo sprintf(
 								"<input type=\"hidden\" name=\"evid\" id=\"evid\" class=\"evid\" value=\"%s\">",
-								(int)$_SESSION["URL"][2]
+								htmlspecialchars($evid)
 							);
+							$evn = (isset($_SESSION["URL"][3])) ? $_SESSION["URL"][3] : "";
 							echo sprintf(
 								"<input type=\"hidden\" name=\"evn\" id=\"evn\" class=\"evn\" value=\"%s\">",
-								str_replace("-"," ",$_SESSION["URL"][3])
+								str_replace("-"," ",htmlspecialchars($evn))
 							);
 							?>
 
@@ -52,7 +55,7 @@ echo $data['headertop'];
 									<label><?=$l->translate('phone')?></label>
 								</div>
 								<div class="col s12 m12 l12">
-									<a class="waves-effect waves-light btn submit" style="text-decoration: none;" onclick="registerEvent('<?=$_SESSION['LANG']?>')"><?=$l->translate('submit')?></a>
+									<a class="waves-effect waves-light btn submit" style="text-decoration: none;" onclick="registerEvent('<?=htmlspecialchars($_SESSION['LANG'])?>')"><?=$l->translate('submit')?></a>
 								</div>
 							</section>
 						</form>
@@ -65,7 +68,7 @@ echo $data['headertop'];
 					<?php
 					require_once('app/functions/calendar.php'); 
 					$calendar = new functions\calendar();
-					echo $calendar->index($_SESSION['LANG']); 
+					echo $calendar->index(htmlspecialchars($_SESSION['LANG'])); 
 					?>
 				</section>
 

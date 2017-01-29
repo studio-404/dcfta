@@ -1,5 +1,6 @@
 <?php 
 require_once("app/functions/l.php"); 
+require_once("app/functions/strip_output.php"); 
 $l = new functions\l(); 
 echo $data['headerModule']; 
 echo $data['headertop']; 
@@ -10,10 +11,10 @@ echo $data['headertop'];
 			<section class="col s12 m6 l8 leftSide">
 				<section class="headerText">
 					<div class="line"></div>
-					<div class="title"><?=@html_entity_decode($data['pageData']['description'])?></div>
+					<div class="title"><?=strip_output::index($data['pageData']['description'])?></div>
 				</section>
 				<section class="mainText">
-					<?=@html_entity_decode($data['pageData']['text'])?>
+					<?=strip_output::index($data['pageData']['text'])?>
 				</section>
 				
 				<section class="marginminus10">
@@ -57,9 +58,11 @@ echo $data['headertop'];
 				
 				<section class="CalendarBox">
 					<?php
-					require_once('app/functions/calendar.php'); 
-					$calendar = new functions\calendar();
-					echo $calendar->index($_SESSION['LANG']); 
+					if(isset($_SESSION['LANG'])){
+						require_once('app/functions/calendar.php'); 
+						$calendar = new functions\calendar();
+						echo $calendar->index(htmlspecialchars($_SESSION['LANG'])); 
+					}
 					?>
 				</section>
 

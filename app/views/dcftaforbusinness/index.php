@@ -1,5 +1,6 @@
 <?php 
 require_once("app/functions/l.php"); 
+require_once("app/functions/strip_output.php"); 
 $l = new functions\l(); 
 echo $data['headerModule']; 
 echo $data['headertop']; 
@@ -26,12 +27,12 @@ echo $data['headertop'];
 			</section>
 
 			<section class="col s12 m6 l9 rightSite">
-				<section class="justTitle"><?=@strip_tags($data['pageData2']['title'])?></section>
-				<section class="justSubTitle"><?=@strip_tags($data['pageData2']['description'])?></section>
-				<section class="justDate">published: <?=@date("d M Y", $data['pageData2']['date'])?></section>
+				<section class="justTitle"><?=strip_output::index($data['pageData2']['title'])?></section>
+				<section class="justSubTitle"><?=strip_output::index($data['pageData2']['description'])?></section>
+				<section class="justDate">published: <?=@date("d M Y", (int)$data['pageData2']['date'])?></section>
 
 				<section class="mainText">
-					<?=html_entity_decode(@$data['pageData2']['text'])?>					
+					<?=strip_output::index(@$data['pageData2']['text'])?>					
 				</section>
 			</section>
 		</section>

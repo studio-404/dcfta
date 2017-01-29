@@ -7,6 +7,7 @@ class _news
 	{
 		require_once("app/functions/string.php"); 
 		require_once("app/functions/l.php"); 
+		require_once("app/functions/strip_output.php");
 		$month = array(
 			"ge"=>array(
 				"Jan"=>"იან",
@@ -58,22 +59,34 @@ class _news
 			foreach($this->data as $value) {
 				$photos = new Database("photos",array(
 					"method"=>"selectByParent", 
-					"idx"=>$value['idx'],  
-					"lang"=>$value['lang'],  
-					"type"=>$value['type'] 
+					"idx"=>(int)$value['idx'],  
+					"lang"=>strip_output::index($value['lang']),  
+					"type"=>strip_output::index($value['type'])
 				));
 				if($photos->getter()){
 					$pic = $photos->getter();
-					$image = Config::WEBSITE.$_SESSION['LANG']."/image/loadimage?f=".Config::WEBSITE_.$pic[0]['path']."&w=383&h=235";
+					$image = sprintf(
+						"%s%s/image/loadimage?f=%s%s&w=383&h=235",
+						Config::WEBSITE,
+						strip_output::index($_SESSION['LANG']),
+						Config::WEBSITE_,
+						strip_output::index($pic[0]['path'])
+					);
 				}else{
 					$image = "/public/filemanager/noimage.png";
 				}
-				$title = $value['title'];
+				$title = strip_tags($value['title']);
 				$titleUrl = str_replace(array(" "), "-", $title); 
 
 				$out .= "<section class=\"col s12 m6 l6\">\n";
 				$out .= "<section class=\"newsBox\">\n";
-				$out .= "<a href=\"".Config::WEBSITE.$_SESSION['LANG']."/news/".$value['idx']."/".$titleUrl."\">\n";
+				$out .= sprintf(
+					"<a href=\"%s%s/news/%s/%s\">\n",
+					Config::WEBSITE,
+					strip_output::index($_SESSION['LANG']),
+					(int)$value['idx'],
+					strip_output::index($titleUrl)
+				);
 				$out .= "<section class=\"imageBox\">\n";
 				$out .= "<img src=\"".$image."\" width=\"100%\" alt=\"\" />\n";
 				$out .= "</section>\n";
@@ -82,10 +95,13 @@ class _news
 					"<p>%s</p>\n",
 					$l->translate('singlenews')
 				);
-				$str = str_replace(date("M", $value['date']), $month[$_SESSION['LANG']][date("M", $value['date'])], date("M d, Y", $value['date']));
-				$out .= "<p>".$str."</p>\n";
+				$str = str_replace(date("M", (int)$value['date']), $month[strip_output::index($_SESSION['LANG'])][date("M", (int)$value['date'])], date("M d, Y", (int)$value['date']));
+				$out .= sprintf(
+					"<p>%s</p>\n",
+					strip_output::index($str)
+				);
 				$out .= "</section>\n";
-				$out .= "<section class=\"title\">".$sting->cut(html_entity_decode($title),60)."</section>\n";
+				$out .= "<section class=\"title\">".$sting->cut(strip_tags($title),60)."</section>\n";
 				$out .= "<section class=\"text\">".$sting->cut(strip_tags($value['description']),160)."</section>\n";
 				$out .= "</a>\n";
 				$out .= "</section>\n";

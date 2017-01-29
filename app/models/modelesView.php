@@ -5,6 +5,7 @@ class modelesView
 	public $string;
 
 	public function index(){
+		require_once("app/functions/strip_output.php");
 		$out = '';
 		if(count($this->data)) : 
 			foreach ($this->data as $val) {
@@ -21,15 +22,15 @@ class modelesView
 					<a href=\"javascript:void(0)\" onclick=\"askRemoveModule('%s')\"><i class=\"material-icons tooltipped\" data-position=\"bottom\" data-delay=\"50\" data-tooltip=\"წაშლა\">delete</i></a>
 					</td>
 					</tr>",
-					$val['idx'],
-					$val['title'], 
-					$this->string->cut($val['title'],45),
-					$val['visibility'],
-					$val['idx'],
-					$visibility,
-					$val['idx'],
-					$val['lang'], 
-					$val['idx']
+					(int)$val['idx'],
+					strip_output::index($val['title']), 
+					$this->string->cut(strip_tags($val['title']),45),
+					strip_output::index($val['visibility']),
+					(int)$val['idx'],
+					strip_output::index($visibility),
+					(int)$val['idx'],
+					strip_output::index($val['lang']), 
+					(int)$val['idx']
 				);
 			}
 		endif;

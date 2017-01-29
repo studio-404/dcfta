@@ -5,7 +5,8 @@ class _header
 	public $lang;
 	public $pagedata;
 
-	public function index(){
+	public function index(){ 
+
 		$getter = $this->pagedata->getter(); 
 		if(isset($getter['title'])){
 			$title = strip_tags($getter['title']);
@@ -21,7 +22,7 @@ class _header
 		$out .= "<meta charset=\"utf-8\">\n";
 		$out .= "<meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\">\n";
 		$out .= "<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no\" />\n";
-		$out .= sprintf("<title>%s - DCFTA</title>\n", $title);
+		$out .= sprintf("<title>%s - DCFTA</title>\n", strip_tags($title));
 		$out .= sprintf(
 			"<script src=\"%sjs/web/jquery-3.1.1.min.js\" type=\"text/javascript\"></script>\n",
 			$this->public 

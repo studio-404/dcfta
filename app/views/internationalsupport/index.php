@@ -12,13 +12,8 @@ echo $data['headertop'];
 					<div class="line"></div>
 					<div class="title"><?=strip_tags($data['pageData']['description'])?></div>
 				</section>
-				<!-- <section class="mainText">
-					<?=html_entity_decode($data['pageData']['text'])?>
-				</section>	 -->
 				<section class="marginminus10 marginTop40">
-					
-						<?=$data['internationalsupport']?>
-					
+					<?=$data['internationalsupport']?>					
 				</section>
 			</section>
 		</section>

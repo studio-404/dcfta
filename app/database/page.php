@@ -74,7 +74,7 @@ class page
 		$cid = $args['cid']; 
 		$lang = $args['lang'];
 
-		$select = "SELECT * FROM `navigation` WHERE `cid`=:cid AND `lang`=:lang AND `status`!=:one";
+		$select = "SELECT * FROM `navigation` WHERE `cid`=:cid AND `lang`=:lang AND `status`!=:one ORDER BY `position` ASC";
 		$prepare = $this->conn->prepare($select);
 		$prepare->execute(array(
 			":cid"=>$cid, 

@@ -1,5 +1,5 @@
 <?php 
-class Implimentation extends Controller
+class Implementation extends Controller
 {
 	public function __construct()
 	{
@@ -104,7 +104,7 @@ class Implimentation extends Controller
 
 	
 		/* view */
-		$this->view('implimentation/index', [
+		$this->view('implementation/index', [
 			"header"=>array(
 				"website"=>Config::WEBSITE,
 				"public"=>Config::PUBLIC_FOLDER

@@ -7,6 +7,7 @@ class _reports
 	{
 		require_once("app/functions/files.php"); 
 		require_once("app/functions/string.php"); 
+		require_once("app/functions/strip_output.php");
 
 		$out = "\n";
 
@@ -16,8 +17,8 @@ class _reports
 			foreach($this->data as $value) {
 				$file = new Database("file", array(
 					"method"=>"selectFilesByPageId",  
-					"page_id"=>$value['idx'],  
-					"lang"=>$value['lang'],  
+					"page_id"=>(int)$value['idx'],  
+					"lang"=>strip_output::index($value['lang']),
 					"type"=>"module"
 				));
 
@@ -32,17 +33,17 @@ class _reports
 
 				$out .= sprintf(
 					"<section class=\"file\" title=\"%s\">\n", 
-					$value['title']
+					strip_output::index($value['title'])
 				);
 				$out .= sprintf(
 					"<a href=\"%s\" target=\"_blank\">\n", 
-					$theFile
+					strip_output::index($theFile)
 				);
 				$out .= "<p class=\"pdfIcon\"></p>\n";
 				$out .= "<p class=\"downloadIcon\"></p>\n";
 				$out .= sprintf(
 					"<p class=\"title\"><span>%s</span><br /><b>%s</b></p>\n", 
-					$sting->cut($value['title'],40),
+					$sting->cut(strip_tags($value['title']),40),
 					functions\files::formatSizeUnits($size) 
 				);
 				$out .= "</a>";
