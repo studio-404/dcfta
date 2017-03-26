@@ -27,6 +27,7 @@ class addModule
 		$moduleSlug = functions\request::index("POST","moduleSlug");
 		$lang = functions\request::index("POST","lang");
 		$date = functions\request::index("POST","date");
+		$date2 = functions\request::index("POST","date2");
 		$title = functions\request::index("POST","title");
 		$pageText = functions\request::index("POST","pageText");
 		$link = functions\request::index("POST","link");
@@ -50,6 +51,7 @@ class addModule
 					'moduleSlug'=>$moduleSlug, 
 					'lang'=>$lang, 
 					'date'=>$date, 
+					'date2'=>$date2, 
 					'title'=>$title, 
 					'pageText'=>$pageText, 
 					'link'=>$link, 

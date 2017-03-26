@@ -27,6 +27,7 @@ class editFormModules
 		$idx = functions\request::index("POST","idx");
 		$lang = functions\request::index("POST","lang");
 		$date = functions\request::index("POST","date");
+		$date2 = functions\request::index("POST","date2");
 		$title = functions\request::index("POST","title");
 		$pageText = functions\request::index("POST","pageText");
 		$link = functions\request::index("POST","link");
@@ -35,7 +36,7 @@ class editFormModules
 		$serialFiles = unserialize(functions\request::index("POST","serialFiles"));
 		
 		
-		if($idx == "" || $lang=="" || $date=="" || $title=="")
+		if($idx == "" || $lang=="" || $date=="" || $date2=="" || $title=="")
 		{
 			$this->out = array(
 				"Error" => array(
@@ -50,6 +51,7 @@ class editFormModules
 					'idx'=>$idx, 
 					'lang'=>$lang, 
 					'date'=>$date, 
+					'date2'=>$date2, 
 					'title'=>$title, 
 					'pageText'=>$pageText, 
 					'link'=>$link, 

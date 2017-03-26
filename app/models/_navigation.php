@@ -36,11 +36,12 @@ class _navigation
 						(int)$value['idx']
 					);
 					foreach ($subNavigation->getter() as $val) {
-						$subSlug = (isset($val['redirect'])) ? $val['redirect'] : $val['slug'];
+						$subSlug = (isset($val['redirect']) && $val['redirect']!="") ? $val['redirect'] : $val['slug'];
 						$out .= sprintf(
-							"<li><a href=\"%s%s/%s\"><span>%s</span></a></li>\n",
+							"<li><a href=\"%s%s/%s/%s\"><span>%s</span></a></li>\n",
 							Config::WEBSITE,
 							strip_output::index($_SESSION['LANG']),
+							strip_output::index($value['slug']), 
 							strip_output::index($subSlug), 
 							strip_output::index($val['title'])  
 						);	

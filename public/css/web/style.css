@@ -47,6 +47,9 @@
   padding: 0px;
   border: 0px; }
 
+* {
+  word-wrap: break-word; }
+
 body {
   overflow-x: hidden !important; }
 
@@ -107,6 +110,10 @@ body {
     background-color: #003399;
     padding-right: 5px;
     font-size: 18px; }
+
+.google-visualization-orgchart-node, .google-visualization-orgchart-node {
+  background: none !important;
+  background-color: #f2f2f2 !important; }
 
 .tooltip {
   display: none;
@@ -493,6 +500,46 @@ main {
     -moz-border-radius: 4px;
     -webkit-border-radius: 4px;
     border-radius: 4px; }
+.collapsible .collapsible-body .padding20 ol {
+  margin: 0;
+  padding: 0;
+  list-style-type: none; }
+  .collapsible .collapsible-body .padding20 ol li {
+    margin: 5px 0;
+    padding: 5px 35px;
+    width: 100%;
+    line-height: 30px;
+    cursor: pointer;
+    color: #003399;
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);
+    position: relative; }
+    .collapsible .collapsible-body .padding20 ol li strong {
+      font-family: roboto;
+      font-weight: normal; }
+    .collapsible .collapsible-body .padding20 ol li ol {
+      margin: 0;
+      padding: 0;
+      display: none; }
+      .collapsible .collapsible-body .padding20 ol li ol li {
+        margin: 0;
+        padding: 0;
+        box-shadow: none !important; }
+      .collapsible .collapsible-body .padding20 ol li ol li:after {
+        content: none !important; }
+  .collapsible .collapsible-body .padding20 ol li:after {
+    content: '';
+    width: 16px;
+    height: 16px;
+    position: absolute;
+    left: 10px;
+    top: 11px;
+    background-image: url("../../img/icon-arrow.png");
+    background-size: 16px 16px;
+    background-repeat: no-repeat;
+    background-position: center center;
+    transform: rotate(0deg); }
+  .collapsible .collapsible-body .padding20 ol .arrowRotate:after {
+    transform: rotate(90deg) !important; }
 
 .mainText {
   margin: 10px 0 40px 0;
@@ -779,6 +826,7 @@ main {
         margin: 0px;
         padding: 0 20px; }
         .leftNavigation .nav ul li a {
+          padding-right: 19px;
           color: #ffffff;
           font-size: 15px;
           line-height: 35px;
@@ -1018,6 +1066,11 @@ footer {
     .contactForm form input[type='text']:focus:not([readonly]) {
       border-bottom: solid 1px #ffcd00;
       box-shadow: 0 1px 0 0 #ffcd00; }
+    .contactForm form textarea {
+      border-bottom: solid 1px #ffcd00; }
+    .contactForm form textarea:focus:not([readonly]) {
+      border-bottom: solid 1px #ffcd00;
+      box-shadow: 0 1px 0 0 #ffcd00; }
     .contactForm form label {
       color: #3c3c3c;
       font-size: 15px;
@@ -1064,11 +1117,14 @@ footer {
   box-shadow: 0px 0px 10px 0px #d7d7d7;
   -webkit-border-radius: 3px;
   -moz-border-radius: 3px;
-  border-radius: 3px; }
+  border-radius: 3px;
+  font-family: "noto_sansregular";
+  max-width: 280px; }
   .material-tooltip .backdrop {
     background-color: #ffffff; }
   .material-tooltip span {
     font-size: 20px;
+    line-height: 24px;
     font-family: "noto_sansregular";
     color: #3d3d3d; }
 
@@ -1381,7 +1437,27 @@ svg .shadow {
     width: calc(100% - 15px); }
 
   header .topBottom .logo .flags {
-    float: left; } }
+    float: left; } 
+    .mainText{
+    clear: both;
+  }
+  /* LAST CSS CHANGES START */
+  .headerText{
+    height: auto;
+  }
+  .headerText .line{
+    display: none;
+  }
+  .headerText .title {
+    position: static;
+    float: left;
+    margin-bottom: 10px;
+  }
+  .collapsible{
+    clear: both;
+  }
+  /* LAST CSS CHANGES END */
+  }
 @media (max-width: 1025px) {
   .centerWidth .event #mainImage {
     width: auto !important; } }

@@ -29,7 +29,8 @@ echo $data['headertop'];
 							<?php 
 							if($photos->getter() && isset($_SESSION['LANG'])){
 								$pic = $photos->getter();
-								$image = Config::WEBSITE.$_SESSION['LANG']."/image/loadimage?f=".Config::WEBSITE_.$pic[0]['path']."&w=340&h=71";
+								// $image = Config::WEBSITE.$_SESSION['LANG']."/image/loadimage?f=".Config::WEBSITE_.$pic[0]['path']."&w=340&h=71";
+								$image = Config::WEBSITE_.$pic[0]['path'];
 								echo '<img src="'.htmlspecialchars($image).'" width="350" alt="" />';
 								echo '<p class="marginTop40"></p>';
 							}

@@ -40,7 +40,7 @@ class addModuleForm
 		$form .= functions\makeForm::label(array(
 			"id"=>"dateLabel", 
 			"for"=>"date", 
-			"name"=>"თარიღი: ( დღე-თვე-წელი )",
+			"name"=>"დამატების თარიღი:",
 			"require"=>""
 		));
 
@@ -51,7 +51,24 @@ class addModuleForm
 			"value"=>date("d-m-Y")
 		));
 
-		$form .= "<script type=\"text/javascript\"> $(\"#date\").datepicker({ dateFormat: \"dd-mm-yy\"}).attr(\"readonly\",\"readonly\");</script>";
+		$form .= functions\makeForm::label(array(
+			"id"=>"dateLabel2", 
+			"for"=>"date2", 
+			"name"=>"გასვლის თარიღი:",
+			"require"=>""
+		));
+
+		$form .= functions\makeForm::inputText(array(
+			"placeholder"=>"დღე/თვე/წელი", 
+			"id"=>"date2", 
+			"name"=>"date2",
+			"value"=>date("d-m-Y")
+		));
+
+		$form .= "<script type=\"text/javascript\"> 
+				$(\"#date\").datepicker({ dateFormat: \"dd-mm-yy\"}).attr(\"readonly\",\"readonly\");
+				$(\"#date2\").datepicker({ dateFormat: \"dd-mm-yy\"}).attr(\"readonly\",\"readonly\");
+		</script>";
 
 	
 		$form .= functions\makeForm::inputText(array(

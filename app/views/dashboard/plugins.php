@@ -3,6 +3,8 @@
 <head>
 	<meta charset="utf-8" />
 	<title>Admin Panel</title>
+	<meta name="robots" content="noindex">
+    <meta name="googlebot" content="noindex">
 	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 	<link href="<?=$data['header']['public']?>css/materialize.css" type="text/css" rel="stylesheet" />
 	<link href="<?=$data['header']['public']?>css/jquery-ui.min.css" type="text/css" rel="stylesheet" />

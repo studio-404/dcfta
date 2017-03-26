@@ -9,12 +9,9 @@ class _internationalsupport
 			require_once("app/functions/string.php"); 
 			require_once("app/functions/l.php"); 
 			require_once("app/functions/strip_output.php");
+			
 			$l = new functions\l(); 
 			$string = new functions\string(); 
-
-			// echo "<pre>";
-			// print_r($this->data);
-			// echo "</pre>";
 			$out = "";
 			foreach($this->data as $value) {
 				$title = strip_tags($value['title']);
@@ -27,10 +24,15 @@ class _internationalsupport
 				));
 				if($photos->getter()){
 					$pic = $photos->getter();
+					// $image = sprintf(
+					// 	"%s%s/image/loadimage?f=%s%s&w=340&h=71",
+					// 	Config::WEBSITE,
+					// 	$_SESSION['LANG'],
+					// 	Config::WEBSITE_,
+					// 	$pic[0]['path']
+					// );
 					$image = sprintf(
-						"%s%s/image/loadimage?f=%s%s&w=340&h=71",
-						Config::WEBSITE,
-						$_SESSION['LANG'],
+						"%s%s",
 						Config::WEBSITE_,
 						$pic[0]['path']
 					);
@@ -48,7 +50,7 @@ class _internationalsupport
 				$out .= $title; 
 				$out .= "</section>";
 				$out .= "<section class=\"text\">";
-				$out .= $string->cut(strip_tags($value['description']), 300);
+				$out .= $string->cut(strip_tags($value['description']), 280);
 				$out .= "<p class=\"linkWithIcon\">";
 				$out .= sprintf(
 					"<a href=\"%s%s/international-support/%s/%s\">",

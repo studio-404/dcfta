@@ -22,6 +22,7 @@ echo $data['headertop'];
 						<div class="line"></div>
 						<div class="title"><?=$l->translate('legislativedrafts')?></div>
 					</section>
+					<div style="clear:both"></div>
 					<?=$data['legislation']?>	
 
 					<!-- _adoptedLegislation -->		

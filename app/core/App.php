@@ -77,7 +77,7 @@ class App{
 	public function parseUrl()
 	{
 		if(isset($_GET['url'])){
-			$findme   = array('\'','~','!','@','$','^','*','(',')','{','}','[',']','|',';','<','>','\\','..');
+			$findme   = array('\'','~','!','@','$','^','*','{','}','[',']','|',';','<','>','\\','..');
 			foreach ($findme as $f) {
 				$pos = strpos($_GET['url'], $f);
 				if ($pos !== false) {

@@ -3,7 +3,7 @@ class Dcftaforbusinness extends Controller
 {
 	public function __construct()
 	{
-		
+
 	}
 
 	public function index($name = '')
@@ -49,6 +49,7 @@ class Dcftaforbusinness extends Controller
 		));
 		$pageData = $db_pagedata->getter();
 
+
 		$s2 = (isset($_SESSION["URL"][2])) ? $_SESSION["URL"][2] : Config::MAIN_CLASS;
 		$db_pagedata2 = new Database("page", array(
 			"method"=>"selecteBySlug", 
@@ -57,6 +58,7 @@ class Dcftaforbusinness extends Controller
 			"all"=>true
 		));
 		$pageData2 = $db_pagedata2->getter();
+
 
 		if(!count($pageData2) || !isset($_SESSION["URL"][2])){
 			require_once("app/functions/redirect.php");
@@ -74,6 +76,9 @@ class Dcftaforbusinness extends Controller
 		$header->public = Config::PUBLIC_FOLDER; 
 		$header->lang = $_SESSION["LANG"]; 
 		$header->pagedata = $db_pagedata2; 
+
+		// echo "hi";
+		// exit();
 
 		/* SOCIAL */
 		$social = $this->model('_social');
@@ -114,6 +119,7 @@ class Dcftaforbusinness extends Controller
 		/*footer */
 		$footer = $this->model('_footer');
 		$footer->data = $db_footer->getter(); 
+
 
 	
 		/* view */

@@ -27,14 +27,35 @@ class sendEmail
 		$input_email = strip_tags(functions\request::index("POST","input_email"));
 		$input_phone = strip_tags(functions\request::index("POST","input_phone"));
 		$input_comment = strip_tags(functions\request::index("POST","input_comment"));
+		$lang = strip_tags(functions\request::index("POST","lang"));
 		$csrf = strip_tags(functions\request::index("POST","csrf"));
+
+
+		switch ($lang) {
+			case 'en':
+				$error1 = "All Fields are required !";
+				$error2 = "Error !";
+				$error4 = "The operation was successful !";
+				break;
+			case 'ru':
+				$error1 = "All Fields are required !";
+				$error2 = "Error !";
+				$error4 = "The operation was successful !";
+				break;
+			
+			default:
+				$error1 = "მოხდა შეცდომა, ყველა ველი სავალდებულოა !";
+				$error2 = "მოხდა შეცდომა !";
+				$error4 = "ოპერაცია შესრულდა წარმატებით !";
+				break;
+		}
 
 		if($input_subject=="" || $input_name=="" || $input_organization=="" || $input_email=="" || $input_phone=="" || $input_comment=="" || $csrf=="")
 		{
 			$this->out = array(
 				"Error" => array(
 					"Code"=>1, 
-					"Text"=>"მოხდა შეცდომა, ყველა ველი სავალდებულოა !",
+					"Text"=>$error1,
 					"Details"=>"!"
 				)
 			);
@@ -43,7 +64,7 @@ class sendEmail
 			$this->out = array(
 				"Error" => array(
 					"Code"=>1, 
-					"Text"=>"მოხდა შეცდომა !",
+					"Text"=>$error2,
 					"Details"=>"!"
 				)
 			);
@@ -88,7 +109,7 @@ class sendEmail
 					),
 					"Success" => array(
 						"Code"=>1, 
-						"Text"=>"ოპერაცია წარმატებით შესრულდა !",
+						"Text"=>$error4,
 						"Details"=>"!"
 					)
 				);
@@ -96,7 +117,7 @@ class sendEmail
 				$this->out = array(
 					"Error" => array(
 						"Code"=>1, 
-						"Text"=>"მოხდა შეცდომა !",
+						"Text"=>$error2,
 						"Details"=>"!"
 					)
 				);

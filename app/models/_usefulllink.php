@@ -36,7 +36,10 @@ class _usefulllink
 					}else{
 						$image = "/public/filemanager/noimage.png";
 					}
-					$out .= "<li>\n";
+					$out .= sprintf(
+						"<li class=\"tooltipped\" data-position=\"top\" data-tooltip=\"%s\">\n",
+						strip_output::index($value['title'])
+					);
 					$out .= sprintf(
 						"<a href=\"%s\" class=\"waves-effect waves-light\" target=\"_blank\">\n", 
 						strip_output::index($value['url'])
@@ -45,7 +48,10 @@ class _usefulllink
 						"<img src=\"%s\" alt=\"\" />\n", 
 						$image 
 					);
-					$out .= sprintf("<div>%s</div>\n", strip_output::index($value['title']));
+					$out .= sprintf(
+						"<div>%s</div>\n", 
+						$string->cut(strip_output::index($value['title']), 40)
+					);
 					$out .= "</a>\n";
 					$out .= "</li>\n";					
 				}
@@ -72,7 +78,10 @@ class _usefulllink
 					}else{
 						$image = "/public/filemanager/noimage.png";
 					}
-					$out .= "<li>\n";
+					$out .= sprintf(
+						"<li class=\"tooltipped\" data-position=\"top\" data-tooltip=\"%s\">\n",
+						strip_output::index($value['title'])
+					);
 					$out .= sprintf(
 						"<a href=\"%s\" class=\"waves-effect waves-light\" target=\"_blank\">\n", 
 						strip_output::index($value['url'])
@@ -82,7 +91,7 @@ class _usefulllink
 						$image 
 					);
 					// $out .= sprintf("<div>%s</div>\n", $string->cut($value['title'],20));
-					$out .= sprintf("<div>%s</div>\n", strip_output::index($value['title']));
+					$out .= sprintf("<div>%s</div>\n", $string->cut(strip_output::index($value['title']),40) );
 					$out .= "</a>\n";
 					$out .= "</li>\n";					
 				}
@@ -108,7 +117,10 @@ class _usefulllink
 					}else{
 						$image = "/public/filemanager/noimage.png";
 					}
-					$out .= "<li>\n";
+					$out .= sprintf(
+						"<li class=\"tooltipped\" data-position=\"top\" data-tooltip=\"%s\">\n", 
+						strip_output::index($value['title'])
+					);
 					$out .= sprintf(
 						"<a href=\"%s\" class=\"waves-effect waves-light\" target=\"_blank\">\n", 
 						strip_output::index($value['url'])
@@ -118,7 +130,7 @@ class _usefulllink
 						$image 
 					);
 					// $out .= sprintf("<div>%s</div>\n", $string->cut($value['title'],20));
-					$out .= sprintf("<div>%s</div>\n", strip_output::index($value['title']));
+					$out .= sprintf("<div>%s</div>\n", $string->cut(strip_output::index($value['title']),40));
 					$out .= "</a>\n";
 					$out .= "</li>\n";					
 				}

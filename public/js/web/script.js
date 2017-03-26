@@ -88,7 +88,6 @@ var navToMobile = function(){
 
 var slideDownMe = function(s){
 	var active = $("."+s).attr("data-active"); 
-	console.log("shevida" +active+" "+s);
 	if(active=="false"){
 		$("."+s).slideDown(500);
 		$("."+s).attr("data-active","true"); 
@@ -121,6 +120,61 @@ var openComment = function(cid, commentForm){
 		$('.'+commentForm).slideDown();
 	}
 	$('.'+commentForm+' .commentId').val(cid);
+};
+
+$(document).on("keyup",".comment",function(){
+	var comment = $(this).val();
+	var num = strlen(comment);
+	if(num>500){ $(this).css({"color":"red"}); }
+	else{ $(this).removeAttr("style"); }
+	console.log(num);
+	$(".character-counter span").html(num);
+});
+
+var strlen = function(string) {
+	var str = string + '';
+	var i = 0,
+	chr = '',
+	lgth = 0;
+	if (!this.php_js || !this.php_js.ini || !this.php_js.ini['unicode.semantics'] || this.php_js.ini['unicode.semantics'].local_value.toLowerCase() !== 'on') {
+		return string.length;
+	}
+
+	var getWholeChar = function(str, i) {
+		var code = str.charCodeAt(i);
+		var next = '',
+			prev = '';
+		if (0xD800 <= code && code <= 0xDBFF) { // High surrogate (could change last hex to 0xDB7F to treat high private surrogates as single characters)
+			if (str.length <= (i + 1)) {
+					throw 'High surrogate without following low surrogate';
+			}
+			next = str.charCodeAt(i + 1);
+			if (0xDC00 > next || next > 0xDFFF) {
+				throw 'High surrogate without following low surrogate';
+			}
+			
+			return str.charAt(i) + str.charAt(i + 1);
+		} else if (0xDC00 <= code && code <= 0xDFFF) { // Low surrogate
+			if (i === 0) {
+				throw 'Low surrogate without preceding high surrogate';
+			}
+			prev = str.charCodeAt(i - 1);	
+			if (0xD800 > prev || prev > 0xDBFF) { //(could change last hex to 0xDB7F to treat high private surrogates as single characters)
+				throw 'Low surrogate without preceding high surrogate';
+			}
+			return false; // We can pass over low surrogates now as the second component in a pair which we have already processed
+		}
+		return str.charAt(i);
+	};
+
+	for (i = 0, lgth = 0; i < str.length; i++) {
+		if ((chr = getWholeChar(str, i)) === false) {
+      		continue;
+    	}
+		lgth++;
+	}
+	
+	return lgth;
 };
 
 var comment = function(formBox, lang){
@@ -205,12 +259,13 @@ var sendEmail = function(){
 	var input_email = $("#input_email").val().replace(/<.*?>/g, ''); 
 	var input_phone = $("#input_phone").val().replace(/<.*?>/g, ''); 
 	var input_comment = $("#input_comment").val().replace(/<.*?>/g, ''); 
+	var lang = $("#lang").val().replace(/<.*?>/g, ''); 
 	var csrf = $(".csrf").val().replace(/<.*?>/g, ''); 
 
 	$.ajax({
 		method: "POST",
 		url: Config.ajax + ajaxFile,
-		data: { input_subject: input_subject, input_name: input_name, input_organization:input_organization, input_email:input_email, input_phone:input_phone, input_comment:input_comment, csrf:csrf }
+		data: { input_subject: input_subject, input_name: input_name, input_organization:input_organization, input_email:input_email, input_phone:input_phone, input_comment:input_comment, lang:lang, csrf:csrf }
 	}).done(function( msg ) {
 		var obj = $.parseJSON(msg);
 		if(obj.Error.Code==1){
@@ -338,6 +393,18 @@ var reloadProtect = function(input, cl){
 		}
 	});
 };
+
+$(document).on("click", ".collapsible .collapsible-body .padding20 ol li", function(){
+	if($(this).attr("data-active")=="true"){
+		$("ol", this).slideUp();
+		$(this).attr("data-active","false");
+		$(this).removeClass("arrowRotate");
+	}else{
+		$("ol", this).slideDown();
+		$(this).attr("data-active","true");
+		$(this).addClass("arrowRotate");
+	}
+});
 
 window.onbeforeprint = function() {
     console.log('This will be called before the user prints.');

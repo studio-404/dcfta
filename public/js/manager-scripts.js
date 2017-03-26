@@ -545,6 +545,7 @@ var editModules = function(idx, lang){
 var formModuleEdit = function(idx, lang){
 	var ajaxFile = "/editFormModules";
 	var date = $("#date").val();
+	var date2 = $("#date2").val();
 	var title = $("#title").val();
 	var file_attach_type = $("#file_attach_type").val();
 	var random = $("#random").val();
@@ -586,6 +587,7 @@ var formModuleEdit = function(idx, lang){
 	$(".modal-message-box").html("გთხოვთ დაიცადოთ...");
 	if(
 		(typeof date === "undefined" || date=="") || 
+		(typeof date2 === "undefined" || date2=="") || 
 		(typeof title === "undefined" || title=="") 
 	){
 		$(".modal-message-box").html("ყველა ველი სავალდებულოა !");
@@ -593,7 +595,7 @@ var formModuleEdit = function(idx, lang){
 		$.ajax({
 			method: "POST",
 			url: Config.ajax + ajaxFile,
-			data: { idx:idx, lang: lang, date: date, title: title, pageText: pageText, link:link, classname:classname, serialPhotos:serialPhotos, serialFiles:serialFiles }
+			data: { idx:idx, lang: lang, date: date, date2: date2, title: title, pageText: pageText, link:link, classname:classname, serialPhotos:serialPhotos, serialFiles:serialFiles }
 		}).done(function( msg ) {
 			var obj = $.parseJSON(msg);
 			if(obj.Error.Code==1){
@@ -610,6 +612,7 @@ var formModuleEdit = function(idx, lang){
 
 var formModuleAdd = function(moduleSlug, lang){
 	var date = $("#date").val();
+	var date2 = $("#date2").val();
 	var title = $("#title").val();
 	var file_attach_type = $("#file_attach_type").val();
 	var random = $("#random").val();
@@ -649,13 +652,13 @@ var formModuleAdd = function(moduleSlug, lang){
 	var serialFiles = serialize(files);
 
 	var ajaxFile = "/addModule";
-	if(typeof moduleSlug == "undefined" || typeof date == "undefined" || typeof title === "undefined"){
+	if(typeof moduleSlug == "undefined" || typeof date == "undefined" || typeof date2 == "undefined" || typeof title === "undefined"){
 		$(".modal-message-box").html("E4");
 	}else{
 		$.ajax({
 			method: "POST",
 			url: Config.ajax + ajaxFile,
-			data: { moduleSlug: moduleSlug, lang:lang, date: date, title: title, pageText: pageText, link:link, classname:classname, serialPhotos:serialPhotos, serialFiles:serialFiles }
+			data: { moduleSlug: moduleSlug, lang:lang, date: date, date2:date2, title: title, pageText: pageText, link:link, classname:classname, serialPhotos:serialPhotos, serialFiles:serialFiles }
 		}).done(function( msg ) {
 			var obj = $.parseJSON(msg);
 			if(obj.Error.Code==1){

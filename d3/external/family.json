@@ -1,0 +1,26 @@
+{
+	"name":"Mike",
+	"children" : [
+		{
+			"name":"Gino",
+			"children": [
+				{ "name":"Kate" },
+				{ "name":"Cathrine" }
+			]
+		},
+		{
+			"name":"Test",
+			"children": [
+				{ "name":"Ika" },
+				{ "name":"Dito" }
+			]
+		},
+		{
+			"name":"Sharon",
+			"children": [
+				{ "name":"Bio" },
+				{ "name":"Lambor" }
+			]
+		}
+	]
+}

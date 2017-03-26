@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>D3 Js</title>
+	<script src="http://d3js.org/d3.v3.min.js"></script>
+</head>
+<body>
+
+<script>
+
+var canvas = d3.select("body").append("svg")
+			.attr("width", 500)
+			.attr("height", 500); 
+
+var diagonal = d3.svg.diagonal()
+				.source({ x: 10, y: 10 })
+				.target({ x: 300, y: 300 });
+
+
+
+var path = canvas.append("path")
+	.attr("fill","none")
+	.attr("stroke","#2ecc71")
+	.attr("stroke-width",5)
+	.attr("d", diagonal);
+
+
+
+
+/* Animation */
+// var xx = 10;
+// var yy = 10;
+// var interval = setInterval(function(){
+// 	var diagonal2 = d3.svg.diagonal()
+// 				.source({ x: xx, y: yy })
+// 				.target({ x: 300, y: 300 });
+
+// 	path.transition()
+// 	.attr("d", diagonal2); 
+
+// 	xx += 2;
+// 	yy += 2;
+// }, 100);
+
+</script>
+</body>
+</html>

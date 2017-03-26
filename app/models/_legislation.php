@@ -8,6 +8,8 @@ class _legislation
 		require_once("app/functions/timeleft.php"); 
 		require_once("app/functions/l.php"); 
 		require_once("app/functions/strip_output.php");
+		require_once("app/functions/string.php"); 
+
 		$l = new functions\l(); 
 		$out = "";
 		if(count($this->data)){
@@ -37,7 +39,12 @@ class _legislation
 							$fileName
 						);	
 						$fileTree .= sprintf(
-							"<div class=\"rightSide\"><i class=\"penIcon height30 cursorPointer\" onclick=\"openComment('c%s','commentForm%s')\"></i></div>\n",
+							"<div class=\"rightSide\">
+							<span style=\"cursor: pointer\" onclick=\"openComment('c%s','commentForm%s')\">
+								<span style=\"padding: 0 0 0 5px\">".$l->translate('commenting')."</span>
+								<i class=\"penIcon height30 cursorPointer\"></i>
+							</span>
+							</div>\n",
 							(int)$f['idx'], 
 							(int)$value['idx'] 
 						);	
@@ -70,7 +77,7 @@ class _legislation
 					strip_output::index($value['description'])
 				);
 				
-				$endtime = $value['date'] + 604800;
+				$endtime = $value['expire_date'];
 				$timeleft = functions\timeleft::index($endtime); 
 
 				$out .= sprintf(
@@ -91,7 +98,6 @@ class _legislation
 					$out .= "<section class=\"contactForm\">";
 					$out .= "<form action=\"\" method=\"post\">";
 					
-					require_once("app/functions/string.php"); 
 					$_SESSION['protect_x'] = functions\string::random(6);
 					$out .= sprintf(
 						"<input type=\"hidden\" name=\"csrf\" id=\"csrf\" class=\"csrf\" value=\"%s\">", 
@@ -107,31 +113,35 @@ class _legislation
 					$out .= "<div class=\"input-field col s12 m6 l4\">";
 					$out .= "<input type=\"text\" class=\"validate first_name\">";
 					$out .= sprintf(
-						"<label>%s</label>", 
+						"<label>%s <span style=\"color:red\">*</span></label>", 
 						$l->translate('name')
 					);
 					$out .= "</div>";
 					$out .= "<div class=\"input-field col s12 m6 l4\">";
 					$out .= "<input type=\"text\" class=\"validate organization\">";
 					$out .= sprintf(
-						"<label>%s</label>",
+						"<label>%s <span style=\"color:red\">*</span></label>",
 						$l->translate('organization')
 					);
 					$out .= "</div>";
 					$out .= "<div class=\"input-field col s12 m6 l4\">";
 					$out .= "<input type=\"text\" class=\"validate email\">";
 					$out .= sprintf(
-						"<label>%s</label>", 
+						"<label>%s <span style=\"color:red\">*</span></label>", 
 						$l->translate('email')
 					);
 					$out .= "</div>";
 
 					$out .= "<div class=\"input-field col s12 m12 l12\">";
-					$out .= "<input type=\"text\" class=\"validate comment\">";
+					// $out .= "<input type=\"text\" class=\"validate comment\">";
+					$out .= "<textarea class=\"materialize-textarea comment\" data-length=\"500\"></textarea>";					
+					
 					$out .= sprintf(
-						"<label>%s</label>",
+						"<label for=\"textarea1\">%s <span style=\"color:red\">*</span></label>",
 						$l->translate('comment')
 					);
+					
+					$out .= "<span class=\"character-counter\" style=\"font-family: roboto\"><span>0</span>/500</span>";
 					$out .= "</div>";
 
 					$out .= "<div class=\"col s12 m12 l12\">";

@@ -28,19 +28,22 @@ class _top
 		$out .= "<section class=\"logo\">\n";
 		$out .= "<div class=\"flags\">\n";
 		if($_SESSION['LANG']=="ge"){
-		$out .= '<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-	 width="332.5px" height="82px" viewBox="0 0 332.5 82" enable-background="new 0 0 332.5 82" xml:space="preserve">
-<text transform="matrix(1 0 0 1 0 46)" fill="#19338F" font-family="museo700" font-size="55">dcfta.gov.ge</text>
-	<text transform="matrix(1 0 0 1 0 82)" fill="#19338F" font-family="bpg_supersquare_2013regular" font-size="20.8">ვებ-პორტალი DCFTA-ს შესახებ</text>
-</svg>
-';
+			$font = "bpg_supersquare_2013regular";
+			$size = 17;
+		}else if($_SESSION['LANG']=="en"){
+			$font = "museo700";
+			$size = 28;
 		}else{
-			$out .= '<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+			$font = "museo700";
+			$size = 29;
+		}
+
+		$out .= '<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
 	 width="326px" height="82px" viewBox="0 0 326 82" enable-background="new 0 0 326 82" xml:space="preserve">
 <text transform="matrix(1 0 0 1 0 46)" fill="#19338F" font-family="museo700" font-size="55">dcfta.gov.ge</text>
-<text transform="matrix(1 0 0 1 0 82)" fill="#19338F" font-family="museo700" font-size="22">A WEB PORTAL ABOUT DCFTA</text>
-</svg>';
-		}
+<text transform="matrix(1 0 0 1 0 82)" fill="#19338F" font-family="'.$font.'" font-size="'.$size.'">'.strip_tags($l->translate("logosubtext")).'</text>
+</svg>'; 
+
 		$out .= "</div>\n";
 		$out .= "</section>\n";
 		$out .= "<section class=\"search\">\n";

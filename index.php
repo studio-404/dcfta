@@ -9,10 +9,9 @@ ini_set('memory_limit', '5120M');
 ini_set('display_errors', 1);
 ini_set('session.cookie_httponly', 1);
 
-require_once 'app/init.php';
-$app = new App;
-// try{
-	
-// }catch(Exception $e){
-// 	die("Error");
-// }
+
+	require_once 'app/init.php';
+	$app = new App;	
+try{}catch(Exception $e){
+	die("Error");
+}

@@ -24,6 +24,10 @@ echo $data['headertop'];
 							"<input type=\"hidden\" name=\"csrf\" id=\"csrf\" class=\"csrf\" value=\"%s\">", 
 							htmlspecialchars($_SESSION['protect_x'])
 						);
+						echo sprintf(
+							"<input type=\"hidden\" name=\"lang\" id=\"lang\" class=\"lang\" value=\"%s\">", 
+							htmlspecialchars($_SESSION['LANG'])
+						);
 						?>
 						<section class="marginminus10">
 							<div class="messageBox col s12 m12 l12"></div>

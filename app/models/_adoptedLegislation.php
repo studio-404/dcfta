@@ -95,6 +95,7 @@ class _adoptedLegislation
 					"%s\n",
 					strip_output::index($value['description'])
 				);
+
 				$out .= "</section>\n";
 				$out .= "</div>\n";
 				$out .= "</li>\n";

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<title>D3</title>
+	<script src="http://d3js.org/d3.v3.min.js"></script>
+</head>
+<body>
+
+<script>
+var canvas = d3.select("body").append("svg")
+			.attr("width", 800)
+			.attr("height", 800);
+
+var data = [
+	{ x: 50, y:50, w:200, h:200, t:"გამარჯობა" },  
+	{ x: 250, y:250, w:200, h:200, t:"როგორ ხართ ბატონო გიო რამაგარია ვოტ ტაქ ?" } 
+];
+
+var group = canvas.append("g")
+			.attr("transform","translate(100, 100)");
+
+var rect = group.selectAll("rect")
+			.data(data)
+			.enter()
+			.append("rect")
+			.attr("x", function(d){ return d.x; })
+			.attr("y", function(d){ return d.y; })
+			.attr("width", function(d){ return d.w; })
+			.attr("height", function(d){ return d.h; })
+			.attr("fill", "#ADADAD");
+
+	group.selectAll("text")
+		.data(data)
+		.enter()
+		.append("text")
+		.attr("x", function(d){ return d.x + (d.w / 2); })
+		.attr("y", function(d){ return d.y + (d.h / 2); })
+		.attr("alignment-baseline", "middle")
+		.attr("text-anchor", "middle")
+		.text(function(d){ return d.t; })
+		.call(m)
+		.attr("fill", "#555555");
+
+
+function m(t){
+	console.log(t);
+}
+
+function wrap(text, width) {
+	console.log(text);
+    text.each(function () {
+        var text = d3.select(this),
+            words = "გამარჯობა როგორ ხართ".split(/\s+/).reverse(),
+            word,
+            line = [],
+            lineNumber = 0,
+            lineHeight = 1.1, // ems
+            x = text.attr("x"),
+            y = text.attr("y"),
+            dy = 0, //parseFloat(text.attr("dy")),
+            tspan = text.text(null)
+                        .append("tspan")
+                        .attr("x", x)
+                        .attr("y", y)
+                        .attr("dy", dy + "em");
+        while (word = words.pop()) {
+            line.push(word);
+            tspan.text(line.join(" "));
+            if (tspan.node().getComputedTextLength() > width) {
+                line.pop();
+                tspan.text(line.join(" "));
+                line = [word];
+                tspan = text.append("tspan")
+                            .attr("x", x)
+                            .attr("y", y)
+                            .attr("dy", ++lineNumber * lineHeight + dy + "em")
+                            .text(word);
+            }
+        }
+    });
+}
+
+
+</script>
+</body>
+</html>

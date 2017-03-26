@@ -24,7 +24,10 @@ class _stateagencies
 				}else{
 					$image = "/public/filemanager/noimage.png";
 				}
-				$out .= "<li>\n";
+				$out .= sprintf(
+					"<li class=\"tooltipped\" data-position=\"top\" data-tooltip=\"%s\">\n",
+					strip_tags($value['title'])
+				);
 				$out .= sprintf(
 					"<a href=\"%s\" class=\"waves-effect waves-light\" target=\"_blank\">\n", 
 					strip_output::index($value['url'])
@@ -33,7 +36,7 @@ class _stateagencies
 					"<img src=\"%s\" alt=\"\" />\n", 
 					$image 
 				);
-				$out .= sprintf("<div>%s</div>\n", $string->cut(strip_tags($value['title']),45));
+				$out .= sprintf("<div>%s</div>\n", $string->cut(strip_tags($value['title']),40));
 				$out .= "</a>\n";
 				$out .= "</li>\n";
 			}

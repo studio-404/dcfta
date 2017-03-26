@@ -2,6 +2,7 @@
 require_once("app/functions/l.php"); 
 require_once("app/functions/strip_output.php"); 
 $l = new functions\l(); 
+
 echo $data['headerModule']; 
 echo $data['headertop']; 
 ?>

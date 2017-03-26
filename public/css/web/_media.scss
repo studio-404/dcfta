@@ -23,6 +23,21 @@
   header .topBottom .logo .flags{
     float: left;
   }
+  /* LAST CSS CHANGES START */
+  .mainText{
+    clear: both;
+  }
+  .headerText{
+    height: auto;
+  }
+  .headerText .line{
+    display: none;
+  }
+  .headerText .title, .justTitle, h2, .headerText .title{
+    position: static;
+    float: left;
+  }
+  /* LAST CSS CHANGES END */
 }
 @media(max-width: 1025px){
   .centerWidth .event #mainImage{

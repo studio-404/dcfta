@@ -171,6 +171,7 @@ class modules
 		$idx = $args["idx"];
 		$lang = $args["lang"];
 		$date = strtotime($args["date"]);
+		$date2 = strtotime($args["date2"]);
 		$title = $args["title"];
 		$description = $args["pageText"];
 		$url = (!empty($args["link"])) ? $args["link"] : "";
@@ -179,6 +180,7 @@ class modules
 
 		$update = "UPDATE `usefull` SET 
 		`date`=:datex, 
+		`expire_date`=:datex2, 
 		`title`=:title, 
 		`description`=:description, 
 		`url`=:url, 
@@ -187,6 +189,7 @@ class modules
 		$prepare = $this->conn->prepare($update);
 		$prepare->execute(array(
 			":datex"=>$date,
+			":datex2"=>$date2,
 			":title"=>$title,
 			":description"=>$description,
 			":url"=>$url,
@@ -304,6 +307,7 @@ class modules
 	private function add($args)
 	{
 		$date = strtotime($args['date']);
+		$date2 = strtotime($args['date2']);
 		$type = $args['moduleSlug'];
 		$title = $args['title'];
 		$pageText = $args['pageText'];
@@ -322,11 +326,12 @@ class modules
 		$maxId = ($fetch2["maxidx"]) ? $fetch2["maxidx"] + 1 : 1;
 
 		foreach ($fetch as $val) {
-			$insert = "INSERT INTO `usefull` SET `idx`=:idx, `date`=:datex, `type`=:type, `title`=:title, `description`=:description, `url`=:url, `classname`=:classname, `lang`=:lang";
+			$insert = "INSERT INTO `usefull` SET `idx`=:idx, `date`=:datex, `expire_date`=:datex2, `type`=:type, `title`=:title, `description`=:description, `url`=:url, `classname`=:classname, `lang`=:lang";
 			$prepare3 = $this->conn->prepare($insert);
 			$prepare3->execute(array(
 				":idx"=>$maxId, 
 				":datex"=>$date, 
+				":datex2"=>$date2, 
 				":type"=>$type, 
 				":title"=>$title, 
 				":description"=>$pageText, 

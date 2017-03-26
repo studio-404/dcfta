@@ -29,7 +29,7 @@ echo $data['headertop'];
 			<section class="col s12 m6 l9 rightSite">
 				<section class="justTitle"><?=strip_output::index($data['pageData2']['title'])?></section>
 				<section class="justSubTitle"><?=strip_output::index($data['pageData2']['description'])?></section>
-				<section class="justDate">published: <?=@date("d M Y", (int)$data['pageData2']['date'])?></section>
+				<!-- <section class="justDate">published: <?=@date("d M Y", (int)$data['pageData2']['date'])?></section> -->
 
 				<section class="mainText">
 					<?=strip_output::index(@$data['pageData2']['text'])?>					
