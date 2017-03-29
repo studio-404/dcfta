@@ -69,12 +69,13 @@ echo $data['headertop'];
 	       		$(".loadergif").fadeIn();
 	       		$.ajax({
 					method: "POST",
-					url: Config.ajax + ajaxFile,
+					url: "<?=Config::WEBSITE.$_SESSION['LANG'].'/ajax/index'?>" + ajaxFile,
 					data: { itemsnums: newsitem }
 				}).done(function( msg ) {
 					var obj = $.parseJSON(msg);
 					if(obj.Error.Code==1){
 						console.log(obj.Error.Text);
+						$(".loadergif").remove();
 					}else if(obj.Success.Code==1){
 						var news = obj.Success.news;
 						if(news.length){

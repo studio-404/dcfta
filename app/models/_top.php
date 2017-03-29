@@ -38,11 +38,11 @@ class _top
 			$size = 29;
 		}
 
-		$out .= '<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+		$out .= sprintf('<a href="%s%s/home"><svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
 	 width="326px" height="82px" viewBox="0 0 326 82" enable-background="new 0 0 326 82" xml:space="preserve">
 <text transform="matrix(1 0 0 1 0 46)" fill="#19338F" font-family="museo700" font-size="55">dcfta.gov.ge</text>
-<text transform="matrix(1 0 0 1 0 82)" fill="#19338F" font-family="'.$font.'" font-size="'.$size.'">'.strip_tags($l->translate("logosubtext")).'</text>
-</svg>'; 
+<text transform="matrix(1 0 0 1 0 82)" fill="#19338F" font-family="%s" font-size="%s">%s</text>
+</svg></a>', Config::WEBSITE, $_SESSION['LANG'], $font, $size, strip_tags($l->translate("logosubtext"))); 
 
 		$out .= "</div>\n";
 		$out .= "</section>\n";
