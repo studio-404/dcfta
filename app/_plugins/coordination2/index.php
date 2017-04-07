@@ -21,7 +21,7 @@ $query1 = $chart->getter();
 
 foreach ($query1 as $v) {
 	?>
-	<div class="ChartBox" onclick="edit_chart('<?=$v['id']?>', '<?=$_SESSION['LANG']?>')">
+	<div class="ChartBox" onclick="edit_chart('<?=$v['idx']?>', '<?=$_SESSION['LANG']?>')">
 		<p><?=$v['title']?></p>
 		<p><?=$v['text']?></p>
 	</div>
@@ -34,7 +34,7 @@ foreach ($query1 as $v) {
 	$query2 = $chart2->getter();
 	foreach ($query2 as $v2) {
 		?>
-		<div class="ChartBox" style="background-color: #dddddd" onclick="edit_chart('<?=$v2['id']?>', '<?=$_SESSION['LANG']?>')">
+		<div class="ChartBox" style="background-color: #dddddd" onclick="edit_chart('<?=$v2['idx']?>', '<?=$_SESSION['LANG']?>')">
 			<p><?=$v2['title']?></p>
 			<p><?=$v2['text']?></p>
 		</div>
@@ -48,7 +48,7 @@ foreach ($query1 as $v) {
 
 		foreach ($query3 as $v3) {
 			?>
-			<div class="ChartBox" style="background-color: #cccccc" onclick="edit_chart('<?=$v3['id']?>', '<?=$_SESSION['LANG']?>')">
+			<div class="ChartBox" style="background-color: #cccccc" onclick="edit_chart('<?=$v3['idx']?>', '<?=$_SESSION['LANG']?>')">
 				<p><?=$v3['title']?></p>
 				<p><?=$v3['text']?></p>
 			</div>

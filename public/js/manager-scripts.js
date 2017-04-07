@@ -264,7 +264,38 @@ var changeVisibility = function(vis, idx){
 			}
 		});
 	}
-}
+};
+
+var changeLanguageVisibility = function(vis, idx){
+	var ajaxFile = "/changeLanguageVisibility";
+
+	var header = "<h4>შეტყობინება</h4><p class=\"modal-message-box\">გთხოვთ დაიცადოთ...</p>";
+	var footer = "<a href=\"javascript:void(0)\" id=\"modalButton\" class=\"waves-effect waves-green btn-flat modal-close\">დახურვა</a>";
+
+	$("#modal1 .modal-content").html(header);
+	$("#modal1 .modal-footer").html(footer);
+	$('#modal1').openModal();
+
+	if(typeof vis === "undefined" || typeof idx === "undefined"){
+		$(".modal-message-box").html("E2");
+	}else{
+		$.ajax({
+			method: "POST",
+			url: Config.ajax + ajaxFile,
+			data: { visibility: vis, idx: idx }
+		}).done(function( msg ) {
+			var obj = $.parseJSON(msg);
+			if(obj.Error.Code==1){
+				$(".modal-message-box").html(obj.Error.Text);
+			}else if(obj.Success.Code==1){
+				$(".modal-message-box").html(obj.Success.Text);
+				location.reload();
+			}else{
+				$(".modal-message-box").html("E3");
+			}
+		});
+	}
+};
 
 var changeModuleVisibility = function(vis, idx){
 	console.log(vis + " " + idx);

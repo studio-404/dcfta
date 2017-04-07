@@ -36,11 +36,11 @@ class chart
 	private function selectById($args)
 	{
 		$fetch = array();
-		$select = "SELECT * FROM `charts` WHERE `id`=:id AND `lang`=:lang";
+		$select = "SELECT * FROM `charts` WHERE `idx`=:idx AND `lang`=:lang";
 		$prepare = $this->conn->prepare($select);
 		$prepare->execute(array(
-			":id"=>$args['id'],
-			":lang"=>$_SESSION['LANG'] 
+			":idx"=>$args['idx'],
+			":lang"=>$args['lang']
 		));
 		if($prepare->rowCount()){
 			$fetch = $prepare->fetch(PDO::FETCH_ASSOC);
@@ -61,13 +61,13 @@ class chart
 		`title`=:title, 
 		`tooltip`=:tooltip, 
 		`text`=:pageText 
-		WHERE `id`=:id AND `lang`=:lang";
+		WHERE `idx`=:idx AND `lang`=:lang";
 		$prepare = $this->conn->prepare($update);
 		$prepare->execute(array(
 			":title"=>$title,
 			":tooltip"=>$tooltip,
 			":pageText"=>$pageText,
-			":id"=>$id, 
+			":idx"=>$id, 
 			":lang"=>$lang 
 		));	
 		return 1;

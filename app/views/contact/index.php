@@ -31,36 +31,42 @@ echo $data['headertop'];
 						?>
 						<section class="marginminus10">
 							<div class="messageBox col s12 m12 l12"></div>
-							<div class="input-field col s12 m12 l4">
-					          <input id="input_subject" type="text" class="validate" />
-					          <label for="input_subject"><?=$l->translate('subject')?></label>
-					        </div>
-					        <div class="clearer"></div>
 							
-							<div class="input-field col s12 m12 l4">
-					          <input id="input_name" type="text" class="validate">
-					          <label for="input_name"><?=$l->translate('name')?></label>
+							
+					        <div class="input-field col s12 m6 l6">
+					          <input id="input_subject" type="text" class="validate" />
+					          <label for="input_subject"><?=$l->translate('subject')?> <font color="red">*</font></label>
 					        </div>
 
-					        <div class="input-field col s12 m12 l4">
+					        <div class="input-field col s12 m6 l6">
+					          <input id="input_name" type="text" class="validate">
+					          <label for="input_name"><?=$l->translate('name')?> <font color="red">*</font></label>
+					        </div>
+
+					        <div class="input-field col s12 m6 l6">
 					          <input id="input_organization" type="text" class="validate">
 					          <label for="input_organization"><?=$l->translate('organization')?></label>
 					        </div>
 
-					        <div class="input-field col s12 m12 l4">
+					        <div class="input-field col s12 m6 l6">
 					          <input id="input_email" type="text" class="validate">
-					          <label for="input_email"><?=$l->translate('email')?></label>
+					          <label for="input_email"><?=$l->translate('email')?> <font color="red">*</font></label>
 					        </div>
 
-					        <div class="input-field col s12 m12 l4">
+					        <div class="input-field col s12 m6 l6">
 					          <input id="input_phone" type="text" class="validate">
-					          <label for="input_phone"><?=$l->translate('phone')?></label>
+					          <label for="input_phone"><?=$l->translate('phone')?> <font color="red">*</font></label>
 					        </div>
 
-					        <div class="input-field col s12 m12 l8">
+					        <div class="input-field col s12 m12 l12">
 					          <input id="input_comment" type="text" class="validate">
-					          <label for="input_comment"><?=$l->translate('comment')?></label>
-					        </div>
+					          <label for="input_comment"><?=$l->translate('comment')?> <font color="red">*</font></label>
+					        </div> 
+
+							<!-- 
+							 
+
+					        -->
 
 					        <div class="col s12 m12 l12">
 					        	<a class="waves-effect waves-light btn submit" onclick="sendEmail()"><?=$l->translate('submit')?></a>

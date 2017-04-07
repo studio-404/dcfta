@@ -76,7 +76,7 @@ class _news
 					$image = "/public/filemanager/noimage.png";
 				}
 				$title = strip_tags($value['title']);
-				$titleUrl = str_replace(array(" "), "-", $title); 
+				$titleUrl = str_replace(array('\'','~','!','@','$','^','*','{','}','[',']','|',';','<','>','\\','..',' '), "-", $title); 
 
 				$out .= "<section class=\"col s12 m6 l6\">\n";
 				$out .= "<section class=\"newsBox\">\n";

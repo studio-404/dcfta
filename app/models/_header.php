@@ -37,10 +37,11 @@ class _header
 		$out .= "<meta property=\"og:type\" content=\"website\" />\n";
 		$out .= "<meta property=\"og:url\" content=\"\"/>\n";
 		$out .= "<meta property=\"og:image\" content=\"\" />\n";
-		$out .= "<link rel=\"image_src\" type=\"image/jpeg\" href=\"http://coolshop.ge/public/img/share.jpg\" />\n";
+		$out .= "<link rel=\"image_src\" type=\"image/jpeg\" href=\"\" />\n";
 		$out .= "<meta property=\"og:image:width\" content=\"600\" />\n";
 		$out .= "<meta property=\"og:image:height\" content=\"315\" />\n";
 		$out .= "<meta property=\"og:site_name\" content=\"\" />\n";
+		$out .= "<meta name=\"robots\" content=\"index,follow\" />\n";
 		$out .= sprintf("<meta property=\"og:description\" content=\"%s\"/>\n", $description);
 		$out .= "<link rel=\"icon\" type=\"image/ico\" href=\"\" />\n";
 		/* SEO TAGS END*/
@@ -70,8 +71,9 @@ class _header
 		);
 		
 		$out .= sprintf(
-			"<link rel=\"stylesheet\" type=\"text/css\" href=\"%scss/web/style.css\" />\n", 
-			$this->public
+			"<link rel=\"stylesheet\" type=\"text/css\" href=\"%scss/web/style.css?t=%s\" />\n", 
+			$this->public,
+			time()
 		);
 
 		if($_SESSION['LANG']=="ge"){

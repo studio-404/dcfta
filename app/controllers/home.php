@@ -60,7 +60,7 @@ class Home extends Controller
 			"method"=>"selectModuleByType", 
 			"type"=>"usefulllink",
 			"from"=>0, 
-			"num"=>15
+			"num"=>25
 		));
 
 		$db_news = new Database("modules", array(
@@ -100,7 +100,7 @@ class Home extends Controller
 		$navigation->data = $db_navigation->getter();
 
 		/* EU Important Links */
-		$euLinks = $this->model('_eulinks');
+		$euLinks = $this->model('_eulinks2');
 		$euLinks->data = $db_eulinks->getter(); 
 
 		/* Reports */
@@ -112,7 +112,7 @@ class Home extends Controller
 		$publications->data = $db_publicationss->getter(); 
 
 		/* usefull links */
-		$usefulllink = $this->model('_usefulllink');
+		$usefulllink = $this->model('_usefulllink2');
 		$usefulllink->data = $db_usefulllinks->getter(); 
 
 		/*news */

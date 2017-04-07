@@ -85,7 +85,7 @@ class _othernews
 				}
 
 				$title = strip_tags($value['title']);
-				$titleUrl = str_replace(array(" "), "-", $title);
+				$titleUrl = str_replace(array('\'','~','!','@','$','^','*','{','}','[',']','|',';','<','>','\\','..',' '), "-", $title);
 				$theUrl = sprintf(
 					"%s%s/news/%s/%s",
 					Config::WEBSITE,

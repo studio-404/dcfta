@@ -40,6 +40,13 @@ class Legislation extends Controller
 			"status"=>0 
 		));
 
+		$db_stateagencies = new Database("modules", array(
+			"method"=>"selectModuleByType", 
+			"type"=>"stateagencies", 
+			"from"=>0, 
+			"num"=>20
+		));
+
 		$s = (isset($_SESSION["URL"][1])) ? $_SESSION["URL"][1] : Config::MAIN_CLASS;
 		$db_pagedata = new Database("page", array(
 			"method"=>"selecteBySlug", 
@@ -73,6 +80,10 @@ class Legislation extends Controller
 		$navigation = $this->model('_navigation');
 		$navigation->data = $db_navigation->getter();
 
+		/* state agencies */
+		$stateagencies = $this->model('_stateagencies');
+		$stateagencies->data = $db_stateagencies->getter();
+
 		/* legislation */
 		$legislation = $this->model('_legislation');
 		$legislation->data = $db_legislation->getter();
@@ -101,6 +112,7 @@ class Legislation extends Controller
 			"headerModule"=>$header->index(), 
 			"headertop"=>$headertop->index(), 
 			"pageData"=>$db_pagedata->getter(), 
+			"stateagencies"=>$stateagencies->index(), 
 			"legislation"=>$legislation->index(), 
 			"adoptedLegislation"=>$adoptedLegislation->index(), 
 			"footer"=>$footer->index() 

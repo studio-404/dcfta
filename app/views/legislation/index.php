@@ -8,7 +8,7 @@ echo $data['headertop'];
 <main>
 	<section class="centerWidth">
 		<section class="row">
-			<section class="col s12 m12 l12">
+			<section class="col s12 m6 l8 leftSide">
 				<section class="headerText">
 					<div class="line"></div>
 					<div class="title"><?=strip_output::index($data['pageData']['description'])?></div>
@@ -34,6 +34,12 @@ echo $data['headertop'];
 					<?=$data['adoptedLegislation']?>	
 				</section>
 			</section>
+
+			<section class="col s12 m6 l4 rightSide">
+				<section class="justTitle"><?=$l->translate('stateagencies')?></section>
+				<?=$data['stateagencies']?>
+			</section>
+			
 		</section>
 	</section>	
 </main>

@@ -133,3 +133,13 @@ svg {
   font-family: 'noto_sans_georgianregular' !important; }
 
 /*# sourceMappingURL=_geo.css.map */
+
+
+/* New version Changes */
+.file-new-version .file a .title span {
+  font-family: 'noto_sans_georgianregular';
+}
+
+.viewall-new-vertion{
+  font-family: 'noto_sans_georgianregular';
+}

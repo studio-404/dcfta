@@ -1,3 +1,11 @@
+::selection {
+  background: #ff0000; /* WebKit/Blink Browsers */
+  color: white;
+}
+::-moz-selection {
+  background: #ff0000; /* Gecko Browsers */
+  color: white;
+}
 .no{ 
 	margin: $zero; 
 	padding: $zero; 

@@ -41,7 +41,14 @@
   direction: ltr;
   -webkit-font-feature-settings: 'liga';
   -webkit-font-smoothing: antialiased; }
-
+::selection {
+  background: #ff0000; /* WebKit/Blink Browsers */
+  color: white;
+}
+::-moz-selection {
+  background: #ff0000; /* Gecko Browsers */
+  color: white;
+}
 .no, *, .centerWidth, header .top .top-box .social-networks ul, header .top .top-box .social-networks ul li, header .top .top-box .languages ul, header .top .top-box .languages ul li, header .topBottom .search .input-field, main {
   margin: 0px;
   padding: 0px;
@@ -547,7 +554,8 @@ main {
   font-family: "noto_sansregular";
   font-size: 18px;
   color: #003399;
-  text-align: justify; }
+  text-align: justify;
+  min-height: 200px; }
   .mainText p {
     font-size: 18px;
     color: #3d3d3d;
@@ -561,7 +569,7 @@ main {
     padding: 0px;
     list-style-type: none; }
     .mainText ul li {
-      font-size: 20px;
+      font-size: 18px;
       color: #3d3d3d;
       font-family: "noto_sansregular";
       padding-left: 20px;
@@ -919,13 +927,6 @@ footer {
     padding: 0;
     display: block;
     text-decoration: none; }
-    footer .centerWidth a img {
-      margin: 0;
-      padding: 0;
-      width: 180px;
-      -moz-border-radius: 3px;
-      -webkit-border-radius: 3px;
-      border-radius: 3px; }
   footer .centerWidth p {
     margin: 0;
     padding: 0;
@@ -934,7 +935,7 @@ footer {
     line-height: 14px;
     color: #4f4f50; }
   footer .centerWidth .marginBottom55 {
-    margin-bottom: 55px; }
+    margin-bottom: 0; }
   footer .centerWidth .footerText {
     margin: 0;
     padding: 0;
@@ -999,20 +1000,25 @@ footer {
   -webkit-box-shadow: 0px 0px 10px 0px #d7d7d7;
   -moz-box-shadow: 0px 0px 10px 0px #d7d7d7;
   box-shadow: 0px 0px 10px 0px #d7d7d7;
-  min-height: 460px;
+  height: 220px;
+  overflow: hidden;
   overflow: hidden; }
   .InternationalSupport .box img {
     margin: 0px;
     padding: 0px;
     width: 100%; }
   .InternationalSupport .box .title {
-    padding-top: 30px;
+    /*padding-top: 30px;*/
+    color: #1e1e1e;
     font-size: 20px;
     font-weight: bold;
-    font-family: 'noto_sansregular'; }
+    font-family: 'noto_sansregular'; 
+    padding-bottom: 15px; }
   .InternationalSupport .box .text {
     font-size: 20px;
-    font-family: 'noto_sansregular'; }
+    line-height: 24px;
+    font-family: 'noto_sansregular';
+    color: #606060; }
 .InternationalSupport .box:hover {
   border: solid 2px #ffcd00; }
 
@@ -1318,11 +1324,28 @@ svg .shadow {
             color: #ffffff;
             text-decoration: none; }
         .CalendarBox table tr td div:hover {
-          background-color: #003399; }
+          font-weight: bold; }
         .CalendarBox table tr td .currentDay {
           background-color: #ff0000; }
         .CalendarBox table tr td .event_exists {
           background-color: #003399; }
+        .CalendarBox table tr td .news_exists {
+          background-color: #ff0000; }
+        .CalendarBox table tr td .both_exists {
+          position: relative; overflow: hidden; }
+        .CalendarBox table tr td .both_exists .n {
+          position: absolute; left: 0; width: 50%; height: 100%; top: 0; background-color: red; text-indent: -9999px; display: block; z-index: 1; }
+        .CalendarBox table tr td .both_exists .e {
+          position: absolute; right: 0; width: 50%; height: 100%; top: 0; background-color: #003399; text-indent: -9999px; display: block; z-index: 2; }
+        .CalendarBox table tr td .both_exists .t {
+          position: absolute; left: 0; width: 100%; height: 1px; z-index: 3; }   
+        .CalendarBox table tr td .both_exists .newsLink{
+          position: absolute; left: 0; width: 50%; height: 100%; top: 0; text-indent: -9999px; display: block; z-index: 4;
+        }
+        .CalendarBox table tr td .both_exists .eventLink{
+          position: absolute; right: 0; width: 50%; height: 100%; top: 0; text-indent: -9999px; display: block; z-index: 4;
+        }       
+          
     .CalendarBox table tr:first-child {
       height: 20px; }
     .CalendarBox table tr:nth-child(2) {
@@ -1414,6 +1437,99 @@ svg .shadow {
     #chart_div2 table .google-visualization-orgchart-linetop {
       border-top: 1px solid #f2f3f6 !important; }
 
+/* New version Changes */
+.file-new-version{
+  margin: 5px 0 0 0;
+  padding: 5px 10px; 
+  width: 100%;
+  background-image: url('../../img/bigflags.jpg');
+  background-position: left center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.file-new-version.last{
+  background-position: right center;
+}
+.file-new-version .file{
+  margin: 10px 0;
+  padding: 10px;
+  border: solid 1px #ffffff;
+  width: 100%;
+  min-height: 80px;
+  overflow: hidden;
+  position: relative;
+}
+.file-new-version .file a{
+  display: block;
+  color: #ffffff;
+}
+.file-new-version .file a .pdfIcon {
+    margin: 4px 10px 0 0;
+    padding: 0px;
+    width: 40px;
+    height: 50px;
+    float: left;
+    background-image: url('../../img/pdf.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 40px 50px;
+}
+.file-new-version .file a .downloadIcon {
+    margin: 0px;
+    padding: 0px;
+    width: 12px;
+    height: 14px;
+    background-image: url('../../img/download.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 12px 14px;
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    z-index: 1;
+}
+.file-new-version .file a .title b {
+    text-decoration: none;
+    color: #ffcd00;
+    font-weight: 500;
+}
+.file-new-version .file a .title span {
+    text-decoration: underline;
+    font-weight: bold;
+    padding-right: 5px;
+}
+.file-new-version .file a .title {
+    font-size: 13px;
+    width: 95%;
+}
+.file-new-version .file:hover {
+    opacity: 0.8;
+}
+
+.viewall-new-vertion{
+  font-size: 13px;
+  font-family: 'noto_sansregular';
+  margin: 5px 0 20px 0px;
+  float: left;
+  clear: both;
+  position: relative;
+}
+
+.viewall-new-vertion:after{
+  content: '';
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  right: -23px;
+  background-image: url('../../img/doubleArrow.png');
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: 12px 12px;
+}
+.viewall-new-vertion:hover{
+  text-decoration: underline;
+}
+
 /* Media Queries */
 @media (max-width: 1200px) {
   .centerWidth {
@@ -1453,17 +1569,36 @@ svg .shadow {
     float: left;
     margin-bottom: 10px;
   }
+  .justTitle{
+    clear: both;
+  }
   .collapsible{
     clear: both;
+  }
+  .footerLogos{
+    margin-bottom: 20px !important;
+    height: auto !important;
+  }
+  .footerLogos a img{
+    width: 100% !important;
+    height: auto !important;
+  }
+  .footerTextDescription{ 
+    width: 100% !important;
   }
   /* LAST CSS CHANGES END */
   }
 @media (max-width: 1025px) {
   .centerWidth .event #mainImage {
-    width: auto !important; } }
+    width: auto !important; } 
+  }
 @media (max-width: 875px) {
   .centerWidth .event #mainImage {
-    width: 100% !important; } }
+    width: 100% !important; } 
+  .InternationalSupport .box{
+    height: auto !important;
+  }
+  }
 @media (max-width: 1200px) {
   .centerWidth {
     width: 90%; }
@@ -1590,7 +1725,7 @@ svg .shadow {
     padding-top: 15px !important; }
 
   footer .centerWidth .marginBottom55 {
-    margin-bottom: 40px !important; }
+    margin-bottom: 0px !important; }
 
   .footer-logo1 {
     width: 200px !important; }
@@ -1600,6 +1735,36 @@ svg .shadow {
 
   footer .centerWidth .footer-text {
     width: 270px !important; } }
+
+.footerLogos{ 
+  margin: 0;
+  padding: 0; 
+  width: 300px;
+  height: 75px;
+  float: left;
+  margin-right: 20px;
+}
+.footerLogos a{
+  margin: 0;
+  padding: 0;
+  outline: none;
+  display: block;
+}
+.footerLogos a img{
+  margin: 0;
+  padding: 0;
+  outline: none;
+  border: none;
+  width: 300px;
+  height: 75px;
+}
+.footerTextDescription{
+  margin: 20px 20px 10px 0;
+  padding: 0;
+  width: 620px;
+  float: left;
+}
+
 @media (max-width: 380px) {
   header .top .top-box .social-networks {
     width: 112.5px; }

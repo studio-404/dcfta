@@ -14,44 +14,12 @@ class _internationalsupport
 			$string = new functions\string(); 
 			$out = "";
 			foreach($this->data as $value) {
-				$title = strip_tags($value['title']);
-				$links = str_replace(array(" "), array("-"), $title);
-				$photos = new Database("photos",array(
-					"method"=>"selectByParent", 
-					"idx"=>(int)$value['idx'],  
-					"lang"=>strip_output::index($value['lang']),  
-					"type"=>strip_output::index($value['type']) 
-				));
-				if($photos->getter()){
-					$pic = $photos->getter();
-					// $image = sprintf(
-					// 	"%s%s/image/loadimage?f=%s%s&w=340&h=71",
-					// 	Config::WEBSITE,
-					// 	$_SESSION['LANG'],
-					// 	Config::WEBSITE_,
-					// 	$pic[0]['path']
-					// );
-					$image = sprintf(
-						"%s%s",
-						Config::WEBSITE_,
-						$pic[0]['path']
-					);
-				}else{
-					$image = "/public/filemanager/noimage.png";
-				}
+				$title = $string->cut(strip_tags($value['title']), 100);
+				$links = str_replace(array('\'','~','!','@','$','^','*','{','}','[',']','|',';','<','>','\\','..'), "-", $title);
 
 				$out .= "<section class=\"col s12 m6 l4 InternationalSupport\">";
 				$out .= "<section class=\"box\">";
-				$out .= sprintf(
-					"<img src=\"%s\" alt=\"\" />",
-					$image
-				);
-				$out .= "<section class=\"title\">";
-				$out .= $title; 
-				$out .= "</section>";
-				$out .= "<section class=\"text\">";
-				$out .= $string->cut(strip_tags($value['description']), 280);
-				$out .= "<p class=\"linkWithIcon\">";
+
 				$out .= sprintf(
 					"<a href=\"%s%s/international-support/%s/%s\">",
 					Config::WEBSITE,
@@ -59,32 +27,16 @@ class _internationalsupport
 					$value['idx'],
 					urlencode($links) 
 				);
-				$out .= sprintf(
-					"<img src=\"%simg/icon-arrow.png\" alt=\"\" />", 
-					Config::PUBLIC_FOLDER
-				);
-				$out .= sprintf(
-					"<span class=\"geo\">%s</span>",
-					$l->translate('more')
-				);
-				$out .= "</a>";
-				$out .= "</p>";
-				$out .= "<p class=\"linkWithIcon\">";
-				$out .= sprintf(
-					"<a href=\"%s\" target=\"_blank\">",
-					strip_output::index($value['url'])
-				);
-				$out .= sprintf(
-					"<img src=\"%simg/icon-link.png\" alt=\"\" />",
-					Config::PUBLIC_FOLDER
-				);
-				$out .= sprintf(
-					"<span>%s</span>", 
-					$string->cut(strip_output::index($value['url']),20)
-				);
-				$out .= "</a>";
-				$out .= "</p>";
+
+				$out .= "<section class=\"title\">";
+				$out .= $title; 
 				$out .= "</section>";
+				$out .= "<section class=\"text\">";
+				$out .= $string->cut(strip_tags($value['description']), 80);
+				$out .= "</section>";
+
+				$out .= "</a>";
+
 				$out .= "</section>";
 				$out .= "</section>";
 			}

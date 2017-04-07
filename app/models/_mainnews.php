@@ -23,14 +23,14 @@ class _mainnews
 			if($photos->getter()){
 				$pic = $photos->getter();
 				$image = sprintf(
-					"%s%s/image/loadimage?f=%s%s&w=350&h=218",
+					"%s%s/image/loadimage?f=%s%s&w=700&h=436",
 					Config::WEBSITE,
 					strip_output::index($_SESSION['LANG']),
 					Config::WEBSITE_,
 					strip_output::index($pic[0]['path'])
 				);
 				$out .= sprintf(
-					"<img src=\"%s\" alt=\"\" align=\"left\" style=\"margin: 0 10px 0px 0px\" id=\"mainImage\" />", 
+					"<img src=\"%s\" alt=\"\" align=\"left\" width=\"350\" style=\"margin: 0 10px 0px 0px\" id=\"mainImage\" class=\"materialboxed\" />", 
 					$image
 				);
 			}

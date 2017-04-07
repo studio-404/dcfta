@@ -27,15 +27,19 @@ class _footer
 		$out .= "<section>\n";
 		$out .= "<section class=\"col s12 m12 l12\">\n";
 		
-		$out .= "<section class=\"footer-logo1\"><a href=\"http://eu4business.eu/\" target=\"_blank\"><img src=\"".strip_output::index($image)."\" alt=\"\" class=\"bigImage\" /></a></section>\n";
-		
-		$out .= "<section class=\"footer-text\">\n";
-		$out .= "<p>".strip_tags($this->data['description'])."</p>\n";
-		$out .= "</section>\n"; 
+		//$out .= "<section class=\"footer-logo1\"><a href=\"http://eu4business.eu/\" target=\"_blank\"><img src=\"".strip_output::index($image)."\" alt=\"\" class=\"bigImage\" /></a></section>\n";
 
-		$out .= "<section class=\"footer-logo2\"><a href=\"https://www.giz.de\" target=\"_blank\"><img src=\"".strip_output::index($image2)."\" alt=\"\" /></a></section>\n";
+		//$out .= "<section class=\"footer-logo1\"><a href=\"\" target=\"_blank\"><img src=\"".strip_output::index($image2)."\" alt=\"\" class=\"bigImage\" /></a></section>\n";
+
+		//
 		
-		$out .= "<section class=\"col s12 m2 l3\"></section>\n";
+		// $out .= "<section class=\"col s12 m12 l13\"></section>\n";
+		$out .= "<section class=\"footerLogos\"> <a href=\"http://eu4business.eu/\" target=\"_blank\"><img src=\"".strip_output::index($image)."\" alt=\"\" width=\"100%\" /></a></section>\n";
+		$out .= "<section class=\"footerLogos\"> <a href=\"https://www.giz.de\" target=\"_blank\"><img src=\"".strip_output::index($image2)."\" alt=\"\" width=\"100%\" style=\"width:auto\" /></a></section>\n";
+		$out .= "<div style=\"clear:both\"></div>";
+		$out .= "<section class=\"footerTextDescription\"><p>".strip_tags($this->data['description'])."</p></section>";
+
+
 		$out .= "</section></section></section>\n";
 		$out .= "<section class=\"footerText\">\n";
 		$out .= "<section class=\"marginminus10\">\n";

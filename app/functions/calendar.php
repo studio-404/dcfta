@@ -92,20 +92,13 @@ class calendar
 			$this->yy_year = $this->year-1; 
 		}
 
-		/* onclick="hashx('?month=<?=$yy_month?>&amp;year=<?=$yy_year?>&amp;lang=<?=$_GET[lang]?>')" */
 		$this->out .= "<a href=\"javascript:void(0)\" onclick=\"loadCal('prev', '".$this->month."', '".$this->year."', '".$_SESSION['LANG']."')\">&nbsp;</a>";
 		$this->out .= $this->title." ".$this->year;		
-		/* onclick="hashx('?month=<?=$xx_month?>&amp;year=<?=$xx_year?>&amp;lang=<?=$_GET[lang]?>')" */
 		$this->out .= "<a href=\"javascript:void(0)\" onclick=\"loadCal('next', '".$this->month."', '".$this->year."', '".$_SESSION['LANG']."')\">&nbsp;</a>";
 
 		$this->out .= "</td>\n";
 		$this->out .= "</tr>\n";
 
-
-		// $this->out .= "<tr>\n";
-		// $this->out .= "<td colspan=\"7\">&nbsp;";
-		// $this->out .= "</td>\n";
-		// $this->out .= "</tr>\n";
 
 		$this->out .= "<tr style=\"margin:5px 0px\">\n";
 		$this->out .= sprintf("<td class=\"weekDay\">%s</td>\n", $this->weekDayNames[0]);
@@ -130,42 +123,55 @@ class calendar
 		
 		$this->day_num = 1;
 
+		/* SELECT Events START */
+		$Database = new \Database("modules", array(
+				"method"=>"selectMonthEventsIn", 
+				"days_in_month"=>$this->days_in_month,
+				"month"=>$this->month,
+				"year"=>$this->year, 
+				"lang"=>$_SESSION['LANG']
+		));
+		$fetch = $Database->getter();
+		/* SELECT Events START */
+
+
 		while($this->day_num <= $this->days_in_month)
 		{
 			$this->d = $this->year . "/" . $this->month . "/" . $this->day_num;
 			$this->to_time = strtotime($this->d);
 
-			$Database = new \Database("modules", array(
-					"method"=>"selectMonthEvents", 
-					"day"=>$this->day_num,
-					"month"=>$this->month,
-					"year"=>$this->year, 
-					"lang"=>$_SESSION['LANG']
-			));
-			$fetch = $Database->getter();
+			if(isset($fetch[$this->day_num])){
+				$newsArchive = \Config::WEBSITE.$_SESSION['LANG']."/archive/news/".$this->year."-".sprintf("%02d", $this->month)."-".sprintf("%02d", $this->day_num);
+				$eventArchive = \Config::WEBSITE.$_SESSION['LANG']."/archive/event/".$this->year."-".sprintf("%02d", $this->month)."-".sprintf("%02d", $this->day_num);
 
-			// if($this->day_num == $this->day && $this->month == $this->Cmonth && $this->year == $this->Cyear)
-			// {
-			// 	$this->out .= "<td><div class=\"currentDay\">".$this->day_num."</div></td>";
-			// }
-			// else
-			// {
-				if($fetch){
-					$titleUrl = str_replace(" ","-",strip_tags($fetch['title']));
-					$link = \Config::WEBSITE.$_SESSION['LANG']."/event/".$fetch['idx']."/".$titleUrl;
+				if(isset($fetch[$this->day_num]['event']) && isset($fetch[$this->day_num]['news'])){
 					$this->out .= sprintf(
-						"<td class='day_numbers'><div class=\"event_exists tooltipped\" data-position=\"left\" data-delay=\"50\" data-tooltip=\"%s\"><a href=\"%s\">%s</a></div></td>",
-							htmlentities($fetch['title']), 
-							$link, 
-							$this->day_num 
-						); 	
-				}else{
+						"<td class=\"day_numbers\"><div class=\"both_exists\"><span class=\"t\">%s</span><p class=\"n\">news</p><p class=\"e\">event</p><a href=\"%s\" class=\"newsLink\">news</a><a href=\"%s\" class=\"eventLink\">events</a></div></td>", 
+						$this->day_num,
+						$newsArchive,
+						$eventArchive
+					);
+				}else if(isset($fetch[$this->day_num]['event'])){
 					$this->out .= sprintf(
-						"<td class='day_numbers'><div>%s</div></td>", 
+						"<td class=\"day_numbers\"><div class=\"event_exists\"><a href=\"%s\">%s</a></div></td>", 
+						$eventArchive,
+						$this->day_num						
+					);
+				}else if(isset($fetch[$this->day_num]['news'])){
+					$this->out .= sprintf(
+						"<td class=\"day_numbers\"><div class=\"news_exists\"><a href=\"%s\">%s</a></div></td>", 
+						$newsArchive, 
 						$this->day_num
-					); 
+					);
 				}
-			// }
+			}else{
+				$this->out .= sprintf(
+					"<td class='day_numbers'><div>%s</div></td>", 
+					$this->day_num
+				); 
+			}
+			
+
 			$this->day_num++;
 			$this->day_count++;
 			
@@ -181,11 +187,7 @@ class calendar
 			$this->out .= "<td></td>";
 			$this->day_count++;
 		}
-		
-		// $this->out .= "<tr>\n";
-		// $this->out .= "<td colspan=\"7\">&nbsp;";
-		// $this->out .= "</td>\n";
-		// $this->out .= "</tr>\n";
+
 
 
 		$this->out .= "</table>\n";

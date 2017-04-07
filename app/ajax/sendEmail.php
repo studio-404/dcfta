@@ -33,24 +33,24 @@ class sendEmail
 
 		switch ($lang) {
 			case 'en':
-				$error1 = "All Fields are required !";
+				$error1 = "Please fill required fields !";
 				$error2 = "Error !";
 				$error4 = "The operation was successful !";
 				break;
 			case 'ru':
-				$error1 = "All Fields are required !";
+				$error1 = "Please fill required fields !";
 				$error2 = "Error !";
 				$error4 = "The operation was successful !";
 				break;
 			
 			default:
-				$error1 = "მოხდა შეცდომა, ყველა ველი სავალდებულოა !";
+				$error1 = "მოხდა შეცდომა, გთხოვთ შეავსოთ სავალდებულო ველები !";
 				$error2 = "მოხდა შეცდომა !";
 				$error4 = "ოპერაცია შესრულდა წარმატებით !";
 				break;
 		}
 
-		if($input_subject=="" || $input_name=="" || $input_organization=="" || $input_email=="" || $input_phone=="" || $input_comment=="" || $csrf=="")
+		if($input_subject=="" || $input_name=="" || $input_email=="" || $input_phone=="" || $input_comment=="" || $csrf=="")
 		{
 			$this->out = array(
 				"Error" => array(

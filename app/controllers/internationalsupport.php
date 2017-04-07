@@ -22,7 +22,7 @@ class Internationalsupport extends Controller
 				"method"=>"selectModuleByType", 
 				"type"=>"internationalsupport", 
 				"from"=>0, 
-				"num"=>10
+				"num"=>30
 			));
 
 		$db_navigation = new Database("page", array(

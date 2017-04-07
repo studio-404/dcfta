@@ -35,7 +35,7 @@ echo $data['headertop'];
 								echo '<p class="marginTop40"></p>';
 							}
 							?>						
-							<p><strong><?=strip_output::index($data['moduleData']['title'])?></strong></p>
+							<p><strong><?=strip_output::index($data['moduleData']['title'])?></strong></p><p>&nbsp;</p>
 							<?=strip_output::index($data['moduleData']['description'])?>
 
 							<p class="linkWithIcon marginTop40">

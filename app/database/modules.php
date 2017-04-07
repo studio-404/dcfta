@@ -172,6 +172,7 @@ class modules
 		$lang = $args["lang"];
 		$date = strtotime($args["date"]);
 		$date2 = strtotime($args["date2"]);
+		$date_format = date("Y-m-d", $date);
 		$title = $args["title"];
 		$description = $args["pageText"];
 		$url = (!empty($args["link"])) ? $args["link"] : "";
@@ -181,6 +182,7 @@ class modules
 		$update = "UPDATE `usefull` SET 
 		`date`=:datex, 
 		`expire_date`=:datex2, 
+		`date_format`=:date_format, 
 		`title`=:title, 
 		`description`=:description, 
 		`url`=:url, 
@@ -190,6 +192,7 @@ class modules
 		$prepare->execute(array(
 			":datex"=>$date,
 			":datex2"=>$date2,
+			":date_format"=>$date_format,
 			":title"=>$title,
 			":description"=>$description,
 			":url"=>$url,
@@ -308,6 +311,7 @@ class modules
 	{
 		$date = strtotime($args['date']);
 		$date2 = strtotime($args['date2']);
+		$date_format = date("Y-m-d", $date);
 		$type = $args['moduleSlug'];
 		$title = $args['title'];
 		$pageText = $args['pageText'];
@@ -326,12 +330,13 @@ class modules
 		$maxId = ($fetch2["maxidx"]) ? $fetch2["maxidx"] + 1 : 1;
 
 		foreach ($fetch as $val) {
-			$insert = "INSERT INTO `usefull` SET `idx`=:idx, `date`=:datex, `expire_date`=:datex2, `type`=:type, `title`=:title, `description`=:description, `url`=:url, `classname`=:classname, `lang`=:lang";
+			$insert = "INSERT INTO `usefull` SET `idx`=:idx, `date`=:datex, `expire_date`=:datex2, `date_format`=:date_format, `type`=:type, `title`=:title, `description`=:description, `url`=:url, `classname`=:classname, `lang`=:lang";
 			$prepare3 = $this->conn->prepare($insert);
 			$prepare3->execute(array(
 				":idx"=>$maxId, 
 				":datex"=>$date, 
 				":datex2"=>$date2, 
+				":date_format"=>$date_format, 
 				":type"=>$type, 
 				":title"=>$title, 
 				":description"=>$pageText, 
@@ -417,6 +422,45 @@ class modules
 			return $fetch;
 		}
 		return false;
+	}
+
+	private function selectMonthEventsIn($args)
+	{
+		$days_in_month = $args['days_in_month'];
+		$month = $args['month'];
+		$year = $args['year'];
+		$events = "( ";
+		for ($i=1; $i <= $days_in_month; $i++) { 
+			$date = sprintf(
+				"%s-%s-%s", 
+				$args["year"],
+				$args["month"],
+				$i				 
+			);
+			$events .= "`date_format`='".$date."' OR ";
+		}
+		$events .= " `date_format`='test' )";
+
+		$sql = "SELECT `idx`,`title`,`type`,`date_format` FROM `usefull` WHERE (`type`=:event OR `type`=:news) AND ".$events." AND `lang`=:lang AND `visibility`!=:one AND `status`!=:one";
+		$prepare = $this->conn->prepare($sql);
+		$prepare->execute(array(
+			":event"=>"event", 
+			":news"=>"news", 
+			":lang"=>$args['lang'], 
+			":one"=>1 
+		));
+		$out = "";
+		$cal = array();
+		if($prepare->rowCount())
+		{
+			$fetch = $prepare->fetchAll(PDO::FETCH_ASSOC);
+			foreach ($fetch as $val) {
+				$date_format = number_format(substr($val['date_format'],-2));
+				$cal[$date_format][$val['type']] = array( $val['idx']=>$val['title'] );
+			}
+		}
+
+		return $cal;
 	}
 
 	private function translate($args)

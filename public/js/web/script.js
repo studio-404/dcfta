@@ -3,7 +3,7 @@ var Config = {
 	mainLang: "ge",
 	mainClass: "home",
 	ajax:"http://dcfta.404.ge/ge/ajax/index",  
-	deviceWidth: (window.outterWidth > 0) ? window.outteWidth : screen.width, 
+	deviceWidth: (window.innerWidth > 0) ? window.innerWidth : screen.width, 
 	deviceHeight: (window.outteHeight > 0) ? window.outteHeight : screen.height,
 	waitGeo:"მოთხოვნა იგზავნება...",
 	waitEng:"Please wait...",
@@ -32,6 +32,8 @@ var openNavigation = function(){
 		var mobileNavMinHeight = Config.deviceHeight - (headerTop + topBottom);
 		var bluBoxWidth = Config.deviceWidth - 20;
 
+		console.log(bluBoxWidth + " " + screen.width + " " + window.innerWidth);
+
 		var navigation = $("header .navigation").html(); 
 
 		$(".mobileNavigation").css("min-height", mobileNavMinHeight+"px"); 
@@ -57,6 +59,10 @@ var openNavigation = function(){
 		$("footer").css("display","block");
 	}
 };
+
+$( window ).resize(function() {
+  location.reload();
+});
 
 var detectmob = function(){
 	if( navigator.userAgent.match(/Android/i) || 
@@ -417,6 +423,7 @@ $(document).ready(function(){
 	filesMobilize();
 	leftNavYellowBoxChangeHeight(); 
 	getAllStringInsideCurly();
+	$('.materialboxed').materialbox();
 	$('.collapsible').collapsible({
 	  accordion : false
 	});

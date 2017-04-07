@@ -41,8 +41,8 @@ class editChart
 		}else{
 			$Database = new Database('chart', array(
 					'method'=>'selectById', 
-					'id'=>$id, 
-					'lang'=>$lang
+					'idx'=>$id, 
+					'lang'=>$lang,
 			));
 			$output = $Database->getter();
 
