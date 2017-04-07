@@ -42,10 +42,10 @@ class _implementation
 							$f['file_path'], 
 							$fileName
 						);	
-						$fileTree .= sprintf(
-							"<div class=\"rightSide\">%s</div>\n",
-							functions\files::formatSizeUnits($f['file_size']) 
-						);	
+						// $fileTree .= sprintf(
+						// 	"<div class=\"rightSide\">%s</div>\n",
+						// 	functions\files::formatSizeUnits($f['file_size']) 
+						// );	
 						$fileTree .= "<div class=\"line\"></div>\n";
 
 						if($subfile->getter()){

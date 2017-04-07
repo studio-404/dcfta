@@ -43,10 +43,8 @@ echo $data['headertop'];
 				</section>
 
 				<section class="justTitle marginTop40"><?=$l->translate('publications')?></section>
-				<section class="files" style="margin: 10px 0px; width: 100%">
-					<section class="col s12 m12 l12 reports">
-						<?=$data['publications']?>
-					</section>
+				<section class="files-no-bg">
+					<?=$data['publications']?>
 				</section>
 			</section>
 

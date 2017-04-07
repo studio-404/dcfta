@@ -397,31 +397,21 @@ class modules
 		return 1;
 	}
 
-	private function selectMonthEvents($args)
+	private function selectArchive($args)
 	{
-		$date = sprintf(
-			"%s-%s-%s", 
-			$args["day"],
-			$args["month"], 
-			$args["year"] 
-		);
-		$date = strtotime($date);
-
 		$fetch = array();
-		$sql = "SELECT `idx`,`title` FROM `usefull` WHERE `type`=:type AND `date`=:datex AND `lang`=:lang AND `visibility`!=:one AND `status`!=:one";
-		$prepare = $this->conn->prepare($sql);
+		$select = "SELECT *, (SELECT `path` FROM `photos` WHERE `photos`.`parent`=`usefull`.`idx` AND `photos`.`type`=`usefull`.`type` ORDER BY `photos`.`id` ASC LIMIT 1) as mainPhoto FROM `usefull` WHERE `date_format`=:date_format AND `type`=:type AND `lang`=:lang AND `status`!=:one ORDER BY `date` DESC";
+		$prepare = $this->conn->prepare($select); 
 		$prepare->execute(array(
-			":type"=>"event", 
-			":datex"=>$date, 
-			":lang"=>$args['lang'], 
-			":one"=>1 
+			":date_format"=>$args['date_format'], 
+			":type"=>$args['type'], 
+			":lang"=>$args['lang'],
+			":one"=>1
 		));
-		if($prepare->rowCount())
-		{
-			$fetch = $prepare->fetch(PDO::FETCH_ASSOC);
-			return $fetch;
+		if($prepare->rowCount()){
+			$fetch = $prepare->fetchAll(PDO::FETCH_ASSOC);
 		}
-		return false;
+		return $fetch;
 	}
 
 	private function selectMonthEventsIn($args)

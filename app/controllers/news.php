@@ -46,7 +46,7 @@ class News extends Controller
 			"method"=>"selectModuleByType", 
 			"type"=>"publications",
 			"from"=>0, 
-			"num"=>4
+			"num"=>15
 		));
 
 		/* HEDARE */
@@ -68,7 +68,7 @@ class News extends Controller
 		$navigation->data = $db_navigation->getter();
 
 		/* publications */
-		$publications = $this->model('_publications');
+		$publications = $this->model('_publications_no_bg');
 		$publications->data = $db_publicationss->getter(); 
 
 		/* header top */

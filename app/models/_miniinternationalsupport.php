@@ -40,7 +40,7 @@ class _miniinternationalsupport
 					(int)$value['idx'],
 					urlencode($links) 
 				);
-				$out .= "<section class=\"box\" style=\"min-height: auto\">";			
+				$out .= "<section class=\"box\" style=\"height: auto\">";			
 				$out .= sprintf(
 					"<img src=\"%s\" alt=\"\" />", 
 					$image
