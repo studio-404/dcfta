@@ -21,6 +21,7 @@ class registerEvent
 			)
 		);
 
+		$lang = functions\request::index("POST","lang");
 		$input_event_id = functions\request::index("POST","evid");
 		$input_event_name = strip_tags(functions\request::index("POST","evn"));
 		$event_url = sprintf(
@@ -36,12 +37,12 @@ class registerEvent
 		$input_phone = strip_tags(functions\request::index("POST","input_phone"));
 		$csrf = strip_tags(functions\request::index("POST","csrf"));
 
-		if($input_name=="" || $input_organization=="" || $input_email=="" || $input_phone=="" || $csrf=="")
+		if($input_name=="" || $input_email=="" || $input_phone=="" || $csrf=="")
 		{
 			$this->out = array(
 				"Error" => array(
 					"Code"=>1, 
-					"Text"=>"მოხდა შეცდომა, ყველა ველი სავალდებულოა !",
+					"Text"=>($lang=="ge") ? "მოხდა შეცდომა, გთხოვთ შეავსოთ სავალდებულო ველები !" : "Error ! Please fill required fields !",
 					"Details"=>"!"
 				)
 			);
@@ -50,7 +51,7 @@ class registerEvent
 			$this->out = array(
 				"Error" => array(
 					"Code"=>1, 
-					"Text"=>"მოხდა შეცდომა !",
+					"Text"=>($lang=="ge") ? "მოხდა შეცდომა !" : "Error !",
 					"Details"=>"!"
 				)
 			);
@@ -99,7 +100,7 @@ class registerEvent
 					),
 					"Success" => array(
 						"Code"=>1, 
-						"Text"=>"ოპერაცია წარმატებით შესრულდა !",
+						"Text"=>($lang=="ge") ? "ოპერაცია წარმატებით შესრულდა !" : "Success !",
 						"Details"=>"!"
 					)
 				);
@@ -107,7 +108,7 @@ class registerEvent
 				$this->out = array(
 					"Error" => array(
 						"Code"=>1, 
-						"Text"=>"მოხდა შეცდომა !",
+						"Text"=>($lang=="ge") ? "მოხდა შეცდომა !" : "Error !",
 						"Details"=>"!"
 					)
 				);

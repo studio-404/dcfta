@@ -309,7 +309,7 @@ var registerEvent = function(lang){
 	$.ajax({
 		method: "POST",
 		url: Config.ajax + ajaxFile,
-		data: { evid: evid, evn: evn, input_name: input_name, input_organization:input_organization, input_email:input_email, input_phone:input_phone, csrf:csrf }
+		data: { lang:lang, evid: evid, evn: evn, input_name: input_name, input_organization:input_organization, input_email:input_email, input_phone:input_phone, csrf:csrf }
 	}).done(function( msg ) {
 		var obj = $.parseJSON(msg);
 		if(obj.Error.Code==1){

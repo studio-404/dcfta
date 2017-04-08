@@ -5,6 +5,9 @@ class pagination
 {
 	public function index($total, $itemPerPage)
 	{
+		if($total<=0 || $itemPerPage<=0){
+			return "";
+		}
 		$pages = ceil($total / $itemPerPage);
 
 		$out = '<ul class="pagination margin-top-40">';

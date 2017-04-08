@@ -36,4 +36,5 @@ class Config
 	const DEFAULT_MODULE = "social";	
 	const LANG_ARRAY = "ge|en|ru";	
 	const MAIN_LANG = "ge";	
+	const NEWS_PER_PAGE = 6;	
 }

@@ -40,7 +40,7 @@ echo $data['headertop'];
 								<div class="messageBox col s12 m12 l12"></div>
 								<div class="input-field col s12 m6 l4">
 									<input type="text" class="validate" id="input_name" value="" />
-									<label class=""><?=$l->translate('name')?></label>
+									<label class=""><?=$l->translate('name')?> <font color="red">*</font></label>
 								</div>
 								<div class="input-field col s12 m6 l4">
 									<input type="text" class="validate" id="input_organization" value="" />
@@ -48,11 +48,11 @@ echo $data['headertop'];
 								</div>
 								<div class="input-field col s12 m6 l4">
 									<input type="text" class="validate" id="input_email" value="" />
-									<label><?=$l->translate('email')?></label>
+									<label><?=$l->translate('email')?> <font color="red">*</font></label>
 								</div>
 								<div class="input-field col s12 m6 l4">
 									<input type="text" class="validate" id="input_phone" value="" />
-									<label><?=$l->translate('phone')?></label>
+									<label><?=$l->translate('phone')?> <font color="red">*</font></label>
 								</div>
 								<div class="col s12 m12 l12">
 									<a class="waves-effect waves-light btn submit" style="text-decoration: none;" onclick="registerEvent('<?=htmlspecialchars($_SESSION['LANG'])?>')"><?=$l->translate('submit')?></a>

@@ -4,9 +4,11 @@ class _othernews
 	public $data; 
 	public $startAt = 1; 
 	public $count; 
+	public $itemperpage; 
 
 	public function index()
 	{
+		require_once('app/functions/pagination.php'); 
 		require_once("app/functions/strip_output.php");
 		$out = "";
 		$this->count = count($this->data);
@@ -61,10 +63,10 @@ class _othernews
 			);
 			$l = new functions\l();
 
-			$slice = (isset($this->data[1])) ? array_slice($this->data, $this->startAt, 4) : $this->data;
+			// $slice = (isset($this->data[1])) ? array_slice($this->data, $this->startAt, 4) : $this->data;
 			$out .= '<div class="othernews-box">';
 			$i = 1;
-			foreach ($slice as $value) {
+			foreach ($this->data as $value) {
 				$photos = new Database("photos",array(
 					"method"=>"selectByParent", 
 					"idx"=>(int)$value['idx'],  
@@ -135,14 +137,21 @@ class _othernews
 				$i++;
 			}
 			$out .= '</div>';
-			if($this->startAt==0){
-				$out .= '<input type="hidden" name="counterVals" id="counterVals" value="4" />';
-			}else{
-				$out .= sprintf(
-					'<input type="hidden" name="counterVals" id="counterVals" value="%s" />',
-					htmlspecialchars($this->count)
-				);	
-			}
+			// if($this->startAt==0){
+			// 	$out .= '<input type="hidden" name="counterVals" id="counterVals" value="4" />';
+			// }else{
+			// 	$out .= sprintf(
+			// 		'<input type="hidden" name="counterVals" id="counterVals" value="%s" />',
+			// 		htmlspecialchars($this->count)
+			// 	);	
+			// }
+
+			
+			$pagination = new functions\pagination();
+			$out .= "<div style=\"clear:both\"></div>";
+			$out .= "<div class=\"pagination-box\">";
+			$out .= $pagination->index($this->data[0]['counted'], $this->itemperpage);
+			$out .= "</div>";
 			
 			$out .= "<section class=\"col s12 m12 l12 loadergif\" style=\"text-align: center; margin-top: 30px; display:none\"><img src=\"/public/img/ajax-loader.gif\" style=\"width:40px;\" align=\"center\" /></section>";
 		}

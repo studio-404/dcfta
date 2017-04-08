@@ -80,21 +80,22 @@ class News extends Controller
 		/*footer */
 		$footer = $this->model('_footer');
 		$footer->data = $db_footer->getter(); 
-
+		
 		if(!isset($newsId) || !is_numeric($newsId)){
 			$header->pagedata = $db_pagedata; 
+			$itemperpage = Config::NEWS_PER_PAGE;
+			$pn = ( isset($_GET['pn']) && is_numeric($_GET['pn']) ) ? $_GET['pn'] : 1;
+			$from = ($pn-1) * $itemperpage;
 			$db_news = new Database("modules", array(
 				"method"=>"selectModuleByType", 
 				"type"=>"news", 
-				"from"=>0, 
-				"num"=>5
+				"from"=>$from, 
+				"num"=>$itemperpage
 			));
-			/* MAIN NEWS */
-			$mainnews = $this->model('_mainnews');
-			$mainnews->data = $db_news->getter();
 			/* OTHER NEWS */
 			$othernews = $this->model('_othernews');
 			$othernews->data = $db_news->getter();
+			$othernews->itemperpage = $itemperpage;
 			/* view */
 			$this->view('news/index', [
 				"header"=>array(
@@ -103,13 +104,15 @@ class News extends Controller
 				),
 				"headerModule"=>$header->index(), 
 				"pageData"=>$db_pagedata->getter(), 
-				"mainnews"=>$mainnews->index(), 
 				"othernews"=>$othernews->index(), 
+				"itemperpage"=>$itemperpage, 
+				"othernews_count"=>count($db_news->getter()), 
 				"publications"=>$publications->index(), 
 				"headertop"=>$headertop->index(), 
 				"footer"=>$footer->index() 
 			]);
 		}else{
+
 			$db_news = new Database("modules", array(
 				"method"=>"selectById", 
 				"lang"=>$_SESSION['LANG'],  

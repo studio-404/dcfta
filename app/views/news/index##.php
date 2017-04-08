@@ -13,13 +13,27 @@ echo $data['headertop'];
 					<div class="line"></div>
 					<div class="title"><?=strip_tags($data['pageData']['description'])?></div>
 				</section>
-				<section class="event" style="margin: 0 -10px">
-					<?php 
-					if(!isset($data['mainnews'])){
-						echo  $data['othernews'];
-					}else{
-						echo $data['mainnews'];
-					}
+				<section class="event">
+					<?=$data['mainnews']?>
+					<?php
+					if(isset($data['othernews'])):
+					?>
+					<section class="marginminus10 marginTop40">
+						<section class="col s12 m12 l12">
+							<section class="headerText">
+								<div class="line"></div>
+								<div class="title"><?=$l->translate('allnews')?></div>
+							</section>
+						</section>
+						<?php 
+						echo $data['othernews'];
+						require_once('app/functions/pagination.php'); 
+						$pagination = new functions\pagination();
+						echo $pagination->index($data['othernews_count'], 4);
+						?>
+					</section>
+					<?php
+					endif;
 					?>
 				</section>
 			</section>

@@ -73,8 +73,9 @@ class _news
 						strip_output::index($pic[0]['path'])
 					);
 				}else{
-					$image = "/public/filemanager/noimage.png";
+					$image = Config::PUBLIC_FOLDER."img/noimg.jpg";
 				}
+
 				$title = strip_tags($value['title']);
 				$titleUrl = str_replace(array('\'','~','!','@','$','^','*','{','}','[',']','|',';','<','>','\\','..',' '), "-", $title); 
 

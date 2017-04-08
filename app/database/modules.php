@@ -76,7 +76,7 @@ class modules
 		$fetch = array();
 		$limit = (isset($args['from']) && isset($args['num'])) ? " LIMIT ".$args["from"].",".$args['num'] : "";
 		
-		$select = "SELECT * FROM `usefull` WHERE `type`=:type AND `visibility`!=:one AND `lang`=:lang AND `status`!=:one ORDER BY `date` DESC".$limit;
+		$select = "SELECT (SELECT COUNT(`id`) FROM `usefull` WHERE `type`=:type AND `lang`=:lang AND `status`!=:one) as counted, `usefull`.* FROM `usefull` WHERE `type`=:type AND `visibility`!=:one AND `lang`=:lang AND `status`!=:one ORDER BY `date` DESC".$limit;
 
 		$prepare = $this->conn->prepare($select);
 		$prepare->execute(array(
@@ -323,7 +323,7 @@ class modules
 		$prepare->execute();
 		$fetch = $prepare->fetchAll(PDO::FETCH_ASSOC);
 
-		$max = "SELECT MAX(`idx`) as maxidx FROM `usefull` WHERE `status`!=:one";
+		$max = "SELECT MAX(`idx`) as maxidx FROM `usefull`";
 		$prepare2 = $this->conn->prepare($max);
 		$prepare2->execute(array(":one"=>1));
 		$fetch2 = $prepare2->fetch(PDO::FETCH_ASSOC);

@@ -93,7 +93,7 @@ class calendar
 		}
 
 		$this->out .= "<a href=\"javascript:void(0)\" onclick=\"loadCal('prev', '".$this->month."', '".$this->year."', '".$_SESSION['LANG']."')\">&nbsp;</a>";
-		$this->out .= $this->title." ".$this->year;		
+		$this->out .= $this->title." <span style=\"font-family: museo700\">".$this->year."</span>";		
 		$this->out .= "<a href=\"javascript:void(0)\" onclick=\"loadCal('next', '".$this->month."', '".$this->year."', '".$_SESSION['LANG']."')\">&nbsp;</a>";
 
 		$this->out .= "</td>\n";
@@ -123,7 +123,7 @@ class calendar
 		
 		$this->day_num = 1;
 
-		/* SELECT Events START */
+		/* SELECT Events & News START */
 		$Database = new \Database("modules", array(
 				"method"=>"selectMonthEventsIn", 
 				"days_in_month"=>$this->days_in_month,
@@ -132,7 +132,7 @@ class calendar
 				"lang"=>$_SESSION['LANG']
 		));
 		$fetch = $Database->getter();
-		/* SELECT Events START */
+		/* SELECT Events & News END */
 
 
 		while($this->day_num <= $this->days_in_month)
