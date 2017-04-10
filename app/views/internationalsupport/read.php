@@ -48,12 +48,13 @@ echo $data['headertop'];
 						
 						<section class="clearer"></section>
 						
-						<section class="marginminus10 marginTop40">
+						<!-- <section class="marginminus10 marginTop40">
 							<p class="marginTop40">&nbsp;</p>
 							
-							<?=$data['miniinternationalsupport']?>
-
-						</section>
+							<?php 
+							//echo $data['miniinternationalsupport'];
+							?> 
+						</section> -->
 					
 				</section>
 			</section>
