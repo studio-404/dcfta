@@ -9,7 +9,17 @@ class string
 		$length = $number;
 		$string = $text;
 		if(mb_strlen($string, $charset) > $length) {
-			$string = mb_substr($string, 0, $length, $charset) . '...';
+			$notWholeString = mb_substr(strip_tags($text), 0, 250, $charset)."...";
+
+			$pre = sprintf(
+				"<font style=\"display: inline\" class=\"tooltipped\" data-position=\"top\" data-tooltip=\"%s\">", 
+				$notWholeString
+			);
+			$suff = "</font>";
+
+
+			$string = $pre.mb_substr($string, 0, $length, $charset) . '...'.$suff;
+			
 		}
 		else
 		{

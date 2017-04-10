@@ -533,6 +533,28 @@ main {
         box-shadow: none !important; }
       .collapsible .collapsible-body .padding20 ol li ol li:after {
         content: none !important; }
+        .collapsible .collapsible-body .padding20 ol li ol li a{
+          padding: 5px 20px;
+          /*position: relative;*/
+          display: block;
+          background-image: url('../../img/arrow.png');
+          background-size: 6px 11px;
+          background-repeat: no-repeat;
+          background-position: left center;
+          line-height: 22px;
+        }
+        .collapsible .collapsible-body .padding20 ol li ol li a:hover{
+          text-decoration: underline;
+        }
+       /* .collapsible .collapsible-body .padding20 ol li ol li a:after{
+          content: '';
+          width: 6px;
+          height: 11px;
+          background-image: url('../../img/arrow.png');
+          background-size: 6px 11px;
+          background-repeat: no-repeat;
+          background-position: center center;
+        }*/
   .collapsible .collapsible-body .padding20 ol li:after {
     content: '';
     width: 16px;

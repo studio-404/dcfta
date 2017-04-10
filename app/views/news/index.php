@@ -13,7 +13,7 @@ echo $data['headertop'];
 					<div class="line"></div>
 					<div class="title"><?=strip_tags($data['pageData']['description'])?></div>
 				</section>
-				<section class="event" style="margin: 0 -10px">
+				<section class="event" style="margin: 0 -10px; clear:both">
 					<?php 
 					if(!isset($data['mainnews'])){
 						echo  $data['othernews'];

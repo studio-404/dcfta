@@ -27,10 +27,7 @@ class _usefulllink2
 				}else{
 					$image = "/public/filemanager/noimage.png";
 				}
-				$out .= sprintf(
-					"<li class=\"tooltipped\" data-position=\"top\" data-tooltip=\"%s\">\n", 
-					strip_output::index($value['title'])
-				);
+				$out .= "<li>\n";
 				$out .= sprintf(
 					"<a href=\"%s\" class=\"waves-effect waves-light\" target=\"_blank\">\n", 
 					strip_output::index($value['url'])

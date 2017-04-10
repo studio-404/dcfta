@@ -61,7 +61,7 @@ var openNavigation = function(){
 };
 
 $( window ).resize(function() {
-  location.reload();
+  // location.reload();
 });
 
 var detectmob = function(){

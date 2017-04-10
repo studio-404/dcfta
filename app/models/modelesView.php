@@ -12,7 +12,7 @@ class modelesView
 				$visibility = ($val['visibility']==0) ? 'visibility' : 'visibility_off';
 				$out .= sprintf("<tr>
 					<td>%d</td>
-					<td class=\"tooltipped\" data-position=\"bottom\" data-delay=\"50\" data-tooltip=\"%s\">%s</td>
+					<td>%s</td>
 					<td>
 					<a href=\"javascript:void(0)\" onclick=\"changeModuleVisibility(%d,%d)\"><i class=\"material-icons tooltipped\" data-position=\"bottom\" data-delay=\"50\" data-tooltip=\"ხილვადობის შეცვლა\">%s</i></a>
 
@@ -23,7 +23,6 @@ class modelesView
 					</td>
 					</tr>",
 					(int)$val['idx'],
-					strip_output::index($val['title']), 
 					$this->string->cut(strip_tags($val['title']),45),
 					strip_output::index($val['visibility']),
 					(int)$val['idx'],

@@ -18,19 +18,18 @@ echo $data['headertop'];
 				</section>
 				<section class="mainText">
 					<?=strip_output::index($data['pageData']['text'])?>
-          <div style="clear:both; margin: 20px 0px 0 0;">
-            <a href="/<?=$_SESSION['LANG']?>/graph?view=1" target="_blank"><?=$l->translate('graph')?></a>
-          </div>
+   <!--  <div style="clear:both; margin: 20px 0px 0 0;">
+     	<a href="/<?=$_SESSION['LANG']?>/graph?view=1" target="_blank"><?=$l->translate('graph')?></a>
+    </div>
 
-<div style="clear:both; margin: 20px 0"></div>
-
-	 <section class="headerText">
+	<div style="clear:both; margin: 20px 0"></div>
+	<section class="headerText">
 		<div class="line"></div>
 		<div class="title"><?=$l->translate('dcftacoordination')?></div>
 		<div style="clear:both;"></div>
 	</section>
   <div style="clear:both; margin: 20px 0px 0 0;">
-    <a href="/<?=$_SESSION['LANG']?>/graph?view=2" target="_blank"><?=$l->translate('graph2')?></a>
+    <a href="/<?=$_SESSION['LANG']?>/graph?view=2" target="_blank"><?=$l->translate('graph2')?></a> -->
 
   </div>
 		<!--ORG CHART 2 -->

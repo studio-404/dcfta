@@ -31,10 +31,7 @@ class _publications_no_bg
 					$size = 0;
 				}
 
-				$out .= sprintf(
-					"<section class=\"file\" title=\"%s\">\n", 
-					strip_output::index($value['title'])
-				);
+				$out .= "<section class=\"file\">\n";
 				$out .= sprintf(
 					"<a href=\"%s\" target=\"_blank\">\n", 
 					strip_output::index($theFile)
