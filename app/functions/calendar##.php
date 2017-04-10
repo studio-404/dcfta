@@ -76,10 +76,10 @@ class calendar
 
 		$this->days_in_month = cal_days_in_month(0, $this->month, $this->year);
 
-		$this->out = "<div class=\"table\">\n";
+		$this->out = "<table border=\"1\" cellspacing=\"10\" cellpadding=\"10\">\n";
 
-		$this->out .= "<div class=\"tr\">\n";
-		$this->out .= "<div class=\"td\" id=\"title-calendar\">\n";
+		$this->out .= "<tr>\n";
+		$this->out .= "<td colspan=\"7\" id=\"title-calendar\">\n";
 
 		if($this->month!=1)
 		{ 
@@ -96,27 +96,27 @@ class calendar
 		$this->out .= $this->title." <span style=\"font-family: museo700\">".$this->year."</span>";		
 		$this->out .= "<a href=\"javascript:void(0)\" onclick=\"loadCal('next', '".$this->month."', '".$this->year."', '".$_SESSION['LANG']."')\">&nbsp;</a>";
 
-		$this->out .= "</div>\n";
-		$this->out .= "</div>\n";
+		$this->out .= "</td>\n";
+		$this->out .= "</tr>\n";
 
 
-		$this->out .= "<div class=\"tr\" style=\"margin:5px 0px\">\n";
-		$this->out .= sprintf("<div class=\"td weekDay\">%s</div>\n", $this->weekDayNames[0]);
-		$this->out .= sprintf("<div class=\"td weekDay\">%s</div>\n", $this->weekDayNames[1]);
-		$this->out .= sprintf("<div class=\"td weekDay\">%s</div>\n", $this->weekDayNames[2]);
-		$this->out .= sprintf("<div class=\"td weekDay\">%s</div>\n", $this->weekDayNames[3]);
-		$this->out .= sprintf("<div class=\"td weekDay\">%s</div>\n", $this->weekDayNames[4]);
-		$this->out .= sprintf("<div class=\"td weekDay\">%s</div>\n", $this->weekDayNames[5]);
-		$this->out .= sprintf("<div class=\"td weekDay\">%s</div>\n", $this->weekDayNames[6]);
-		$this->out .= "</div>\n";
+		$this->out .= "<tr style=\"margin:5px 0px\">\n";
+		$this->out .= sprintf("<td class=\"weekDay\">%s</td>\n", $this->weekDayNames[0]);
+		$this->out .= sprintf("<td class=\"weekDay\">%s</td>\n", $this->weekDayNames[1]);
+		$this->out .= sprintf("<td class=\"weekDay\">%s</td>\n", $this->weekDayNames[2]);
+		$this->out .= sprintf("<td class=\"weekDay\">%s</td>\n", $this->weekDayNames[3]);
+		$this->out .= sprintf("<td class=\"weekDay\">%s</td>\n", $this->weekDayNames[4]);
+		$this->out .= sprintf("<td class=\"weekDay\">%s</td>\n", $this->weekDayNames[5]);
+		$this->out .= sprintf("<td class=\"weekDay\">%s</td>\n", $this->weekDayNames[6]);
+		$this->out .= "</tr>\n";
 
 		$this->day_count = 1;
 
 		/* Dayes  */ 
-		$this->out .= "<div class=\"tr\">";
+		$this->out .= "<tr>";
 		while($this->blank > 0)
 		{
-			$this->out .= "<div class=\"td\"><div class=\"nobg\">&nbsp;</div></div>";
+			$this->out .= "<td></td>";
 			$this->blank = $this->blank-1;
 			$this->day_count++;
 		}
@@ -146,27 +146,27 @@ class calendar
 
 				if(isset($fetch[$this->day_num]['event']) && isset($fetch[$this->day_num]['news'])){
 					$this->out .= sprintf(
-						"<div class=\"td day_numbers\"><div class=\"both_exists\"><span class=\"t\">%s</span><p class=\"n\">news</p><p class=\"e\">event</p><a href=\"%s\" class=\"newsLink\">news</a><a href=\"%s\" class=\"eventLink\">events</a></div></div>", 
+						"<td class=\"day_numbers\"><div class=\"both_exists\"><span class=\"t\">%s</span><p class=\"n\">news</p><p class=\"e\">event</p><a href=\"%s\" class=\"newsLink\">news</a><a href=\"%s\" class=\"eventLink\">events</a></div></td>", 
 						$this->day_num,
 						$newsArchive,
 						$eventArchive
 					);
 				}else if(isset($fetch[$this->day_num]['event'])){
 					$this->out .= sprintf(
-						"<div class=\"td day_numbers\"><div class=\"event_exists\"><a href=\"%s\">%s</a></div></div>", 
+						"<td class=\"day_numbers\"><div class=\"event_exists\"><a href=\"%s\">%s</a></div></td>", 
 						$eventArchive,
 						$this->day_num						
 					);
 				}else if(isset($fetch[$this->day_num]['news'])){
 					$this->out .= sprintf(
-						"<div class=\"td day_numbers\"><div class=\"news_exists\"><a href=\"%s\">%s</a></div></div>", 
+						"<td class=\"day_numbers\"><div class=\"news_exists\"><a href=\"%s\">%s</a></div></td>", 
 						$newsArchive, 
 						$this->day_num
 					);
 				}
 			}else{
 				$this->out .= sprintf(
-					"<div class='td day_numbers'><div>%s</div></div>", 
+					"<td class='day_numbers'><div>%s</div></td>", 
 					$this->day_num
 				); 
 			}
@@ -177,20 +177,20 @@ class calendar
 			
 			if($this->day_count>7)
 			{
-				$this->out .= "</div><div class=\"tr\">";
+				$this->out .= "</tr><tr>";
 				$this->day_count = 1;
 			}
 		}
 
 		while($this->day_count > 1 && $this->day_count <= 7)
 		{
-			$this->out .= "<div class=\"td\"></div>";
+			$this->out .= "<td></td>";
 			$this->day_count++;
 		}
 
 
 
-		$this->out .= "</div>\n";
+		$this->out .= "</table>\n";
 
 		return $this->out;
 	}

@@ -46,14 +46,5 @@ echo $data['headertop'];
 
 <?=$data['footer']?>
 
-<script type="text/javascript">  
-	if($(document).width()<1200){
-		var rightSide = $(".rightSide").html();
-		$(".rightSide").hide();
-		$(".mainText").append(rightSide);
-		$(".file .title").css("text-align","left");
-	}
-</script>
-
 </body>
 </html>

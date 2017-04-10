@@ -1398,6 +1398,99 @@ svg .shadow {
     .CalendarBox table .weekday {
       width: 25px; }
 
+/* Calendar Table To Class START */
+.CalendarBox .table {
+    width: 100%;
+    font-size: 15px;
+    font-family: 'noto_sansregular';
+    background: #ffcd00;
+    color: #003399;
+    float: left; }
+    .CalendarBox .table .tr {
+      margin: 5px 0px;
+      width: 100%;
+      float: left;
+      clear: both; }
+      .CalendarBox .table .tr .td {
+        /*margin: 5px 0 !important;*/
+        text-align: center;
+        padding: 5px 0px !important;
+        width: 14.2%;
+        float: left; }
+        .CalendarBox .table .tr .td .nobg {
+          background-color: transparent !important;
+        }
+        .CalendarBox .table .tr .td div {
+          width: 30px;
+          height: 30px;
+          -moz-border-radius: 15px;
+          -webkit-border-radius: 15px;
+          border-radius: 15px;
+          background-color: #d6b419;
+          color: #ffffff;
+          padding-top: 3px;
+          cursor: pointer;
+          font-size: 14px;
+          font-family: 'noto_sansregular'; }
+          .CalendarBox .table .tr .td div a {
+            color: #ffffff;
+            text-decoration: none; }
+        .CalendarBox .table .tr .td div:hover {
+          font-weight: bold; }
+        .CalendarBox .table .tr .td .currentDay {
+          background-color: #ff0000; }
+        .CalendarBox .table .tr .td .event_exists {
+          background-color: #003399; }
+        .CalendarBox .table .tr .td .news_exists {
+          background-color: #ff0000; }
+        .CalendarBox .table .tr .td .both_exists {
+          position: relative; overflow: hidden; }
+        .CalendarBox .table .tr .td .both_exists .n {
+          position: absolute; left: 0; width: 50%; height: 100%; top: 0; background-color: red; text-indent: -9999px; display: block; z-index: 1; }
+        .CalendarBox .table .tr .td .both_exists .e {
+          position: absolute; right: 0; width: 50%; height: 100%; top: 0; background-color: #003399; text-indent: -9999px; display: block; z-index: 2; }
+        .CalendarBox .table .tr .td .both_exists .t {
+          position: absolute; left: 0; width: 100%; height: 1px; z-index: 3; }   
+        .CalendarBox .table .tr .td .both_exists .newsLink{
+          position: absolute; left: 0; width: 50%; height: 100%; top: 0; text-indent: -9999px; display: block; z-index: 4;
+        }
+        .CalendarBox .table .tr .td .both_exists .eventLink{
+          position: absolute; right: 0; width: 50%; height: 100%; top: 0; text-indent: -9999px; display: block; z-index: 4;
+        }       
+          
+    .CalendarBox .table .tr:first-child {
+      /*height: 20px;*/ }
+    .CalendarBox .table .tr:nth-child(2) {
+      /*height: 10px;*/ }
+      .CalendarBox .table .tr:nth-child(2) .td {
+        /*height: 10px;*/
+        /*line-height: 10px;*/ }
+    .CalendarBox .table #title-calendar {
+      position: relative;
+      text-align: center; 
+      width: calc(100% - 10px); }
+      .CalendarBox .table #title-calendar a {
+        text-decoration: none;
+        width: 10px;
+        height: 16px;
+        padding: 0 30px;
+        font-family: 'noto_sansregular';
+        text-indent: -9999px;
+        background-repeat: no-repeat;
+        background-size: 10px 16px;
+        background-position: center center; }
+      .CalendarBox .table #title-calendar a:first-child {
+        background-image: url("../../img/calendarLeft.png"); }
+      .CalendarBox .table #title-calendar a:last-child {
+        background-image: url("../../img/calendarRight.png"); }
+      .CalendarBox .table #title-calendar a:hover {
+        text-decoration: none; }
+    .CalendarBox .table a {
+      color: black; }
+    .CalendarBox .table .weekday {
+      width: 25px; }
+/* Calendar Table To Class END */
+
 #chart_div {
   margin: 0px;
   padding: 0px; }

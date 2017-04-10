@@ -14,6 +14,8 @@ h2,
 
 .CalendarBox table #title-calendar, .newsBox a .data p {
   font-family: 'noto_sans_georgianregular'; }
+  .CalendarBox .table #title-calendar, .newsBox a .data p {
+  font-family: 'noto_sans_georgianregular'; }
 
 .collapsible .collapsible-header > div:not(.rightSide) {
   font-family: 'noto_sans_georgianregular' !important; }
