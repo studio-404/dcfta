@@ -17,11 +17,11 @@ echo $data['headertop'];
 					</section>
 				</section>
 
-				<section class="justTitle"><?=$l->translate('linksandpublications')?></section>
+				<section class="justTitle"><?=$l->translate('usefulllinks')?></section>
 				<?=$data['usefulllink']?>
 
-
-				<section class="files-no-bg">
+				<section class="justTitle" style="margin: 20px 0 0 0"><?=$l->translate('publications')?></section>
+				<section class="files-no-bg" style="margin-top: 0">
 					<?=$data['publications']?>
 				</section>
 			</section>

@@ -39,7 +39,7 @@ class _usefulllink2
 				// $out .= sprintf("<div title=\"%s\">%s</div>\n", $value['title'], $string->cut($value['title'],14));
 				$out .= sprintf(
 					"<div>%s</div>\n",
-					$string->cut(strip_tags($value['title']),30)
+					$string->cut(strip_tags($value['title']),30, true)
 				);
 				$out .= "</a>\n";
 				$out .= "</li>\n";					

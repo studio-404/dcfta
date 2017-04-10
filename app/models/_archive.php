@@ -60,7 +60,7 @@ class _archive
 		);
 		$l = new functions\l();
 
-		if($this->count && $this->type == "news")
+		if($this->count)
 		{
 			$out .= '<div class="othernews-box">';
 			$i = 1;
@@ -79,10 +79,13 @@ class _archive
 
 				$title = strip_tags($value['title']);
 				$titleUrl = str_replace(array('\'','~','!','@','$','^','*','{','}','[',']','|',';','<','>','\\','..',' '), "-", $title);
+				$type = ($value['type']=="news") ? 'news' : 'event';
+
 				$theUrl = sprintf(
-					"%s%s/news/%s/%s",
+					"%s%s/%s/%s/%s",
 					Config::WEBSITE,
 					strip_output::index($_SESSION['LANG']),
+					$type, 
 					(int)$value['idx'],
 					strip_output::index($titleUrl)
 				);
@@ -101,9 +104,11 @@ class _archive
 				);
 				$out .= "</section>";
 				$out .= "<section class=\"data\">";
+				
+				$single = ($value['type']=="news") ? $l->translate('singlenews') : $l->translate('singleevent');
 				$out .= sprintf(
 					"<p>%s</p>\n",
-					$l->translate('singlenews')
+					$single
 				);
 				$str = str_replace(date("M", (int)$value['date']), $month[strip_output::index($_SESSION['LANG'])][date("M", (int)$value['date'])], date("M d, Y", (int)$value['date']));
 				$out .= sprintf(

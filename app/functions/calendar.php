@@ -141,29 +141,35 @@ class calendar
 			$this->to_time = strtotime($this->d);
 
 			if(isset($fetch[$this->day_num])){
-				$newsArchive = \Config::WEBSITE.$_SESSION['LANG']."/archive/news/".$this->year."-".sprintf("%02d", $this->month)."-".sprintf("%02d", $this->day_num);
-				$eventArchive = \Config::WEBSITE.$_SESSION['LANG']."/archive/event/".$this->year."-".sprintf("%02d", $this->month)."-".sprintf("%02d", $this->day_num);
+				// $newsArchive = \Config::WEBSITE.$_SESSION['LANG']."/archive/news/".$this->year."-".sprintf("%02d", $this->month)."-".sprintf("%02d", $this->day_num);
+				// $eventArchive = \Config::WEBSITE.$_SESSION['LANG']."/archive/event/".$this->year."-".sprintf("%02d", $this->month)."-".sprintf("%02d", $this->day_num);
+				$bothArchive = \Config::WEBSITE.$_SESSION['LANG']."/archive/load/".$this->year."-".sprintf("%02d", $this->month)."-".sprintf("%02d", $this->day_num);
 
-				if(isset($fetch[$this->day_num]['event']) && isset($fetch[$this->day_num]['news'])){
-					$this->out .= sprintf(
-						"<div class=\"td day_numbers\"><div class=\"both_exists\"><span class=\"t\">%s</span><p class=\"n\">news</p><p class=\"e\">event</p><a href=\"%s\" class=\"newsLink\">news</a><a href=\"%s\" class=\"eventLink\">events</a></div></div>", 
-						$this->day_num,
-						$newsArchive,
-						$eventArchive
-					);
-				}else if(isset($fetch[$this->day_num]['event'])){
-					$this->out .= sprintf(
-						"<div class=\"td day_numbers\"><div class=\"event_exists\"><a href=\"%s\">%s</a></div></div>", 
-						$eventArchive,
-						$this->day_num						
-					);
-				}else if(isset($fetch[$this->day_num]['news'])){
-					$this->out .= sprintf(
-						"<div class=\"td day_numbers\"><div class=\"news_exists\"><a href=\"%s\">%s</a></div></div>", 
-						$newsArchive, 
-						$this->day_num
-					);
-				}
+				// if(isset($fetch[$this->day_num]['event']) && isset($fetch[$this->day_num]['news'])){
+				// 	$this->out .= sprintf(
+				// 		"<div class=\"td day_numbers\"><div class=\"both_exists\"><span class=\"t\">%s</span><p class=\"n\">news</p><p class=\"e\">event</p><a href=\"%s\" class=\"newsLink\">news</a><a href=\"%s\" class=\"eventLink\">events</a></div></div>", 
+				// 		$this->day_num,
+				// 		$newsArchive,
+				// 		$eventArchive
+				// 	);
+				// }else if(isset($fetch[$this->day_num]['event'])){
+				// 	$this->out .= sprintf(
+				// 		"<div class=\"td day_numbers\"><div class=\"event_exists\"><a href=\"%s\">%s</a></div></div>", 
+				// 		$eventArchive,
+				// 		$this->day_num						
+				// 	);
+				// }else if(isset($fetch[$this->day_num]['news'])){
+				// 	$this->out .= sprintf(
+				// 		"<div class=\"td day_numbers\"><div class=\"news_exists\"><a href=\"%s\">%s</a></div></div>", 
+				// 		$newsArchive, 
+				// 		$this->day_num
+				// 	);
+				// }
+				$this->out .= sprintf(
+					"<div class=\"td day_numbers\"><div class=\"event_exists\"><a href=\"%s\">%s</a></div></div>", 
+					$bothArchive, 
+					$this->day_num
+				);
 			}else{
 				$this->out .= sprintf(
 					"<div class='td day_numbers'><div>%s</div></div>", 

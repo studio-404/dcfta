@@ -400,11 +400,10 @@ class modules
 	private function selectArchive($args)
 	{
 		$fetch = array();
-		$select = "SELECT *, (SELECT `path` FROM `photos` WHERE `photos`.`parent`=`usefull`.`idx` AND `photos`.`type`=`usefull`.`type` ORDER BY `photos`.`id` ASC LIMIT 1) as mainPhoto FROM `usefull` WHERE `date_format`=:date_format AND `type`=:type AND `lang`=:lang AND `status`!=:one ORDER BY `date` DESC";
+		$select = "SELECT *, (SELECT `path` FROM `photos` WHERE `photos`.`parent`=`usefull`.`idx` AND `photos`.`type`=`usefull`.`type` ORDER BY `photos`.`id` ASC LIMIT 1) as mainPhoto FROM `usefull` WHERE `date_format`=:date_format AND (`type`='news' OR `type`='event') AND `lang`=:lang AND `status`!=:one ORDER BY `date` DESC";
 		$prepare = $this->conn->prepare($select); 
 		$prepare->execute(array(
 			":date_format"=>$args['date_format'], 
-			":type"=>$args['type'], 
 			":lang"=>$args['lang'],
 			":one"=>1
 		));

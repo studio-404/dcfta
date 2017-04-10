@@ -49,7 +49,7 @@ class _eulinks2
 					);
 					$out .= sprintf(
 						"<div>%s</div>\n", 
-						$string->cut(strip_output::index($value['title']), 40)
+						$string->cut(strip_output::index($value['title']), 40, true)
 					);
 					$out .= "</a>\n";
 					$out .= "</li>\n";	

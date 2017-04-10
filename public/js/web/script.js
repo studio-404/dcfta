@@ -61,7 +61,7 @@ var openNavigation = function(){
 };
 
 $( window ).resize(function() {
-  // location.reload();
+  Config.deviceWidth = (window.innerWidth > 0) ? window.innerWidth : screen.width;
 });
 
 var detectmob = function(){

@@ -3,20 +3,25 @@ namespace functions;
 
 class string
 {
-	public function cut($text,$number)
+	public function cut($text,$number, $tooltip = false)
 	{
 		$charset = 'UTF-8';
 		$length = $number;
 		$string = $text;
 		if(mb_strlen($string, $charset) > $length) {
-			$notWholeString = mb_substr(strip_tags($text), 0, 250, $charset)."...";
+			
 
-			$pre = sprintf(
-				"<font style=\"display: inline\" class=\"tooltipped\" data-position=\"top\" data-tooltip=\"%s\">", 
-				$notWholeString
-			);
-			$suff = "</font>";
-
+			if($tooltip){
+				$notWholeString = mb_substr(strip_tags($text), 0, 250, $charset)."...";
+				$pre = sprintf(
+					"<font style=\"display: inline\" class=\"tooltipped\" data-position=\"top\" data-tooltip=\"%s\">", 
+					$notWholeString
+				);
+				$suff = "</font>";
+			}else{
+				$pre = "";
+				$suff = "";
+			}
 
 			$string = $pre.mb_substr($string, 0, $length, $charset) . '...'.$suff;
 			
